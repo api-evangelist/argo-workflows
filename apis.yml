@@ -1,0 +1,41 @@
+aid: argo-workflows
+name: Argo Workflows
+description: >-
+  Argo Workflows is an open-source container-native workflow engine for
+  orchestrating parallel jobs on Kubernetes.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Composition
+  - Workflow Engine
+  - Kubernetes
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: argo-workflows:argo-workflows
+    name: Argo Workflows
+    description: >-
+      Argo Workflows is an open-source container-native workflow engine for
+      orchestrating parallel jobs on Kubernetes.
+    humanURL: https://argoproj.github.io/workflows/
+    tags:
+      - API Composition
+      - Kubernetes
+    properties:
+      - type: Documentation
+        url: https://argo-workflows.readthedocs.io/en/latest/
+      - type: Getting Started
+        url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+common:
+  - type: Website
+    url: https://argoproj.github.io/workflows/
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GitHub Organization
+    url: https://github.com/argoproj
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
