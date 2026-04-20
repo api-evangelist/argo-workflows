@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-azure-service-bus-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusTrigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusTrigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "connectionString": {
+      "title": "ConnectionString is the connection string for the Azure Service Bus",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "parameters": {
+      "type": "array",
+      "title": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "queueName": {
+      "type": "string",
+      "title": "QueueName is the name of the Azure Service Bus Queue"
+    },
+    "subscriptionName": {
+      "type": "string",
+      "title": "SubscriptionName is the name of the Azure Service Bus Topic Subscription"
+    },
+    "tls": {
+      "title": "TLS configuration for the service bus client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topicName": {
+      "type": "string",
+      "title": "TopicName is the name of the Azure Service Bus Topic"
+    }
+  }
+}

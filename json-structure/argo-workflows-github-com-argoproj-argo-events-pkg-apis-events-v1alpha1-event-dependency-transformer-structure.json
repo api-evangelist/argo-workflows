@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-dependency-transformer-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyTransformer",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyTransformer schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "jq": {
+      "type": "string",
+      "name": "JQ holds the jq command applied for transformation\n+optional"
+    },
+    "script": {
+      "type": "string",
+      "name": "Script refers to a Lua script used to transform the event\n+optional"
+    }
+  }
+}

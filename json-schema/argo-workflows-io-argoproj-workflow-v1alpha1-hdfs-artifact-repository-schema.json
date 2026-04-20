@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-hdfs-artifact-repository-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.HDFSArtifactRepository",
+  "description": "HDFSArtifactRepository defines the controller configuration for an HDFS artifact repository",
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "description": "Addresses is accessible addresses of HDFS name nodes",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dataTransferProtection": {
+      "description": "DataTransferProtection is the protection level for HDFS data transfer. It corresponds to the dfs.data.transfer.protection configuration in HDFS.",
+      "type": "string"
+    },
+    "force": {
+      "description": "Force copies a file forcibly even if it exists",
+      "type": "boolean"
+    },
+    "hdfsUser": {
+      "description": "HDFSUser is the user to access HDFS file system. It is ignored if either ccache or keytab is used.",
+      "type": "string"
+    },
+    "krbCCacheSecret": {
+      "description": "KrbCCacheSecret is the secret selector for Kerberos ccache Either ccache or keytab can be set to use Kerberos.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "krbConfigConfigMap": {
+      "description": "KrbConfig is the configmap selector for Kerberos config as string It must be set if either ccache or keytab is used.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+    },
+    "krbKeytabSecret": {
+      "description": "KrbKeytabSecret is the secret selector for Kerberos keytab Either ccache or keytab can be set to use Kerberos.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "krbRealm": {
+      "description": "KrbRealm is the Kerberos realm used with Kerberos keytab It must be set if keytab is used.",
+      "type": "string"
+    },
+    "krbServicePrincipalName": {
+      "description": "KrbServicePrincipalName is the principal name of Kerberos service It must be set if either ccache or keytab is used.",
+      "type": "string"
+    },
+    "krbUsername": {
+      "description": "KrbUsername is the Kerberos username used with Kerberos keytab It must be set if keytab is used.",
+      "type": "string"
+    },
+    "pathFormat": {
+      "description": "PathFormat is defines the format of path to store a file. Can reference workflow variables",
+      "type": "string"
+    }
+  }
+}

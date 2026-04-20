@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-header-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Header",
+  "description": "Header indicate a key-value request header to be used when fetching artifacts over HTTP",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name is the header name",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value is the literal value to use for the header",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

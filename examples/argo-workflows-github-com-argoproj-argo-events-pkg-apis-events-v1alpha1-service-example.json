@@ -1,0 +1,8 @@
+{
+  "clusterIP": "example-clusterip",
+  "metadata": "example-metadata",
+  "ports": [
+    "example-ports",
+    "example-ports"
+  ]
+}

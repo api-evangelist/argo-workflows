@@ -1,0 +1,11 @@
+{
+  "connectionString": "example-connectionstrin",
+  "decodeMessage": true,
+  "dlq": true,
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "queueName": "my-workflow",
+  "storageAccountName": "my-workflow",
+  "waitTimeInSeconds": 1718153645993
+}

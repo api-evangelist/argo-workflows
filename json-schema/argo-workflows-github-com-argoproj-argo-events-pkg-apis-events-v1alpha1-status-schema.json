@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-status-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Status",
+  "description": "Status is a common structure which can be used for Status field.",
+  "type": "object",
+  "properties": {
+    "conditions": {
+      "type": "array",
+      "title": "Conditions are the latest available observations of a resource's current state.\n+optional\n+patchMergeKey=type\n+patchStrategy=merge",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Condition"
+      }
+    }
+  }
+}

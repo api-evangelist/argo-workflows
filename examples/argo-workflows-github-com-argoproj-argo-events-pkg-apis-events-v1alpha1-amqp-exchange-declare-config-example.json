@@ -1,0 +1,6 @@
+{
+  "autoDelete": true,
+  "durable": true,
+  "internal": true,
+  "noWait": true
+}

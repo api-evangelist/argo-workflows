@@ -1,0 +1,5 @@
+{
+  "start": "example-start",
+  "stop": "example-stop",
+  "timezone": "example-timezone"
+}

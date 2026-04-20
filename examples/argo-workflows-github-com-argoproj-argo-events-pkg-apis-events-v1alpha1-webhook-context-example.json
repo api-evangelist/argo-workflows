@@ -1,0 +1,11 @@
+{
+  "authSecret": "example-authsecret",
+  "endpoint": "example-endpoint",
+  "maxPayloadSize": "example-maxpayloadsize",
+  "metadata": {},
+  "method": "example-method",
+  "port": "example-port",
+  "serverCertSecret": "example-servercertsecre",
+  "serverKeySecret": "example-serverkeysecret",
+  "url": "example-url"
+}

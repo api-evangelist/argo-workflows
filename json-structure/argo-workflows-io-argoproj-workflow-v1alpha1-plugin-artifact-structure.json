@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-plugin-artifact-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.PluginArtifact",
+  "description": "PluginArtifact is the location of a plugin artifact",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "description": "Configuration is the plugin defined configuration for the artifact driver plugin",
+      "type": "string"
+    },
+    "connectionTimeoutSeconds": {
+      "description": "ConnectionTimeoutSeconds is the timeout for the artifact driver connection, overriding the driver's timeout",
+      "type": "int32"
+    },
+    "key": {
+      "description": "Key is the path in the artifact repository where the artifact resides",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name is the name of the artifact driver plugin",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

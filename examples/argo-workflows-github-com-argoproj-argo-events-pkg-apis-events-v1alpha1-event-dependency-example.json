@@ -1,0 +1,8 @@
+{
+  "eventName": "my-workflow",
+  "eventSourceName": "my-workflow",
+  "filters": "example-filters",
+  "filtersLogicalOperator": "example-filterslogicalo",
+  "name": "my-workflow",
+  "transform": "example-transform"
+}

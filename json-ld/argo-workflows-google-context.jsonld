@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "google.protobuf.Any": "argo:google.protobuf.Any",
+    "typeUrl": {
+      "@id": "argo:type_url",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "argo:value",
+      "@type": "xsd:string"
+    }
+  }
+}

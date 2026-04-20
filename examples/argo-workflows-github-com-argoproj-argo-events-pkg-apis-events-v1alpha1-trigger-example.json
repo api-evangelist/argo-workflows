@@ -1,0 +1,12 @@
+{
+  "atLeastOnce": true,
+  "dlqTrigger": "example-dlqtrigger",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "policy": "example-policy",
+  "rateLimit": "example-ratelimit",
+  "retryStrategy": "example-retrystrategy",
+  "template": "workflow-template"
+}

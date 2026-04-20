@@ -1,0 +1,22 @@
+{
+  "argoWorkflow": "example-argoworkflow",
+  "awsLambda": "example-awslambda",
+  "azureEventHubs": "example-azureeventhubs",
+  "azureServiceBus": "example-azureservicebus",
+  "conditions": "example-conditions",
+  "conditionsReset": [
+    "example-conditionsreset",
+    "example-conditionsreset"
+  ],
+  "custom": "example-custom",
+  "email": "example-email",
+  "http": "example-http",
+  "k8s": "example-k8s",
+  "kafka": "example-kafka",
+  "log": "example-log",
+  "name": "my-workflow",
+  "nats": "example-nats",
+  "openWhisk": "example-openwhisk",
+  "pulsar": "example-pulsar",
+  "slack": "example-slack"
+}

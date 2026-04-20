@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-stripe-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StripeEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StripeEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "title": "APIKey refers to K8s secret that holds Stripe API key. Used only if CreateWebhook is enabled.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "createWebhook": {
+      "type": "boolean",
+      "title": "CreateWebhook if specified creates a new webhook programmatically.\n+optional"
+    },
+    "eventFilter": {
+      "type": "array",
+      "title": "EventFilter describes the type of events to listen to. If not specified, all types of events will be processed.\nMore info at https://stripe.com/docs/api/events/list\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "webhook": {
+      "title": "Webhook holds configuration for a REST endpoint",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    }
+  }
+}

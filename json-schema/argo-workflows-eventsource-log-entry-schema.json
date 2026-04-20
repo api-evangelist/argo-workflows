@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-eventsource-log-entry-schema.json",
+  "title": "eventsource.LogEntry",
+  "description": "eventsource.LogEntry schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "eventName": {
+      "type": "string",
+      "title": "optional - the event name (e.g. `example`)"
+    },
+    "eventSourceName": {
+      "type": "string"
+    },
+    "eventSourceType": {
+      "type": "string",
+      "title": "optional - the event source type (e.g. `webhook`)"
+    },
+    "level": {
+      "type": "string"
+    },
+    "msg": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "time": {
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "arguments": "value",
+  "continueOn": "example-continueon",
+  "dependencies": [
+    "example-dependencies",
+    "example-dependencies"
+  ],
+  "depends": "example-depends",
+  "hooks": {},
+  "inline": "example-inline",
+  "name": "my-workflow",
+  "onExit": "example-onexit",
+  "template": "workflow-template",
+  "templateRef": "workflow-template",
+  "when": "example-when",
+  "withItems": [
+    "example-withitems",
+    "example-withitems"
+  ],
+  "withParam": "value",
+  "withSequence": "example-withsequence"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-git-artifact-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "branch": {
+      "type": "string",
+      "title": "Branch to use to pull trigger resource\n+optional"
+    },
+    "cloneDirectory": {
+      "description": "Directory to clone the repository. We clone complete directory because GitArtifact is not limited to any specific Git service providers.\nHence we don't use any specific git provider client.",
+      "type": "string"
+    },
+    "creds": {
+      "title": "Creds contain reference to git username and password\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds"
+    },
+    "filePath": {
+      "type": "string",
+      "title": "Path to file that contains trigger resource definition"
+    },
+    "insecureIgnoreHostKey": {
+      "type": "boolean",
+      "title": "Whether to ignore host key\n+optional"
+    },
+    "ref": {
+      "type": "string",
+      "title": "Ref to use to pull trigger resource. Will result in a shallow clone and\nfetch.\n+optional"
+    },
+    "remote": {
+      "title": "Remote to manage set of tracked repositories. Defaults to \"origin\".\nRefer https://git-scm.com/docs/git-remote\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig"
+    },
+    "sshKeySecret": {
+      "title": "SSHKeySecret refers to the secret that contains SSH key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "tag": {
+      "type": "string",
+      "title": "Tag to use to pull trigger resource\n+optional"
+    },
+    "url": {
+      "type": "string",
+      "title": "Git URL"
+    }
+  }
+}

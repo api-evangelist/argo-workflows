@@ -1,0 +1,9 @@
+{
+  "datacontenttype": "example-datacontenttype",
+  "id": "wf-abc123",
+  "source": "example-source",
+  "specversion": "v3.6.0",
+  "subject": "example-subject",
+  "time": "example-time",
+  "type": "example-type"
+}

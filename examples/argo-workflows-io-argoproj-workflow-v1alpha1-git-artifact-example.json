@@ -1,0 +1,17 @@
+{
+  "branch": "example-branch",
+  "depth": 4,
+  "disableSubmodules": true,
+  "fetch": [
+    "example-fetch",
+    "example-fetch"
+  ],
+  "insecureIgnoreHostKey": true,
+  "insecureSkipTLS": true,
+  "passwordSecret": "example-passwordsecret",
+  "repo": "example-repo",
+  "revision": "example-revision",
+  "singleBranch": true,
+  "sshPrivateKeySecret": "example-sshprivatekeyse",
+  "usernameSecret": "my-workflow"
+}

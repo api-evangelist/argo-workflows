@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-schema-registry-config-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "auth": {
+      "name": "SchemaRegistry - basic authentication\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BasicAuth"
+    },
+    "schemaId": {
+      "type": "int32",
+      "name": "Schema ID\n+optional"
+    },
+    "url": {
+      "description": "Schema Registry URL.",
+      "type": "string"
+    }
+  }
+}

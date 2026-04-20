@@ -1,0 +1,25 @@
+{
+  "basicAuth": "example-basicauth",
+  "dynamicHeaders": [
+    "example-dynamicheaders",
+    "example-dynamicheaders"
+  ],
+  "headers": {},
+  "host": "example-host",
+  "method": "example-method",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "secureHeaders": [
+    "example-secureheaders",
+    "example-secureheaders"
+  ],
+  "timeout": "example-timeout",
+  "tls": "example-tls",
+  "url": "example-url"
+}

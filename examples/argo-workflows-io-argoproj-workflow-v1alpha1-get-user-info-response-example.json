@@ -1,0 +1,13 @@
+{
+  "email": "example-email",
+  "emailVerified": true,
+  "groups": [
+    "example-groups",
+    "example-groups"
+  ],
+  "issuer": "example-issuer",
+  "name": "my-workflow",
+  "serviceAccountName": "my-workflow",
+  "serviceAccountNamespace": "my-workflow",
+  "subject": "example-subject"
+}

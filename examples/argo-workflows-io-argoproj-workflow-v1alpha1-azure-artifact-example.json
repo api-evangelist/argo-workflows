@@ -1,0 +1,7 @@
+{
+  "accountKeySecret": "example-accountkeysecre",
+  "blob": "example-blob",
+  "container": "example-container",
+  "endpoint": "example-endpoint",
+  "useSDKCreds": true
+}

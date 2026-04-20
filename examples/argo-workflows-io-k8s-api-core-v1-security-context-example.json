@@ -1,0 +1,14 @@
+{
+  "allowPrivilegeEscalation": true,
+  "appArmorProfile": "example-apparmorprofile",
+  "capabilities": "example-capabilities",
+  "privileged": true,
+  "procMount": "example-procmount",
+  "readOnlyRootFilesystem": true,
+  "runAsGroup": 86,
+  "runAsNonRoot": true,
+  "runAsUser": 80,
+  "seLinuxOptions": "example-selinuxoptions",
+  "seccompProfile": "example-seccompprofile",
+  "windowsOptions": "example-windowsoptions"
+}

@@ -1,0 +1,9 @@
+{
+  "contextKey": "example-contextkey",
+  "contextTemplate": "workflow-template",
+  "dataKey": "example-datakey",
+  "dataTemplate": "workflow-template",
+  "dependencyName": "my-workflow",
+  "useRawData": true,
+  "value": "example-value"
+}

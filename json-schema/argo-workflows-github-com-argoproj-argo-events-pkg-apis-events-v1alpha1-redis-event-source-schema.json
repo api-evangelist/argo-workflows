@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-redis-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "channels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "db": {
+      "type": "integer",
+      "title": "DB to use. If not specified, default DB 0 will be used.\n+optional"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "hostAddress": {
+      "type": "string",
+      "title": "HostAddress refers to the address of the Redis host/server"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "title": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "namespace": {
+      "type": "string",
+      "title": "Namespace to use to retrieve the password from. It should only be specified if password is declared\n+optional"
+    },
+    "password": {
+      "title": "Password required for authentication if any.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "tls": {
+      "title": "TLS configuration for the redis client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "username": {
+      "type": "string",
+      "title": "Username required for ACL style authentication if any.\n+optional"
+    }
+  }
+}

@@ -1,0 +1,1610 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Filter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Filter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Container": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Container",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AWSLambdaTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AWSLambdaTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CatchupConfiguration": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CatchupConfiguration",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventsHubEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventsHubEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorList": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorList",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HTTPTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HTTPTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorSpec": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorSpec",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MNSEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MNSEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WatchPathConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WatchPathConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueBindConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueBindConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.URLArtifact": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.URLArtifact",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventPersistence": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventPersistence",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TimeFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TimeFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StatusPolicy": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StatusPolicy",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RateLimit": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RateLimit",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmitterEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmitterEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ValueFromSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ValueFromSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StandardK8STrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StandardK8STrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerPolicy": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerPolicy",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OpenWhiskTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OpenWhiskTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArtifactLocation": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArtifactLocation",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Bucket": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Bucket",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackThread": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackThread",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependency": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependency",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerRepository": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerRepository",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisStreamEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisStreamEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Metadata": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Metadata",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceStatus": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceStatus",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPExchangeDeclareConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPExchangeDeclareConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueDeclareConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueDeclareConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSEventsSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSEventsSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BasicAuth": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BasicAuth",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventContext": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventContext",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetCriteria": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetCriteria",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Selector": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Selector",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SQSEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SQSEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GenericEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GenericEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Amount": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Amount",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConfigMapPersistence": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConfigMapPersistence",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResourcePolicy": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResourcePolicy",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ExprFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ExprFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MQTTEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MQTTEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubAppCreds": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubAppCreds",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventHubsTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventHubsTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorStatus": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorStatus",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OwnedRepositories": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OwnedRepositories",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Status": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Status",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetByTime": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetByTime",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PayloadField": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PayloadField",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PubSubEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PubSubEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SFTPEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SFTPEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Int64OrString": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Int64OrString",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SecureHeader": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SecureHeader",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyTransformer": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyTransformer",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NSQEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NSQEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceSpec": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceSpec",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArgoWorkflowTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArgoWorkflowTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackSender": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackSender",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceList": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceList",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Service": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Service",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CalendarEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CalendarEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileArtifact": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileArtifact",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureQueueStorageEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureQueueStorageEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CustomTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CustomTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketBasicAuth": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketBasicAuth",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GerritEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GerritEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketRepository": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketRepository",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameterSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameterSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmailTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmailTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HDFSEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HDFSEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketAuth": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketAuth",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPConsumeConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPConsumeConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerTemplate": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerTemplate",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Condition": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Condition",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSAuth": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSAuth",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.DataFilter": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.DataFilter",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaConsumerGroup": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaConsumerGroup",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StripeEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StripeEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SNSEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SNSEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.LogTrigger": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.LogTrigger",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerEventSource",
+    "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitlabEventSource": "argo:github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitlabEventSource",
+    "prefix": {
+      "@id": "argo:prefix",
+      "@type": "xsd:string"
+    },
+    "suffix": {
+      "@id": "argo:suffix",
+      "@type": "xsd:string"
+    },
+    "env": {
+      "@id": "argo:env",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "envFrom": {
+      "@id": "argo:envFrom",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "imagePullPolicy": {
+      "@id": "argo:imagePullPolicy",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "argo:resources",
+      "@type": "xsd:string"
+    },
+    "securityContext": {
+      "@id": "argo:securityContext",
+      "@type": "xsd:string"
+    },
+    "volumeMounts": {
+      "@id": "argo:volumeMounts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "accessKey": {
+      "@id": "argo:accessKey",
+      "@type": "xsd:string"
+    },
+    "functionName": {
+      "@id": "argo:functionName",
+      "@type": "xsd:string"
+    },
+    "invocationType": {
+      "@id": "argo:invocationType",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "argo:parameters",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "payload": {
+      "@id": "argo:payload",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "argo:region",
+      "@type": "xsd:string"
+    },
+    "roleARN": {
+      "@id": "argo:roleARN",
+      "@type": "xsd:string"
+    },
+    "secretKey": {
+      "@id": "argo:secretKey",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "argo:enabled",
+      "@type": "xsd:boolean"
+    },
+    "maxDuration": {
+      "@id": "argo:maxDuration",
+      "@type": "xsd:string"
+    },
+    "filter": {
+      "@id": "argo:filter",
+      "@type": "xsd:string"
+    },
+    "fqdn": {
+      "@id": "argo:fqdn",
+      "@type": "xsd:string"
+    },
+    "hubName": {
+      "@id": "argo:hubName",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "argo:metadata",
+      "@type": "@id"
+    },
+    "sharedAccessKey": {
+      "@id": "argo:sharedAccessKey",
+      "@type": "xsd:string"
+    },
+    "sharedAccessKeyName": {
+      "@id": "argo:sharedAccessKeyName",
+      "@type": "xsd:string"
+    },
+    "branch": {
+      "@id": "argo:branch",
+      "@type": "xsd:string"
+    },
+    "cloneDirectory": {
+      "@id": "argo:cloneDirectory",
+      "@type": "xsd:string"
+    },
+    "creds": {
+      "@id": "argo:creds",
+      "@type": "xsd:string"
+    },
+    "filePath": {
+      "@id": "argo:filePath",
+      "@type": "xsd:string"
+    },
+    "insecureIgnoreHostKey": {
+      "@id": "argo:insecureIgnoreHostKey",
+      "@type": "xsd:boolean"
+    },
+    "ref": {
+      "@id": "argo:ref",
+      "@type": "xsd:string"
+    },
+    "remote": {
+      "@id": "argo:remote",
+      "@type": "xsd:string"
+    },
+    "sshKeySecret": {
+      "@id": "argo:sshKeySecret",
+      "@type": "xsd:string"
+    },
+    "tag": {
+      "@id": "argo:tag",
+      "@type": "xsd:string"
+    },
+    "url": "schema:url",
+    "items": {
+      "@id": "argo:items",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "basicAuth": {
+      "@id": "argo:basicAuth",
+      "@type": "xsd:string"
+    },
+    "dynamicHeaders": {
+      "@id": "argo:dynamicHeaders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "headers": {
+      "@id": "argo:headers",
+      "@type": "@id"
+    },
+    "host": {
+      "@id": "argo:host",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "argo:method",
+      "@type": "xsd:string"
+    },
+    "secureHeaders": {
+      "@id": "argo:secureHeaders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "timeout": {
+      "@id": "argo:timeout",
+      "@type": "xsd:string"
+    },
+    "tls": {
+      "@id": "argo:tls",
+      "@type": "xsd:string"
+    },
+    "dependencies": {
+      "@id": "argo:dependencies",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "errorOnFailedRound": {
+      "@id": "argo:errorOnFailedRound",
+      "@type": "xsd:boolean"
+    },
+    "eventBusName": {
+      "@id": "argo:eventBusName",
+      "@type": "xsd:string"
+    },
+    "loggingFields": {
+      "@id": "argo:loggingFields",
+      "@type": "@id"
+    },
+    "replicas": {
+      "@id": "argo:replicas",
+      "@type": "xsd:integer"
+    },
+    "revisionHistoryLimit": {
+      "@id": "argo:revisionHistoryLimit",
+      "@type": "xsd:integer"
+    },
+    "template": {
+      "@id": "argo:template",
+      "@type": "xsd:string"
+    },
+    "triggers": {
+      "@id": "argo:triggers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "endpoint": {
+      "@id": "argo:endpoint",
+      "@type": "xsd:string"
+    },
+    "jsonBody": {
+      "@id": "argo:jsonBody",
+      "@type": "xsd:boolean"
+    },
+    "queue": {
+      "@id": "argo:queue",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "argo:duration",
+      "@type": "xsd:string"
+    },
+    "factor": {
+      "@id": "argo:factor",
+      "@type": "xsd:string"
+    },
+    "jitter": {
+      "@id": "argo:jitter",
+      "@type": "xsd:string"
+    },
+    "steps": {
+      "@id": "argo:steps",
+      "@type": "xsd:integer"
+    },
+    "directory": {
+      "@id": "argo:directory",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "argo:path",
+      "@type": "xsd:string"
+    },
+    "pathRegexp": {
+      "@id": "argo:pathRegexp",
+      "@type": "xsd:string"
+    },
+    "noWait": {
+      "@id": "argo:noWait",
+      "@type": "xsd:boolean"
+    },
+    "verifyCert": {
+      "@id": "argo:verifyCert",
+      "@type": "xsd:boolean"
+    },
+    "spec": {
+      "@id": "argo:spec",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "argo:status",
+      "@type": "xsd:string"
+    },
+    "catchup": {
+      "@id": "argo:catchup",
+      "@type": "xsd:string"
+    },
+    "configMap": {
+      "@id": "argo:configMap",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "argo:start",
+      "@type": "xsd:string"
+    },
+    "stop": {
+      "@id": "argo:stop",
+      "@type": "xsd:string"
+    },
+    "timezone": {
+      "@id": "argo:timezone",
+      "@type": "xsd:string"
+    },
+    "atLeastOnce": {
+      "@id": "argo:atLeastOnce",
+      "@type": "xsd:boolean"
+    },
+    "dlqTrigger": {
+      "@id": "argo:dlqTrigger",
+      "@type": "xsd:string"
+    },
+    "policy": {
+      "@id": "argo:policy",
+      "@type": "xsd:string"
+    },
+    "rateLimit": {
+      "@id": "argo:rateLimit",
+      "@type": "xsd:string"
+    },
+    "retryStrategy": {
+      "@id": "argo:retryStrategy",
+      "@type": "xsd:string"
+    },
+    "allow": {
+      "@id": "argo:allow",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "requestsPerUnit": {
+      "@id": "argo:requestsPerUnit",
+      "@type": "xsd:integer"
+    },
+    "unit": {
+      "@id": "argo:unit",
+      "@type": "xsd:string"
+    },
+    "broker": {
+      "@id": "argo:broker",
+      "@type": "xsd:string"
+    },
+    "channelKey": {
+      "@id": "argo:channelKey",
+      "@type": "xsd:string"
+    },
+    "channelName": {
+      "@id": "argo:channelName",
+      "@type": "xsd:string"
+    },
+    "connectionBackoff": {
+      "@id": "argo:connectionBackoff",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "argo:password",
+      "@type": "xsd:string"
+    },
+    "username": {
+      "@id": "argo:username",
+      "@type": "xsd:string"
+    },
+    "context": {
+      "@id": "argo:context",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "argo:data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dataLogicalOperator": {
+      "@id": "argo:dataLogicalOperator",
+      "@type": "xsd:string"
+    },
+    "exprLogicalOperator": {
+      "@id": "argo:exprLogicalOperator",
+      "@type": "xsd:string"
+    },
+    "exprs": {
+      "@id": "argo:exprs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "script": {
+      "@id": "argo:script",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "argo:time",
+      "@type": "xsd:string"
+    },
+    "apiURL": {
+      "@id": "argo:apiURL",
+      "@type": "xsd:string"
+    },
+    "authToken": {
+      "@id": "argo:authToken",
+      "@type": "xsd:string"
+    },
+    "bucket": {
+      "@id": "argo:bucket",
+      "@type": "xsd:string"
+    },
+    "events": {
+      "@id": "argo:events",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "topicArn": {
+      "@id": "argo:topicArn",
+      "@type": "xsd:string"
+    },
+    "webhook": {
+      "@id": "argo:webhook",
+      "@type": "xsd:string"
+    },
+    "configMapKeyRef": {
+      "@id": "argo:configMapKeyRef",
+      "@type": "xsd:string"
+    },
+    "secretKeyRef": {
+      "@id": "argo:secretKeyRef",
+      "@type": "xsd:string"
+    },
+    "liveObject": {
+      "@id": "argo:liveObject",
+      "@type": "xsd:boolean"
+    },
+    "operation": {
+      "@id": "argo:operation",
+      "@type": "xsd:string"
+    },
+    "patchStrategy": {
+      "@id": "argo:patchStrategy",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "argo:source",
+      "@type": "xsd:string"
+    },
+    "signingSecret": {
+      "@id": "argo:signingSecret",
+      "@type": "xsd:string"
+    },
+    "token": {
+      "@id": "argo:token",
+      "@type": "xsd:string"
+    },
+    "k8s": {
+      "@id": "argo:k8s",
+      "@type": "xsd:string"
+    },
+    "compress": {
+      "@id": "argo:compress",
+      "@type": "xsd:boolean"
+    },
+    "flushFrequency": {
+      "@id": "argo:flushFrequency",
+      "@type": "xsd:integer"
+    },
+    "partition": {
+      "@id": "argo:partition",
+      "@type": "xsd:integer"
+    },
+    "partitioningKey": {
+      "@id": "argo:partitioningKey",
+      "@type": "xsd:string"
+    },
+    "requiredAcks": {
+      "@id": "argo:requiredAcks",
+      "@type": "xsd:integer"
+    },
+    "sasl": {
+      "@id": "argo:sasl",
+      "@type": "xsd:string"
+    },
+    "schemaRegistry": {
+      "@id": "argo:schemaRegistry",
+      "@type": "xsd:string"
+    },
+    "topic": {
+      "@id": "argo:topic",
+      "@type": "xsd:string"
+    },
+    "version": "schema:version",
+    "auth": {
+      "@id": "argo:auth",
+      "@type": "xsd:string"
+    },
+    "subject": {
+      "@id": "argo:subject",
+      "@type": "xsd:string"
+    },
+    "actionName": {
+      "@id": "argo:actionName",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "argo:namespace",
+      "@type": "xsd:string"
+    },
+    "configmap": {
+      "@id": "argo:configmap",
+      "@type": "xsd:string"
+    },
+    "file": {
+      "@id": "argo:file",
+      "@type": "xsd:string"
+    },
+    "git": {
+      "@id": "argo:git",
+      "@type": "xsd:string"
+    },
+    "inline": {
+      "@id": "argo:inline",
+      "@type": "xsd:string"
+    },
+    "resource": {
+      "@id": "argo:resource",
+      "@type": "xsd:string"
+    },
+    "s3": {
+      "@id": "argo:s3",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "argo:key",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "broadcastMessageToChannel": {
+      "@id": "argo:broadcastMessageToChannel",
+      "@type": "xsd:boolean"
+    },
+    "messageAggregationKey": {
+      "@id": "argo:messageAggregationKey",
+      "@type": "xsd:string"
+    },
+    "eventName": {
+      "@id": "argo:eventName",
+      "@type": "xsd:string"
+    },
+    "eventSourceName": {
+      "@id": "argo:eventSourceName",
+      "@type": "xsd:string"
+    },
+    "filters": {
+      "@id": "argo:filters",
+      "@type": "xsd:string"
+    },
+    "filtersLogicalOperator": {
+      "@id": "argo:filtersLogicalOperator",
+      "@type": "xsd:string"
+    },
+    "transform": {
+      "@id": "argo:transform",
+      "@type": "xsd:string"
+    },
+    "dest": {
+      "@id": "argo:dest",
+      "@type": "xsd:string"
+    },
+    "src": {
+      "@id": "argo:src",
+      "@type": "xsd:string"
+    },
+    "caCertificate": {
+      "@id": "argo:caCertificate",
+      "@type": "xsd:string"
+    },
+    "insecure": {
+      "@id": "argo:insecure",
+      "@type": "xsd:boolean"
+    },
+    "projectKey": {
+      "@id": "argo:projectKey",
+      "@type": "xsd:string"
+    },
+    "repositorySlug": {
+      "@id": "argo:repositorySlug",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "argo:active",
+      "@type": "xsd:boolean"
+    },
+    "apiToken": {
+      "@id": "argo:apiToken",
+      "@type": "xsd:string"
+    },
+    "contentType": {
+      "@id": "argo:contentType",
+      "@type": "xsd:string"
+    },
+    "deleteHookOnFinish": {
+      "@id": "argo:deleteHookOnFinish",
+      "@type": "xsd:boolean"
+    },
+    "githubApp": {
+      "@id": "argo:githubApp",
+      "@type": "xsd:string"
+    },
+    "githubBaseURL": {
+      "@id": "argo:githubBaseURL",
+      "@type": "xsd:string"
+    },
+    "githubUploadURL": {
+      "@id": "argo:githubUploadURL",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "argo:id",
+      "@type": "xsd:string"
+    },
+    "organizations": {
+      "@id": "argo:organizations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "argo:owner",
+      "@type": "xsd:string"
+    },
+    "repositories": {
+      "@id": "argo:repositories",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "repository": {
+      "@id": "argo:repository",
+      "@type": "xsd:string"
+    },
+    "webhookSecret": {
+      "@id": "argo:webhookSecret",
+      "@type": "xsd:string"
+    },
+    "consumerGroup": {
+      "@id": "argo:consumerGroup",
+      "@type": "xsd:string"
+    },
+    "db": {
+      "@id": "argo:db",
+      "@type": "xsd:integer"
+    },
+    "hostAddress": {
+      "@id": "argo:hostAddress",
+      "@type": "xsd:string"
+    },
+    "maxMsgCountPerRead": {
+      "@id": "argo:maxMsgCountPerRead",
+      "@type": "xsd:integer"
+    },
+    "streams": {
+      "@id": "argo:streams",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "annotations": {
+      "@id": "argo:annotations",
+      "@type": "@id"
+    },
+    "labels": {
+      "@id": "argo:labels",
+      "@type": "@id"
+    },
+    "eventType": {
+      "@id": "argo:eventType",
+      "@type": "xsd:string"
+    },
+    "polling": {
+      "@id": "argo:polling",
+      "@type": "xsd:boolean"
+    },
+    "watchPathConfig": {
+      "@id": "argo:watchPathConfig",
+      "@type": "xsd:string"
+    },
+    "authAthenzParams": {
+      "@id": "argo:authAthenzParams",
+      "@type": "@id"
+    },
+    "authAthenzSecret": {
+      "@id": "argo:authAthenzSecret",
+      "@type": "xsd:string"
+    },
+    "authTokenSecret": {
+      "@id": "argo:authTokenSecret",
+      "@type": "xsd:string"
+    },
+    "tlsAllowInsecureConnection": {
+      "@id": "argo:tlsAllowInsecureConnection",
+      "@type": "xsd:boolean"
+    },
+    "tlsTrustCertsSecret": {
+      "@id": "argo:tlsTrustCertsSecret",
+      "@type": "xsd:string"
+    },
+    "tlsValidateHostname": {
+      "@id": "argo:tlsValidateHostname",
+      "@type": "xsd:boolean"
+    },
+    "autoDelete": {
+      "@id": "argo:autoDelete",
+      "@type": "xsd:boolean"
+    },
+    "durable": {
+      "@id": "argo:durable",
+      "@type": "xsd:boolean"
+    },
+    "internal": {
+      "@id": "argo:internal",
+      "@type": "xsd:boolean"
+    },
+    "arguments": {
+      "@id": "argo:arguments",
+      "@type": "xsd:string"
+    },
+    "exclusive": {
+      "@id": "argo:exclusive",
+      "@type": "xsd:boolean"
+    },
+    "datacontenttype": {
+      "@id": "argo:datacontenttype",
+      "@type": "xsd:string"
+    },
+    "specversion": {
+      "@id": "argo:specversion",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "argo:type",
+      "@type": "xsd:string"
+    },
+    "byTime": {
+      "@id": "argo:byTime",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "argo:value",
+      "@type": "xsd:string"
+    },
+    "dlq": {
+      "@id": "argo:dlq",
+      "@type": "xsd:boolean"
+    },
+    "queueAccountId": {
+      "@id": "argo:queueAccountId",
+      "@type": "xsd:string"
+    },
+    "sessionToken": {
+      "@id": "argo:sessionToken",
+      "@type": "xsd:string"
+    },
+    "waitTimeSeconds": {
+      "@id": "argo:waitTimeSeconds",
+      "@type": "xsd:string"
+    },
+    "authSecret": {
+      "@id": "argo:authSecret",
+      "@type": "xsd:string"
+    },
+    "config": {
+      "@id": "argo:config",
+      "@type": "xsd:string"
+    },
+    "urls": {
+      "@id": "argo:urls",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "expression": {
+      "@id": "argo:expression",
+      "@type": "xsd:string"
+    },
+    "caCertSecret": {
+      "@id": "argo:caCertSecret",
+      "@type": "xsd:string"
+    },
+    "clientCertSecret": {
+      "@id": "argo:clientCertSecret",
+      "@type": "xsd:string"
+    },
+    "clientKeySecret": {
+      "@id": "argo:clientKeySecret",
+      "@type": "xsd:string"
+    },
+    "insecureSkipVerify": {
+      "@id": "argo:insecureSkipVerify",
+      "@type": "xsd:boolean"
+    },
+    "createIfNotExist": {
+      "@id": "argo:createIfNotExist",
+      "@type": "xsd:boolean"
+    },
+    "backoff": {
+      "@id": "argo:backoff",
+      "@type": "xsd:string"
+    },
+    "errorOnBackoffTimeout": {
+      "@id": "argo:errorOnBackoffTimeout",
+      "@type": "xsd:boolean"
+    },
+    "expr": {
+      "@id": "argo:expr",
+      "@type": "xsd:string"
+    },
+    "fields": {
+      "@id": "argo:fields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "clientId": {
+      "@id": "argo:clientId",
+      "@type": "xsd:string"
+    },
+    "appID": {
+      "@id": "argo:appID",
+      "@type": "xsd:string"
+    },
+    "installationID": {
+      "@id": "argo:installationID",
+      "@type": "xsd:string"
+    },
+    "privateKey": {
+      "@id": "argo:privateKey",
+      "@type": "xsd:string"
+    },
+    "schemaId": {
+      "@id": "argo:schemaId",
+      "@type": "xsd:integer"
+    },
+    "topics": {
+      "@id": "argo:topics",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "names": {
+      "@id": "argo:names",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "channels": {
+      "@id": "argo:channels",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "connectionString": {
+      "@id": "argo:connectionString",
+      "@type": "xsd:string"
+    },
+    "deferDelete": {
+      "@id": "argo:deferDelete",
+      "@type": "xsd:boolean"
+    },
+    "fullyQualifiedNamespace": {
+      "@id": "argo:fullyQualifiedNamespace",
+      "@type": "xsd:string"
+    },
+    "queueName": {
+      "@id": "argo:queueName",
+      "@type": "xsd:string"
+    },
+    "subscriptionName": {
+      "@id": "argo:subscriptionName",
+      "@type": "xsd:string"
+    },
+    "topicName": {
+      "@id": "argo:topicName",
+      "@type": "xsd:string"
+    },
+    "conditions": {
+      "@id": "argo:conditions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cron": {
+      "@id": "argo:cron",
+      "@type": "xsd:string"
+    },
+    "credentialSecret": {
+      "@id": "argo:credentialSecret",
+      "@type": "xsd:string"
+    },
+    "deleteSubscriptionOnFinish": {
+      "@id": "argo:deleteSubscriptionOnFinish",
+      "@type": "xsd:boolean"
+    },
+    "projectID": {
+      "@id": "argo:projectID",
+      "@type": "xsd:string"
+    },
+    "subscriptionID": {
+      "@id": "argo:subscriptionID",
+      "@type": "xsd:string"
+    },
+    "topicProjectID": {
+      "@id": "argo:topicProjectID",
+      "@type": "xsd:string"
+    },
+    "webhookContext": {
+      "@id": "argo:webhookContext",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "argo:address",
+      "@type": "xsd:string"
+    },
+    "pollIntervalDuration": {
+      "@id": "argo:pollIntervalDuration",
+      "@type": "xsd:string"
+    },
+    "int64Val": {
+      "@id": "argo:int64Val",
+      "@type": "xsd:string"
+    },
+    "strVal": {
+      "@id": "argo:strVal",
+      "@type": "xsd:string"
+    },
+    "valueFrom": {
+      "@id": "argo:valueFrom",
+      "@type": "xsd:string"
+    },
+    "jq": {
+      "@id": "argo:jq",
+      "@type": "xsd:string"
+    },
+    "eventTypes": {
+      "@id": "argo:eventTypes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "groupVersionResource": {
+      "@id": "argo:groupVersionResource",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "argo:channel",
+      "@type": "xsd:string"
+    },
+    "amqp": {
+      "@id": "argo:amqp",
+      "@type": "@id"
+    },
+    "azureEventsHub": {
+      "@id": "argo:azureEventsHub",
+      "@type": "@id"
+    },
+    "azureQueueStorage": {
+      "@id": "argo:azureQueueStorage",
+      "@type": "@id"
+    },
+    "azureServiceBus": {
+      "@id": "argo:azureServiceBus",
+      "@type": "@id"
+    },
+    "bitbucket": {
+      "@id": "argo:bitbucket",
+      "@type": "@id"
+    },
+    "bitbucketserver": {
+      "@id": "argo:bitbucketserver",
+      "@type": "@id"
+    },
+    "calendar": {
+      "@id": "argo:calendar",
+      "@type": "@id"
+    },
+    "emitter": {
+      "@id": "argo:emitter",
+      "@type": "@id"
+    },
+    "generic": {
+      "@id": "argo:generic",
+      "@type": "@id"
+    },
+    "gerrit": {
+      "@id": "argo:gerrit",
+      "@type": "@id"
+    },
+    "github": {
+      "@id": "argo:github",
+      "@type": "@id"
+    },
+    "gitlab": {
+      "@id": "argo:gitlab",
+      "@type": "@id"
+    },
+    "hdfs": {
+      "@id": "argo:hdfs",
+      "@type": "@id"
+    },
+    "kafka": {
+      "@id": "argo:kafka",
+      "@type": "@id"
+    },
+    "minio": {
+      "@id": "argo:minio",
+      "@type": "@id"
+    },
+    "mns": {
+      "@id": "argo:mns",
+      "@type": "@id"
+    },
+    "mqtt": {
+      "@id": "argo:mqtt",
+      "@type": "@id"
+    },
+    "nats": {
+      "@id": "argo:nats",
+      "@type": "@id"
+    },
+    "nsq": {
+      "@id": "argo:nsq",
+      "@type": "@id"
+    },
+    "pubSub": {
+      "@id": "argo:pubSub",
+      "@type": "@id"
+    },
+    "pulsar": {
+      "@id": "argo:pulsar",
+      "@type": "@id"
+    },
+    "redis": {
+      "@id": "argo:redis",
+      "@type": "@id"
+    },
+    "redisStream": {
+      "@id": "argo:redisStream",
+      "@type": "@id"
+    },
+    "service": {
+      "@id": "argo:service",
+      "@type": "xsd:string"
+    },
+    "sftp": {
+      "@id": "argo:sftp",
+      "@type": "@id"
+    },
+    "slack": {
+      "@id": "argo:slack",
+      "@type": "@id"
+    },
+    "sns": {
+      "@id": "argo:sns",
+      "@type": "@id"
+    },
+    "sqs": {
+      "@id": "argo:sqs",
+      "@type": "@id"
+    },
+    "storageGrid": {
+      "@id": "argo:storageGrid",
+      "@type": "@id"
+    },
+    "stripe": {
+      "@id": "argo:stripe",
+      "@type": "@id"
+    },
+    "args": {
+      "@id": "argo:args",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "maxPayloadSize": {
+      "@id": "argo:maxPayloadSize",
+      "@type": "xsd:string"
+    },
+    "port": {
+      "@id": "argo:port",
+      "@type": "xsd:string"
+    },
+    "serverCertSecret": {
+      "@id": "argo:serverCertSecret",
+      "@type": "xsd:string"
+    },
+    "serverKeySecret": {
+      "@id": "argo:serverKeySecret",
+      "@type": "xsd:string"
+    },
+    "icon": {
+      "@id": "argo:icon",
+      "@type": "xsd:string"
+    },
+    "clusterIP": {
+      "@id": "argo:clusterIP",
+      "@type": "xsd:string"
+    },
+    "ports": {
+      "@id": "argo:ports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "exclusionDates": {
+      "@id": "argo:exclusionDates",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "interval": {
+      "@id": "argo:interval",
+      "@type": "xsd:string"
+    },
+    "persistence": {
+      "@id": "argo:persistence",
+      "@type": "xsd:string"
+    },
+    "schedule": {
+      "@id": "argo:schedule",
+      "@type": "xsd:string"
+    },
+    "affinity": {
+      "@id": "argo:affinity",
+      "@type": "xsd:string"
+    },
+    "container": {
+      "@id": "argo:container",
+      "@type": "xsd:string"
+    },
+    "imagePullSecrets": {
+      "@id": "argo:imagePullSecrets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "nodeSelector": {
+      "@id": "argo:nodeSelector",
+      "@type": "@id"
+    },
+    "priority": {
+      "@id": "argo:priority",
+      "@type": "xsd:integer"
+    },
+    "priorityClassName": {
+      "@id": "argo:priorityClassName",
+      "@type": "xsd:string"
+    },
+    "serviceAccountName": {
+      "@id": "argo:serviceAccountName",
+      "@type": "xsd:string"
+    },
+    "tolerations": {
+      "@id": "argo:tolerations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "volumes": {
+      "@id": "argo:volumes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "attachments": {
+      "@id": "argo:attachments",
+      "@type": "xsd:string"
+    },
+    "blocks": {
+      "@id": "argo:blocks",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "argo:message",
+      "@type": "xsd:string"
+    },
+    "sender": {
+      "@id": "argo:sender",
+      "@type": "xsd:string"
+    },
+    "slackToken": {
+      "@id": "argo:slackToken",
+      "@type": "xsd:string"
+    },
+    "thread": {
+      "@id": "argo:thread",
+      "@type": "xsd:string"
+    },
+    "decodeMessage": {
+      "@id": "argo:decodeMessage",
+      "@type": "xsd:boolean"
+    },
+    "storageAccountName": {
+      "@id": "argo:storageAccountName",
+      "@type": "xsd:string"
+    },
+    "waitTimeInSeconds": {
+      "@id": "argo:waitTimeInSeconds",
+      "@type": "xsd:integer"
+    },
+    "certSecret": {
+      "@id": "argo:certSecret",
+      "@type": "xsd:string"
+    },
+    "secure": {
+      "@id": "argo:secure",
+      "@type": "xsd:boolean"
+    },
+    "serverNameOverride": {
+      "@id": "argo:serverNameOverride",
+      "@type": "xsd:string"
+    },
+    "serverURL": {
+      "@id": "argo:serverURL",
+      "@type": "xsd:string"
+    },
+    "gerritBaseURL": {
+      "@id": "argo:gerritBaseURL",
+      "@type": "xsd:string"
+    },
+    "hookName": {
+      "@id": "argo:hookName",
+      "@type": "xsd:string"
+    },
+    "maxTries": {
+      "@id": "argo:maxTries",
+      "@type": "xsd:string"
+    },
+    "projects": {
+      "@id": "argo:projects",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sslVerify": {
+      "@id": "argo:sslVerify",
+      "@type": "xsd:boolean"
+    },
+    "contextKey": {
+      "@id": "argo:contextKey",
+      "@type": "xsd:string"
+    },
+    "contextTemplate": {
+      "@id": "argo:contextTemplate",
+      "@type": "xsd:string"
+    },
+    "dataKey": {
+      "@id": "argo:dataKey",
+      "@type": "xsd:string"
+    },
+    "dataTemplate": {
+      "@id": "argo:dataTemplate",
+      "@type": "xsd:string"
+    },
+    "dependencyName": {
+      "@id": "argo:dependencyName",
+      "@type": "xsd:string"
+    },
+    "useRawData": {
+      "@id": "argo:useRawData",
+      "@type": "xsd:boolean"
+    },
+    "afterStart": {
+      "@id": "argo:afterStart",
+      "@type": "xsd:boolean"
+    },
+    "createdBy": {
+      "@id": "argo:createdBy",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "argo:body",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "argo:from",
+      "@type": "xsd:string"
+    },
+    "smtpPassword": {
+      "@id": "argo:smtpPassword",
+      "@type": "xsd:string"
+    },
+    "to": {
+      "@id": "argo:to",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "limitEventsPerSecond": {
+      "@id": "argo:limitEventsPerSecond",
+      "@type": "xsd:string"
+    },
+    "consume": {
+      "@id": "argo:consume",
+      "@type": "xsd:string"
+    },
+    "exchangeDeclare": {
+      "@id": "argo:exchangeDeclare",
+      "@type": "xsd:string"
+    },
+    "exchangeName": {
+      "@id": "argo:exchangeName",
+      "@type": "xsd:string"
+    },
+    "exchangeType": {
+      "@id": "argo:exchangeType",
+      "@type": "xsd:string"
+    },
+    "queueBind": {
+      "@id": "argo:queueBind",
+      "@type": "xsd:string"
+    },
+    "queueDeclare": {
+      "@id": "argo:queueDeclare",
+      "@type": "xsd:string"
+    },
+    "routingKey": {
+      "@id": "argo:routingKey",
+      "@type": "xsd:string"
+    },
+    "urlSecret": {
+      "@id": "argo:urlSecret",
+      "@type": "xsd:string"
+    },
+    "addresses": {
+      "@id": "argo:addresses",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "checkInterval": {
+      "@id": "argo:checkInterval",
+      "@type": "xsd:string"
+    },
+    "hdfsUser": {
+      "@id": "argo:hdfsUser",
+      "@type": "xsd:string"
+    },
+    "krbCCacheSecret": {
+      "@id": "argo:krbCCacheSecret",
+      "@type": "xsd:string"
+    },
+    "krbConfigConfigMap": {
+      "@id": "argo:krbConfigConfigMap",
+      "@type": "xsd:string"
+    },
+    "krbKeytabSecret": {
+      "@id": "argo:krbKeytabSecret",
+      "@type": "xsd:string"
+    },
+    "krbRealm": {
+      "@id": "argo:krbRealm",
+      "@type": "xsd:string"
+    },
+    "krbServicePrincipalName": {
+      "@id": "argo:krbServicePrincipalName",
+      "@type": "xsd:string"
+    },
+    "krbUsername": {
+      "@id": "argo:krbUsername",
+      "@type": "xsd:string"
+    },
+    "basic": {
+      "@id": "argo:basic",
+      "@type": "xsd:string"
+    },
+    "oauthToken": {
+      "@id": "argo:oauthToken",
+      "@type": "xsd:string"
+    },
+    "autoAck": {
+      "@id": "argo:autoAck",
+      "@type": "xsd:boolean"
+    },
+    "consumerTag": {
+      "@id": "argo:consumerTag",
+      "@type": "xsd:string"
+    },
+    "noLocal": {
+      "@id": "argo:noLocal",
+      "@type": "xsd:boolean"
+    },
+    "argoWorkflow": {
+      "@id": "argo:argoWorkflow",
+      "@type": "xsd:string"
+    },
+    "awsLambda": {
+      "@id": "argo:awsLambda",
+      "@type": "xsd:string"
+    },
+    "azureEventHubs": {
+      "@id": "argo:azureEventHubs",
+      "@type": "xsd:string"
+    },
+    "conditionsReset": {
+      "@id": "argo:conditionsReset",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "custom": {
+      "@id": "argo:custom",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "argo:email",
+      "@type": "xsd:string"
+    },
+    "http": {
+      "@id": "argo:http",
+      "@type": "xsd:string"
+    },
+    "log": {
+      "@id": "argo:log",
+      "@type": "xsd:string"
+    },
+    "openWhisk": {
+      "@id": "argo:openWhisk",
+      "@type": "xsd:string"
+    },
+    "lastTransitionTime": {
+      "@id": "argo:lastTransitionTime",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "argo:reason",
+      "@type": "xsd:string"
+    },
+    "credential": {
+      "@id": "argo:credential",
+      "@type": "xsd:string"
+    },
+    "nkey": {
+      "@id": "argo:nkey",
+      "@type": "xsd:string"
+    },
+    "comparator": {
+      "@id": "argo:comparator",
+      "@type": "xsd:string"
+    },
+    "groupName": {
+      "@id": "argo:groupName",
+      "@type": "xsd:string"
+    },
+    "oldest": {
+      "@id": "argo:oldest",
+      "@type": "xsd:boolean"
+    },
+    "rebalanceStrategy": {
+      "@id": "argo:rebalanceStrategy",
+      "@type": "xsd:string"
+    },
+    "apiKey": {
+      "@id": "argo:apiKey",
+      "@type": "xsd:string"
+    },
+    "createWebhook": {
+      "@id": "argo:createWebhook",
+      "@type": "xsd:boolean"
+    },
+    "eventFilter": {
+      "@id": "argo:eventFilter",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "validateSignature": {
+      "@id": "argo:validateSignature",
+      "@type": "xsd:boolean"
+    },
+    "intervalSeconds": {
+      "@id": "argo:intervalSeconds",
+      "@type": "xsd:string"
+    },
+    "mechanism": {
+      "@id": "argo:mechanism",
+      "@type": "xsd:string"
+    },
+    "passwordSecret": {
+      "@id": "argo:passwordSecret",
+      "@type": "xsd:string"
+    },
+    "userSecret": {
+      "@id": "argo:userSecret",
+      "@type": "xsd:string"
+    },
+    "accessToken": {
+      "@id": "argo:accessToken",
+      "@type": "xsd:string"
+    },
+    "bitbucketserverBaseURL": {
+      "@id": "argo:bitbucketserverBaseURL",
+      "@type": "xsd:string"
+    },
+    "oneEventPerChange": {
+      "@id": "argo:oneEventPerChange",
+      "@type": "xsd:boolean"
+    },
+    "skipBranchRefsChangedOnOpenPR": {
+      "@id": "argo:skipBranchRefsChangedOnOpenPR",
+      "@type": "xsd:boolean"
+    },
+    "enableSSLVerification": {
+      "@id": "argo:enableSSLVerification",
+      "@type": "xsd:boolean"
+    },
+    "gitlabBaseURL": {
+      "@id": "argo:gitlabBaseURL",
+      "@type": "xsd:string"
+    },
+    "groups": {
+      "@id": "argo:groups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "secretToken": {
+      "@id": "argo:secretToken",
+      "@type": "xsd:string"
+    }
+  }
+}

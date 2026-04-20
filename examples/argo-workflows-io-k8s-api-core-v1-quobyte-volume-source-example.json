@@ -1,0 +1,8 @@
+{
+  "group": "example-group",
+  "readOnly": true,
+  "registry": "example-registry",
+  "tenant": "example-tenant",
+  "user": "example-user",
+  "volume": "example-volume"
+}

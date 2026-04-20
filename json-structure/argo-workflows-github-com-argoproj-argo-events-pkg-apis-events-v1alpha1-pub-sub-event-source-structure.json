@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-pub-sub-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PubSubEventSource",
+  "description": "PubSubEventSource refers to event-source for GCP PubSub related events.",
+  "type": "object",
+  "properties": {
+    "credentialSecret": {
+      "name": "CredentialSecret references to the secret that contains JSON credentials to access GCP.\nIf it is missing, it implicitly uses Workload Identity to access.\nhttps://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "deleteSubscriptionOnFinish": {
+      "type": "boolean",
+      "name": "DeleteSubscriptionOnFinish determines whether to delete the GCP PubSub subscription once the event source is stopped.\n+optional"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "name": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "projectID": {
+      "type": "string",
+      "name": "ProjectID is GCP project ID for the subscription.\nRequired if you run Argo Events outside of GKE/GCE.\n(otherwise, the default value is its project)\n+optional"
+    },
+    "subscriptionID": {
+      "type": "string",
+      "name": "SubscriptionID is ID of subscription.\nRequired if you use existing subscription.\nThe default value will be auto generated hash based on this eventsource setting, so the subscription\nmight be recreated every time you update the setting, which has a possibility of event loss.\n+optional"
+    },
+    "topic": {
+      "type": "string",
+      "name": "Topic to which the subscription should belongs.\nRequired if you want the eventsource to create a new subscription.\nIf you specify this field along with an existing subscription,\nit will be verified whether it actually belongs to the specified topic.\n+optional"
+    },
+    "topicProjectID": {
+      "type": "string",
+      "name": "TopicProjectID is GCP project ID for the topic.\nBy default, it is same as ProjectID.\n+optional"
+    }
+  }
+}

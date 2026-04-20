@@ -1,0 +1,20 @@
+{
+  "authAthenzParams": {},
+  "authAthenzSecret": "example-authathenzsecre",
+  "authTokenSecret": "example-authtokensecret",
+  "connectionBackoff": "example-connectionbacko",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "tls": "example-tls",
+  "tlsAllowInsecureConnection": true,
+  "tlsTrustCertsSecret": "example-tlstrustcertsse",
+  "tlsValidateHostname": true,
+  "topic": "example-topic",
+  "url": "example-url"
+}

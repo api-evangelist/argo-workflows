@@ -1,0 +1,115 @@
+# Argo Workflows API Spectral Ruleset
+
+rules:
+
+  info-title-prefix:
+    description: API title must start with "Argo Workflows"
+    severity: warn
+    given: "$.info.title"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Argo Workflows"
+
+  info-description-required:
+    description: API must have a description
+    severity: error
+    given: "$.info"
+    then:
+      field: description
+      function: truthy
+
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-prefix:
+    description: Operation summaries must start with "Argo Workflows"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Argo Workflows"
+
+  operation-operationid-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  operation-tags-required:
+    description: Every operation must have at least one tag
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  paths-versioned:
+    description: All paths should be versioned
+    severity: info
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/api/v"
+
+  paths-kebab-case:
+    description: Path segments should use kebab-case or camelCase
+    severity: info
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(/api/v[0-9]+)?(/[a-zA-Z0-9{}-]+)*$"
+
+  response-success-required:
+    description: Every operation must define at least one response
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          minProperties: 1
+
+  response-description-required:
+    description: All responses must have a description
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  security-definitions-required:
+    description: API must define security schemes
+    severity: warn
+    given: "$"
+    then:
+      field: securityDefinitions
+      function: truthy
+
+  no-empty-summaries:
+    description: Summaries must not be empty
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".+"
+
+  parameter-description-required:
+    description: Parameters should have descriptions
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].parameters[*]"
+    then:
+      field: description
+      function: truthy

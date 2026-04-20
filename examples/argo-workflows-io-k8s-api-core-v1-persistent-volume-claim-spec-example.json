@@ -1,0 +1,14 @@
+{
+  "accessModes": [
+    "example-accessmodes",
+    "example-accessmodes"
+  ],
+  "dataSource": "example-datasource",
+  "dataSourceRef": "example-datasourceref",
+  "resources": "example-resources",
+  "selector": "example-selector",
+  "storageClassName": "my-workflow",
+  "volumeAttributesClassName": "my-workflow",
+  "volumeMode": "example-volumemode",
+  "volumeName": "my-workflow"
+}

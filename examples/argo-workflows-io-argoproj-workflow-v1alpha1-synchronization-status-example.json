@@ -1,0 +1,4 @@
+{
+  "mutex": "example-mutex",
+  "semaphore": "example-semaphore"
+}

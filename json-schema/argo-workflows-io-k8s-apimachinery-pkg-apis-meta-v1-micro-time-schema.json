@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-k8s-apimachinery-pkg-apis-meta-v1-micro-time-schema.json",
+  "title": "io.k8s.apimachinery.pkg.apis.meta.v1.MicroTime",
+  "description": "MicroTime is version of Time with microsecond level precision.",
+  "type": "string",
+  "format": "date-time"
+}

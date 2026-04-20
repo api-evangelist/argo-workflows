@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-data-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Data",
+  "description": "Data is a data template",
+  "type": "object",
+  "properties": {
+    "source": {
+      "description": "Source sources external data into a data template",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.DataSource"
+    },
+    "transformation": {
+      "description": "Transformation applies a set of transformations",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.TransformationStep"
+      }
+    }
+  },
+  "required": [
+    "source",
+    "transformation"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "auth": "example-auth",
+  "connectionBackoff": "example-connectionbacko",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "queue": "example-queue",
+  "subject": "example-subject",
+  "tls": "example-tls",
+  "url": "example-url"
+}

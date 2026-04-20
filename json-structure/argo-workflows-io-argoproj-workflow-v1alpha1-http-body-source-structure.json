@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-http-body-source-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.HTTPBodySource",
+  "description": "HTTPBodySource contains the source of the HTTP body.",
+  "type": "object",
+  "properties": {
+    "bytes": {
+      "type": "string",
+      "format": "byte"
+    }
+  }
+}

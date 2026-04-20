@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-artifact-repository-ref-status-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.ArtifactRepositoryRefStatus",
+  "description": "ArtifactRepositoryRefStatus is the resolved artifact repository reference with namespace io.argoproj.workflow.v1alpha1.",
+  "type": "object",
+  "properties": {
+    "artifactRepository": {
+      "description": "The repository the workflow will use. This maybe empty before v3.1.",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArtifactRepository"
+    },
+    "configMap": {
+      "description": "The name of the config map. Defaults to \"artifact-repositories\".",
+      "type": "string"
+    },
+    "default": {
+      "description": "If this ref represents the default artifact repository, rather than a config map.",
+      "type": "boolean"
+    },
+    "key": {
+      "description": "The config map key. Defaults to the value of the \"workflows.argoproj.io/default-artifact-repository\" annotation.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "The namespace of the config map. Defaults to the workflow's namespace, or the controller's namespace (if found).",
+      "type": "string"
+    }
+  }
+}

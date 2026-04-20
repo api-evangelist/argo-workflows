@@ -1,0 +1,10 @@
+{
+  "preferredDuringSchedulingIgnoredDuringExecution": [
+    "example-preferredduring",
+    "example-preferredduring"
+  ],
+  "requiredDuringSchedulingIgnoredDuringExecution": [
+    "example-requireddurings",
+    "example-requireddurings"
+  ]
+}

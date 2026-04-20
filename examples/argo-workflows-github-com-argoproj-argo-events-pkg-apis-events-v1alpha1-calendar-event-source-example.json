@@ -1,0 +1,12 @@
+{
+  "exclusionDates": [
+    "example-exclusiondates",
+    "example-exclusiondates"
+  ],
+  "filter": "example-filter",
+  "interval": "example-interval",
+  "metadata": {},
+  "persistence": "example-persistence",
+  "schedule": "example-schedule",
+  "timezone": "example-timezone"
+}

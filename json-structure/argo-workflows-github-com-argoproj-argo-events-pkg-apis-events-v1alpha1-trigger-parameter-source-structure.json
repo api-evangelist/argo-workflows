@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-trigger-parameter-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameterSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameterSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "contextKey": {
+      "description": "ContextKey is the JSONPath of the event's (JSON decoded) context key\nContextKey is a series of keys separated by a dot. A key may contain wildcard characters '*' and '?'.\nTo access an array value use the index as the key. The dot and wildcard characters can be escaped with '\\\\'.\nSee https://github.com/tidwall/gjson#path-syntax for more information on how to use this.",
+      "type": "string"
+    },
+    "contextTemplate": {
+      "type": "string",
+      "name": "ContextTemplate is a go-template for extracting a string from the event's context.\nIf a ContextTemplate is provided with a ContextKey, the template will be evaluated first and fallback to the ContextKey.\nThe templating follows the standard go-template syntax as well as sprig's extra functions.\nSee https://pkg.go.dev/text/template and https://masterminds.github.io/sprig/"
+    },
+    "dataKey": {
+      "description": "DataKey is the JSONPath of the event's (JSON decoded) data key\nDataKey is a series of keys separated by a dot. A key may contain wildcard characters '*' and '?'.\nTo access an array value use the index as the key. The dot and wildcard characters can be escaped with '\\\\'.\nSee https://github.com/tidwall/gjson#path-syntax for more information on how to use this.",
+      "type": "string"
+    },
+    "dataTemplate": {
+      "type": "string",
+      "name": "DataTemplate is a go-template for extracting a string from the event's data.\nIf a DataTemplate is provided with a DataKey, the template will be evaluated first and fallback to the DataKey.\nThe templating follows the standard go-template syntax as well as sprig's extra functions.\nSee https://pkg.go.dev/text/template and https://masterminds.github.io/sprig/"
+    },
+    "dependencyName": {
+      "description": "DependencyName refers to the name of the dependency. The event which is stored for this dependency is used as payload\nfor the parameterization. Make sure to refer to one of the dependencies you have defined under Dependencies list.",
+      "type": "string"
+    },
+    "useRawData": {
+      "type": "boolean",
+      "name": "UseRawData indicates if the value in an event at data key should be used without converting to string.\nWhen true, a number, boolean, json or string parameter may be extracted. When the field is unspecified, or explicitly\nfalse, the behavior is to turn the extracted field into a string. (e.g. when set to true, the parameter\n123 will resolve to the numerical type, but when false, or not provided, the string \"123\" will be resolved)\n+optional"
+    },
+    "value": {
+      "description": "Value is the default literal value to use for this parameter source\nThis is only used if the DataKey is invalid.\nIf the DataKey is invalid and this is not defined, this param source will produce an error.",
+      "type": "string"
+    }
+  }
+}

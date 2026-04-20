@@ -1,0 +1,150 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Argo Workflows API"
+  description: "Argo Workflows REST API for managing container-native workflow orchestration on Kubernetes."
+  tags:
+    - Argo Workflows
+    - Kubernetes
+    - Workflow Engine
+    - CNCF
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      ARGO_TOKEN: ARGO_TOKEN
+      ARGO_SERVER: ARGO_SERVER
+
+capability:
+  consumes:
+    - type: http
+      namespace: argoworkflows
+      baseUri: "{{env.ARGO_SERVER}}/api/v1"
+      description: "Argo Workflows REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "Bearer {{env.ARGO_TOKEN}}"
+        placement: header
+      resources:
+        - name: workflows
+          path: /workflows/{namespace}
+          description: "Manage Argo Workflows"
+          operations:
+            - name: list-workflows
+              method: GET
+              description: "List workflows in a namespace"
+              inputParameters:
+                - name: namespace
+                  in: path
+                  type: string
+                  required: true
+                  description: "Kubernetes namespace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-workflow
+              method: POST
+              description: "Submit a new workflow"
+              inputParameters:
+                - name: namespace
+                  in: path
+                  type: string
+                  required: true
+                  description: "Kubernetes namespace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  workflow: "{{tools.workflow}}"
+        - name: workflow-templates
+          path: /workflow-templates/{namespace}
+          description: "Reusable workflow templates"
+          operations:
+            - name: list-workflow-templates
+              method: GET
+              description: "List workflow templates"
+              inputParameters:
+                - name: namespace
+                  in: path
+                  type: string
+                  required: true
+                  description: "Kubernetes namespace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: cron-workflows
+          path: /cron-workflows/{namespace}
+          description: "Scheduled cron workflows"
+          operations:
+            - name: list-cron-workflows
+              method: GET
+              description: "List cron workflows"
+              inputParameters:
+                - name: namespace
+                  in: path
+                  type: string
+                  required: true
+                  description: "Kubernetes namespace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: archived-workflows
+          path: /archived-workflows
+          description: "Access archived workflow history"
+          operations:
+            - name: list-archived-workflows
+              method: GET
+              description: "List archived workflows"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: argo-workflows-api
+      resources:
+        - path: /v1/workflows/{namespace}
+          name: workflows
+          description: "Workflow management"
+          operations:
+            - method: GET
+              name: list-workflows
+              description: "List all workflows"
+              call: "argoworkflows.list-workflows"
+              with:
+                namespace: "rest.namespace"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: argo-workflows-mcp
+      transport: http
+      tools:
+        - name: list-workflows
+          description: "List Argo Workflows in a namespace"
+          hints:
+            readOnly: true
+          call: "argoworkflows.list-workflows"
+          with:
+            namespace: "tools.namespace"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,12 @@
+{
+  "args": [
+    "example-args",
+    "example-args"
+  ],
+  "operation": "example-operation",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "source": "example-source"
+}

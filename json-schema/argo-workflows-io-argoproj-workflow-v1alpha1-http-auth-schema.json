@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-http-auth-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.HTTPAuth",
+  "description": "io.argoproj.workflow.v1alpha1.HTTPAuth schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "basicAuth": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.BasicAuth"
+    },
+    "clientCert": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ClientCertAuth"
+    },
+    "oauth2": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.OAuth2Auth"
+    }
+  }
+}

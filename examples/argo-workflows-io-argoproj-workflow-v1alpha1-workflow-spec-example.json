@@ -1,0 +1,61 @@
+{
+  "activeDeadlineSeconds": 67,
+  "affinity": "example-affinity",
+  "archiveLogs": true,
+  "arguments": "value",
+  "artifactGC": "example-artifactgc",
+  "artifactRepositoryRef": "example-artifactreposit",
+  "automountServiceAccountToken": true,
+  "dnsConfig": "example-dnsconfig",
+  "dnsPolicy": "example-dnspolicy",
+  "entrypoint": "example-entrypoint",
+  "executor": "example-executor",
+  "hooks": {},
+  "hostAliases": [
+    "example-hostaliases",
+    "example-hostaliases"
+  ],
+  "hostNetwork": true,
+  "imagePullSecrets": [
+    "python:3.11-slim",
+    "python:3.11-slim"
+  ],
+  "metrics": "example-metrics",
+  "nodeSelector": {},
+  "onExit": "example-onexit",
+  "parallelism": 98,
+  "podDisruptionBudget": "example-poddisruptionbu",
+  "podGC": "example-podgc",
+  "podMetadata": "example-podmetadata",
+  "podPriorityClassName": "my-workflow",
+  "podSpecPatch": "example-podspecpatch",
+  "priority": 36,
+  "retryStrategy": "example-retrystrategy",
+  "schedulerName": "my-workflow",
+  "securityContext": "example-securitycontext",
+  "serviceAccountName": "my-workflow",
+  "shutdown": "example-shutdown",
+  "suspend": true,
+  "synchronization": "example-synchronization",
+  "templateDefaults": "workflow-template",
+  "templates": [
+    "workflow-template",
+    "workflow-template"
+  ],
+  "tolerations": [
+    "example-tolerations",
+    "example-tolerations"
+  ],
+  "ttlStrategy": "example-ttlstrategy",
+  "volumeClaimGC": "example-volumeclaimgc",
+  "volumeClaimTemplates": [
+    "workflow-template",
+    "workflow-template"
+  ],
+  "volumes": [
+    "example-volumes",
+    "example-volumes"
+  ],
+  "workflowMetadata": "example-workflowmetadat",
+  "workflowTemplateRef": "workflow-template"
+}

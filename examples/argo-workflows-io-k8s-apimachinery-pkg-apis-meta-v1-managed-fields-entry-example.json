@@ -1,0 +1,9 @@
+{
+  "apiVersion": "v3.6.0",
+  "fieldsType": "example-fieldstype",
+  "fieldsV1": "example-fieldsv1",
+  "manager": "example-manager",
+  "operation": "example-operation",
+  "subresource": "example-subresource",
+  "time": "example-time"
+}

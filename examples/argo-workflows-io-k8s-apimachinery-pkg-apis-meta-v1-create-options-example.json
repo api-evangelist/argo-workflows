@@ -1,0 +1,8 @@
+{
+  "dryRun": [
+    "example-dryrun",
+    "example-dryrun"
+  ],
+  "fieldManager": "example-fieldmanager",
+  "fieldValidation": "wf-abc123"
+}

@@ -1,0 +1,15 @@
+{
+  "actionName": "my-workflow",
+  "authToken": "example-authtoken",
+  "host": "example-host",
+  "namespace": "my-workflow",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "version": "v3.6.0"
+}

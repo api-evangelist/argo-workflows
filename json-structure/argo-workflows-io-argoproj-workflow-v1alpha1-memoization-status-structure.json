@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-memoization-status-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.MemoizationStatus",
+  "description": "MemoizationStatus is the status of this memoized node",
+  "type": "object",
+  "properties": {
+    "cacheName": {
+      "description": "Cache is the name of the cache that was used",
+      "type": "string"
+    },
+    "hit": {
+      "description": "Hit indicates whether this node was created from a cache entry",
+      "type": "boolean"
+    },
+    "key": {
+      "description": "Key is the name of the key used for this node's cache",
+      "type": "string"
+    }
+  },
+  "required": [
+    "hit",
+    "key",
+    "cacheName"
+  ]
+}

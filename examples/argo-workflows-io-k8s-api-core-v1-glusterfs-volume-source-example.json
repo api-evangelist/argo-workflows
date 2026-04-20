@@ -1,0 +1,5 @@
+{
+  "endpoints": "example-endpoints",
+  "path": "example-path",
+  "readOnly": true
+}

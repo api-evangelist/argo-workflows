@@ -1,0 +1,6 @@
+{
+  "namespace": "my-workflow",
+  "resourceKind": "example-resourcekind",
+  "resourceName": "my-workflow",
+  "submitOptions": "example-submitoptions"
+}

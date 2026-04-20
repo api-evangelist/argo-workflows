@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-label-value-from-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.LabelValueFrom",
+  "description": "io.argoproj.workflow.v1alpha1.LabelValueFrom schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "expression": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "expression"
+  ]
+}

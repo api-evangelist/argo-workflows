@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-amqp-consume-config-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPConsumeConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPConsumeConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "autoAck": {
+      "type": "boolean",
+      "title": "AutoAck when true, the server will acknowledge deliveries to this consumer prior to writing\nthe delivery to the network\n+optional"
+    },
+    "consumerTag": {
+      "type": "string",
+      "title": "ConsumerTag is the identity of the consumer included in every delivery\n+optional"
+    },
+    "exclusive": {
+      "type": "boolean",
+      "title": "Exclusive when true, the server will ensure that this is the sole consumer from this queue\n+optional"
+    },
+    "noLocal": {
+      "type": "boolean",
+      "title": "NoLocal flag is not supported by RabbitMQ\n+optional"
+    },
+    "noWait": {
+      "type": "boolean",
+      "title": "NowWait when true, do not wait for the server to confirm the request and immediately begin deliveries\n+optional"
+    }
+  }
+}

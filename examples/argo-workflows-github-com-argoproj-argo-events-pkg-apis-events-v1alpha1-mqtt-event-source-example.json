@@ -1,0 +1,11 @@
+{
+  "auth": "example-auth",
+  "clientId": "wf-abc123",
+  "connectionBackoff": "example-connectionbacko",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "tls": "example-tls",
+  "topic": "example-topic",
+  "url": "example-url"
+}

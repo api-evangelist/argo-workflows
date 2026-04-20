@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-persistence-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventPersistence",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventPersistence schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "catchup": {
+      "title": "Catchup enables to triggered the missed schedule when eventsource restarts",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CatchupConfiguration"
+    },
+    "configMap": {
+      "title": "ConfigMap holds configmap details for persistence",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConfigMapPersistence"
+    }
+  }
+}

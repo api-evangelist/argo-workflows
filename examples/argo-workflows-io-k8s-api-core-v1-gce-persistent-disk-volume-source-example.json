@@ -1,0 +1,6 @@
+{
+  "fsType": "example-fstype",
+  "partition": 12,
+  "pdName": "my-workflow",
+  "readOnly": true
+}

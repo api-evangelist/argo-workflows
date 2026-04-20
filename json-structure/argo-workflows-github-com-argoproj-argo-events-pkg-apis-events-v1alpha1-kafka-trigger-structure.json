@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-kafka-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaTrigger",
+  "description": "KafkaTrigger refers to the specification of the Kafka trigger.",
+  "type": "object",
+  "properties": {
+    "compress": {
+      "type": "boolean",
+      "name": "Compress determines whether to compress message or not.\nDefaults to false.\nIf set to true, compresses message using snappy compression.\n+optional"
+    },
+    "flushFrequency": {
+      "type": "int32",
+      "name": "FlushFrequency refers to the frequency in milliseconds to flush batches.\nDefaults to 500 milliseconds.\n+optional"
+    },
+    "headers": {
+      "type": "object",
+      "name": "Headers for the Kafka Messages.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "parameters": {
+      "description": "Parameters is the list of parameters that is applied to resolved Kafka trigger object.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "partition": {
+      "type": "int32",
+      "name": "+optional\nDEPRECATED"
+    },
+    "partitioningKey": {
+      "description": "The partitioning key for the messages put on the Kafka topic.\n+optional.",
+      "type": "string"
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "requiredAcks": {
+      "description": "RequiredAcks used in producer to tell the broker how many replica acknowledgements\nDefaults to 1 (Only wait for the leader to ack).\n+optional.",
+      "type": "int32"
+    },
+    "sasl": {
+      "name": "SASL configuration for the kafka client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig"
+    },
+    "schemaRegistry": {
+      "name": "Schema Registry configuration to producer message with avro format\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig"
+    },
+    "secureHeaders": {
+      "type": "array",
+      "name": "Secure Headers stored in Kubernetes Secrets for the Kafka messages.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SecureHeader"
+      }
+    },
+    "tls": {
+      "name": "TLS configuration for the Kafka producer.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topic": {
+      "type": "string",
+      "name": "Name of the topic.\nMore info at https://kafka.apache.org/documentation/#intro_topics"
+    },
+    "url": {
+      "description": "URL of the Kafka broker, multiple URLs separated by comma.",
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "name": "Specify what kafka version is being connected to enables certain features in sarama, defaults to 1.0.0\n+optional"
+    }
+  }
+}

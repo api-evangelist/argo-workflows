@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-apimachinery-pkg-apis-meta-v1-time-structure.json",
+  "name": "io.k8s.apimachinery.pkg.apis.meta.v1.Time",
+  "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+  "type": "datetime"
+}

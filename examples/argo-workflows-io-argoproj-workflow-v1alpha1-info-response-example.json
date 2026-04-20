@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "example-columns",
+    "example-columns"
+  ],
+  "links": [
+    "example-links",
+    "example-links"
+  ],
+  "managedNamespace": "my-workflow",
+  "modals": {},
+  "navColor": "example-navcolor"
+}

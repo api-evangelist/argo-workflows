@@ -1,0 +1,11 @@
+{
+  "monitors": [
+    "example-monitors",
+    "example-monitors"
+  ],
+  "path": "example-path",
+  "readOnly": true,
+  "secretFile": "example-secretfile",
+  "secretRef": "example-secretref",
+  "user": "example-user"
+}

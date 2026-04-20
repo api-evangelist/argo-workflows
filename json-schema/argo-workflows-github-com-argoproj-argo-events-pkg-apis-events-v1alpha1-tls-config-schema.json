@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-tls-config-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig",
+  "description": "TLSConfig refers to TLS configuration for a client.",
+  "type": "object",
+  "properties": {
+    "caCertSecret": {
+      "title": "CACertSecret refers to the secret that contains the CA cert",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "clientCertSecret": {
+      "title": "ClientCertSecret refers to the secret that contains the client cert",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "clientKeySecret": {
+      "title": "ClientKeySecret refers to the secret that contains the client key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled indicates if TLS is enabled. Added for compatibility proposes for Brokers that needs TLS without key authentication\n+optional"
+    },
+    "insecureSkipVerify": {
+      "type": "boolean",
+      "title": "If true, skips creation of TLSConfig with certs and creates an empty TLSConfig. (Defaults to false)\n+optional"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-backoff-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "title": "The initial duration in nanoseconds or strings like \"1s\", \"3m\"\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Int64OrString"
+    },
+    "factor": {
+      "title": "Duration is multiplied by factor each iteration\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Amount"
+    },
+    "jitter": {
+      "title": "The amount of jitter applied each iteration\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Amount"
+    },
+    "steps": {
+      "type": "integer",
+      "title": "Exit with error after this many steps\n+optional"
+    }
+  }
+}

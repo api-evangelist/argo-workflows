@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-suspend-request-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.WorkflowSuspendRequest",
+  "description": "io.argoproj.workflow.v1alpha1.WorkflowSuspendRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    }
+  }
+}

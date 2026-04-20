@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-outputs-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Outputs",
+  "description": "Outputs hold parameters, artifacts, and results from a step",
+  "type": "object",
+  "properties": {
+    "artifacts": {
+      "description": "Artifacts holds the list of output artifacts produced by a step",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Artifact"
+      },
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "exitCode": {
+      "description": "ExitCode holds the exit code of a script template",
+      "type": "string"
+    },
+    "parameters": {
+      "description": "Parameters holds the list of output parameters produced by a step",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Parameter"
+      },
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "result": {
+      "description": "Result holds the result (stdout) of a script or container template, or the response body of an HTTP template",
+      "type": "string"
+    }
+  }
+}

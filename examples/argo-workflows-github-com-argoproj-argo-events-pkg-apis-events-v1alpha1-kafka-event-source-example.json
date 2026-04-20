@@ -1,0 +1,16 @@
+{
+  "config": "example-config",
+  "connectionBackoff": "example-connectionbacko",
+  "consumerGroup": "example-consumergroup",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "limitEventsPerSecond": "example-limiteventspers",
+  "metadata": {},
+  "partition": "example-partition",
+  "sasl": "example-sasl",
+  "schemaRegistry": "example-schemaregistry",
+  "tls": "example-tls",
+  "topic": "example-topic",
+  "url": "example-url",
+  "version": "v3.6.0"
+}

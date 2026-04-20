@@ -1,0 +1,7 @@
+{
+  "driver": "example-driver",
+  "fsType": "example-fstype",
+  "nodePublishSecretRef": "worker-node-1",
+  "readOnly": true,
+  "volumeAttributes": {}
+}

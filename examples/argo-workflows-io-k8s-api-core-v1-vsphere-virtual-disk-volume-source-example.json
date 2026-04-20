@@ -1,0 +1,6 @@
+{
+  "fsType": "example-fstype",
+  "storagePolicyID": "wf-abc123",
+  "storagePolicyName": "my-workflow",
+  "volumePath": "example-volumepath"
+}

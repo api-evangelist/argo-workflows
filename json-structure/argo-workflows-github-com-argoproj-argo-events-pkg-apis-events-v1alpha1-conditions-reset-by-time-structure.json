@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-conditions-reset-by-time-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetByTime",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetByTime schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "cron": {
+      "type": "string",
+      "name": "Cron is a cron-like expression. For reference, see: https://en.wikipedia.org/wiki/Cron"
+    },
+    "timezone": {
+      "type": "string",
+      "name": "+optional"
+    }
+  }
+}

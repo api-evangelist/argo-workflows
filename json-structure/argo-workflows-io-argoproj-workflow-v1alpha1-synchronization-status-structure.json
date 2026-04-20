@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-synchronization-status-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.SynchronizationStatus",
+  "description": "SynchronizationStatus stores the status of semaphore and mutex.",
+  "type": "object",
+  "properties": {
+    "mutex": {
+      "description": "Mutex stores this workflow's mutex holder details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.MutexStatus"
+    },
+    "semaphore": {
+      "description": "Semaphore stores this workflow's Semaphore holder details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.SemaphoreStatus"
+    }
+  }
+}

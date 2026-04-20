@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-retry-strategy-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.RetryStrategy",
+  "description": "RetryStrategy provides controls on how to retry a workflow step",
+  "type": "object",
+  "properties": {
+    "affinity": {
+      "description": "Affinity prevents running workflow's step on the same host",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.RetryAffinity"
+    },
+    "backoff": {
+      "description": "Backoff is a backoff strategy",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Backoff"
+    },
+    "expression": {
+      "description": "Expression is a condition expression for when a node will be retried. If it evaluates to false, the node will not be retried and the retry strategy will be ignored",
+      "type": "string"
+    },
+    "limit": {
+      "description": "Limit is the maximum number of retry attempts when retrying a container. It does not include the original container; the maximum number of total attempts will be `limit + 1`.",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString"
+    },
+    "retryPolicy": {
+      "description": "RetryPolicy is a policy of NodePhase statuses that will be retried",
+      "type": "string"
+    }
+  }
+}

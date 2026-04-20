@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-artifact-location-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArtifactLocation",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArtifactLocation schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "configmap": {
+      "title": "Configmap that stores the artifact",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+    },
+    "file": {
+      "title": "File artifact is artifact stored in a file",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileArtifact"
+    },
+    "git": {
+      "title": "Git repository hosting the artifact",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact"
+    },
+    "inline": {
+      "type": "string",
+      "title": "Inline artifact is embedded in sensor spec as a string"
+    },
+    "resource": {
+      "title": "Resource is generic template for K8s resource",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResource"
+    },
+    "s3": {
+      "title": "S3 compliant artifact",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact"
+    },
+    "url": {
+      "title": "URL to fetch the artifact from",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.URLArtifact"
+    }
+  }
+}

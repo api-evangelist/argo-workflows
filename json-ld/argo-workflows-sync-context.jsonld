@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sync.UpdateSyncLimitRequest": "argo:sync.UpdateSyncLimitRequest",
+    "sync.CreateSyncLimitRequest": "argo:sync.CreateSyncLimitRequest",
+    "sync.SyncLimitResponse": "argo:sync.SyncLimitResponse",
+    "sync.DeleteSyncLimitResponse": "argo:sync.DeleteSyncLimitResponse",
+    "cmName": {
+      "@id": "argo:cmName",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "argo:key",
+      "@type": "xsd:string"
+    },
+    "limit": {
+      "@id": "argo:limit",
+      "@type": "xsd:integer"
+    },
+    "namespace": {
+      "@id": "argo:namespace",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "argo:type",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "eventSource": "example-eventsource",
+  "namespace": "my-workflow"
+}

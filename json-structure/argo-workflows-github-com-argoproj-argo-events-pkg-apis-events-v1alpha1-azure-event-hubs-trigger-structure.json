@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-azure-event-hubs-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventHubsTrigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventHubsTrigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "fqdn": {
+      "type": "string",
+      "name": "FQDN refers to the namespace dns of Azure Event Hubs to be used i.e. <namespace>.servicebus.windows.net"
+    },
+    "hubName": {
+      "type": "string",
+      "name": "HubName refers to the Azure Event Hub to send events to"
+    },
+    "parameters": {
+      "type": "array",
+      "name": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "sharedAccessKey": {
+      "name": "SharedAccessKey refers to a K8s secret containing the primary key for the",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "sharedAccessKeyName": {
+      "name": "SharedAccessKeyName refers to the name of the Shared Access Key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

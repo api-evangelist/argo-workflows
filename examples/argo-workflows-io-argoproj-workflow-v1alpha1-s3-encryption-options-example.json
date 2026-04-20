@@ -1,0 +1,6 @@
+{
+  "enableEncryption": true,
+  "kmsEncryptionContext": "example-kmsencryptionco",
+  "kmsKeyId": "wf-abc123",
+  "serverSideCustomerKeySecret": "wf-abc123"
+}

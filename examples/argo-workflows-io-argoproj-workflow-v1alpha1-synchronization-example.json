@@ -1,0 +1,10 @@
+{
+  "mutexes": [
+    "example-mutexes",
+    "example-mutexes"
+  ],
+  "semaphores": [
+    "example-semaphores",
+    "example-semaphores"
+  ]
+}

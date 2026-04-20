@@ -1,0 +1,15 @@
+{
+  "connectionString": "example-connectionstrin",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "queueName": "my-workflow",
+  "subscriptionName": "my-workflow",
+  "tls": "example-tls",
+  "topicName": "my-workflow"
+}

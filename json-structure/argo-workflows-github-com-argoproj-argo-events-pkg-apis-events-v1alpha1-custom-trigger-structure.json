@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-custom-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CustomTrigger",
+  "description": "CustomTrigger refers to the specification of the custom trigger.",
+  "type": "object",
+  "properties": {
+    "certSecret": {
+      "description": "CertSecret refers to the secret that contains cert for secure connection between sensor and custom trigger gRPC server.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "parameters": {
+      "description": "Parameters is the list of parameters that is applied to resolved custom trigger trigger object.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "secure": {
+      "type": "boolean",
+      "name": "Secure refers to type of the connection between sensor to custom trigger gRPC"
+    },
+    "serverNameOverride": {
+      "description": "ServerNameOverride for the secure connection between sensor and custom trigger gRPC server.",
+      "type": "string"
+    },
+    "serverURL": {
+      "type": "string",
+      "name": "ServerURL is the url of the gRPC server that executes custom trigger"
+    },
+    "spec": {
+      "description": "Spec is the custom trigger resource specification that custom trigger gRPC server knows how to interpret.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

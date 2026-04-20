@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-rate-limit-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RateLimit",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RateLimit schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "requestsPerUnit": {
+      "type": "int32"
+    },
+    "unit": {
+      "type": "string",
+      "name": "Defaults to Second"
+    }
+  }
+}

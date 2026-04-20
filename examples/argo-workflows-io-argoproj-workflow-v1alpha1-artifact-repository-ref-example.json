@@ -1,0 +1,4 @@
+{
+  "configMap": "example-configmap",
+  "key": "example-key"
+}

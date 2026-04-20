@@ -1,0 +1,7 @@
+{
+  "labelSelector": "example-labelselector",
+  "name": "my-workflow",
+  "optional": true,
+  "path": "example-path",
+  "signerName": "my-workflow"
+}

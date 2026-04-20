@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-sftp-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SFTPEventSource",
+  "description": "SFTPEventSource describes an event-source for sftp related events.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "Address sftp address.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "eventType": {
+      "type": "string",
+      "name": "Type of file operations to watch\nRefer https://github.com/fsnotify/fsnotify/blob/master/fsnotify.go for more information"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "password": {
+      "description": "Password required for authentication if any.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "pollIntervalDuration": {
+      "type": "string",
+      "name": "PollIntervalDuration the interval at which to poll the SFTP server\ndefaults to 10 seconds\n+optional"
+    },
+    "sshKeySecret": {
+      "description": "SSHKeySecret refers to the secret that contains SSH key. Key needs to contain private key and public key.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "username": {
+      "description": "Username required for authentication if any.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "watchPathConfig": {
+      "name": "WatchPathConfig contains configuration about the file path to watch",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WatchPathConfig"
+    }
+  }
+}

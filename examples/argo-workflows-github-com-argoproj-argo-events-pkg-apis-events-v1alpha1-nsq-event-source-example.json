@@ -1,0 +1,10 @@
+{
+  "channel": "example-channel",
+  "connectionBackoff": "example-connectionbacko",
+  "filter": "example-filter",
+  "hostAddress": "example-hostaddress",
+  "jsonBody": true,
+  "metadata": {},
+  "tls": "example-tls",
+  "topic": "example-topic"
+}

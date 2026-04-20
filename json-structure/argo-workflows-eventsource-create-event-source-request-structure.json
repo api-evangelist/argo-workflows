@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-eventsource-create-event-source-request-structure.json",
+  "name": "eventsource.CreateEventSourceRequest",
+  "description": "eventsource.CreateEventSourceRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "eventSource": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSource"
+    },
+    "namespace": {
+      "type": "string"
+    }
+  }
+}

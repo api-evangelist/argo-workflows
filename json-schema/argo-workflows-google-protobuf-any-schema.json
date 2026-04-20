@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-google-protobuf-any-schema.json",
+  "title": "google.protobuf.Any",
+  "description": "google.protobuf.Any schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "type_url": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string",
+      "format": "byte"
+    }
+  }
+}

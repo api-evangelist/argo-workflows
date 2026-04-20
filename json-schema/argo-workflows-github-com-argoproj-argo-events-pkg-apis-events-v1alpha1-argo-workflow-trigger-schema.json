@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-argo-workflow-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArgoWorkflowTrigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArgoWorkflowTrigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "args": {
+      "type": "array",
+      "title": "Args is the list of arguments to pass to the argo CLI",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operation": {
+      "type": "string",
+      "title": "Operation refers to the type of operation performed on the argo workflow resource.\nDefault value is Submit.\n+optional"
+    },
+    "parameters": {
+      "type": "array",
+      "title": "Parameters is the list of parameters to pass to resolved Argo Workflow object",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "source": {
+      "title": "Source of the K8s resource file(s)",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArtifactLocation"
+    }
+  }
+}

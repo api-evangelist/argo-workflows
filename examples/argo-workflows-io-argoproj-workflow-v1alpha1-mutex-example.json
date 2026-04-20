@@ -1,0 +1,5 @@
+{
+  "database": true,
+  "name": "my-workflow",
+  "namespace": "my-workflow"
+}

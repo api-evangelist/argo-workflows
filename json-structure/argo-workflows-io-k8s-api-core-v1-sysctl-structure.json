@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-sysctl-structure.json",
+  "name": "io.k8s.api.core.v1.Sysctl",
+  "description": "Sysctl defines a kernel parameter to be set",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of a property to set",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value of a property to set",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

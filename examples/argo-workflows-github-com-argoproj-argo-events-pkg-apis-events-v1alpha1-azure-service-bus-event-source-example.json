@@ -1,0 +1,12 @@
+{
+  "connectionString": "example-connectionstrin",
+  "deferDelete": true,
+  "filter": "example-filter",
+  "fullyQualifiedNamespace": "my-workflow",
+  "jsonBody": true,
+  "metadata": {},
+  "queueName": "my-workflow",
+  "subscriptionName": "my-workflow",
+  "tls": "example-tls",
+  "topicName": "my-workflow"
+}

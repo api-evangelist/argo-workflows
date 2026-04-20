@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-sasl-config-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "mechanism": {
+      "type": "string",
+      "name": "SASLMechanism is the name of the enabled SASL mechanism.\nPossible values: OAUTHBEARER, PLAIN (defaults to PLAIN).\n+optional"
+    },
+    "passwordSecret": {
+      "name": "Password for SASL/PLAIN authentication",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "userSecret": {
+      "name": "User is the authentication identity (authcid) to present for\nSASL/PLAIN or SASL/SCRAM authentication",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

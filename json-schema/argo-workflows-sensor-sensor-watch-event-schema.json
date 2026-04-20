@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-sensor-sensor-watch-event-schema.json",
+  "title": "sensor.SensorWatchEvent",
+  "description": "sensor.SensorWatchEvent schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "object": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

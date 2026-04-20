@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-apimachinery-pkg-util-intstr-int-or-string-structure.json",
+  "name": "io.k8s.apimachinery.pkg.util.intstr.IntOrString",
+  "description": "io.k8s.apimachinery.pkg.util.intstr.IntOrString schema from Argo Workflows API",
+  "type": "string"
+}

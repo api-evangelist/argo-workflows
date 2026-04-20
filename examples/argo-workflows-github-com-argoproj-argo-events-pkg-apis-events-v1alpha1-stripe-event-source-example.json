@@ -1,0 +1,10 @@
+{
+  "apiKey": "example-apikey",
+  "createWebhook": true,
+  "eventFilter": [
+    "example-eventfilter",
+    "example-eventfilter"
+  ],
+  "metadata": {},
+  "webhook": "example-webhook"
+}

@@ -1,0 +1,16 @@
+{
+  "accessModes": [
+    "example-accessmodes",
+    "example-accessmodes"
+  ],
+  "allocatedResourceStatuses": {},
+  "allocatedResources": {},
+  "capacity": {},
+  "conditions": [
+    "example-conditions",
+    "example-conditions"
+  ],
+  "currentVolumeAttributesClassName": "my-workflow",
+  "modifyVolumeStatus": "Running",
+  "phase": "Running"
+}

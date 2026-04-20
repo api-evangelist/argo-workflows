@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-azure-events-hub-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventsHubEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventsHubEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "fqdn": {
+      "type": "string",
+      "title": "FQDN of the EventHubs namespace you created\nMore info at https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string"
+    },
+    "hubName": {
+      "type": "string",
+      "title": "Event Hub path/name"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "sharedAccessKey": {
+      "title": "SharedAccessKey is the generated value of the key. If both this field and SharedAccessKeyName are not provided\nit will try to access via Azure AD with DefaultAzureCredential, FQDN and HubName.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "sharedAccessKeyName": {
+      "title": "SharedAccessKeyName is the name you chose for your application's SAS keys. If both this field and SharedAccessKey are not provided\nit will try to access via Azure AD with DefaultAzureCredential, FQDN and HubName.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

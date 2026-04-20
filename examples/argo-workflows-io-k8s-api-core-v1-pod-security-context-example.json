@@ -1,0 +1,21 @@
+{
+  "appArmorProfile": "example-apparmorprofile",
+  "fsGroup": 81,
+  "fsGroupChangePolicy": "example-fsgroupchangepo",
+  "runAsGroup": 83,
+  "runAsNonRoot": true,
+  "runAsUser": 58,
+  "seLinuxChangePolicy": "example-selinuxchangepo",
+  "seLinuxOptions": "example-selinuxoptions",
+  "seccompProfile": "example-seccompprofile",
+  "supplementalGroups": [
+    84,
+    60
+  ],
+  "supplementalGroupsPolicy": "example-supplementalgro",
+  "sysctls": [
+    "example-sysctls",
+    "example-sysctls"
+  ],
+  "windowsOptions": "example-windowsoptions"
+}

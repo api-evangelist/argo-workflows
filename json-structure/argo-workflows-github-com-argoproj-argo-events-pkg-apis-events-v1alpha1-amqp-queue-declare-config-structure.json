@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-amqp-queue-declare-config-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueDeclareConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueDeclareConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "arguments": {
+      "type": "string",
+      "name": "Arguments of a queue (also known as \"x-arguments\") used for optional features and plugins\n+optional"
+    },
+    "autoDelete": {
+      "type": "boolean",
+      "name": "AutoDelete removes the queue when no consumers are active\n+optional"
+    },
+    "durable": {
+      "type": "boolean",
+      "name": "Durable keeps the queue also after the server restarts\n+optional"
+    },
+    "exclusive": {
+      "type": "boolean",
+      "name": "Exclusive sets the queues to be accessible only by the connection that declares them and will be\ndeleted wgen the connection closes\n+optional"
+    },
+    "name": {
+      "type": "string",
+      "name": "Name of the queue. If empty the server auto-generates a unique name for this queue\n+optional"
+    },
+    "noWait": {
+      "type": "boolean",
+      "name": "NowWait when true, the queue assumes to be declared on the server\n+optional"
+    }
+  }
+}

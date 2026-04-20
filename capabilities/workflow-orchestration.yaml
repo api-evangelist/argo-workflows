@@ -1,0 +1,152 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Argo Workflows Orchestration"
+  description: "Unified capability for container-native workflow orchestration on Kubernetes using Argo Workflows. Combines workflow lifecycle management, template reuse, cron scheduling, and workflow history for Data Engineers and Platform Engineers."
+  tags:
+    - Argo Workflows
+    - Kubernetes
+    - Workflow Engine
+    - CNCF
+    - Data Engineering
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      ARGO_TOKEN: ARGO_TOKEN
+      ARGO_SERVER: ARGO_SERVER
+
+capability:
+  consumes:
+    - import: argoworkflows
+      location: ./shared/argo-workflows-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8081
+      namespace: workflow-orchestration-api
+      description: "Unified REST API for Kubernetes workflow orchestration."
+      resources:
+        - path: /v1/workflows/{namespace}
+          name: workflows
+          description: "Workflow lifecycle management"
+          operations:
+            - method: GET
+              name: list-workflows
+              description: "List all workflows in a namespace"
+              call: "argoworkflows.list-workflows"
+              with:
+                namespace: "rest.namespace"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-workflow
+              description: "Submit a new workflow"
+              call: "argoworkflows.create-workflow"
+              with:
+                namespace: "rest.namespace"
+                workflow: "rest.workflow"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/workflow-templates/{namespace}
+          name: workflow-templates
+          description: "Reusable workflow templates"
+          operations:
+            - method: GET
+              name: list-workflow-templates
+              description: "List all workflow templates"
+              call: "argoworkflows.list-workflow-templates"
+              with:
+                namespace: "rest.namespace"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/cron-workflows/{namespace}
+          name: cron-workflows
+          description: "Scheduled cron workflows"
+          operations:
+            - method: GET
+              name: list-cron-workflows
+              description: "List all cron workflows"
+              call: "argoworkflows.list-cron-workflows"
+              with:
+                namespace: "rest.namespace"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/archived-workflows
+          name: archived-workflows
+          description: "Workflow execution history"
+          operations:
+            - method: GET
+              name: list-archived-workflows
+              description: "List archived workflow runs"
+              call: "argoworkflows.list-archived-workflows"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9091
+      namespace: workflow-orchestration-mcp
+      transport: http
+      description: "MCP server for AI-assisted workflow orchestration with Argo Workflows."
+      tools:
+        - name: list-workflows
+          description: "List all Argo Workflows in a Kubernetes namespace with status"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "argoworkflows.list-workflows"
+          with:
+            namespace: "tools.namespace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-workflow
+          description: "Submit a new Argo Workflow to a Kubernetes namespace"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "argoworkflows.create-workflow"
+          with:
+            namespace: "tools.namespace"
+            workflow: "tools.workflow"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-workflow-templates
+          description: "List reusable workflow templates in a namespace"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "argoworkflows.list-workflow-templates"
+          with:
+            namespace: "tools.namespace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-cron-workflows
+          description: "List scheduled cron workflows in a namespace"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "argoworkflows.list-cron-workflows"
+          with:
+            namespace: "tools.namespace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-archived-workflows
+          description: "List historical archived workflow executions"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "argoworkflows.list-archived-workflows"
+          outputParameters:
+            - type: object
+              mapping: "$."

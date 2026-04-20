@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-email-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmailTrigger",
+  "description": "EmailTrigger refers to the specification of the email notification trigger.",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "string",
+      "name": "Body refers to the body/content of the email send.\n+optional"
+    },
+    "from": {
+      "type": "string",
+      "name": "From refers to the address from which the email is send from.\n+optional"
+    },
+    "host": {
+      "description": "Host refers to the smtp host url to which email is send.",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "array",
+      "name": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "port": {
+      "type": "int32",
+      "name": "Port refers to the smtp server port to which email is send.\nDefaults to 0.\n+optional"
+    },
+    "smtpPassword": {
+      "name": "SMTPPassword refers to the Kubernetes secret that holds the smtp password used to connect to smtp server.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "subject": {
+      "type": "string",
+      "name": "Subject refers to the subject line for the email send.\n+optional"
+    },
+    "to": {
+      "type": "array",
+      "name": "To refers to the email addresses to which the emails are send.\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "username": {
+      "type": "string",
+      "name": "Username refers to the username used to connect to the smtp server.\n+optional"
+    }
+  }
+}

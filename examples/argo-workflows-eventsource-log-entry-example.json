@@ -1,0 +1,9 @@
+{
+  "eventName": "my-workflow",
+  "eventSourceName": "my-workflow",
+  "eventSourceType": "example-eventsourcetype",
+  "level": "example-level",
+  "msg": "example-msg",
+  "namespace": "my-workflow",
+  "time": "example-time"
+}

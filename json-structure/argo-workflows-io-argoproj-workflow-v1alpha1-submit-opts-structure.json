@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-submit-opts-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.SubmitOpts",
+  "description": "SubmitOpts are workflow submission options",
+  "type": "object",
+  "properties": {
+    "annotations": {
+      "description": "Annotations adds to metadata.labels",
+      "type": "string"
+    },
+    "dryRun": {
+      "description": "DryRun validates the workflow on the client-side without creating it. This option is not supported in API",
+      "type": "boolean"
+    },
+    "entryPoint": {
+      "description": "Entrypoint overrides spec.entrypoint",
+      "type": "string"
+    },
+    "generateName": {
+      "description": "GenerateName overrides metadata.generateName",
+      "type": "string"
+    },
+    "labels": {
+      "description": "Labels adds to metadata.labels",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name overrides metadata.name",
+      "type": "string"
+    },
+    "ownerReference": {
+      "description": "OwnerReference creates a metadata.ownerReference",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference"
+    },
+    "parameters": {
+      "description": "Parameters passes input parameters to workflow",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "podPriorityClassName": {
+      "description": "Set the podPriorityClassName of the workflow",
+      "type": "string"
+    },
+    "priority": {
+      "description": "Priority is used if controller is configured to process limited number of workflows in parallel, higher priority workflows are processed first.",
+      "type": "int32"
+    },
+    "serverDryRun": {
+      "description": "ServerDryRun validates the workflow on the server-side without creating it",
+      "type": "boolean"
+    },
+    "serviceAccount": {
+      "description": "ServiceAccount runs all pods in the workflow using specified ServiceAccount.",
+      "type": "string"
+    }
+  }
+}

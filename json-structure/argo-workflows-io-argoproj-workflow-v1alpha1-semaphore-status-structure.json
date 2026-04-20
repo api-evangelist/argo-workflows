@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-semaphore-status-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.SemaphoreStatus",
+  "description": "io.argoproj.workflow.v1alpha1.SemaphoreStatus schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "holding": {
+      "description": "Holding stores the list of resource acquired synchronization lock for workflows.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.SemaphoreHolding"
+      }
+    },
+    "waiting": {
+      "description": "Waiting indicates the list of current synchronization lock holders.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.SemaphoreHolding"
+      }
+    }
+  }
+}

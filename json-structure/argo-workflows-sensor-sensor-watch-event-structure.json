@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-sensor-sensor-watch-event-structure.json",
+  "name": "sensor.SensorWatchEvent",
+  "description": "sensor.SensorWatchEvent schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "object": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

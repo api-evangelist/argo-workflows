@@ -1,0 +1,162 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Argo Workflows"
+  description: "Vocabulary for the Argo Workflows container-native workflow engine for Kubernetes."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: argoworkflows
+      version: "3.6.0"
+      baseUrl: "/api/v1"
+      status: active
+      description: "Argo Workflows REST API"
+
+  resources:
+    - name: workflows
+      api: argoworkflows
+      actions: [list, get, create, delete, stop, retry, resubmit, watch]
+      description: "Workflow instances running on Kubernetes"
+    - name: workflow-templates
+      api: argoworkflows
+      actions: [list, get, create, update, delete, lint]
+      description: "Reusable workflow template definitions"
+    - name: cluster-workflow-templates
+      api: argoworkflows
+      actions: [list, get, create, update, delete]
+      description: "Cluster-scoped reusable workflow templates"
+    - name: cron-workflows
+      api: argoworkflows
+      actions: [list, get, create, update, delete, suspend, resume]
+      description: "Scheduled workflow definitions"
+    - name: archived-workflows
+      api: argoworkflows
+      actions: [list, get, delete, resubmit]
+      description: "Historical workflow execution records"
+    - name: events
+      api: argoworkflows
+      actions: [list, send]
+      description: "Kubernetes events and workflow event triggers"
+    - name: info
+      api: argoworkflows
+      actions: [get]
+      description: "Server information and version"
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: update
+      httpMethod: PUT
+      pattern: write
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+    - name: stop
+      httpMethod: PUT
+      pattern: write
+    - name: retry
+      httpMethod: PUT
+      pattern: write
+    - name: resubmit
+      httpMethod: PUT
+      pattern: write
+    - name: suspend
+      httpMethod: PUT
+      pattern: write
+    - name: resume
+      httpMethod: PUT
+      pattern: write
+
+  schemas:
+    core:
+      - name: Workflow
+        description: "An Argo Workflow instance"
+      - name: WorkflowSpec
+        description: "Workflow specification with templates and entry point"
+      - name: WorkflowStatus
+        description: "Current workflow execution status and node results"
+      - name: Template
+        description: "A workflow template step (container, DAG, steps, etc.)"
+      - name: WorkflowTemplate
+        description: "A reusable workflow template stored in the cluster"
+      - name: CronWorkflow
+        description: "A scheduled cron workflow"
+      - name: Arguments
+        description: "Parameters and artifacts passed to workflows"
+
+  authentication:
+    schemes:
+      - type: bearer
+        description: "JWT bearer token from service account or login"
+        header: Authorization
+        format: "Bearer <token>"
+
+capability:
+  workflows:
+    - name: Workflow Orchestration
+      file: capabilities/workflow-orchestration.yaml
+      description: "End-to-end container-native workflow orchestration combining lifecycle management, templates, scheduling, and history"
+      apisCombined: [argoworkflows]
+      toolCount: 5
+      personas: [Data Engineer, Platform Engineer]
+      domains: [Workflow Orchestration, Data Processing, Kubernetes]
+
+  personas:
+    - id: data-engineer
+      name: Data Engineer
+      description: "Runs ML training, data processing, and ETL workflows on Kubernetes"
+      workflows: [Workflow Orchestration]
+    - id: platform-engineer
+      name: Platform Engineer
+      description: "Manages Argo Workflows platform, templates, and scheduling"
+      workflows: [Workflow Orchestration]
+
+  domains:
+    - name: Workflow Orchestration
+      description: "Container-native workflow execution and lifecycle management"
+    - name: Data Processing
+      description: "Parallel data transformation, ML training, and ETL"
+    - name: Kubernetes
+      description: "Container orchestration platform"
+
+  namespaces:
+    - name: argoworkflows
+      type: consumed
+      source: shared/argo-workflows-api.yaml
+    - name: workflow-orchestration-api
+      type: rest-exposed
+      port: 8081
+    - name: workflow-orchestration-mcp
+      type: mcp-exposed
+      port: 9091
+
+  binds:
+    - name: ARGO_TOKEN
+      description: "JWT token for Argo Workflows authentication"
+      workflows: [Workflow Orchestration]
+    - name: ARGO_SERVER
+      description: "Argo Workflows server URL"
+      workflows: [Workflow Orchestration]
+
+crossReference:
+  - resource: workflows
+    operations: [list, get, create, delete, retry]
+    workflows: [Workflow Orchestration]
+    personas: [Data Engineer, Platform Engineer]
+  - resource: workflow-templates
+    operations: [list, get, create]
+    workflows: [Workflow Orchestration]
+    personas: [Platform Engineer]
+  - resource: cron-workflows
+    operations: [list, get, create]
+    workflows: [Workflow Orchestration]
+    personas: [Platform Engineer]

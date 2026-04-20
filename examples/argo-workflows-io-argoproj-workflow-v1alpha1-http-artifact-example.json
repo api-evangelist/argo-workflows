@@ -1,0 +1,8 @@
+{
+  "auth": "example-auth",
+  "headers": [
+    "example-headers",
+    "example-headers"
+  ],
+  "url": "example-url"
+}

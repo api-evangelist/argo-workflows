@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-condition-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Condition",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Condition schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "lastTransitionTime": {
+      "name": "Last time the condition transitioned from one status to another.\n+optional",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "message": {
+      "type": "string",
+      "name": "Human-readable message indicating details about last transition.\n+optional"
+    },
+    "reason": {
+      "type": "string",
+      "name": "Unique, this should be a short, machine understandable string that gives the reason\nfor condition's last transition. For example, \"ImageNotFound\"\n+optional"
+    },
+    "status": {
+      "type": "string",
+      "name": "Condition status, True, False or Unknown.\n+required"
+    },
+    "type": {
+      "type": "string",
+      "name": "Condition type.\n+required"
+    }
+  }
+}

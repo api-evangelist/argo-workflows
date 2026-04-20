@@ -1,0 +1,13 @@
+{
+  "body": "example-body",
+  "bodyFrom": "example-bodyfrom",
+  "headers": [
+    "example-headers",
+    "example-headers"
+  ],
+  "insecureSkipVerify": true,
+  "method": "example-method",
+  "successCondition": "example-successconditio",
+  "timeoutSeconds": 1718153645993,
+  "url": "example-url"
+}

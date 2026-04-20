@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-resource-filter-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceFilter",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceFilter schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "afterStart": {
+      "type": "boolean",
+      "name": "If the resource is created after the start time then the event is treated as valid.\n+optional"
+    },
+    "createdBy": {
+      "name": "If resource is created before the specified time then the event is treated as valid.\n+optional",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "fields": {
+      "type": "array",
+      "name": "Fields provide field filters similar to K8s field selector\n(see https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors/).\nUnlike K8s field selector, it supports arbitrary fileds like \"spec.serviceAccountName\",\nand the value could be a string or a regex.\nSame as K8s field selector, operator \"=\", \"==\" and \"!=\" are supported.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Selector"
+      }
+    },
+    "labels": {
+      "type": "array",
+      "name": "Labels provide listing options to K8s API to watch resource/s.\nRefer https://kubernetes.io/docs/concepts/overview/working-with-objects/label-selectors/ for more io.argoproj.workflow.v1alpha1.\nUnlike K8s field selector, multiple values are passed as comma separated values instead of list of values.\nEg: value: value1,value2.\nSame as K8s label selector, operator \"=\", \"==\", \"!=\", \"exists\", \"!\", \"notin\", \"in\", \"gt\" and \"lt\"\nare supported\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Selector"
+      }
+    },
+    "prefix": {
+      "type": "string",
+      "name": "Prefix filter is applied on the resource name.\n+optional"
+    }
+  }
+}

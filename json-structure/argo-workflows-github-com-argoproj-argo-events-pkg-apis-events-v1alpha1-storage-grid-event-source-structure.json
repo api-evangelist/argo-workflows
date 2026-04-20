@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-storage-grid-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "apiURL": {
+      "description": "APIURL is the url of the storagegrid api.",
+      "type": "string"
+    },
+    "authToken": {
+      "name": "Auth token for storagegrid api",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "bucket": {
+      "description": "Name of the bucket to register notifications for.",
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "description": "Filter on object key which caused the notification.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridFilter"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "region": {
+      "type": "string",
+      "name": "S3 region.\nDefaults to us-east-1\n+optional"
+    },
+    "tls": {
+      "name": "TLS configuration for the service bus client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topicArn": {
+      "type": "string",
+      "name": "TopicArn"
+    },
+    "webhook": {
+      "name": "Webhook holds configuration for a REST endpoint",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    }
+  }
+}

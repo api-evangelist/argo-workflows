@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-nats-auth-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSAuth",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSAuth schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "basic": {
+      "name": "Baisc auth with username and password\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BasicAuth"
+    },
+    "credential": {
+      "name": "credential used to connect\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "nkey": {
+      "name": "NKey used to connect\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "token": {
+      "name": "Token used to connect\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

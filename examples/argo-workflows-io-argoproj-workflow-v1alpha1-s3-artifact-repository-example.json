@@ -1,0 +1,16 @@
+{
+  "accessKeySecret": "example-accesskeysecret",
+  "bucket": "example-bucket",
+  "caSecret": "example-casecret",
+  "createBucketIfNotPresent": "example-createbucketifn",
+  "encryptionOptions": "example-encryptionoptio",
+  "endpoint": "example-endpoint",
+  "insecure": true,
+  "keyFormat": "example-keyformat",
+  "keyPrefix": "example-keyprefix",
+  "region": "example-region",
+  "roleARN": "example-rolearn",
+  "secretKeySecret": "example-secretkeysecret",
+  "sessionTokenSecret": "example-sessiontokensec",
+  "useSDKCreds": true
+}

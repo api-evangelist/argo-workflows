@@ -1,0 +1,4 @@
+{
+  "cron": "example-cron",
+  "timezone": "example-timezone"
+}

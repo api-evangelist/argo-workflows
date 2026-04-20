@@ -1,0 +1,5 @@
+{
+  "containerName": "my-workflow",
+  "divisor": "example-divisor",
+  "resource": "example-resource"
+}

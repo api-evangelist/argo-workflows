@@ -1,0 +1,3 @@
+{
+  "nodeAntiAffinity": "worker-node-1"
+}

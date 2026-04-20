@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-k8s-api-core-v1-pod-dns-config-option-schema.json",
+  "title": "io.k8s.api.core.v1.PodDNSConfigOption",
+  "description": "PodDNSConfigOption defines DNS resolver options of a pod.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name is this DNS resolver option's name. Required.",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value is this DNS resolver option's value.",
+      "type": "string"
+    }
+  }
+}

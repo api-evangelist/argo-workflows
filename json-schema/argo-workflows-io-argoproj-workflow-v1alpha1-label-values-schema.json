@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-label-values-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.LabelValues",
+  "description": "LabelValues is a list of workflow labels.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

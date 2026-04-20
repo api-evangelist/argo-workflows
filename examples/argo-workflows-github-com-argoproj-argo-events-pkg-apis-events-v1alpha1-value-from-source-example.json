@@ -1,0 +1,4 @@
+{
+  "configMapKeyRef": "example-configmapkeyref",
+  "secretKeyRef": "example-secretkeyref"
+}

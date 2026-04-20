@@ -1,0 +1,5 @@
+{
+  "fsType": "example-fstype",
+  "readOnly": true,
+  "volumeID": "wf-abc123"
+}

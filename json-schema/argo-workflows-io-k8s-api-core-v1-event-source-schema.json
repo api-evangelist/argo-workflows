@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-k8s-api-core-v1-event-source-schema.json",
+  "title": "io.k8s.api.core.v1.EventSource",
+  "description": "EventSource contains information for an event.",
+  "type": "object",
+  "properties": {
+    "component": {
+      "description": "Component from which the event is generated.",
+      "type": "string"
+    },
+    "host": {
+      "description": "Node name on which the event is generated.",
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-mutex-status-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.MutexStatus",
+  "description": "MutexStatus contains which objects hold  mutex locks, and which objects this workflow is waiting on to release locks.",
+  "type": "object",
+  "properties": {
+    "holding": {
+      "description": "Holding is a list of mutexes and their respective objects that are held by mutex lock for this io.argoproj.workflow.v1alpha1.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.MutexHolding"
+      },
+      "x-kubernetes-list-type": "atomic"
+    },
+    "waiting": {
+      "description": "Waiting is a list of mutexes and their respective objects this workflow is waiting for.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.MutexHolding"
+      },
+      "x-kubernetes-list-type": "atomic"
+    }
+  }
+}

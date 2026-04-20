@@ -1,0 +1,10 @@
+{
+  "dependencyName": "my-workflow",
+  "eventContext": "example-eventcontext",
+  "level": "example-level",
+  "msg": "example-msg",
+  "namespace": "my-workflow",
+  "sensorName": "my-workflow",
+  "time": "example-time",
+  "triggerName": "my-workflow"
+}

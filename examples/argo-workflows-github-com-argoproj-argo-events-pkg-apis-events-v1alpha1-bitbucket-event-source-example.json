@@ -1,0 +1,18 @@
+{
+  "auth": "example-auth",
+  "deleteHookOnFinish": true,
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "metadata": {},
+  "owner": "example-owner",
+  "projectKey": "example-projectkey",
+  "repositories": [
+    "example-repositories",
+    "example-repositories"
+  ],
+  "repositorySlug": "example-repositoryslug",
+  "webhook": "example-webhook"
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-sns-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SNSEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SNSEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessKey": {
+      "title": "AccessKey refers K8s secret containing aws access key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "endpoint": {
+      "type": "string",
+      "title": "Endpoint configures connection to a specific SNS endpoint instead of Amazons servers\n+optional"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "region": {
+      "type": "string",
+      "title": "Region is AWS region"
+    },
+    "roleARN": {
+      "type": "string",
+      "title": "RoleARN is the Amazon Resource Name (ARN) of the role to assume.\n+optional"
+    },
+    "secretKey": {
+      "title": "SecretKey refers K8s secret containing aws secret key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "topicArn": {
+      "type": "string",
+      "title": "TopicArn"
+    },
+    "validateSignature": {
+      "type": "boolean",
+      "title": "ValidateSignature is boolean that can be set to true for SNS signature verification\n+optional"
+    },
+    "webhook": {
+      "title": "Webhook configuration for http server",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    }
+  }
+}

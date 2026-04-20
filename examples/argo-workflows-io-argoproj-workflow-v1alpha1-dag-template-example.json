@@ -1,0 +1,8 @@
+{
+  "failFast": true,
+  "target": "example-target",
+  "tasks": [
+    "example-tasks",
+    "example-tasks"
+  ]
+}

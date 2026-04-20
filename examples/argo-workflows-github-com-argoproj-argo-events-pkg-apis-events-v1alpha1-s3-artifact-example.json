@@ -1,0 +1,15 @@
+{
+  "accessKey": "example-accesskey",
+  "bucket": "example-bucket",
+  "caCertificate": "example-cacertificate",
+  "endpoint": "example-endpoint",
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "insecure": true,
+  "metadata": {},
+  "region": "example-region",
+  "secretKey": "example-secretkey"
+}

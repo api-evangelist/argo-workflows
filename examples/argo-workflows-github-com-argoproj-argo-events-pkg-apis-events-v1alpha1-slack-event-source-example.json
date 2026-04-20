@@ -1,0 +1,7 @@
+{
+  "filter": "example-filter",
+  "metadata": {},
+  "signingSecret": "example-signingsecret",
+  "token": "example-token",
+  "webhook": "example-webhook"
+}

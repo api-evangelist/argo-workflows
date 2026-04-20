@@ -1,0 +1,15 @@
+{
+  "apiURL": "example-apiurl",
+  "authToken": "example-authtoken",
+  "bucket": "example-bucket",
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "metadata": {},
+  "region": "example-region",
+  "tls": "example-tls",
+  "topicArn": "example-topicarn",
+  "webhook": "example-webhook"
+}

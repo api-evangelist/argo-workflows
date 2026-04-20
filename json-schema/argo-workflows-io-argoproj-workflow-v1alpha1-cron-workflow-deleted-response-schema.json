@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-cron-workflow-deleted-response-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.CronWorkflowDeletedResponse",
+  "description": "io.argoproj.workflow.v1alpha1.CronWorkflowDeletedResponse schema from Argo Workflows API",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "accessKey": "example-accesskey",
+  "endpoint": "example-endpoint",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "queue": "example-queue",
+  "secretKey": "example-secretkey"
+}

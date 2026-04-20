@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-pulsar-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarTrigger",
+  "description": "PulsarTrigger refers to the specification of the Pulsar trigger.",
+  "type": "object",
+  "properties": {
+    "authAthenzParams": {
+      "type": "object",
+      "name": "Authentication athenz parameters for the pulsar client.\nRefer https://github.com/apache/pulsar-client-go/blob/master/pulsar/auth/athenz.go\nEither token or athenz can be set to use auth.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "authAthenzSecret": {
+      "name": "Authentication athenz privateKey secret for the pulsar client.\nAuthAthenzSecret must be set if AuthAthenzParams is used.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "authTokenSecret": {
+      "name": "Authentication token for the pulsar client.\nEither token or athenz can be set to use auth.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "connectionBackoff": {
+      "name": "Backoff holds parameters applied to connection.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "parameters": {
+      "description": "Parameters is the list of parameters that is applied to resolved Kafka trigger object.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "tls": {
+      "name": "TLS configuration for the pulsar client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "tlsAllowInsecureConnection": {
+      "type": "boolean",
+      "name": "Whether the Pulsar client accept untrusted TLS certificate from broker.\n+optional"
+    },
+    "tlsTrustCertsSecret": {
+      "name": "Trusted TLS certificate secret.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "tlsValidateHostname": {
+      "type": "boolean",
+      "name": "Whether the Pulsar client verify the validity of the host name from broker.\n+optional"
+    },
+    "topic": {
+      "type": "string",
+      "name": "Name of the topic.\nSee https://pulsar.apache.org/docs/en/concepts-messaging/"
+    },
+    "url": {
+      "type": "string",
+      "name": "Configure the service URL for the Pulsar service.\n+required"
+    }
+  }
+}

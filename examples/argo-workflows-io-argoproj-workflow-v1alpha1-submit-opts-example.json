@@ -1,0 +1,17 @@
+{
+  "annotations": "example-annotations",
+  "dryRun": true,
+  "entryPoint": "example-entrypoint",
+  "generateName": "my-workflow",
+  "labels": "example-labels",
+  "name": "my-workflow",
+  "ownerReference": "example-ownerreference",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "podPriorityClassName": "my-workflow",
+  "priority": 69,
+  "serverDryRun": true,
+  "serviceAccount": "example-serviceaccount"
+}

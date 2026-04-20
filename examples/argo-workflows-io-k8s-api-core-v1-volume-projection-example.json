@@ -1,0 +1,8 @@
+{
+  "clusterTrustBundle": "example-clustertrustbun",
+  "configMap": "example-configmap",
+  "downwardAPI": "example-downwardapi",
+  "podCertificate": "example-podcertificate",
+  "secret": "example-secret",
+  "serviceAccountToken": "example-serviceaccountt"
+}

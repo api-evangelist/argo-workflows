@@ -1,0 +1,7 @@
+{
+  "eventType": "example-eventtype",
+  "filter": "example-filter",
+  "metadata": {},
+  "polling": true,
+  "watchPathConfig": "example-watchpathconfig"
+}

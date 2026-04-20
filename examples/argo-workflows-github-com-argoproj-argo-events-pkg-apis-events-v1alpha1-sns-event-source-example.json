@@ -1,0 +1,12 @@
+{
+  "accessKey": "example-accesskey",
+  "endpoint": "example-endpoint",
+  "filter": "example-filter",
+  "metadata": {},
+  "region": "example-region",
+  "roleARN": "example-rolearn",
+  "secretKey": "example-secretkey",
+  "topicArn": "example-topicarn",
+  "validateSignature": true,
+  "webhook": "example-webhook"
+}

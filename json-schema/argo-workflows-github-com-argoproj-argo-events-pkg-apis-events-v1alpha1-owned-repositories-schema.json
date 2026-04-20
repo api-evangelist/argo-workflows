@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-owned-repositories-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OwnedRepositories",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OwnedRepositories schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "names": {
+      "type": "array",
+      "title": "Repository names",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string",
+      "title": "Organization or user name"
+    }
+  }
+}

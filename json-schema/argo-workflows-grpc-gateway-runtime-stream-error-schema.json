@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-grpc-gateway-runtime-stream-error-schema.json",
+  "title": "grpc.gateway.runtime.StreamError",
+  "description": "grpc.gateway.runtime.StreamError schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "details": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/google.protobuf.Any"
+      }
+    },
+    "grpc_code": {
+      "type": "integer"
+    },
+    "http_code": {
+      "type": "integer"
+    },
+    "http_status": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "labelSelector": "example-labelselector",
+  "matchLabelKeys": [
+    "example-matchlabelkeys",
+    "example-matchlabelkeys"
+  ],
+  "mismatchLabelKeys": [
+    "example-mismatchlabelke",
+    "example-mismatchlabelke"
+  ],
+  "namespaceSelector": "my-workflow",
+  "namespaces": [
+    "my-workflow",
+    "my-workflow"
+  ],
+  "topologyKey": "example-topologykey"
+}

@@ -1,0 +1,16 @@
+{
+  "accessKey": "example-accesskey",
+  "functionName": "my-workflow",
+  "invocationType": "example-invocationtype",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "region": "example-region",
+  "roleARN": "example-rolearn",
+  "secretKey": "example-secretkey"
+}

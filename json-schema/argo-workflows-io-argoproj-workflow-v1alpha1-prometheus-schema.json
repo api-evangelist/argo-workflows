@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-prometheus-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Prometheus",
+  "description": "Prometheus is a prometheus metric to be emitted",
+  "type": "object",
+  "properties": {
+    "counter": {
+      "description": "Counter is a counter metric",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Counter"
+    },
+    "gauge": {
+      "description": "Gauge is a gauge metric",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Gauge"
+    },
+    "help": {
+      "description": "Help is a string that describes the metric",
+      "type": "string"
+    },
+    "histogram": {
+      "description": "Histogram is a histogram metric",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Histogram"
+    },
+    "labels": {
+      "description": "Labels is a list of metric labels",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.MetricLabel"
+      }
+    },
+    "name": {
+      "description": "Name is the name of the metric",
+      "type": "string"
+    },
+    "when": {
+      "description": "When is a conditional statement that decides when to emit the metric",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "help"
+  ]
+}

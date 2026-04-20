@@ -1,0 +1,13 @@
+{
+  "clientIDSecret": "wf-abc123",
+  "clientSecretSecret": "example-clientsecretsec",
+  "endpointParams": [
+    "value",
+    "value"
+  ],
+  "scopes": [
+    "example-scopes",
+    "example-scopes"
+  ],
+  "tokenURLSecret": "example-tokenurlsecret"
+}

@@ -1,0 +1,8 @@
+{
+  "appProtocol": "example-appprotocol",
+  "name": "my-workflow",
+  "nodePort": 76,
+  "port": 65,
+  "protocol": "example-protocol",
+  "targetPort": "example-targetport"
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-github-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "name": "Active refers to status of the webhook for event deliveries.\nhttps://developer.github.com/webhooks/creating/#active\n+optional"
+    },
+    "apiToken": {
+      "name": "APIToken refers to a K8s secret containing github api token\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "contentType": {
+      "type": "string",
+      "name": "ContentType of the event delivery"
+    },
+    "deleteHookOnFinish": {
+      "type": "boolean",
+      "name": "DeleteHookOnFinish determines whether to delete the GitHub hook for the repository once the event source is stopped.\n+optional"
+    },
+    "events": {
+      "type": "array",
+      "name": "Events refer to Github events to which the event source will subscribe",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "githubApp": {
+      "name": "GitHubApp holds the GitHub app credentials\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubAppCreds"
+    },
+    "githubBaseURL": {
+      "type": "string",
+      "name": "GitHub base URL (for GitHub Enterprise)\n+optional"
+    },
+    "githubUploadURL": {
+      "type": "string",
+      "name": "GitHub upload URL (for GitHub Enterprise)\n+optional"
+    },
+    "id": {
+      "type": "string",
+      "name": "Id is the webhook's id\nDeprecated: This is not used at all, will be removed in v1.6\n+optional"
+    },
+    "insecure": {
+      "type": "boolean",
+      "name": "Insecure tls verification"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "organizations": {
+      "description": "Organizations holds the names of organizations (used for organization level webhooks). Not required if Repositories is set.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string",
+      "name": "DeprecatedOwner refers to GitHub owner name i.e. argoproj\nDeprecated: use Repositories instead. Will be unsupported in v 1.6\n+optional"
+    },
+    "repositories": {
+      "description": "Repositories holds the information of repositories, which uses repo owner as the key,\nand list of repo names as the value. Not required if Organizations is set.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OwnedRepositories"
+      }
+    },
+    "repository": {
+      "type": "string",
+      "name": "DeprecatedRepository refers to GitHub repo name i.e. argo-events\nDeprecated: use Repositories instead. Will be unsupported in v 1.6\n+optional"
+    },
+    "webhook": {
+      "name": "Webhook refers to the configuration required to run a http server",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    },
+    "webhookSecret": {
+      "name": "WebhookSecret refers to K8s secret containing GitHub webhook secret\nhttps://developer.github.com/webhooks/securing/\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

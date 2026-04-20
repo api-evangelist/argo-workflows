@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-artifact-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Artifact",
+  "description": "Artifact indicates an artifact to place at a specified path",
+  "type": "object",
+  "properties": {
+    "archive": {
+      "description": "Archive controls how the artifact will be saved to the artifact repository.",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArchiveStrategy"
+    },
+    "archiveLogs": {
+      "description": "ArchiveLogs indicates if the container logs should be archived",
+      "type": "boolean"
+    },
+    "artifactGC": {
+      "description": "ArtifactGC describes the strategy to use when to deleting an artifact from completed or deleted workflows",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArtifactGC"
+    },
+    "artifactory": {
+      "description": "Artifactory contains artifactory artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArtifactoryArtifact"
+    },
+    "azure": {
+      "description": "Azure contains Azure Storage artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.AzureArtifact"
+    },
+    "deleted": {
+      "description": "Has this been deleted?",
+      "type": "boolean"
+    },
+    "from": {
+      "description": "From allows an artifact to reference an artifact from a previous step",
+      "type": "string"
+    },
+    "fromExpression": {
+      "description": "FromExpression, if defined, is evaluated to specify the value for the artifact",
+      "type": "string"
+    },
+    "gcs": {
+      "description": "GCS contains GCS artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.GCSArtifact"
+    },
+    "git": {
+      "description": "Git contains git artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.GitArtifact"
+    },
+    "globalName": {
+      "description": "GlobalName exports an output artifact to the global scope, making it available as '{{io.argoproj.workflow.v1alpha1.outputs.artifacts.XXXX}} and in workflow.status.outputs.artifacts",
+      "type": "string"
+    },
+    "hdfs": {
+      "description": "HDFS contains HDFS artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HDFSArtifact"
+    },
+    "http": {
+      "description": "HTTP contains HTTP artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HTTPArtifact"
+    },
+    "mode": {
+      "description": "mode bits to use on this file, must be a value between 0 and 0777. Set when loading input artifacts. It is recommended to set the mode value to ensure the artifact has the expected permissions in your container.",
+      "type": "integer"
+    },
+    "name": {
+      "description": "name of the artifact. must be unique within a template's inputs/outputs.",
+      "type": "string"
+    },
+    "optional": {
+      "description": "Make Artifacts optional, if Artifacts doesn't generate or exist",
+      "type": "boolean"
+    },
+    "oss": {
+      "description": "OSS contains OSS artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.OSSArtifact"
+    },
+    "path": {
+      "description": "Path is the container path to the artifact",
+      "type": "string"
+    },
+    "plugin": {
+      "description": "Plugin contains plugin artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.PluginArtifact"
+    },
+    "raw": {
+      "description": "Raw contains raw artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.RawArtifact"
+    },
+    "recurseMode": {
+      "description": "If mode is set, apply the permission recursively into the artifact if it is a folder",
+      "type": "boolean"
+    },
+    "s3": {
+      "description": "S3 contains S3 artifact location details",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.S3Artifact"
+    },
+    "subPath": {
+      "description": "SubPath allows an artifact to be sourced from a subpath within the specified source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

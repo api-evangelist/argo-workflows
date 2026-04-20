@@ -1,0 +1,12 @@
+{
+  "branch": "example-branch",
+  "cloneDirectory": "example-clonedirectory",
+  "creds": "example-creds",
+  "filePath": "example-filepath",
+  "insecureIgnoreHostKey": true,
+  "ref": "example-ref",
+  "remote": "example-remote",
+  "sshKeySecret": "example-sshkeysecret",
+  "tag": "example-tag",
+  "url": "example-url"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-sync-sync-limit-response-structure.json",
+  "name": "sync.SyncLimitResponse",
+  "description": "sync.SyncLimitResponse schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "cmName": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "int32"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/definitions/sync.SyncConfigType"
+    }
+  }
+}

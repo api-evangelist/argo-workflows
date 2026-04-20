@@ -1,0 +1,14 @@
+{
+  "active": [
+    "example-active",
+    "example-active"
+  ],
+  "conditions": [
+    "example-conditions",
+    "example-conditions"
+  ],
+  "failed": 11,
+  "lastScheduledTime": "example-lastscheduledti",
+  "phase": "Running",
+  "succeeded": 62
+}

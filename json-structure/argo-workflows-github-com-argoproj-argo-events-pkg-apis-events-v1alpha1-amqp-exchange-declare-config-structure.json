@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-amqp-exchange-declare-config-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPExchangeDeclareConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPExchangeDeclareConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "autoDelete": {
+      "type": "boolean",
+      "name": "AutoDelete removes the exchange when no bindings are active\n+optional"
+    },
+    "durable": {
+      "type": "boolean",
+      "name": "Durable keeps the exchange also after the server restarts\n+optional"
+    },
+    "internal": {
+      "type": "boolean",
+      "name": "Internal when true does not accept publishings\n+optional"
+    },
+    "noWait": {
+      "type": "boolean",
+      "name": "NowWait when true does not wait for a confirmation from the server\n+optional"
+    }
+  }
+}

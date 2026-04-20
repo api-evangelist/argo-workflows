@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-data-source-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.DataSource",
+  "description": "DataSource sources external data into a data template",
+  "type": "object",
+  "properties": {
+    "artifactPaths": {
+      "description": "ArtifactPaths is a data transformation that collects a list of artifact paths",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArtifactPaths"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-event-binding-spec-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec",
+  "description": "io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "event": {
+      "description": "Event is the event to bind to",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Event"
+    },
+    "submit": {
+      "description": "Submit is the workflow template to submit",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Submit"
+    }
+  },
+  "required": [
+    "event"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "add": [
+    "example-add",
+    "example-add"
+  ],
+  "drop": [
+    "example-drop",
+    "example-drop"
+  ]
+}

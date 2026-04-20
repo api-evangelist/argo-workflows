@@ -1,0 +1,8 @@
+{
+  "apiVersion": "v3.6.0",
+  "blockOwnerDeletion": true,
+  "controller": true,
+  "kind": "example-kind",
+  "name": "my-workflow",
+  "uid": "wf-abc123"
+}

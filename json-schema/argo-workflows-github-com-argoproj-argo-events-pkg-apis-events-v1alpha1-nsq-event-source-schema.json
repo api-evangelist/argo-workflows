@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-nsq-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NSQEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NSQEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "channel": {
+      "type": "string",
+      "title": "Channel used for subscription"
+    },
+    "connectionBackoff": {
+      "title": "Backoff holds parameters applied to connection.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "hostAddress": {
+      "type": "string",
+      "title": "HostAddress is the address of the host for NSQ lookup"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "title": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "tls": {
+      "title": "TLS configuration for the nsq client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topic": {
+      "description": "Topic to subscribe to.",
+      "type": "string"
+    }
+  }
+}

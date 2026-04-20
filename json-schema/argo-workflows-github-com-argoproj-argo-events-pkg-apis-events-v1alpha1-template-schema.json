@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-template-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "affinity": {
+      "title": "If specified, the pod's scheduling constraints\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.Affinity"
+    },
+    "container": {
+      "title": "Container is the main container image to run in the sensor pod\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Container"
+    },
+    "imagePullSecrets": {
+      "type": "array",
+      "title": "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec.\nIf specified, these secrets will be passed to individual puller implementations for them to use. For example,\nin the case of docker, only DockerConfig type secrets are honored.\nMore info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod\n+optional\n+patchMergeKey=name\n+patchStrategy=merge",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.LocalObjectReference"
+      }
+    },
+    "metadata": {
+      "title": "Metadata sets the pods's metadata, i.e. annotations and labels",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Metadata"
+    },
+    "nodeSelector": {
+      "type": "object",
+      "title": "NodeSelector is a selector which must be true for the pod to fit on a node.\nSelector which must match a node's labels for the pod to be scheduled on that node.\nMore info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "priority": {
+      "type": "integer",
+      "title": "The priority value. Various system components use this field to find the\npriority of the EventSource pod. When Priority Admission Controller is enabled,\nit prevents users from setting this field. The admission controller populates\nthis field from PriorityClassName.\nThe higher the value, the higher the priority.\nMore info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/\n+optional"
+    },
+    "priorityClassName": {
+      "type": "string",
+      "title": "If specified, indicates the EventSource pod's priority. \"system-node-critical\"\nand \"system-cluster-critical\" are two special keywords which indicate the\nhighest priorities with the former being the highest priority. Any other\nname must be defined by creating a PriorityClass object with that name.\nIf not specified, the pod priority will be default or zero if there is no\ndefault.\nMore info: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/\n+optional"
+    },
+    "securityContext": {
+      "title": "SecurityContext holds pod-level security attributes and common container settings.\nOptional: Defaults to empty.  See type description for default values of each field.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.PodSecurityContext"
+    },
+    "serviceAccountName": {
+      "type": "string",
+      "title": "ServiceAccountName is the name of the ServiceAccount to use to run sensor pod.\nMore info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/\n+optional"
+    },
+    "tolerations": {
+      "type": "array",
+      "title": "If specified, the pod's tolerations.\n+optional",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.Toleration"
+      }
+    },
+    "volumes": {
+      "type": "array",
+      "title": "Volumes is a list of volumes that can be mounted by containers in a io.argoproj.workflow.v1alpha1.\n+patchStrategy=merge\n+patchMergeKey=name\n+optional",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-lifecycle-hook-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.LifecycleHook",
+  "description": "io.argoproj.workflow.v1alpha1.LifecycleHook schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "arguments": {
+      "description": "Arguments hold arguments to the template",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Arguments"
+    },
+    "expression": {
+      "description": "Expression is a condition expression for when a node will be retried. If it evaluates to false, the node will not be retried and the retry strategy will be ignored",
+      "type": "string"
+    },
+    "template": {
+      "description": "Template is the name of the template to execute by the hook",
+      "type": "string"
+    },
+    "templateRef": {
+      "description": "TemplateRef is the reference to the template resource to execute by the hook",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.TemplateRef"
+    }
+  }
+}

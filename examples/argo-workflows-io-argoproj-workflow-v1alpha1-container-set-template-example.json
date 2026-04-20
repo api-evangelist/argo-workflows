@@ -1,0 +1,11 @@
+{
+  "containers": [
+    "example-containers",
+    "example-containers"
+  ],
+  "retryStrategy": "example-retrystrategy",
+  "volumeMounts": [
+    "example-volumemounts",
+    "example-volumemounts"
+  ]
+}

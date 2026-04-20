@@ -1,0 +1,9 @@
+{
+  "code": 59,
+  "details": [
+    "example-details",
+    "example-details"
+  ],
+  "error": "example-error",
+  "message": "Workflow completed successfully"
+}

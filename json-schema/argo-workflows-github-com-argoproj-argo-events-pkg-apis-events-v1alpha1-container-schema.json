@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-container-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Container",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Container schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "env": {
+      "type": "array",
+      "title": "+optional",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.EnvVar"
+      }
+    },
+    "envFrom": {
+      "type": "array",
+      "title": "+optional",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.EnvFromSource"
+      }
+    },
+    "imagePullPolicy": {
+      "type": "string",
+      "title": "+optional"
+    },
+    "resources": {
+      "title": "+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements"
+    },
+    "securityContext": {
+      "title": "+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecurityContext"
+    },
+    "volumeMounts": {
+      "type": "array",
+      "title": "+optional",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.VolumeMount"
+      }
+    }
+  }
+}

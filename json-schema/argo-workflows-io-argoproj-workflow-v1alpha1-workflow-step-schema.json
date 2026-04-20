@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-step-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.WorkflowStep",
+  "description": "WorkflowStep is a reference to a template to execute in a series of step Note: CEL validation cannot check withItems (Schemaless) or inline (PreserveUnknownFields) fields.",
+  "type": "object",
+  "properties": {
+    "arguments": {
+      "description": "Arguments hold arguments to the template",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Arguments"
+    },
+    "continueOn": {
+      "description": "ContinueOn makes argo to proceed with the following step even if this step fails. Errors and Failed states can be specified",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ContinueOn"
+    },
+    "hooks": {
+      "description": "Hooks holds the lifecycle hook which is invoked at lifecycle of step, irrespective of the success, failure, or error status of the primary step",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.LifecycleHook"
+      }
+    },
+    "inline": {
+      "description": "Inline is the template. Template must be empty if this is declared (and vice-versa). Note: This struct is defined recursively, since the inline template can potentially contain steps/DAGs that also has an \"inline\" field. Kubernetes doesn't allow recursive types, so we need \"x-kubernetes-preserve-unknown-fields: true\" in the validation schema.",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Template"
+    },
+    "name": {
+      "description": "Name of the step",
+      "type": "string"
+    },
+    "onExit": {
+      "description": "OnExit is a template reference which is invoked at the end of the template, irrespective of the success, failure, or error of the primary template.\n\nDeprecated: Use Hooks[exit].Template instead.",
+      "type": "string"
+    },
+    "template": {
+      "description": "Template is the name of the template to execute as the step",
+      "type": "string"
+    },
+    "templateRef": {
+      "description": "TemplateRef is the reference to the template resource to execute as the step.",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.TemplateRef"
+    },
+    "when": {
+      "description": "When is an expression in which the step should conditionally execute",
+      "type": "string"
+    },
+    "withItems": {
+      "description": "WithItems expands a step into multiple parallel steps from the items in the list Note: The structure of WithItems is free-form, so we need \"x-kubernetes-preserve-unknown-fields: true\" in the validation schema.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Item"
+      }
+    },
+    "withParam": {
+      "description": "WithParam expands a step into multiple parallel steps from the value in the parameter, which is expected to be a JSON list.",
+      "type": "string"
+    },
+    "withSequence": {
+      "description": "WithSequence expands a step into a numeric sequence",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Sequence"
+    }
+  }
+}

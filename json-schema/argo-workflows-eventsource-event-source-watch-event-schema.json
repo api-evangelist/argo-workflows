@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-eventsource-event-source-watch-event-schema.json",
+  "title": "eventsource.EventSourceWatchEvent",
+  "description": "eventsource.EventSourceWatchEvent schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "object": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSource"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

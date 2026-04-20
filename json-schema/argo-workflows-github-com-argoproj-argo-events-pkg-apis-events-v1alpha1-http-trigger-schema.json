@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-http-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HTTPTrigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HTTPTrigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "basicAuth": {
+      "title": "BasicAuth configuration for the http request.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BasicAuth"
+    },
+    "dynamicHeaders": {
+      "type": "array",
+      "title": "Dynamic Headers for the request, sourced from the io.argoproj.workflow.v1alpha1. Same spec as Parameters.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "headers": {
+      "type": "object",
+      "title": "Headers for the HTTP request.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "host": {
+      "type": "string",
+      "title": "Host refers to the domain name of the server (for virtual hosting).\n+optional"
+    },
+    "method": {
+      "type": "string",
+      "title": "Method refers to the type of the HTTP request.\nRefer https://golang.org/src/net/http/method.go for more io.argoproj.workflow.v1alpha1.\nDefault value is POST.\n+optional"
+    },
+    "parameters": {
+      "description": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe HTTP trigger resource.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "secureHeaders": {
+      "type": "array",
+      "title": "Secure Headers stored in Kubernetes Secrets for the HTTP requests.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SecureHeader"
+      }
+    },
+    "timeout": {
+      "type": "string",
+      "title": "Timeout refers to the HTTP request timeout in seconds.\nDefault value is 60 seconds.\n+optional"
+    },
+    "tls": {
+      "title": "TLS configuration for the HTTP client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "url": {
+      "description": "URL refers to the URL to send HTTP request to.",
+      "type": "string"
+    }
+  }
+}

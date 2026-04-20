@@ -1,0 +1,22 @@
+{
+  "affinity": "example-affinity",
+  "container": "example-container",
+  "imagePullSecrets": [
+    "python:3.11-slim",
+    "python:3.11-slim"
+  ],
+  "metadata": "example-metadata",
+  "nodeSelector": {},
+  "priority": 16,
+  "priorityClassName": "my-workflow",
+  "securityContext": "example-securitycontext",
+  "serviceAccountName": "my-workflow",
+  "tolerations": [
+    "example-tolerations",
+    "example-tolerations"
+  ],
+  "volumes": [
+    "example-volumes",
+    "example-volumes"
+  ]
+}

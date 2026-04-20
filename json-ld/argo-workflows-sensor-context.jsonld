@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sensor.DeleteSensorResponse": "argo:sensor.DeleteSensorResponse",
+    "sensor.UpdateSensorRequest": "argo:sensor.UpdateSensorRequest",
+    "sensor.LogEntry": "argo:sensor.LogEntry",
+    "sensor.SensorWatchEvent": "argo:sensor.SensorWatchEvent",
+    "sensor.CreateSensorRequest": "argo:sensor.CreateSensorRequest",
+    "name": "schema:name",
+    "namespace": {
+      "@id": "argo:namespace",
+      "@type": "xsd:string"
+    },
+    "sensor": {
+      "@id": "argo:sensor",
+      "@type": "xsd:string"
+    },
+    "dependencyName": {
+      "@id": "argo:dependencyName",
+      "@type": "xsd:string"
+    },
+    "eventContext": {
+      "@id": "argo:eventContext",
+      "@type": "xsd:string"
+    },
+    "level": {
+      "@id": "argo:level",
+      "@type": "xsd:string"
+    },
+    "msg": {
+      "@id": "argo:msg",
+      "@type": "xsd:string"
+    },
+    "sensorName": {
+      "@id": "argo:sensorName",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "argo:time",
+      "@type": "xsd:string"
+    },
+    "triggerName": {
+      "@id": "argo:triggerName",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "argo:object",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "argo:type",
+      "@type": "xsd:string"
+    },
+    "createOptions": {
+      "@id": "argo:createOptions",
+      "@type": "xsd:string"
+    }
+  }
+}

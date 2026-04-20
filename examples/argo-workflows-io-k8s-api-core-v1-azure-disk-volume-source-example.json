@@ -1,0 +1,8 @@
+{
+  "cachingMode": "example-cachingmode",
+  "diskName": "my-workflow",
+  "diskURI": "example-diskuri",
+  "fsType": "example-fstype",
+  "kind": "example-kind",
+  "readOnly": true
+}

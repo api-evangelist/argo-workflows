@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-gitlab-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitlabEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitlabEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "name": "AccessToken references to k8 secret which holds the gitlab api access information",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "deleteHookOnFinish": {
+      "type": "boolean",
+      "name": "DeleteHookOnFinish determines whether to delete the GitLab hook for the project once the event source is stopped.\n+optional"
+    },
+    "enableSSLVerification": {
+      "type": "boolean",
+      "name": "EnableSSLVerification to enable ssl verification\n+optional"
+    },
+    "events": {
+      "description": "Events are gitlab event to listen to.\nRefer https://github.com/xanzy/go-gitlab/blob/bf34eca5d13a9f4c3f501d8a97b8ac226d55e4d9/projects.go#L794.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "gitlabBaseURL": {
+      "type": "string",
+      "name": "GitlabBaseURL is the base URL for API requests to a custom endpoint"
+    },
+    "groups": {
+      "type": "array",
+      "name": "List of group IDs or group name like \"test\".\nGroup level hook available in Premium and Ultimate Gitlab.\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "projectID": {
+      "type": "string",
+      "name": "DeprecatedProjectID is the id of project for which integration needs to setup\nDeprecated: use Projects instead. Will be unsupported in v 1.7\n+optional"
+    },
+    "projects": {
+      "type": "array",
+      "name": "List of project IDs or project namespace paths like \"whynowy/test\".\nIf neither a project nor a group is defined, the EventSource will not manage webhooks.\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "secretToken": {
+      "name": "SecretToken references to k8 secret which holds the Secret Token used by webhook config",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "webhook": {
+      "name": "Webhook holds configuration to run a http server",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "mountPath": "example-mountpath",
+  "mountPropagation": "example-mountpropagatio",
+  "name": "my-workflow",
+  "readOnly": true,
+  "recursiveReadOnly": "example-recursivereadon",
+  "subPath": "example-subpath",
+  "subPathExpr": "example-subpathexpr"
+}

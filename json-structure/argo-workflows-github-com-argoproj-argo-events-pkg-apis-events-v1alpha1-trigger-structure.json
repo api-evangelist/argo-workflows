@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-trigger-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "atLeastOnce": {
+      "type": "boolean",
+      "name": "AtLeastOnce determines the trigger execution semantics.\nDefaults to false. Trigger execution will use at-most-once semantics.\nIf set to true, Trigger execution will switch to at-least-once semantics.\n+kubebuilder:default=false\n+optional"
+    },
+    "dlqTrigger": {
+      "name": "If the trigger fails, it will retry up to the configured number of\nretries. If the maximum retries are reached and the trigger is set to\nexecute atLeastOnce, the dead letter queue (DLQ) trigger will be invoked if\nspecified.  Invoking the dead letter queue trigger helps prevent data\nloss.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger"
+    },
+    "parameters": {
+      "type": "array",
+      "name": "Parameters is the list of parameters applied to the trigger template definition",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "policy": {
+      "name": "Policy to configure backoff and execution criteria for the trigger\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerPolicy"
+    },
+    "rateLimit": {
+      "name": "Rate limit, default unit is Second\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RateLimit"
+    },
+    "retryStrategy": {
+      "name": "Retry strategy, defaults to no retry\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "template": {
+      "description": "Template describes the trigger specification.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerTemplate"
+    }
+  }
+}

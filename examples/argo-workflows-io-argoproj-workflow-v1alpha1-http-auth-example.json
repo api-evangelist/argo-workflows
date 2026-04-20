@@ -1,0 +1,5 @@
+{
+  "basicAuth": "example-basicauth",
+  "clientCert": "example-clientcert",
+  "oauth2": "example-oauth2"
+}

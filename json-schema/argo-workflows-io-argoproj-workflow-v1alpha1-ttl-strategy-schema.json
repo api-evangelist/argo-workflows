@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-ttl-strategy-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.TTLStrategy",
+  "description": "TTLStrategy is the strategy for the time to live depending on if the workflow succeeded or failed",
+  "type": "object",
+  "properties": {
+    "secondsAfterCompletion": {
+      "description": "SecondsAfterCompletion is the number of seconds to live after completion",
+      "type": "integer"
+    },
+    "secondsAfterFailure": {
+      "description": "SecondsAfterFailure is the number of seconds to live after failure",
+      "type": "integer"
+    },
+    "secondsAfterSuccess": {
+      "description": "SecondsAfterSuccess is the number of seconds to live after success",
+      "type": "integer"
+    }
+  }
+}

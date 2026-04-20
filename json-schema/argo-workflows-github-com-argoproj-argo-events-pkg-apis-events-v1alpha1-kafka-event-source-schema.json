@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-kafka-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "config": {
+      "description": "Yaml format Sarama config for Kafka connection.\nIt follows the struct of sarama.Config. See https://github.com/IBM/sarama/blob/main/config.go\ne.g.\n\nconsumer:\n  fetch:\n    min: 1\nnet:\n  MaxOpenRequests: 5\n\n+optional",
+      "type": "string"
+    },
+    "connectionBackoff": {
+      "description": "Backoff holds parameters applied to connection.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "consumerGroup": {
+      "title": "Consumer group for kafka client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaConsumerGroup"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "title": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "limitEventsPerSecond": {
+      "type": "string",
+      "title": "Sets a limit on how many events get read from kafka per second.\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "partition": {
+      "type": "string",
+      "title": "Partition name\n+optional"
+    },
+    "sasl": {
+      "title": "SASL configuration for the kafka client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SASLConfig"
+    },
+    "schemaRegistry": {
+      "title": "Schema Registry configuration for consumer message with Avro format\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SchemaRegistryConfig"
+    },
+    "tls": {
+      "title": "TLS configuration for the kafka client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topic": {
+      "type": "string",
+      "title": "Topic name"
+    },
+    "url": {
+      "type": "string",
+      "title": "URL to kafka cluster, multiple URLs separated by comma"
+    },
+    "version": {
+      "type": "string",
+      "title": "Specify what kafka version is being connected to enables certain features in sarama, defaults to 1.0.0\n+optional"
+    }
+  }
+}

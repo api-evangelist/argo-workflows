@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-git-artifact-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitArtifact schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "branch": {
+      "type": "string",
+      "name": "Branch to use to pull trigger resource\n+optional"
+    },
+    "cloneDirectory": {
+      "description": "Directory to clone the repository. We clone complete directory because GitArtifact is not limited to any specific Git service providers.\nHence we don't use any specific git provider client.",
+      "type": "string"
+    },
+    "creds": {
+      "name": "Creds contain reference to git username and password\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds"
+    },
+    "filePath": {
+      "type": "string",
+      "name": "Path to file that contains trigger resource definition"
+    },
+    "insecureIgnoreHostKey": {
+      "type": "boolean",
+      "name": "Whether to ignore host key\n+optional"
+    },
+    "ref": {
+      "type": "string",
+      "name": "Ref to use to pull trigger resource. Will result in a shallow clone and\nfetch.\n+optional"
+    },
+    "remote": {
+      "name": "Remote to manage set of tracked repositories. Defaults to \"origin\".\nRefer https://git-scm.com/docs/git-remote\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig"
+    },
+    "sshKeySecret": {
+      "name": "SSHKeySecret refers to the secret that contains SSH key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "tag": {
+      "type": "string",
+      "name": "Tag to use to pull trigger resource\n+optional"
+    },
+    "url": {
+      "type": "string",
+      "name": "Git URL"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-kafka-consumer-group-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaConsumerGroup",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaConsumerGroup schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "groupName": {
+      "type": "string",
+      "name": "The name for the consumer group to use"
+    },
+    "oldest": {
+      "type": "boolean",
+      "name": "When starting up a new group do we want to start from the oldest event (true) or the newest event (false), defaults to false\n+optional"
+    },
+    "rebalanceStrategy": {
+      "type": "string",
+      "name": "Rebalance strategy can be one of: sticky, roundrobin, range. Range is the default.\n+optional"
+    }
+  }
+}

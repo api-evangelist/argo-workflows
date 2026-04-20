@@ -1,0 +1,14 @@
+{
+  "auth": "example-auth",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "subject": "example-subject",
+  "tls": "example-tls",
+  "url": "example-url"
+}

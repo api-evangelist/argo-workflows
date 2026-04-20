@@ -1,0 +1,6 @@
+{
+  "key": "example-key",
+  "optional": true,
+  "path": "example-path",
+  "volumeName": "my-workflow"
+}

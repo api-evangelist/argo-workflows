@@ -1,0 +1,5 @@
+{
+  "nodeAffinity": "worker-node-1",
+  "podAffinity": "example-podaffinity",
+  "podAntiAffinity": "example-podantiaffinity"
+}

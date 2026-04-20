@@ -1,0 +1,2809 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "io.argoproj.workflow.v1alpha1.UserContainer": "argo:io.argoproj.workflow.v1alpha1.UserContainer",
+    "io.argoproj.workflow.v1alpha1.WorkflowStatus": "argo:io.argoproj.workflow.v1alpha1.WorkflowStatus",
+    "io.argoproj.workflow.v1alpha1.Synchronization": "argo:io.argoproj.workflow.v1alpha1.Synchronization",
+    "io.k8s.api.core.v1.PodDNSConfigOption": "argo:io.k8s.api.core.v1.PodDNSConfigOption",
+    "io.argoproj.workflow.v1alpha1.Sequence": "argo:io.argoproj.workflow.v1alpha1.Sequence",
+    "io.argoproj.workflow.v1alpha1.ZipStrategy": "argo:io.argoproj.workflow.v1alpha1.ZipStrategy",
+    "io.argoproj.workflow.v1alpha1.ArtifactRepositoryRefStatus": "argo:io.argoproj.workflow.v1alpha1.ArtifactRepositoryRefStatus",
+    "io.k8s.api.core.v1.WindowsSecurityContextOptions": "argo:io.k8s.api.core.v1.WindowsSecurityContextOptions",
+    "io.k8s.api.core.v1.HostAlias": "argo:io.k8s.api.core.v1.HostAlias",
+    "io.argoproj.workflow.v1alpha1.OAuth2Auth": "argo:io.argoproj.workflow.v1alpha1.OAuth2Auth",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowSpec": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowSpec",
+    "io.argoproj.workflow.v1alpha1.SemaphoreRef": "argo:io.argoproj.workflow.v1alpha1.SemaphoreRef",
+    "io.k8s.api.core.v1.Toleration": "argo:io.k8s.api.core.v1.Toleration",
+    "io.argoproj.workflow.v1alpha1.HTTPArtifact": "argo:io.argoproj.workflow.v1alpha1.HTTPArtifact",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowList": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowList",
+    "io.k8s.api.core.v1.PodDNSConfig": "argo:io.k8s.api.core.v1.PodDNSConfig",
+    "io.argoproj.workflow.v1alpha1.WorkflowTerminateRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowTerminateRequest",
+    "io.argoproj.workflow.v1alpha1.ExecutorConfig": "argo:io.argoproj.workflow.v1alpha1.ExecutorConfig",
+    "io.argoproj.workflow.v1alpha1.S3EncryptionOptions": "argo:io.argoproj.workflow.v1alpha1.S3EncryptionOptions",
+    "io.k8s.api.core.v1.ServiceAccountTokenProjection": "argo:io.k8s.api.core.v1.ServiceAccountTokenProjection",
+    "io.k8s.api.core.v1.PersistentVolumeClaimSpec": "argo:io.k8s.api.core.v1.PersistentVolumeClaimSpec",
+    "io.argoproj.workflow.v1alpha1.ManifestFrom": "argo:io.argoproj.workflow.v1alpha1.ManifestFrom",
+    "io.k8s.api.core.v1.EventSeries": "argo:io.k8s.api.core.v1.EventSeries",
+    "io.k8s.api.core.v1.ScaleIOVolumeSource": "argo:io.k8s.api.core.v1.ScaleIOVolumeSource",
+    "io.k8s.api.core.v1.FileKeySelector": "argo:io.k8s.api.core.v1.FileKeySelector",
+    "io.argoproj.workflow.v1alpha1.PluginArtifact": "argo:io.argoproj.workflow.v1alpha1.PluginArtifact",
+    "io.k8s.api.core.v1.CephFSVolumeSource": "argo:io.k8s.api.core.v1.CephFSVolumeSource",
+    "io.k8s.api.core.v1.NodeSelectorRequirement": "argo:io.k8s.api.core.v1.NodeSelectorRequirement",
+    "io.argoproj.workflow.v1alpha1.TransformationStep": "argo:io.argoproj.workflow.v1alpha1.TransformationStep",
+    "io.argoproj.workflow.v1alpha1.OAuth2EndpointParam": "argo:io.argoproj.workflow.v1alpha1.OAuth2EndpointParam",
+    "io.k8s.api.core.v1.WeightedPodAffinityTerm": "argo:io.k8s.api.core.v1.WeightedPodAffinityTerm",
+    "io.argoproj.workflow.v1alpha1.ClientCertAuth": "argo:io.argoproj.workflow.v1alpha1.ClientCertAuth",
+    "io.argoproj.workflow.v1alpha1.Metadata": "argo:io.argoproj.workflow.v1alpha1.Metadata",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateLintRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateLintRequest",
+    "io.argoproj.workflow.v1alpha1.HTTPHeader": "argo:io.argoproj.workflow.v1alpha1.HTTPHeader",
+    "io.k8s.api.core.v1.PodAffinityTerm": "argo:io.k8s.api.core.v1.PodAffinityTerm",
+    "io.k8s.api.core.v1.SELinuxOptions": "argo:io.k8s.api.core.v1.SELinuxOptions",
+    "io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource": "argo:io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource",
+    "io.argoproj.workflow.v1alpha1.Header": "argo:io.argoproj.workflow.v1alpha1.Header",
+    "io.argoproj.workflow.v1alpha1.SemaphoreStatus": "argo:io.argoproj.workflow.v1alpha1.SemaphoreStatus",
+    "io.argoproj.workflow.v1alpha1.OSSArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.OSSArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.WorkflowLevelArtifactGC": "argo:io.argoproj.workflow.v1alpha1.WorkflowLevelArtifactGC",
+    "io.k8s.api.core.v1.PodCertificateProjection": "argo:io.k8s.api.core.v1.PodCertificateProjection",
+    "io.argoproj.workflow.v1alpha1.ContinueOn": "argo:io.argoproj.workflow.v1alpha1.ContinueOn",
+    "io.argoproj.workflow.v1alpha1.DAGTask": "argo:io.argoproj.workflow.v1alpha1.DAGTask",
+    "io.argoproj.workflow.v1alpha1.ArtifactoryArtifact": "argo:io.argoproj.workflow.v1alpha1.ArtifactoryArtifact",
+    "io.k8s.api.core.v1.ContainerRestartRule": "argo:io.k8s.api.core.v1.ContainerRestartRule",
+    "io.argoproj.workflow.v1alpha1.LabelValues": "argo:io.argoproj.workflow.v1alpha1.LabelValues",
+    "io.k8s.api.core.v1.TCPSocketAction": "argo:io.k8s.api.core.v1.TCPSocketAction",
+    "io.k8s.api.core.v1.EnvFromSource": "argo:io.k8s.api.core.v1.EnvFromSource",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowResumeRequest": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowResumeRequest",
+    "io.k8s.api.core.v1.ConfigMapProjection": "argo:io.k8s.api.core.v1.ConfigMapProjection",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateCreateRequest": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateCreateRequest",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference",
+    "io.argoproj.workflow.v1alpha1.Prometheus": "argo:io.argoproj.workflow.v1alpha1.Prometheus",
+    "io.k8s.api.core.v1.GRPCAction": "argo:io.k8s.api.core.v1.GRPCAction",
+    "io.k8s.api.core.v1.NodeAffinity": "argo:io.k8s.api.core.v1.NodeAffinity",
+    "io.k8s.api.core.v1.ContainerResizePolicy": "argo:io.k8s.api.core.v1.ContainerResizePolicy",
+    "io.k8s.api.core.v1.HTTPGetAction": "argo:io.k8s.api.core.v1.HTTPGetAction",
+    "io.argoproj.workflow.v1alpha1.Backoff": "argo:io.argoproj.workflow.v1alpha1.Backoff",
+    "io.k8s.api.core.v1.NodeSelector": "argo:io.k8s.api.core.v1.NodeSelector",
+    "io.k8s.api.core.v1.ContainerRestartRuleOnExitCodes": "argo:io.k8s.api.core.v1.ContainerRestartRuleOnExitCodes",
+    "io.k8s.api.core.v1.ExecAction": "argo:io.k8s.api.core.v1.ExecAction",
+    "io.k8s.api.core.v1.ResourceRequirements": "argo:io.k8s.api.core.v1.ResourceRequirements",
+    "io.argoproj.workflow.v1alpha1.WorkflowSubmitRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowSubmitRequest",
+    "io.k8s.api.core.v1.Capabilities": "argo:io.k8s.api.core.v1.Capabilities",
+    "io.argoproj.workflow.v1alpha1.MemoizationStatus": "argo:io.argoproj.workflow.v1alpha1.MemoizationStatus",
+    "io.k8s.api.core.v1.RBDVolumeSource": "argo:io.k8s.api.core.v1.RBDVolumeSource",
+    "io.argoproj.workflow.v1alpha1.Workflow": "argo:io.argoproj.workflow.v1alpha1.Workflow",
+    "io.argoproj.workflow.v1alpha1.InfoResponse": "argo:io.argoproj.workflow.v1alpha1.InfoResponse",
+    "io.k8s.api.core.v1.LifecycleHandler": "argo:io.k8s.api.core.v1.LifecycleHandler",
+    "io.k8s.api.core.v1.GCEPersistentDiskVolumeSource": "argo:io.k8s.api.core.v1.GCEPersistentDiskVolumeSource",
+    "io.argoproj.workflow.v1alpha1.WorkflowWatchEvent": "argo:io.argoproj.workflow.v1alpha1.WorkflowWatchEvent",
+    "io.argoproj.workflow.v1alpha1.CollectEventResponse": "argo:io.argoproj.workflow.v1alpha1.CollectEventResponse",
+    "io.k8s.api.core.v1.ISCSIVolumeSource": "argo:io.k8s.api.core.v1.ISCSIVolumeSource",
+    "io.k8s.api.core.v1.DownwardAPIVolumeFile": "argo:io.k8s.api.core.v1.DownwardAPIVolumeFile",
+    "io.argoproj.workflow.v1alpha1.ArtifactoryArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.ArtifactoryArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.Histogram": "argo:io.argoproj.workflow.v1alpha1.Histogram",
+    "io.k8s.api.core.v1.SecretProjection": "argo:io.k8s.api.core.v1.SecretProjection",
+    "io.argoproj.workflow.v1alpha1.ScriptTemplate": "argo:io.argoproj.workflow.v1alpha1.ScriptTemplate",
+    "io.argoproj.workflow.v1alpha1.RetryNodeAntiAffinity": "argo:io.argoproj.workflow.v1alpha1.RetryNodeAntiAffinity",
+    "io.argoproj.workflow.v1alpha1.WorkflowStopRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowStopRequest",
+    "io.argoproj.workflow.v1alpha1.WorkflowMetadata": "argo:io.argoproj.workflow.v1alpha1.WorkflowMetadata",
+    "io.argoproj.workflow.v1alpha1.Condition": "argo:io.argoproj.workflow.v1alpha1.Condition",
+    "io.argoproj.workflow.v1alpha1.LogEntry": "argo:io.argoproj.workflow.v1alpha1.LogEntry",
+    "io.argoproj.workflow.v1alpha1.ArtifactPaths": "argo:io.argoproj.workflow.v1alpha1.ArtifactPaths",
+    "io.k8s.api.core.v1.DownwardAPIVolumeSource": "argo:io.k8s.api.core.v1.DownwardAPIVolumeSource",
+    "io.k8s.api.core.v1.EnvVar": "argo:io.k8s.api.core.v1.EnvVar",
+    "io.k8s.api.core.v1.AppArmorProfile": "argo:io.k8s.api.core.v1.AppArmorProfile",
+    "io.argoproj.workflow.v1alpha1.Column": "argo:io.argoproj.workflow.v1alpha1.Column",
+    "io.k8s.api.core.v1.ContainerPort": "argo:io.k8s.api.core.v1.ContainerPort",
+    "io.k8s.api.core.v1.VolumeMount": "argo:io.k8s.api.core.v1.VolumeMount",
+    "io.k8s.api.core.v1.VolumeProjection": "argo:io.k8s.api.core.v1.VolumeProjection",
+    "io.argoproj.workflow.v1alpha1.HTTP": "argo:io.argoproj.workflow.v1alpha1.HTTP",
+    "io.argoproj.workflow.v1alpha1.LabelValueFrom": "argo:io.argoproj.workflow.v1alpha1.LabelValueFrom",
+    "io.argoproj.workflow.v1alpha1.MutexStatus": "argo:io.argoproj.workflow.v1alpha1.MutexStatus",
+    "io.argoproj.workflow.v1alpha1.PodGC": "argo:io.argoproj.workflow.v1alpha1.PodGC",
+    "io.argoproj.workflow.v1alpha1.EventResponse": "argo:io.argoproj.workflow.v1alpha1.EventResponse",
+    "io.argoproj.workflow.v1alpha1.Outputs": "argo:io.argoproj.workflow.v1alpha1.Outputs",
+    "io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource": "argo:io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource",
+    "io.k8s.api.core.v1.NFSVolumeSource": "argo:io.k8s.api.core.v1.NFSVolumeSource",
+    "io.k8s.api.core.v1.ResourceFieldSelector": "argo:io.k8s.api.core.v1.ResourceFieldSelector",
+    "io.k8s.api.core.v1.ObjectReference": "argo:io.k8s.api.core.v1.ObjectReference",
+    "io.k8s.api.core.v1.ServicePort": "argo:io.k8s.api.core.v1.ServicePort",
+    "io.k8s.api.core.v1.FlexVolumeSource": "argo:io.k8s.api.core.v1.FlexVolumeSource",
+    "io.k8s.api.core.v1.AzureFileVolumeSource": "argo:io.k8s.api.core.v1.AzureFileVolumeSource",
+    "io.argoproj.workflow.v1alpha1.Mutex": "argo:io.argoproj.workflow.v1alpha1.Mutex",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplate": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplate",
+    "io.argoproj.workflow.v1alpha1.RetryStrategy": "argo:io.argoproj.workflow.v1alpha1.RetryStrategy",
+    "io.argoproj.workflow.v1alpha1.CreateCronWorkflowRequest": "argo:io.argoproj.workflow.v1alpha1.CreateCronWorkflowRequest",
+    "io.k8s.api.core.v1.VolumeDevice": "argo:io.k8s.api.core.v1.VolumeDevice",
+    "io.argoproj.workflow.v1alpha1.Arguments": "argo:io.argoproj.workflow.v1alpha1.Arguments",
+    "io.argoproj.workflow.v1alpha1.Version": "argo:io.argoproj.workflow.v1alpha1.Version",
+    "io.argoproj.workflow.v1alpha1.LabelKeys": "argo:io.argoproj.workflow.v1alpha1.LabelKeys",
+    "io.k8s.api.core.v1.Probe": "argo:io.k8s.api.core.v1.Probe",
+    "io.argoproj.workflow.v1alpha1.TemplateRef": "argo:io.argoproj.workflow.v1alpha1.TemplateRef",
+    "io.argoproj.workflow.v1alpha1.ArtifactRepositoryRef": "argo:io.argoproj.workflow.v1alpha1.ArtifactRepositoryRef",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateDeleteResponse": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateDeleteResponse",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateUpdateRequest": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateUpdateRequest",
+    "io.argoproj.workflow.v1alpha1.Event": "argo:io.argoproj.workflow.v1alpha1.Event",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector",
+    "io.argoproj.workflow.v1alpha1.WorkflowDeleteResponse": "argo:io.argoproj.workflow.v1alpha1.WorkflowDeleteResponse",
+    "io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource": "argo:io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource",
+    "io.argoproj.workflow.v1alpha1.AzureArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.AzureArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.GCSArtifact": "argo:io.argoproj.workflow.v1alpha1.GCSArtifact",
+    "io.k8s.api.core.v1.StorageOSVolumeSource": "argo:io.k8s.api.core.v1.StorageOSVolumeSource",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionResource": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionResource",
+    "io.argoproj.workflow.v1alpha1.SuspendTemplate": "argo:io.argoproj.workflow.v1alpha1.SuspendTemplate",
+    "io.argoproj.workflow.v1alpha1.Inputs": "argo:io.argoproj.workflow.v1alpha1.Inputs",
+    "io.k8s.api.core.v1.Lifecycle": "argo:io.k8s.api.core.v1.Lifecycle",
+    "io.k8s.api.core.v1.PersistentVolumeClaimStatus": "argo:io.k8s.api.core.v1.PersistentVolumeClaimStatus",
+    "io.k8s.api.core.v1.ImageVolumeSource": "argo:io.k8s.api.core.v1.ImageVolumeSource",
+    "io.argoproj.workflow.v1alpha1.Plugin": "argo:io.argoproj.workflow.v1alpha1.Plugin",
+    "io.argoproj.workflow.v1alpha1.WorkflowRetryRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowRetryRequest",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateDeleteResponse": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateDeleteResponse",
+    "io.argoproj.workflow.v1alpha1.HTTPAuth": "argo:io.argoproj.workflow.v1alpha1.HTTPAuth",
+    "io.k8s.api.core.v1.EmptyDirVolumeSource": "argo:io.k8s.api.core.v1.EmptyDirVolumeSource",
+    "io.argoproj.workflow.v1alpha1.CreateS3BucketOptions": "argo:io.argoproj.workflow.v1alpha1.CreateS3BucketOptions",
+    "io.argoproj.workflow.v1alpha1.DAGTemplate": "argo:io.argoproj.workflow.v1alpha1.DAGTemplate",
+    "io.k8s.api.core.v1.TypedLocalObjectReference": "argo:io.k8s.api.core.v1.TypedLocalObjectReference",
+    "io.argoproj.workflow.v1alpha1.ArtifactGC": "argo:io.argoproj.workflow.v1alpha1.ArtifactGC",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+    "io.k8s.api.core.v1.DownwardAPIProjection": "argo:io.k8s.api.core.v1.DownwardAPIProjection",
+    "io.argoproj.workflow.v1alpha1.AzureArtifact": "argo:io.argoproj.workflow.v1alpha1.AzureArtifact",
+    "io.argoproj.workflow.v1alpha1.Metrics": "argo:io.argoproj.workflow.v1alpha1.Metrics",
+    "io.k8s.api.core.v1.SecretVolumeSource": "argo:io.k8s.api.core.v1.SecretVolumeSource",
+    "io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource": "argo:io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource",
+    "io.argoproj.workflow.v1alpha1.HDFSArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.HDFSArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.StopStrategy": "argo:io.argoproj.workflow.v1alpha1.StopStrategy",
+    "io.argoproj.workflow.v1alpha1.CollectEventRequest": "argo:io.argoproj.workflow.v1alpha1.CollectEventRequest",
+    "io.argoproj.workflow.v1alpha1.HTTPHeaderSource": "argo:io.argoproj.workflow.v1alpha1.HTTPHeaderSource",
+    "io.k8s.api.core.v1.GitRepoVolumeSource": "argo:io.k8s.api.core.v1.GitRepoVolumeSource",
+    "io.k8s.api.core.v1.SecretKeySelector": "argo:io.k8s.api.core.v1.SecretKeySelector",
+    "io.argoproj.workflow.v1alpha1.WorkflowResubmitRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowResubmitRequest",
+    "io.k8s.api.core.v1.Volume": "argo:io.k8s.api.core.v1.Volume",
+    "io.argoproj.workflow.v1alpha1.Template": "argo:io.argoproj.workflow.v1alpha1.Template",
+    "io.k8s.api.core.v1.Affinity": "argo:io.k8s.api.core.v1.Affinity",
+    "io.argoproj.workflow.v1alpha1.SubmitOpts": "argo:io.argoproj.workflow.v1alpha1.SubmitOpts",
+    "io.k8s.api.core.v1.PortworxVolumeSource": "argo:io.k8s.api.core.v1.PortworxVolumeSource",
+    "io.argoproj.workflow.v1alpha1.WorkflowSuspendRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowSuspendRequest",
+    "io.k8s.api.core.v1.PersistentVolumeClaimCondition": "argo:io.k8s.api.core.v1.PersistentVolumeClaimCondition",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateUpdateRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateUpdateRequest",
+    "io.argoproj.workflow.v1alpha1.LintCronWorkflowRequest": "argo:io.argoproj.workflow.v1alpha1.LintCronWorkflowRequest",
+    "io.k8s.api.core.v1.ConfigMapVolumeSource": "argo:io.k8s.api.core.v1.ConfigMapVolumeSource",
+    "io.argoproj.workflow.v1alpha1.SynchronizationStatus": "argo:io.argoproj.workflow.v1alpha1.SynchronizationStatus",
+    "io.argoproj.workflow.v1alpha1.WorkflowEventBinding": "argo:io.argoproj.workflow.v1alpha1.WorkflowEventBinding",
+    "io.argoproj.workflow.v1alpha1.ResubmitArchivedWorkflowRequest": "argo:io.argoproj.workflow.v1alpha1.ResubmitArchivedWorkflowRequest",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowDeletedResponse": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowDeletedResponse",
+    "io.k8s.api.core.v1.ResourceClaim": "argo:io.k8s.api.core.v1.ResourceClaim",
+    "io.argoproj.workflow.v1alpha1.TarStrategy": "argo:io.argoproj.workflow.v1alpha1.TarStrategy",
+    "io.argoproj.workflow.v1alpha1.SyncDatabaseRef": "argo:io.argoproj.workflow.v1alpha1.SyncDatabaseRef",
+    "io.argoproj.workflow.v1alpha1.Cache": "argo:io.argoproj.workflow.v1alpha1.Cache",
+    "io.k8s.api.core.v1.PodAffinity": "argo:io.k8s.api.core.v1.PodAffinity",
+    "io.argoproj.workflow.v1alpha1.SemaphoreHolding": "argo:io.argoproj.workflow.v1alpha1.SemaphoreHolding",
+    "io.k8s.api.core.v1.ClusterTrustBundleProjection": "argo:io.k8s.api.core.v1.ClusterTrustBundleProjection",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowSuspendRequest": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowSuspendRequest",
+    "io.k8s.api.core.v1.FCVolumeSource": "argo:io.k8s.api.core.v1.FCVolumeSource",
+    "io.argoproj.workflow.v1alpha1.UpdateCronWorkflowRequest": "argo:io.argoproj.workflow.v1alpha1.UpdateCronWorkflowRequest",
+    "io.argoproj.workflow.v1alpha1.ArtifactLocation": "argo:io.argoproj.workflow.v1alpha1.ArtifactLocation",
+    "io.argoproj.workflow.v1alpha1.OSSArtifact": "argo:io.argoproj.workflow.v1alpha1.OSSArtifact",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplate": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplate",
+    "io.argoproj.workflow.v1alpha1.ContainerSetRetryStrategy": "argo:io.argoproj.workflow.v1alpha1.ContainerSetRetryStrategy",
+    "io.argoproj.workflow.v1alpha1.ValueFrom": "argo:io.argoproj.workflow.v1alpha1.ValueFrom",
+    "io.argoproj.workflow.v1alpha1.ArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.ArtifactRepository",
+    "io.k8s.api.core.v1.LocalObjectReference": "argo:io.k8s.api.core.v1.LocalObjectReference",
+    "io.argoproj.workflow.v1alpha1.ArtGCStatus": "argo:io.argoproj.workflow.v1alpha1.ArtGCStatus",
+    "io.argoproj.workflow.v1alpha1.S3Artifact": "argo:io.argoproj.workflow.v1alpha1.S3Artifact",
+    "io.k8s.api.core.v1.PodAntiAffinity": "argo:io.k8s.api.core.v1.PodAntiAffinity",
+    "io.k8s.api.core.v1.EventSource": "argo:io.k8s.api.core.v1.EventSource",
+    "io.argoproj.workflow.v1alpha1.VolumeClaimGC": "argo:io.argoproj.workflow.v1alpha1.VolumeClaimGC",
+    "io.k8s.api.core.v1.PersistentVolumeClaimTemplate": "argo:io.k8s.api.core.v1.PersistentVolumeClaimTemplate",
+    "io.argoproj.workflow.v1alpha1.WorkflowSetRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowSetRequest",
+    "io.argoproj.workflow.v1alpha1.Artifact": "argo:io.argoproj.workflow.v1alpha1.Artifact",
+    "io.k8s.api.core.v1.TypedObjectReference": "argo:io.k8s.api.core.v1.TypedObjectReference",
+    "io.argoproj.workflow.v1alpha1.CronWorkflowStatus": "argo:io.argoproj.workflow.v1alpha1.CronWorkflowStatus",
+    "io.k8s.api.policy.v1.PodDisruptionBudgetSpec": "argo:io.k8s.api.policy.v1.PodDisruptionBudgetSpec",
+    "io.argoproj.workflow.v1alpha1.Gauge": "argo:io.argoproj.workflow.v1alpha1.Gauge",
+    "io.k8s.api.core.v1.PodSecurityContext": "argo:io.k8s.api.core.v1.PodSecurityContext",
+    "io.k8s.api.core.v1.KeyToPath": "argo:io.k8s.api.core.v1.KeyToPath",
+    "io.argoproj.workflow.v1alpha1.SuppliedValueFrom": "argo:io.argoproj.workflow.v1alpha1.SuppliedValueFrom",
+    "io.k8s.api.core.v1.PersistentVolumeClaim": "argo:io.k8s.api.core.v1.PersistentVolumeClaim",
+    "io.argoproj.workflow.v1alpha1.DataSource": "argo:io.argoproj.workflow.v1alpha1.DataSource",
+    "io.argoproj.workflow.v1alpha1.RawArtifact": "argo:io.argoproj.workflow.v1alpha1.RawArtifact",
+    "io.argoproj.workflow.v1alpha1.ArchiveStrategy": "argo:io.argoproj.workflow.v1alpha1.ArchiveStrategy",
+    "io.argoproj.workflow.v1alpha1.GCSArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.GCSArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.WorkflowSpec": "argo:io.argoproj.workflow.v1alpha1.WorkflowSpec",
+    "io.k8s.api.core.v1.SleepAction": "argo:io.k8s.api.core.v1.SleepAction",
+    "io.argoproj.workflow.v1alpha1.WorkflowList": "argo:io.argoproj.workflow.v1alpha1.WorkflowList",
+    "io.argoproj.workflow.v1alpha1.GetUserInfoResponse": "argo:io.argoproj.workflow.v1alpha1.GetUserInfoResponse",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement",
+    "io.k8s.api.core.v1.GlusterfsVolumeSource": "argo:io.k8s.api.core.v1.GlusterfsVolumeSource",
+    "io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec": "argo:io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec",
+    "io.argoproj.workflow.v1alpha1.CronWorkflow": "argo:io.argoproj.workflow.v1alpha1.CronWorkflow",
+    "io.k8s.api.core.v1.ConfigMapEnvSource": "argo:io.k8s.api.core.v1.ConfigMapEnvSource",
+    "io.argoproj.workflow.v1alpha1.OSSLifecycleRule": "argo:io.argoproj.workflow.v1alpha1.OSSLifecycleRule",
+    "io.k8s.api.core.v1.ObjectFieldSelector": "argo:io.k8s.api.core.v1.ObjectFieldSelector",
+    "io.argoproj.workflow.v1alpha1.WorkflowResumeRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowResumeRequest",
+    "io.argoproj.workflow.v1alpha1.WorkflowLintRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowLintRequest",
+    "io.argoproj.workflow.v1alpha1.Counter": "argo:io.argoproj.workflow.v1alpha1.Counter",
+    "io.argoproj.workflow.v1alpha1.WorkflowEventBindingList": "argo:io.argoproj.workflow.v1alpha1.WorkflowEventBindingList",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateCreateRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateCreateRequest",
+    "io.k8s.api.core.v1.EphemeralVolumeSource": "argo:io.k8s.api.core.v1.EphemeralVolumeSource",
+    "io.argoproj.workflow.v1alpha1.PluginArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.PluginArtifactRepository",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateList": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateList",
+    "io.argoproj.workflow.v1alpha1.WorkflowCreateRequest": "argo:io.argoproj.workflow.v1alpha1.WorkflowCreateRequest",
+    "io.k8s.api.core.v1.HostPathVolumeSource": "argo:io.k8s.api.core.v1.HostPathVolumeSource",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1",
+    "io.argoproj.workflow.v1alpha1.HDFSArtifact": "argo:io.argoproj.workflow.v1alpha1.HDFSArtifact",
+    "io.argoproj.workflow.v1alpha1.Link": "argo:io.argoproj.workflow.v1alpha1.Link",
+    "io.argoproj.workflow.v1alpha1.NodeFlag": "argo:io.argoproj.workflow.v1alpha1.NodeFlag",
+    "io.k8s.api.core.v1.CinderVolumeSource": "argo:io.k8s.api.core.v1.CinderVolumeSource",
+    "io.argoproj.workflow.v1alpha1.Memoize": "argo:io.argoproj.workflow.v1alpha1.Memoize",
+    "io.argoproj.workflow.v1alpha1.RetryAffinity": "argo:io.argoproj.workflow.v1alpha1.RetryAffinity",
+    "io.k8s.api.core.v1.SecretEnvSource": "argo:io.k8s.api.core.v1.SecretEnvSource",
+    "io.argoproj.workflow.v1alpha1.BasicAuth": "argo:io.argoproj.workflow.v1alpha1.BasicAuth",
+    "io.argoproj.workflow.v1alpha1.MetricLabel": "argo:io.argoproj.workflow.v1alpha1.MetricLabel",
+    "io.argoproj.workflow.v1alpha1.ContainerSetTemplate": "argo:io.argoproj.workflow.v1alpha1.ContainerSetTemplate",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.CreateOptions": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.CreateOptions",
+    "io.k8s.api.core.v1.ProjectedVolumeSource": "argo:io.k8s.api.core.v1.ProjectedVolumeSource",
+    "io.k8s.api.core.v1.QuobyteVolumeSource": "argo:io.k8s.api.core.v1.QuobyteVolumeSource",
+    "io.argoproj.workflow.v1alpha1.NodeSynchronizationStatus": "argo:io.argoproj.workflow.v1alpha1.NodeSynchronizationStatus",
+    "io.argoproj.workflow.v1alpha1.HTTPBodySource": "argo:io.argoproj.workflow.v1alpha1.HTTPBodySource",
+    "io.argoproj.workflow.v1alpha1.WorkflowStep": "argo:io.argoproj.workflow.v1alpha1.WorkflowStep",
+    "io.argoproj.workflow.v1alpha1.WorkflowTemplateRef": "argo:io.argoproj.workflow.v1alpha1.WorkflowTemplateRef",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry",
+    "io.k8s.api.core.v1.EnvVarSource": "argo:io.k8s.api.core.v1.EnvVarSource",
+    "io.argoproj.workflow.v1alpha1.LifecycleHook": "argo:io.argoproj.workflow.v1alpha1.LifecycleHook",
+    "io.argoproj.workflow.v1alpha1.Parameter": "argo:io.argoproj.workflow.v1alpha1.Parameter",
+    "io.argoproj.workflow.v1alpha1.NoneStrategy": "argo:io.argoproj.workflow.v1alpha1.NoneStrategy",
+    "io.k8s.api.core.v1.FlockerVolumeSource": "argo:io.k8s.api.core.v1.FlockerVolumeSource",
+    "io.argoproj.workflow.v1alpha1.ResourceTemplate": "argo:io.argoproj.workflow.v1alpha1.ResourceTemplate",
+    "io.k8s.api.core.v1.SecurityContext": "argo:io.k8s.api.core.v1.SecurityContext",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta": "argo:io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+    "io.k8s.api.core.v1.SeccompProfile": "argo:io.k8s.api.core.v1.SeccompProfile",
+    "io.argoproj.workflow.v1alpha1.Data": "argo:io.argoproj.workflow.v1alpha1.Data",
+    "io.argoproj.workflow.v1alpha1.S3ArtifactRepository": "argo:io.argoproj.workflow.v1alpha1.S3ArtifactRepository",
+    "io.k8s.api.core.v1.Sysctl": "argo:io.k8s.api.core.v1.Sysctl",
+    "io.argoproj.workflow.v1alpha1.GitArtifact": "argo:io.argoproj.workflow.v1alpha1.GitArtifact",
+    "io.argoproj.workflow.v1alpha1.Submit": "argo:io.argoproj.workflow.v1alpha1.Submit",
+    "io.k8s.api.core.v1.Container": "argo:io.k8s.api.core.v1.Container",
+    "io.argoproj.workflow.v1alpha1.ArchivedWorkflowDeletedResponse": "argo:io.argoproj.workflow.v1alpha1.ArchivedWorkflowDeletedResponse",
+    "io.argoproj.workflow.v1alpha1.MutexHolding": "argo:io.argoproj.workflow.v1alpha1.MutexHolding",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateList": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateList",
+    "io.k8s.api.core.v1.VolumeResourceRequirements": "argo:io.k8s.api.core.v1.VolumeResourceRequirements",
+    "io.k8s.api.core.v1.PreferredSchedulingTerm": "argo:io.k8s.api.core.v1.PreferredSchedulingTerm",
+    "io.argoproj.workflow.v1alpha1.NodeStatus": "argo:io.argoproj.workflow.v1alpha1.NodeStatus",
+    "io.k8s.api.core.v1.ConfigMapKeySelector": "argo:io.k8s.api.core.v1.ConfigMapKeySelector",
+    "io.argoproj.workflow.v1alpha1.RetryArchivedWorkflowRequest": "argo:io.argoproj.workflow.v1alpha1.RetryArchivedWorkflowRequest",
+    "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateLintRequest": "argo:io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateLintRequest",
+    "io.k8s.api.core.v1.Event": "argo:io.k8s.api.core.v1.Event",
+    "io.k8s.api.core.v1.NodeSelectorTerm": "argo:io.k8s.api.core.v1.NodeSelectorTerm",
+    "io.argoproj.workflow.v1alpha1.ContainerNode": "argo:io.argoproj.workflow.v1alpha1.ContainerNode",
+    "io.k8s.api.core.v1.AzureDiskVolumeSource": "argo:io.k8s.api.core.v1.AzureDiskVolumeSource",
+    "io.k8s.api.core.v1.ModifyVolumeStatus": "argo:io.k8s.api.core.v1.ModifyVolumeStatus",
+    "io.argoproj.workflow.v1alpha1.TTLStrategy": "argo:io.argoproj.workflow.v1alpha1.TTLStrategy",
+    "io.k8s.api.core.v1.CSIVolumeSource": "argo:io.k8s.api.core.v1.CSIVolumeSource",
+    "io.k8s.api.core.v1.HTTPHeader": "argo:io.k8s.api.core.v1.HTTPHeader",
+    "args": {
+      "@id": "argo:args",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "command": {
+      "@id": "argo:command",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "env": {
+      "@id": "argo:env",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "envFrom": {
+      "@id": "argo:envFrom",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "argo:image",
+      "@type": "xsd:string"
+    },
+    "imagePullPolicy": {
+      "@id": "argo:imagePullPolicy",
+      "@type": "xsd:string"
+    },
+    "lifecycle": {
+      "@id": "argo:lifecycle",
+      "@type": "xsd:string"
+    },
+    "livenessProbe": {
+      "@id": "argo:livenessProbe",
+      "@type": "xsd:string"
+    },
+    "mirrorVolumeMounts": {
+      "@id": "argo:mirrorVolumeMounts",
+      "@type": "xsd:boolean"
+    },
+    "name": "schema:name",
+    "ports": {
+      "@id": "argo:ports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "readinessProbe": {
+      "@id": "argo:readinessProbe",
+      "@type": "xsd:string"
+    },
+    "resizePolicy": {
+      "@id": "argo:resizePolicy",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "argo:resources",
+      "@type": "xsd:string"
+    },
+    "restartPolicy": {
+      "@id": "argo:restartPolicy",
+      "@type": "xsd:string"
+    },
+    "restartPolicyRules": {
+      "@id": "argo:restartPolicyRules",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "securityContext": {
+      "@id": "argo:securityContext",
+      "@type": "xsd:string"
+    },
+    "startupProbe": {
+      "@id": "argo:startupProbe",
+      "@type": "xsd:string"
+    },
+    "stdin": {
+      "@id": "argo:stdin",
+      "@type": "xsd:boolean"
+    },
+    "stdinOnce": {
+      "@id": "argo:stdinOnce",
+      "@type": "xsd:boolean"
+    },
+    "terminationMessagePath": {
+      "@id": "argo:terminationMessagePath",
+      "@type": "xsd:string"
+    },
+    "terminationMessagePolicy": {
+      "@id": "argo:terminationMessagePolicy",
+      "@type": "xsd:string"
+    },
+    "tty": {
+      "@id": "argo:tty",
+      "@type": "xsd:boolean"
+    },
+    "volumeDevices": {
+      "@id": "argo:volumeDevices",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "volumeMounts": {
+      "@id": "argo:volumeMounts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "workingDir": {
+      "@id": "argo:workingDir",
+      "@type": "xsd:string"
+    },
+    "artifactGCStatus": {
+      "@id": "argo:artifactGCStatus",
+      "@type": "xsd:string"
+    },
+    "artifactRepositoryRef": {
+      "@id": "argo:artifactRepositoryRef",
+      "@type": "xsd:string"
+    },
+    "compressedNodes": {
+      "@id": "argo:compressedNodes",
+      "@type": "xsd:string"
+    },
+    "conditions": {
+      "@id": "argo:conditions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "estimatedDuration": {
+      "@id": "argo:estimatedDuration",
+      "@type": "xsd:integer"
+    },
+    "finishedAt": {
+      "@id": "argo:finishedAt",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "argo:message",
+      "@type": "xsd:string"
+    },
+    "nodes": {
+      "@id": "argo:nodes",
+      "@type": "@id"
+    },
+    "offloadNodeStatusVersion": {
+      "@id": "argo:offloadNodeStatusVersion",
+      "@type": "xsd:string"
+    },
+    "outputs": {
+      "@id": "argo:outputs",
+      "@type": "xsd:string"
+    },
+    "persistentVolumeClaims": {
+      "@id": "argo:persistentVolumeClaims",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "phase": {
+      "@id": "argo:phase",
+      "@type": "xsd:string"
+    },
+    "progress": {
+      "@id": "argo:progress",
+      "@type": "xsd:string"
+    },
+    "resourcesDuration": {
+      "@id": "argo:resourcesDuration",
+      "@type": "@id"
+    },
+    "startedAt": {
+      "@id": "argo:startedAt",
+      "@type": "xsd:string"
+    },
+    "storedTemplates": {
+      "@id": "argo:storedTemplates",
+      "@type": "@id"
+    },
+    "storedWorkflowTemplateSpec": {
+      "@id": "argo:storedWorkflowTemplateSpec",
+      "@type": "xsd:string"
+    },
+    "synchronization": {
+      "@id": "argo:synchronization",
+      "@type": "xsd:string"
+    },
+    "taskResultsCompletionStatus": {
+      "@id": "argo:taskResultsCompletionStatus",
+      "@type": "@id"
+    },
+    "mutexes": {
+      "@id": "argo:mutexes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "semaphores": {
+      "@id": "argo:semaphores",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "argo:value",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "argo:count",
+      "@type": "xsd:string"
+    },
+    "end": {
+      "@id": "argo:end",
+      "@type": "xsd:string"
+    },
+    "format": {
+      "@id": "argo:format",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "argo:start",
+      "@type": "xsd:string"
+    },
+    "artifactRepository": {
+      "@id": "argo:artifactRepository",
+      "@type": "xsd:string"
+    },
+    "configMap": {
+      "@id": "argo:configMap",
+      "@type": "xsd:string"
+    },
+    "default": {
+      "@id": "argo:default",
+      "@type": "xsd:boolean"
+    },
+    "key": {
+      "@id": "argo:key",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "argo:namespace",
+      "@type": "xsd:string"
+    },
+    "gmsaCredentialSpec": {
+      "@id": "argo:gmsaCredentialSpec",
+      "@type": "xsd:string"
+    },
+    "gmsaCredentialSpecName": {
+      "@id": "argo:gmsaCredentialSpecName",
+      "@type": "xsd:string"
+    },
+    "hostProcess": {
+      "@id": "argo:hostProcess",
+      "@type": "xsd:boolean"
+    },
+    "runAsUserName": {
+      "@id": "argo:runAsUserName",
+      "@type": "xsd:string"
+    },
+    "hostnames": {
+      "@id": "argo:hostnames",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ip": {
+      "@id": "argo:ip",
+      "@type": "xsd:string"
+    },
+    "clientIDSecret": {
+      "@id": "argo:clientIDSecret",
+      "@type": "xsd:string"
+    },
+    "clientSecretSecret": {
+      "@id": "argo:clientSecretSecret",
+      "@type": "xsd:string"
+    },
+    "endpointParams": {
+      "@id": "argo:endpointParams",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "scopes": {
+      "@id": "argo:scopes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "tokenURLSecret": {
+      "@id": "argo:tokenURLSecret",
+      "@type": "xsd:string"
+    },
+    "concurrencyPolicy": {
+      "@id": "argo:concurrencyPolicy",
+      "@type": "xsd:string"
+    },
+    "failedJobsHistoryLimit": {
+      "@id": "argo:failedJobsHistoryLimit",
+      "@type": "xsd:integer"
+    },
+    "schedules": {
+      "@id": "argo:schedules",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "startingDeadlineSeconds": {
+      "@id": "argo:startingDeadlineSeconds",
+      "@type": "xsd:integer"
+    },
+    "stopStrategy": {
+      "@id": "argo:stopStrategy",
+      "@type": "xsd:string"
+    },
+    "successfulJobsHistoryLimit": {
+      "@id": "argo:successfulJobsHistoryLimit",
+      "@type": "xsd:integer"
+    },
+    "suspend": {
+      "@id": "argo:suspend",
+      "@type": "xsd:boolean"
+    },
+    "timezone": {
+      "@id": "argo:timezone",
+      "@type": "xsd:string"
+    },
+    "when": {
+      "@id": "argo:when",
+      "@type": "xsd:string"
+    },
+    "workflowMetadata": {
+      "@id": "argo:workflowMetadata",
+      "@type": "xsd:string"
+    },
+    "workflowSpec": {
+      "@id": "argo:workflowSpec",
+      "@type": "xsd:string"
+    },
+    "configMapKeyRef": {
+      "@id": "argo:configMapKeyRef",
+      "@type": "xsd:string"
+    },
+    "database": {
+      "@id": "argo:database",
+      "@type": "xsd:string"
+    },
+    "effect": {
+      "@id": "argo:effect",
+      "@type": "xsd:string"
+    },
+    "operator": {
+      "@id": "argo:operator",
+      "@type": "xsd:string"
+    },
+    "tolerationSeconds": {
+      "@id": "argo:tolerationSeconds",
+      "@type": "xsd:integer"
+    },
+    "auth": {
+      "@id": "argo:auth",
+      "@type": "xsd:string"
+    },
+    "headers": {
+      "@id": "argo:headers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "url": "schema:url",
+    "apiVersion": {
+      "@id": "argo:apiVersion",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "argo:items",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "kind": {
+      "@id": "argo:kind",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "argo:metadata",
+      "@type": "xsd:string"
+    },
+    "nameservers": {
+      "@id": "argo:nameservers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "options": {
+      "@id": "argo:options",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "searches": {
+      "@id": "argo:searches",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "serviceAccountName": {
+      "@id": "argo:serviceAccountName",
+      "@type": "xsd:string"
+    },
+    "enableEncryption": {
+      "@id": "argo:enableEncryption",
+      "@type": "xsd:boolean"
+    },
+    "kmsEncryptionContext": {
+      "@id": "argo:kmsEncryptionContext",
+      "@type": "xsd:string"
+    },
+    "kmsKeyId": {
+      "@id": "argo:kmsKeyId",
+      "@type": "xsd:string"
+    },
+    "serverSideCustomerKeySecret": {
+      "@id": "argo:serverSideCustomerKeySecret",
+      "@type": "xsd:string"
+    },
+    "audience": {
+      "@id": "argo:audience",
+      "@type": "xsd:string"
+    },
+    "expirationSeconds": {
+      "@id": "argo:expirationSeconds",
+      "@type": "xsd:integer"
+    },
+    "path": {
+      "@id": "argo:path",
+      "@type": "xsd:string"
+    },
+    "accessModes": {
+      "@id": "argo:accessModes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dataSource": {
+      "@id": "argo:dataSource",
+      "@type": "xsd:string"
+    },
+    "dataSourceRef": {
+      "@id": "argo:dataSourceRef",
+      "@type": "xsd:string"
+    },
+    "selector": {
+      "@id": "argo:selector",
+      "@type": "xsd:string"
+    },
+    "storageClassName": {
+      "@id": "argo:storageClassName",
+      "@type": "xsd:string"
+    },
+    "volumeAttributesClassName": {
+      "@id": "argo:volumeAttributesClassName",
+      "@type": "xsd:string"
+    },
+    "volumeMode": {
+      "@id": "argo:volumeMode",
+      "@type": "xsd:string"
+    },
+    "volumeName": {
+      "@id": "argo:volumeName",
+      "@type": "xsd:string"
+    },
+    "artifact": {
+      "@id": "argo:artifact",
+      "@type": "xsd:string"
+    },
+    "lastObservedTime": {
+      "@id": "argo:lastObservedTime",
+      "@type": "xsd:string"
+    },
+    "fsType": {
+      "@id": "argo:fsType",
+      "@type": "xsd:string"
+    },
+    "gateway": {
+      "@id": "argo:gateway",
+      "@type": "xsd:string"
+    },
+    "protectionDomain": {
+      "@id": "argo:protectionDomain",
+      "@type": "xsd:string"
+    },
+    "readOnly": {
+      "@id": "argo:readOnly",
+      "@type": "xsd:boolean"
+    },
+    "secretRef": {
+      "@id": "argo:secretRef",
+      "@type": "xsd:string"
+    },
+    "sslEnabled": {
+      "@id": "argo:sslEnabled",
+      "@type": "xsd:boolean"
+    },
+    "storageMode": {
+      "@id": "argo:storageMode",
+      "@type": "xsd:string"
+    },
+    "storagePool": {
+      "@id": "argo:storagePool",
+      "@type": "xsd:string"
+    },
+    "system": {
+      "@id": "argo:system",
+      "@type": "xsd:string"
+    },
+    "optional": {
+      "@id": "argo:optional",
+      "@type": "xsd:boolean"
+    },
+    "configuration": {
+      "@id": "argo:configuration",
+      "@type": "xsd:string"
+    },
+    "connectionTimeoutSeconds": {
+      "@id": "argo:connectionTimeoutSeconds",
+      "@type": "xsd:integer"
+    },
+    "monitors": {
+      "@id": "argo:monitors",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "secretFile": {
+      "@id": "argo:secretFile",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "argo:user",
+      "@type": "xsd:string"
+    },
+    "values": {
+      "@id": "argo:values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "expression": {
+      "@id": "argo:expression",
+      "@type": "xsd:string"
+    },
+    "podAffinityTerm": {
+      "@id": "argo:podAffinityTerm",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "argo:weight",
+      "@type": "xsd:integer"
+    },
+    "clientCertSecret": {
+      "@id": "argo:clientCertSecret",
+      "@type": "xsd:string"
+    },
+    "clientKeySecret": {
+      "@id": "argo:clientKeySecret",
+      "@type": "xsd:string"
+    },
+    "annotations": {
+      "@id": "argo:annotations",
+      "@type": "@id"
+    },
+    "labels": {
+      "@id": "argo:labels",
+      "@type": "@id"
+    },
+    "createOptions": {
+      "@id": "argo:createOptions",
+      "@type": "xsd:string"
+    },
+    "template": {
+      "@id": "argo:template",
+      "@type": "xsd:string"
+    },
+    "valueFrom": {
+      "@id": "argo:valueFrom",
+      "@type": "xsd:string"
+    },
+    "labelSelector": {
+      "@id": "argo:labelSelector",
+      "@type": "xsd:string"
+    },
+    "matchLabelKeys": {
+      "@id": "argo:matchLabelKeys",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "mismatchLabelKeys": {
+      "@id": "argo:mismatchLabelKeys",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "namespaceSelector": {
+      "@id": "argo:namespaceSelector",
+      "@type": "xsd:string"
+    },
+    "namespaces": {
+      "@id": "argo:namespaces",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "topologyKey": {
+      "@id": "argo:topologyKey",
+      "@type": "xsd:string"
+    },
+    "level": {
+      "@id": "argo:level",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "argo:role",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "argo:type",
+      "@type": "xsd:string"
+    },
+    "claimName": {
+      "@id": "argo:claimName",
+      "@type": "xsd:string"
+    },
+    "holding": {
+      "@id": "argo:holding",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "waiting": {
+      "@id": "argo:waiting",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "accessKeySecret": {
+      "@id": "argo:accessKeySecret",
+      "@type": "xsd:string"
+    },
+    "bucket": {
+      "@id": "argo:bucket",
+      "@type": "xsd:string"
+    },
+    "createBucketIfNotPresent": {
+      "@id": "argo:createBucketIfNotPresent",
+      "@type": "xsd:boolean"
+    },
+    "endpoint": {
+      "@id": "argo:endpoint",
+      "@type": "xsd:string"
+    },
+    "keyFormat": {
+      "@id": "argo:keyFormat",
+      "@type": "xsd:string"
+    },
+    "lifecycleRule": {
+      "@id": "argo:lifecycleRule",
+      "@type": "xsd:string"
+    },
+    "secretKeySecret": {
+      "@id": "argo:secretKeySecret",
+      "@type": "xsd:string"
+    },
+    "securityToken": {
+      "@id": "argo:securityToken",
+      "@type": "xsd:string"
+    },
+    "useSDKCreds": {
+      "@id": "argo:useSDKCreds",
+      "@type": "xsd:boolean"
+    },
+    "forceFinalizerRemoval": {
+      "@id": "argo:forceFinalizerRemoval",
+      "@type": "xsd:boolean"
+    },
+    "podMetadata": {
+      "@id": "argo:podMetadata",
+      "@type": "xsd:string"
+    },
+    "podSpecPatch": {
+      "@id": "argo:podSpecPatch",
+      "@type": "xsd:string"
+    },
+    "strategy": {
+      "@id": "argo:strategy",
+      "@type": "xsd:string"
+    },
+    "certificateChainPath": {
+      "@id": "argo:certificateChainPath",
+      "@type": "xsd:string"
+    },
+    "credentialBundlePath": {
+      "@id": "argo:credentialBundlePath",
+      "@type": "xsd:string"
+    },
+    "keyPath": {
+      "@id": "argo:keyPath",
+      "@type": "xsd:string"
+    },
+    "keyType": {
+      "@id": "argo:keyType",
+      "@type": "xsd:string"
+    },
+    "maxExpirationSeconds": {
+      "@id": "argo:maxExpirationSeconds",
+      "@type": "xsd:integer"
+    },
+    "signerName": {
+      "@id": "argo:signerName",
+      "@type": "xsd:string"
+    },
+    "userAnnotations": {
+      "@id": "argo:userAnnotations",
+      "@type": "@id"
+    },
+    "error": {
+      "@id": "argo:error",
+      "@type": "xsd:boolean"
+    },
+    "failed": {
+      "@id": "argo:failed",
+      "@type": "xsd:boolean"
+    },
+    "arguments": {
+      "@id": "argo:arguments",
+      "@type": "xsd:string"
+    },
+    "continueOn": {
+      "@id": "argo:continueOn",
+      "@type": "xsd:string"
+    },
+    "dependencies": {
+      "@id": "argo:dependencies",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "depends": {
+      "@id": "argo:depends",
+      "@type": "xsd:string"
+    },
+    "hooks": {
+      "@id": "argo:hooks",
+      "@type": "@id"
+    },
+    "inline": {
+      "@id": "argo:inline",
+      "@type": "xsd:string"
+    },
+    "onExit": {
+      "@id": "argo:onExit",
+      "@type": "xsd:string"
+    },
+    "templateRef": {
+      "@id": "argo:templateRef",
+      "@type": "xsd:string"
+    },
+    "withItems": {
+      "@id": "argo:withItems",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "withParam": {
+      "@id": "argo:withParam",
+      "@type": "xsd:string"
+    },
+    "withSequence": {
+      "@id": "argo:withSequence",
+      "@type": "xsd:string"
+    },
+    "passwordSecret": {
+      "@id": "argo:passwordSecret",
+      "@type": "xsd:string"
+    },
+    "usernameSecret": {
+      "@id": "argo:usernameSecret",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "argo:action",
+      "@type": "xsd:string"
+    },
+    "exitCodes": {
+      "@id": "argo:exitCodes",
+      "@type": "xsd:string"
+    },
+    "host": {
+      "@id": "argo:host",
+      "@type": "xsd:string"
+    },
+    "port": {
+      "@id": "argo:port",
+      "@type": "xsd:string"
+    },
+    "configMapRef": {
+      "@id": "argo:configMapRef",
+      "@type": "xsd:string"
+    },
+    "prefix": {
+      "@id": "argo:prefix",
+      "@type": "xsd:string"
+    },
+    "blockOwnerDeletion": {
+      "@id": "argo:blockOwnerDeletion",
+      "@type": "xsd:boolean"
+    },
+    "controller": {
+      "@id": "argo:controller",
+      "@type": "xsd:boolean"
+    },
+    "uid": {
+      "@id": "argo:uid",
+      "@type": "xsd:string"
+    },
+    "counter": {
+      "@id": "argo:counter",
+      "@type": "xsd:string"
+    },
+    "gauge": {
+      "@id": "argo:gauge",
+      "@type": "xsd:string"
+    },
+    "help": {
+      "@id": "argo:help",
+      "@type": "xsd:string"
+    },
+    "histogram": {
+      "@id": "argo:histogram",
+      "@type": "xsd:string"
+    },
+    "service": {
+      "@id": "argo:service",
+      "@type": "xsd:string"
+    },
+    "preferredDuringSchedulingIgnoredDuringExecution": {
+      "@id": "argo:preferredDuringSchedulingIgnoredDuringExecution",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "requiredDuringSchedulingIgnoredDuringExecution": {
+      "@id": "argo:requiredDuringSchedulingIgnoredDuringExecution",
+      "@type": "xsd:string"
+    },
+    "resourceName": {
+      "@id": "argo:resourceName",
+      "@type": "xsd:string"
+    },
+    "httpHeaders": {
+      "@id": "argo:httpHeaders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "scheme": {
+      "@id": "argo:scheme",
+      "@type": "xsd:string"
+    },
+    "cap": {
+      "@id": "argo:cap",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "argo:duration",
+      "@type": "xsd:string"
+    },
+    "factor": {
+      "@id": "argo:factor",
+      "@type": "xsd:string"
+    },
+    "maxDuration": {
+      "@id": "argo:maxDuration",
+      "@type": "xsd:string"
+    },
+    "nodeSelectorTerms": {
+      "@id": "argo:nodeSelectorTerms",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "claims": {
+      "@id": "argo:claims",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "limits": {
+      "@id": "argo:limits",
+      "@type": "@id"
+    },
+    "requests": {
+      "@id": "argo:requests",
+      "@type": "@id"
+    },
+    "resourceKind": {
+      "@id": "argo:resourceKind",
+      "@type": "xsd:string"
+    },
+    "submitOptions": {
+      "@id": "argo:submitOptions",
+      "@type": "xsd:string"
+    },
+    "add": {
+      "@id": "argo:add",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "drop": {
+      "@id": "argo:drop",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cacheName": {
+      "@id": "argo:cacheName",
+      "@type": "xsd:string"
+    },
+    "hit": {
+      "@id": "argo:hit",
+      "@type": "xsd:boolean"
+    },
+    "keyring": {
+      "@id": "argo:keyring",
+      "@type": "xsd:string"
+    },
+    "pool": {
+      "@id": "argo:pool",
+      "@type": "xsd:string"
+    },
+    "spec": {
+      "@id": "argo:spec",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "argo:status",
+      "@type": "xsd:string"
+    },
+    "columns": {
+      "@id": "argo:columns",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "links": {
+      "@id": "argo:links",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "managedNamespace": {
+      "@id": "argo:managedNamespace",
+      "@type": "xsd:string"
+    },
+    "modals": {
+      "@id": "argo:modals",
+      "@type": "@id"
+    },
+    "navColor": {
+      "@id": "argo:navColor",
+      "@type": "xsd:string"
+    },
+    "exec": {
+      "@id": "argo:exec",
+      "@type": "xsd:string"
+    },
+    "httpGet": {
+      "@id": "argo:httpGet",
+      "@type": "xsd:string"
+    },
+    "sleep": {
+      "@id": "argo:sleep",
+      "@type": "xsd:string"
+    },
+    "tcpSocket": {
+      "@id": "argo:tcpSocket",
+      "@type": "xsd:string"
+    },
+    "partition": {
+      "@id": "argo:partition",
+      "@type": "xsd:integer"
+    },
+    "pdName": {
+      "@id": "argo:pdName",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "argo:object",
+      "@type": "xsd:string"
+    },
+    "chapAuthDiscovery": {
+      "@id": "argo:chapAuthDiscovery",
+      "@type": "xsd:boolean"
+    },
+    "chapAuthSession": {
+      "@id": "argo:chapAuthSession",
+      "@type": "xsd:boolean"
+    },
+    "initiatorName": {
+      "@id": "argo:initiatorName",
+      "@type": "xsd:string"
+    },
+    "iqn": {
+      "@id": "argo:iqn",
+      "@type": "xsd:string"
+    },
+    "iscsiInterface": {
+      "@id": "argo:iscsiInterface",
+      "@type": "xsd:string"
+    },
+    "lun": {
+      "@id": "argo:lun",
+      "@type": "xsd:integer"
+    },
+    "portals": {
+      "@id": "argo:portals",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "targetPortal": {
+      "@id": "argo:targetPortal",
+      "@type": "xsd:string"
+    },
+    "fieldRef": {
+      "@id": "argo:fieldRef",
+      "@type": "xsd:string"
+    },
+    "mode": {
+      "@id": "argo:mode",
+      "@type": "xsd:integer"
+    },
+    "resourceFieldRef": {
+      "@id": "argo:resourceFieldRef",
+      "@type": "xsd:string"
+    },
+    "repoURL": {
+      "@id": "argo:repoURL",
+      "@type": "xsd:string"
+    },
+    "buckets": {
+      "@id": "argo:buckets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "argo:source",
+      "@type": "xsd:string"
+    },
+    "nodeFieldSelector": {
+      "@id": "argo:nodeFieldSelector",
+      "@type": "xsd:string"
+    },
+    "labelsFrom": {
+      "@id": "argo:labelsFrom",
+      "@type": "@id"
+    },
+    "content": {
+      "@id": "argo:content",
+      "@type": "xsd:string"
+    },
+    "podName": {
+      "@id": "argo:podName",
+      "@type": "xsd:string"
+    },
+    "archive": {
+      "@id": "argo:archive",
+      "@type": "xsd:string"
+    },
+    "archiveLogs": {
+      "@id": "argo:archiveLogs",
+      "@type": "xsd:boolean"
+    },
+    "artifactGC": {
+      "@id": "argo:artifactGC",
+      "@type": "xsd:string"
+    },
+    "artifactory": {
+      "@id": "argo:artifactory",
+      "@type": "xsd:string"
+    },
+    "azure": {
+      "@id": "argo:azure",
+      "@type": "xsd:string"
+    },
+    "deleted": {
+      "@id": "argo:deleted",
+      "@type": "xsd:boolean"
+    },
+    "from": {
+      "@id": "argo:from",
+      "@type": "xsd:string"
+    },
+    "fromExpression": {
+      "@id": "argo:fromExpression",
+      "@type": "xsd:string"
+    },
+    "gcs": {
+      "@id": "argo:gcs",
+      "@type": "xsd:string"
+    },
+    "git": {
+      "@id": "argo:git",
+      "@type": "xsd:string"
+    },
+    "globalName": {
+      "@id": "argo:globalName",
+      "@type": "xsd:string"
+    },
+    "hdfs": {
+      "@id": "argo:hdfs",
+      "@type": "xsd:string"
+    },
+    "http": {
+      "@id": "argo:http",
+      "@type": "xsd:string"
+    },
+    "oss": {
+      "@id": "argo:oss",
+      "@type": "xsd:string"
+    },
+    "plugin": {
+      "@id": "argo:plugin",
+      "@type": "xsd:string"
+    },
+    "raw": {
+      "@id": "argo:raw",
+      "@type": "xsd:string"
+    },
+    "recurseMode": {
+      "@id": "argo:recurseMode",
+      "@type": "xsd:boolean"
+    },
+    "s3": {
+      "@id": "argo:s3",
+      "@type": "xsd:string"
+    },
+    "subPath": {
+      "@id": "argo:subPath",
+      "@type": "xsd:string"
+    },
+    "defaultMode": {
+      "@id": "argo:defaultMode",
+      "@type": "xsd:integer"
+    },
+    "localhostProfile": {
+      "@id": "argo:localhostProfile",
+      "@type": "xsd:string"
+    },
+    "containerPort": {
+      "@id": "argo:containerPort",
+      "@type": "xsd:integer"
+    },
+    "hostIP": {
+      "@id": "argo:hostIP",
+      "@type": "xsd:string"
+    },
+    "hostPort": {
+      "@id": "argo:hostPort",
+      "@type": "xsd:integer"
+    },
+    "protocol": {
+      "@id": "argo:protocol",
+      "@type": "xsd:string"
+    },
+    "mountPath": {
+      "@id": "argo:mountPath",
+      "@type": "xsd:string"
+    },
+    "mountPropagation": {
+      "@id": "argo:mountPropagation",
+      "@type": "xsd:string"
+    },
+    "recursiveReadOnly": {
+      "@id": "argo:recursiveReadOnly",
+      "@type": "xsd:string"
+    },
+    "subPathExpr": {
+      "@id": "argo:subPathExpr",
+      "@type": "xsd:string"
+    },
+    "clusterTrustBundle": {
+      "@id": "argo:clusterTrustBundle",
+      "@type": "xsd:string"
+    },
+    "downwardAPI": {
+      "@id": "argo:downwardAPI",
+      "@type": "xsd:string"
+    },
+    "podCertificate": {
+      "@id": "argo:podCertificate",
+      "@type": "xsd:string"
+    },
+    "secret": {
+      "@id": "argo:secret",
+      "@type": "xsd:string"
+    },
+    "serviceAccountToken": {
+      "@id": "argo:serviceAccountToken",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "argo:body",
+      "@type": "xsd:string"
+    },
+    "bodyFrom": {
+      "@id": "argo:bodyFrom",
+      "@type": "xsd:string"
+    },
+    "insecureSkipVerify": {
+      "@id": "argo:insecureSkipVerify",
+      "@type": "xsd:boolean"
+    },
+    "method": {
+      "@id": "argo:method",
+      "@type": "xsd:string"
+    },
+    "successCondition": {
+      "@id": "argo:successCondition",
+      "@type": "xsd:string"
+    },
+    "timeoutSeconds": {
+      "@id": "argo:timeoutSeconds",
+      "@type": "xsd:integer"
+    },
+    "deleteDelayDuration": {
+      "@id": "argo:deleteDelayDuration",
+      "@type": "xsd:string"
+    },
+    "artifacts": {
+      "@id": "argo:artifacts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "exitCode": {
+      "@id": "argo:exitCode",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "argo:parameters",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "result": {
+      "@id": "argo:result",
+      "@type": "xsd:string"
+    },
+    "pdID": {
+      "@id": "argo:pdID",
+      "@type": "xsd:string"
+    },
+    "server": {
+      "@id": "argo:server",
+      "@type": "xsd:string"
+    },
+    "containerName": {
+      "@id": "argo:containerName",
+      "@type": "xsd:string"
+    },
+    "divisor": {
+      "@id": "argo:divisor",
+      "@type": "xsd:string"
+    },
+    "resource": {
+      "@id": "argo:resource",
+      "@type": "xsd:string"
+    },
+    "fieldPath": {
+      "@id": "argo:fieldPath",
+      "@type": "xsd:string"
+    },
+    "resourceVersion": {
+      "@id": "argo:resourceVersion",
+      "@type": "xsd:string"
+    },
+    "appProtocol": {
+      "@id": "argo:appProtocol",
+      "@type": "xsd:string"
+    },
+    "nodePort": {
+      "@id": "argo:nodePort",
+      "@type": "xsd:integer"
+    },
+    "targetPort": {
+      "@id": "argo:targetPort",
+      "@type": "xsd:string"
+    },
+    "driver": {
+      "@id": "argo:driver",
+      "@type": "xsd:string"
+    },
+    "secretName": {
+      "@id": "argo:secretName",
+      "@type": "xsd:string"
+    },
+    "shareName": {
+      "@id": "argo:shareName",
+      "@type": "xsd:string"
+    },
+    "affinity": {
+      "@id": "argo:affinity",
+      "@type": "xsd:string"
+    },
+    "backoff": {
+      "@id": "argo:backoff",
+      "@type": "xsd:string"
+    },
+    "limit": {
+      "@id": "argo:limit",
+      "@type": "xsd:string"
+    },
+    "retryPolicy": {
+      "@id": "argo:retryPolicy",
+      "@type": "xsd:string"
+    },
+    "cronWorkflow": {
+      "@id": "argo:cronWorkflow",
+      "@type": "xsd:string"
+    },
+    "devicePath": {
+      "@id": "argo:devicePath",
+      "@type": "xsd:string"
+    },
+    "buildDate": {
+      "@id": "argo:buildDate",
+      "@type": "xsd:string"
+    },
+    "compiler": {
+      "@id": "argo:compiler",
+      "@type": "xsd:string"
+    },
+    "gitCommit": {
+      "@id": "argo:gitCommit",
+      "@type": "xsd:string"
+    },
+    "gitTag": {
+      "@id": "argo:gitTag",
+      "@type": "xsd:string"
+    },
+    "gitTreeState": {
+      "@id": "argo:gitTreeState",
+      "@type": "xsd:string"
+    },
+    "goVersion": {
+      "@id": "argo:goVersion",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "argo:platform",
+      "@type": "xsd:string"
+    },
+    "version": "schema:version",
+    "failureThreshold": {
+      "@id": "argo:failureThreshold",
+      "@type": "xsd:integer"
+    },
+    "grpc": {
+      "@id": "argo:grpc",
+      "@type": "xsd:string"
+    },
+    "initialDelaySeconds": {
+      "@id": "argo:initialDelaySeconds",
+      "@type": "xsd:integer"
+    },
+    "periodSeconds": {
+      "@id": "argo:periodSeconds",
+      "@type": "xsd:integer"
+    },
+    "successThreshold": {
+      "@id": "argo:successThreshold",
+      "@type": "xsd:integer"
+    },
+    "terminationGracePeriodSeconds": {
+      "@id": "argo:terminationGracePeriodSeconds",
+      "@type": "xsd:integer"
+    },
+    "clusterScope": {
+      "@id": "argo:clusterScope",
+      "@type": "xsd:boolean"
+    },
+    "matchExpressions": {
+      "@id": "argo:matchExpressions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "matchLabels": {
+      "@id": "argo:matchLabels",
+      "@type": "@id"
+    },
+    "storagePolicyID": {
+      "@id": "argo:storagePolicyID",
+      "@type": "xsd:string"
+    },
+    "storagePolicyName": {
+      "@id": "argo:storagePolicyName",
+      "@type": "xsd:string"
+    },
+    "volumePath": {
+      "@id": "argo:volumePath",
+      "@type": "xsd:string"
+    },
+    "accountKeySecret": {
+      "@id": "argo:accountKeySecret",
+      "@type": "xsd:string"
+    },
+    "blobNameFormat": {
+      "@id": "argo:blobNameFormat",
+      "@type": "xsd:string"
+    },
+    "container": {
+      "@id": "argo:container",
+      "@type": "xsd:string"
+    },
+    "serviceAccountKeySecret": {
+      "@id": "argo:serviceAccountKeySecret",
+      "@type": "xsd:string"
+    },
+    "volumeNamespace": {
+      "@id": "argo:volumeNamespace",
+      "@type": "xsd:string"
+    },
+    "group": {
+      "@id": "argo:group",
+      "@type": "xsd:string"
+    },
+    "postStart": {
+      "@id": "argo:postStart",
+      "@type": "xsd:string"
+    },
+    "preStop": {
+      "@id": "argo:preStop",
+      "@type": "xsd:string"
+    },
+    "stopSignal": {
+      "@id": "argo:stopSignal",
+      "@type": "xsd:string"
+    },
+    "allocatedResourceStatuses": {
+      "@id": "argo:allocatedResourceStatuses",
+      "@type": "@id"
+    },
+    "allocatedResources": {
+      "@id": "argo:allocatedResources",
+      "@type": "@id"
+    },
+    "capacity": {
+      "@id": "argo:capacity",
+      "@type": "@id"
+    },
+    "currentVolumeAttributesClassName": {
+      "@id": "argo:currentVolumeAttributesClassName",
+      "@type": "xsd:string"
+    },
+    "modifyVolumeStatus": {
+      "@id": "argo:modifyVolumeStatus",
+      "@type": "xsd:string"
+    },
+    "pullPolicy": {
+      "@id": "argo:pullPolicy",
+      "@type": "xsd:string"
+    },
+    "reference": {
+      "@id": "argo:reference",
+      "@type": "xsd:string"
+    },
+    "restartSuccessful": {
+      "@id": "argo:restartSuccessful",
+      "@type": "xsd:boolean"
+    },
+    "basicAuth": {
+      "@id": "argo:basicAuth",
+      "@type": "xsd:string"
+    },
+    "clientCert": {
+      "@id": "argo:clientCert",
+      "@type": "xsd:string"
+    },
+    "oauth2": {
+      "@id": "argo:oauth2",
+      "@type": "xsd:string"
+    },
+    "medium": {
+      "@id": "argo:medium",
+      "@type": "xsd:string"
+    },
+    "sizeLimit": {
+      "@id": "argo:sizeLimit",
+      "@type": "xsd:string"
+    },
+    "objectLocking": {
+      "@id": "argo:objectLocking",
+      "@type": "xsd:boolean"
+    },
+    "failFast": {
+      "@id": "argo:failFast",
+      "@type": "xsd:boolean"
+    },
+    "target": {
+      "@id": "argo:target",
+      "@type": "xsd:string"
+    },
+    "tasks": {
+      "@id": "argo:tasks",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "apiGroup": {
+      "@id": "argo:apiGroup",
+      "@type": "xsd:string"
+    },
+    "creationTimestamp": {
+      "@id": "argo:creationTimestamp",
+      "@type": "xsd:string"
+    },
+    "deletionGracePeriodSeconds": {
+      "@id": "argo:deletionGracePeriodSeconds",
+      "@type": "xsd:integer"
+    },
+    "deletionTimestamp": {
+      "@id": "argo:deletionTimestamp",
+      "@type": "xsd:string"
+    },
+    "finalizers": {
+      "@id": "argo:finalizers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "generateName": {
+      "@id": "argo:generateName",
+      "@type": "xsd:string"
+    },
+    "generation": {
+      "@id": "argo:generation",
+      "@type": "xsd:integer"
+    },
+    "managedFields": {
+      "@id": "argo:managedFields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ownerReferences": {
+      "@id": "argo:ownerReferences",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "selfLink": {
+      "@id": "argo:selfLink",
+      "@type": "xsd:string"
+    },
+    "blob": {
+      "@id": "argo:blob",
+      "@type": "xsd:string"
+    },
+    "prometheus": {
+      "@id": "argo:prometheus",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "volumeID": {
+      "@id": "argo:volumeID",
+      "@type": "xsd:string"
+    },
+    "addresses": {
+      "@id": "argo:addresses",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dataTransferProtection": {
+      "@id": "argo:dataTransferProtection",
+      "@type": "xsd:string"
+    },
+    "force": {
+      "@id": "argo:force",
+      "@type": "xsd:boolean"
+    },
+    "hdfsUser": {
+      "@id": "argo:hdfsUser",
+      "@type": "xsd:string"
+    },
+    "krbCCacheSecret": {
+      "@id": "argo:krbCCacheSecret",
+      "@type": "xsd:string"
+    },
+    "krbConfigConfigMap": {
+      "@id": "argo:krbConfigConfigMap",
+      "@type": "xsd:string"
+    },
+    "krbKeytabSecret": {
+      "@id": "argo:krbKeytabSecret",
+      "@type": "xsd:string"
+    },
+    "krbRealm": {
+      "@id": "argo:krbRealm",
+      "@type": "xsd:string"
+    },
+    "krbServicePrincipalName": {
+      "@id": "argo:krbServicePrincipalName",
+      "@type": "xsd:string"
+    },
+    "krbUsername": {
+      "@id": "argo:krbUsername",
+      "@type": "xsd:string"
+    },
+    "pathFormat": {
+      "@id": "argo:pathFormat",
+      "@type": "xsd:string"
+    },
+    "secretKeyRef": {
+      "@id": "argo:secretKeyRef",
+      "@type": "xsd:string"
+    },
+    "directory": {
+      "@id": "argo:directory",
+      "@type": "xsd:string"
+    },
+    "repository": {
+      "@id": "argo:repository",
+      "@type": "xsd:string"
+    },
+    "revision": {
+      "@id": "argo:revision",
+      "@type": "xsd:string"
+    },
+    "memoized": {
+      "@id": "argo:memoized",
+      "@type": "xsd:boolean"
+    },
+    "awsElasticBlockStore": {
+      "@id": "argo:awsElasticBlockStore",
+      "@type": "xsd:string"
+    },
+    "azureDisk": {
+      "@id": "argo:azureDisk",
+      "@type": "xsd:string"
+    },
+    "azureFile": {
+      "@id": "argo:azureFile",
+      "@type": "xsd:string"
+    },
+    "cephfs": {
+      "@id": "argo:cephfs",
+      "@type": "xsd:string"
+    },
+    "cinder": {
+      "@id": "argo:cinder",
+      "@type": "xsd:string"
+    },
+    "csi": {
+      "@id": "argo:csi",
+      "@type": "xsd:string"
+    },
+    "emptyDir": {
+      "@id": "argo:emptyDir",
+      "@type": "xsd:string"
+    },
+    "ephemeral": {
+      "@id": "argo:ephemeral",
+      "@type": "xsd:string"
+    },
+    "fc": {
+      "@id": "argo:fc",
+      "@type": "xsd:string"
+    },
+    "flexVolume": {
+      "@id": "argo:flexVolume",
+      "@type": "xsd:string"
+    },
+    "flocker": {
+      "@id": "argo:flocker",
+      "@type": "xsd:string"
+    },
+    "gcePersistentDisk": {
+      "@id": "argo:gcePersistentDisk",
+      "@type": "xsd:string"
+    },
+    "gitRepo": {
+      "@id": "argo:gitRepo",
+      "@type": "xsd:string"
+    },
+    "glusterfs": {
+      "@id": "argo:glusterfs",
+      "@type": "xsd:string"
+    },
+    "hostPath": {
+      "@id": "argo:hostPath",
+      "@type": "xsd:string"
+    },
+    "iscsi": {
+      "@id": "argo:iscsi",
+      "@type": "xsd:string"
+    },
+    "nfs": {
+      "@id": "argo:nfs",
+      "@type": "xsd:string"
+    },
+    "persistentVolumeClaim": {
+      "@id": "argo:persistentVolumeClaim",
+      "@type": "xsd:string"
+    },
+    "photonPersistentDisk": {
+      "@id": "argo:photonPersistentDisk",
+      "@type": "xsd:string"
+    },
+    "portworxVolume": {
+      "@id": "argo:portworxVolume",
+      "@type": "xsd:string"
+    },
+    "projected": {
+      "@id": "argo:projected",
+      "@type": "xsd:string"
+    },
+    "quobyte": {
+      "@id": "argo:quobyte",
+      "@type": "xsd:string"
+    },
+    "rbd": {
+      "@id": "argo:rbd",
+      "@type": "xsd:string"
+    },
+    "scaleIO": {
+      "@id": "argo:scaleIO",
+      "@type": "xsd:string"
+    },
+    "storageos": {
+      "@id": "argo:storageos",
+      "@type": "xsd:string"
+    },
+    "vsphereVolume": {
+      "@id": "argo:vsphereVolume",
+      "@type": "xsd:string"
+    },
+    "activeDeadlineSeconds": {
+      "@id": "argo:activeDeadlineSeconds",
+      "@type": "xsd:string"
+    },
+    "archiveLocation": {
+      "@id": "argo:archiveLocation",
+      "@type": "xsd:string"
+    },
+    "automountServiceAccountToken": {
+      "@id": "argo:automountServiceAccountToken",
+      "@type": "xsd:boolean"
+    },
+    "containerSet": {
+      "@id": "argo:containerSet",
+      "@type": "xsd:string"
+    },
+    "daemon": {
+      "@id": "argo:daemon",
+      "@type": "xsd:boolean"
+    },
+    "dag": {
+      "@id": "argo:dag",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "argo:data",
+      "@type": "xsd:string"
+    },
+    "executor": {
+      "@id": "argo:executor",
+      "@type": "xsd:string"
+    },
+    "hostAliases": {
+      "@id": "argo:hostAliases",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "initContainers": {
+      "@id": "argo:initContainers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "inputs": {
+      "@id": "argo:inputs",
+      "@type": "xsd:string"
+    },
+    "memoize": {
+      "@id": "argo:memoize",
+      "@type": "xsd:string"
+    },
+    "metrics": {
+      "@id": "argo:metrics",
+      "@type": "xsd:string"
+    },
+    "nodeSelector": {
+      "@id": "argo:nodeSelector",
+      "@type": "@id"
+    },
+    "parallelism": {
+      "@id": "argo:parallelism",
+      "@type": "xsd:integer"
+    },
+    "priorityClassName": {
+      "@id": "argo:priorityClassName",
+      "@type": "xsd:string"
+    },
+    "retryStrategy": {
+      "@id": "argo:retryStrategy",
+      "@type": "xsd:string"
+    },
+    "schedulerName": {
+      "@id": "argo:schedulerName",
+      "@type": "xsd:string"
+    },
+    "script": {
+      "@id": "argo:script",
+      "@type": "xsd:string"
+    },
+    "sidecars": {
+      "@id": "argo:sidecars",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "steps": {
+      "@id": "argo:steps",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "timeout": {
+      "@id": "argo:timeout",
+      "@type": "xsd:string"
+    },
+    "tolerations": {
+      "@id": "argo:tolerations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "volumes": {
+      "@id": "argo:volumes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "nodeAffinity": {
+      "@id": "argo:nodeAffinity",
+      "@type": "xsd:string"
+    },
+    "podAffinity": {
+      "@id": "argo:podAffinity",
+      "@type": "xsd:string"
+    },
+    "podAntiAffinity": {
+      "@id": "argo:podAntiAffinity",
+      "@type": "xsd:string"
+    },
+    "dryRun": {
+      "@id": "argo:dryRun",
+      "@type": "xsd:boolean"
+    },
+    "entryPoint": {
+      "@id": "argo:entryPoint",
+      "@type": "xsd:string"
+    },
+    "ownerReference": {
+      "@id": "argo:ownerReference",
+      "@type": "xsd:string"
+    },
+    "podPriorityClassName": {
+      "@id": "argo:podPriorityClassName",
+      "@type": "xsd:string"
+    },
+    "priority": {
+      "@id": "argo:priority",
+      "@type": "xsd:integer"
+    },
+    "serverDryRun": {
+      "@id": "argo:serverDryRun",
+      "@type": "xsd:boolean"
+    },
+    "serviceAccount": {
+      "@id": "argo:serviceAccount",
+      "@type": "xsd:string"
+    },
+    "lastProbeTime": {
+      "@id": "argo:lastProbeTime",
+      "@type": "xsd:string"
+    },
+    "lastTransitionTime": {
+      "@id": "argo:lastTransitionTime",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "argo:reason",
+      "@type": "xsd:string"
+    },
+    "mutex": {
+      "@id": "argo:mutex",
+      "@type": "xsd:string"
+    },
+    "semaphore": {
+      "@id": "argo:semaphore",
+      "@type": "xsd:string"
+    },
+    "request": {
+      "@id": "argo:request",
+      "@type": "xsd:string"
+    },
+    "compressionLevel": {
+      "@id": "argo:compressionLevel",
+      "@type": "xsd:integer"
+    },
+    "holders": {
+      "@id": "argo:holders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "targetWWNs": {
+      "@id": "argo:targetWWNs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "wwids": {
+      "@id": "argo:wwids",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "retries": {
+      "@id": "argo:retries",
+      "@type": "xsd:string"
+    },
+    "event": {
+      "@id": "argo:event",
+      "@type": "xsd:string"
+    },
+    "jqFilter": {
+      "@id": "argo:jqFilter",
+      "@type": "xsd:string"
+    },
+    "jsonPath": {
+      "@id": "argo:jsonPath",
+      "@type": "xsd:string"
+    },
+    "parameter": {
+      "@id": "argo:parameter",
+      "@type": "xsd:string"
+    },
+    "supplied": {
+      "@id": "argo:supplied",
+      "@type": "xsd:string"
+    },
+    "notSpecified": {
+      "@id": "argo:notSpecified",
+      "@type": "xsd:boolean"
+    },
+    "podsRecouped": {
+      "@id": "argo:podsRecouped",
+      "@type": "@id"
+    },
+    "strategiesProcessed": {
+      "@id": "argo:strategiesProcessed",
+      "@type": "@id"
+    },
+    "caSecret": {
+      "@id": "argo:caSecret",
+      "@type": "xsd:string"
+    },
+    "encryptionOptions": {
+      "@id": "argo:encryptionOptions",
+      "@type": "xsd:string"
+    },
+    "insecure": {
+      "@id": "argo:insecure",
+      "@type": "xsd:boolean"
+    },
+    "region": {
+      "@id": "argo:region",
+      "@type": "xsd:string"
+    },
+    "roleARN": {
+      "@id": "argo:roleARN",
+      "@type": "xsd:string"
+    },
+    "sessionTokenSecret": {
+      "@id": "argo:sessionTokenSecret",
+      "@type": "xsd:string"
+    },
+    "component": {
+      "@id": "argo:component",
+      "@type": "xsd:string"
+    },
+    "outputParameters": {
+      "@id": "argo:outputParameters",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "argo:active",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "lastScheduledTime": {
+      "@id": "argo:lastScheduledTime",
+      "@type": "xsd:string"
+    },
+    "succeeded": {
+      "@id": "argo:succeeded",
+      "@type": "xsd:integer"
+    },
+    "maxUnavailable": {
+      "@id": "argo:maxUnavailable",
+      "@type": "xsd:string"
+    },
+    "minAvailable": {
+      "@id": "argo:minAvailable",
+      "@type": "xsd:string"
+    },
+    "unhealthyPodEvictionPolicy": {
+      "@id": "argo:unhealthyPodEvictionPolicy",
+      "@type": "xsd:string"
+    },
+    "operation": {
+      "@id": "argo:operation",
+      "@type": "xsd:string"
+    },
+    "realtime": {
+      "@id": "argo:realtime",
+      "@type": "xsd:boolean"
+    },
+    "appArmorProfile": {
+      "@id": "argo:appArmorProfile",
+      "@type": "xsd:string"
+    },
+    "fsGroup": {
+      "@id": "argo:fsGroup",
+      "@type": "xsd:integer"
+    },
+    "fsGroupChangePolicy": {
+      "@id": "argo:fsGroupChangePolicy",
+      "@type": "xsd:string"
+    },
+    "runAsGroup": {
+      "@id": "argo:runAsGroup",
+      "@type": "xsd:integer"
+    },
+    "runAsNonRoot": {
+      "@id": "argo:runAsNonRoot",
+      "@type": "xsd:boolean"
+    },
+    "runAsUser": {
+      "@id": "argo:runAsUser",
+      "@type": "xsd:integer"
+    },
+    "seLinuxChangePolicy": {
+      "@id": "argo:seLinuxChangePolicy",
+      "@type": "xsd:string"
+    },
+    "seLinuxOptions": {
+      "@id": "argo:seLinuxOptions",
+      "@type": "xsd:string"
+    },
+    "seccompProfile": {
+      "@id": "argo:seccompProfile",
+      "@type": "xsd:string"
+    },
+    "supplementalGroups": {
+      "@id": "argo:supplementalGroups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "supplementalGroupsPolicy": {
+      "@id": "argo:supplementalGroupsPolicy",
+      "@type": "xsd:string"
+    },
+    "sysctls": {
+      "@id": "argo:sysctls",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "windowsOptions": {
+      "@id": "argo:windowsOptions",
+      "@type": "xsd:string"
+    },
+    "artifactPaths": {
+      "@id": "argo:artifactPaths",
+      "@type": "xsd:string"
+    },
+    "none": {
+      "@id": "argo:none",
+      "@type": "xsd:string"
+    },
+    "tar": {
+      "@id": "argo:tar",
+      "@type": "xsd:string"
+    },
+    "zip": {
+      "@id": "argo:zip",
+      "@type": "xsd:string"
+    },
+    "dnsConfig": {
+      "@id": "argo:dnsConfig",
+      "@type": "xsd:string"
+    },
+    "dnsPolicy": {
+      "@id": "argo:dnsPolicy",
+      "@type": "xsd:string"
+    },
+    "entrypoint": {
+      "@id": "argo:entrypoint",
+      "@type": "xsd:string"
+    },
+    "hostNetwork": {
+      "@id": "argo:hostNetwork",
+      "@type": "xsd:boolean"
+    },
+    "imagePullSecrets": {
+      "@id": "argo:imagePullSecrets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "podDisruptionBudget": {
+      "@id": "argo:podDisruptionBudget",
+      "@type": "xsd:string"
+    },
+    "podGC": {
+      "@id": "argo:podGC",
+      "@type": "xsd:string"
+    },
+    "shutdown": {
+      "@id": "argo:shutdown",
+      "@type": "xsd:string"
+    },
+    "templateDefaults": {
+      "@id": "argo:templateDefaults",
+      "@type": "xsd:string"
+    },
+    "templates": {
+      "@id": "argo:templates",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ttlStrategy": {
+      "@id": "argo:ttlStrategy",
+      "@type": "xsd:string"
+    },
+    "volumeClaimGC": {
+      "@id": "argo:volumeClaimGC",
+      "@type": "xsd:string"
+    },
+    "volumeClaimTemplates": {
+      "@id": "argo:volumeClaimTemplates",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "workflowTemplateRef": {
+      "@id": "argo:workflowTemplateRef",
+      "@type": "xsd:string"
+    },
+    "seconds": {
+      "@id": "argo:seconds",
+      "@type": "xsd:integer"
+    },
+    "email": {
+      "@id": "argo:email",
+      "@type": "xsd:string"
+    },
+    "emailVerified": {
+      "@id": "argo:emailVerified",
+      "@type": "xsd:boolean"
+    },
+    "groups": {
+      "@id": "argo:groups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "issuer": {
+      "@id": "argo:issuer",
+      "@type": "xsd:string"
+    },
+    "serviceAccountNamespace": {
+      "@id": "argo:serviceAccountNamespace",
+      "@type": "xsd:string"
+    },
+    "subject": {
+      "@id": "argo:subject",
+      "@type": "xsd:string"
+    },
+    "endpoints": {
+      "@id": "argo:endpoints",
+      "@type": "xsd:string"
+    },
+    "submit": {
+      "@id": "argo:submit",
+      "@type": "xsd:string"
+    },
+    "markDeletionAfterDays": {
+      "@id": "argo:markDeletionAfterDays",
+      "@type": "xsd:integer"
+    },
+    "markInfrequentAccessAfterDays": {
+      "@id": "argo:markInfrequentAccessAfterDays",
+      "@type": "xsd:integer"
+    },
+    "workflow": {
+      "@id": "argo:workflow",
+      "@type": "xsd:string"
+    },
+    "volumeClaimTemplate": {
+      "@id": "argo:volumeClaimTemplate",
+      "@type": "xsd:string"
+    },
+    "instanceID": {
+      "@id": "argo:instanceID",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "argo:scope",
+      "@type": "xsd:string"
+    },
+    "hooked": {
+      "@id": "argo:hooked",
+      "@type": "xsd:boolean"
+    },
+    "retried": {
+      "@id": "argo:retried",
+      "@type": "xsd:boolean"
+    },
+    "cache": {
+      "@id": "argo:cache",
+      "@type": "xsd:string"
+    },
+    "maxAge": {
+      "@id": "argo:maxAge",
+      "@type": "xsd:string"
+    },
+    "nodeAntiAffinity": {
+      "@id": "argo:nodeAntiAffinity",
+      "@type": "xsd:string"
+    },
+    "containers": {
+      "@id": "argo:containers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "fieldManager": {
+      "@id": "argo:fieldManager",
+      "@type": "xsd:string"
+    },
+    "fieldValidation": {
+      "@id": "argo:fieldValidation",
+      "@type": "xsd:string"
+    },
+    "sources": {
+      "@id": "argo:sources",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "registry": {
+      "@id": "argo:registry",
+      "@type": "xsd:string"
+    },
+    "tenant": {
+      "@id": "argo:tenant",
+      "@type": "xsd:string"
+    },
+    "volume": {
+      "@id": "argo:volume",
+      "@type": "xsd:string"
+    },
+    "bytes": {
+      "@id": "argo:bytes",
+      "@type": "xsd:string"
+    },
+    "fieldsType": {
+      "@id": "argo:fieldsType",
+      "@type": "xsd:string"
+    },
+    "fieldsV1": {
+      "@id": "argo:fieldsV1",
+      "@type": "xsd:string"
+    },
+    "manager": {
+      "@id": "argo:manager",
+      "@type": "xsd:string"
+    },
+    "subresource": {
+      "@id": "argo:subresource",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "argo:time",
+      "@type": "xsd:string"
+    },
+    "fileKeyRef": {
+      "@id": "argo:fileKeyRef",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "enum": {
+      "@id": "argo:enum",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "datasetName": {
+      "@id": "argo:datasetName",
+      "@type": "xsd:string"
+    },
+    "datasetUUID": {
+      "@id": "argo:datasetUUID",
+      "@type": "xsd:string"
+    },
+    "failureCondition": {
+      "@id": "argo:failureCondition",
+      "@type": "xsd:string"
+    },
+    "flags": {
+      "@id": "argo:flags",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "manifest": {
+      "@id": "argo:manifest",
+      "@type": "xsd:string"
+    },
+    "manifestFrom": {
+      "@id": "argo:manifestFrom",
+      "@type": "xsd:string"
+    },
+    "mergeStrategy": {
+      "@id": "argo:mergeStrategy",
+      "@type": "xsd:string"
+    },
+    "setOwnerReference": {
+      "@id": "argo:setOwnerReference",
+      "@type": "xsd:boolean"
+    },
+    "allowPrivilegeEscalation": {
+      "@id": "argo:allowPrivilegeEscalation",
+      "@type": "xsd:boolean"
+    },
+    "capabilities": {
+      "@id": "argo:capabilities",
+      "@type": "xsd:string"
+    },
+    "privileged": {
+      "@id": "argo:privileged",
+      "@type": "xsd:boolean"
+    },
+    "procMount": {
+      "@id": "argo:procMount",
+      "@type": "xsd:string"
+    },
+    "readOnlyRootFilesystem": {
+      "@id": "argo:readOnlyRootFilesystem",
+      "@type": "xsd:boolean"
+    },
+    "continue": {
+      "@id": "argo:continue",
+      "@type": "xsd:string"
+    },
+    "remainingItemCount": {
+      "@id": "argo:remainingItemCount",
+      "@type": "xsd:integer"
+    },
+    "transformation": {
+      "@id": "argo:transformation",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "keyPrefix": {
+      "@id": "argo:keyPrefix",
+      "@type": "xsd:string"
+    },
+    "branch": {
+      "@id": "argo:branch",
+      "@type": "xsd:string"
+    },
+    "depth": {
+      "@id": "argo:depth",
+      "@type": "xsd:integer"
+    },
+    "disableSubmodules": {
+      "@id": "argo:disableSubmodules",
+      "@type": "xsd:boolean"
+    },
+    "fetch": {
+      "@id": "argo:fetch",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "insecureIgnoreHostKey": {
+      "@id": "argo:insecureIgnoreHostKey",
+      "@type": "xsd:boolean"
+    },
+    "insecureSkipTLS": {
+      "@id": "argo:insecureSkipTLS",
+      "@type": "xsd:boolean"
+    },
+    "repo": {
+      "@id": "argo:repo",
+      "@type": "xsd:string"
+    },
+    "singleBranch": {
+      "@id": "argo:singleBranch",
+      "@type": "xsd:boolean"
+    },
+    "sshPrivateKeySecret": {
+      "@id": "argo:sshPrivateKeySecret",
+      "@type": "xsd:string"
+    },
+    "holder": {
+      "@id": "argo:holder",
+      "@type": "xsd:string"
+    },
+    "preference": {
+      "@id": "argo:preference",
+      "@type": "xsd:string"
+    },
+    "boundaryID": {
+      "@id": "argo:boundaryID",
+      "@type": "xsd:string"
+    },
+    "children": {
+      "@id": "argo:children",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "daemoned": {
+      "@id": "argo:daemoned",
+      "@type": "xsd:boolean"
+    },
+    "displayName": {
+      "@id": "argo:displayName",
+      "@type": "xsd:string"
+    },
+    "failedPodRestarts": {
+      "@id": "argo:failedPodRestarts",
+      "@type": "xsd:integer"
+    },
+    "hostNodeName": {
+      "@id": "argo:hostNodeName",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "argo:id",
+      "@type": "xsd:string"
+    },
+    "memoizationStatus": {
+      "@id": "argo:memoizationStatus",
+      "@type": "xsd:string"
+    },
+    "nodeFlag": {
+      "@id": "argo:nodeFlag",
+      "@type": "xsd:string"
+    },
+    "outboundNodes": {
+      "@id": "argo:outboundNodes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "podIP": {
+      "@id": "argo:podIP",
+      "@type": "xsd:string"
+    },
+    "restartingPodUID": {
+      "@id": "argo:restartingPodUID",
+      "@type": "xsd:string"
+    },
+    "synchronizationStatus": {
+      "@id": "argo:synchronizationStatus",
+      "@type": "xsd:string"
+    },
+    "taskResultSynced": {
+      "@id": "argo:taskResultSynced",
+      "@type": "xsd:boolean"
+    },
+    "templateName": {
+      "@id": "argo:templateName",
+      "@type": "xsd:string"
+    },
+    "templateScope": {
+      "@id": "argo:templateScope",
+      "@type": "xsd:string"
+    },
+    "eventTime": {
+      "@id": "argo:eventTime",
+      "@type": "xsd:string"
+    },
+    "firstTimestamp": {
+      "@id": "argo:firstTimestamp",
+      "@type": "xsd:string"
+    },
+    "involvedObject": {
+      "@id": "argo:involvedObject",
+      "@type": "xsd:string"
+    },
+    "lastTimestamp": {
+      "@id": "argo:lastTimestamp",
+      "@type": "xsd:string"
+    },
+    "related": {
+      "@id": "argo:related",
+      "@type": "xsd:string"
+    },
+    "reportingComponent": {
+      "@id": "argo:reportingComponent",
+      "@type": "xsd:string"
+    },
+    "reportingInstance": {
+      "@id": "argo:reportingInstance",
+      "@type": "xsd:string"
+    },
+    "series": {
+      "@id": "argo:series",
+      "@type": "xsd:string"
+    },
+    "matchFields": {
+      "@id": "argo:matchFields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cachingMode": {
+      "@id": "argo:cachingMode",
+      "@type": "xsd:string"
+    },
+    "diskName": {
+      "@id": "argo:diskName",
+      "@type": "xsd:string"
+    },
+    "diskURI": {
+      "@id": "argo:diskURI",
+      "@type": "xsd:string"
+    },
+    "targetVolumeAttributesClassName": {
+      "@id": "argo:targetVolumeAttributesClassName",
+      "@type": "xsd:string"
+    },
+    "secondsAfterCompletion": {
+      "@id": "argo:secondsAfterCompletion",
+      "@type": "xsd:integer"
+    },
+    "secondsAfterFailure": {
+      "@id": "argo:secondsAfterFailure",
+      "@type": "xsd:integer"
+    },
+    "secondsAfterSuccess": {
+      "@id": "argo:secondsAfterSuccess",
+      "@type": "xsd:integer"
+    },
+    "nodePublishSecretRef": {
+      "@id": "argo:nodePublishSecretRef",
+      "@type": "xsd:string"
+    },
+    "volumeAttributes": {
+      "@id": "argo:volumeAttributes",
+      "@type": "@id"
+    }
+  }
+}

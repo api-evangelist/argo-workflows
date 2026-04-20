@@ -1,0 +1,5 @@
+{
+  "podMetadata": "example-podmetadata",
+  "serviceAccountName": "my-workflow",
+  "strategy": "example-strategy"
+}

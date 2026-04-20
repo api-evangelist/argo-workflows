@@ -1,0 +1,5 @@
+{
+  "createOptions": "example-createoptions",
+  "cronWorkflow": "example-cronworkflow",
+  "namespace": "my-workflow"
+}

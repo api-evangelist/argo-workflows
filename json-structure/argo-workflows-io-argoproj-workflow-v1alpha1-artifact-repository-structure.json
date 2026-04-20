@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-artifact-repository-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.ArtifactRepository",
+  "description": "ArtifactRepository represents an artifact repository in which a controller will store its artifacts",
+  "type": "object",
+  "properties": {
+    "archiveLogs": {
+      "description": "ArchiveLogs enables log archiving",
+      "type": "boolean"
+    },
+    "artifactory": {
+      "description": "Artifactory stores artifacts to JFrog Artifactory",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ArtifactoryArtifactRepository"
+    },
+    "azure": {
+      "description": "Azure stores artifact in an Azure Storage account",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.AzureArtifactRepository"
+    },
+    "gcs": {
+      "description": "GCS stores artifact in a GCS object store",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.GCSArtifactRepository"
+    },
+    "hdfs": {
+      "description": "HDFS stores artifacts in HDFS",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HDFSArtifactRepository"
+    },
+    "oss": {
+      "description": "OSS stores artifact in a OSS-compliant object store",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.OSSArtifactRepository"
+    },
+    "plugin": {
+      "description": "Plugin stores artifact in a plugin-specific artifact repository",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.PluginArtifactRepository"
+    },
+    "s3": {
+      "description": "S3 stores artifact in a S3-compliant object store",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.S3ArtifactRepository"
+    }
+  }
+}

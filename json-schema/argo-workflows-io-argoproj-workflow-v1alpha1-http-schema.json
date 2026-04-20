@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-http-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.HTTP",
+  "description": "io.argoproj.workflow.v1alpha1.HTTP schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "description": "Body is content of the HTTP Request",
+      "type": "string"
+    },
+    "bodyFrom": {
+      "description": "BodyFrom is  content of the HTTP Request as Bytes",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HTTPBodySource"
+    },
+    "headers": {
+      "description": "Headers are an optional list of headers to send with HTTP requests",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HTTPHeader"
+      }
+    },
+    "insecureSkipVerify": {
+      "description": "InsecureSkipVerify is a bool when if set to true will skip TLS verification for the HTTP client",
+      "type": "boolean"
+    },
+    "method": {
+      "description": "Method is HTTP methods for HTTP Request",
+      "type": "string"
+    },
+    "successCondition": {
+      "description": "SuccessCondition is an expression if evaluated to true is considered successful",
+      "type": "string"
+    },
+    "timeoutSeconds": {
+      "description": "TimeoutSeconds is request timeout for HTTP Request. Default is 30 seconds",
+      "type": "integer"
+    },
+    "url": {
+      "description": "URL of the HTTP Request",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}

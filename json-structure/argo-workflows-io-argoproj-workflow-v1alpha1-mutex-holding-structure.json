@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-mutex-holding-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.MutexHolding",
+  "description": "MutexHolding describes the mutex and the object which is holding it.",
+  "type": "object",
+  "properties": {
+    "holder": {
+      "description": "Holder is a reference to the object which holds the Mutex. Holding Scenario:\n  1. Current workflow's NodeID which is holding the lock.\n     e.g: ${NodeID}\nWaiting Scenario:\n  1. Current workflow or other workflow NodeID which is holding the lock.\n     e.g: ${WorkflowName}/${NodeID}",
+      "type": "string"
+    },
+    "mutex": {
+      "description": "Reference for the mutex e.g: ${namespace}/mutex/${mutexName}",
+      "type": "string"
+    }
+  }
+}

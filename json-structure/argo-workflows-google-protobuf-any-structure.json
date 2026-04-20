@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-google-protobuf-any-structure.json",
+  "name": "google.protobuf.Any",
+  "description": "google.protobuf.Any schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "type_url": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string",
+      "format": "byte"
+    }
+  }
+}

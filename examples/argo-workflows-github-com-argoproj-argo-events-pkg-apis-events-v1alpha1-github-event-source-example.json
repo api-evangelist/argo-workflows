@@ -1,0 +1,29 @@
+{
+  "active": true,
+  "apiToken": "example-apitoken",
+  "contentType": "example-contenttype",
+  "deleteHookOnFinish": true,
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "githubApp": "example-githubapp",
+  "githubBaseURL": "example-githubbaseurl",
+  "githubUploadURL": "example-githubuploadurl",
+  "id": "wf-abc123",
+  "insecure": true,
+  "metadata": {},
+  "organizations": [
+    "example-organizations",
+    "example-organizations"
+  ],
+  "owner": "example-owner",
+  "repositories": [
+    "example-repositories",
+    "example-repositories"
+  ],
+  "repository": "example-repository",
+  "webhook": "example-webhook",
+  "webhookSecret": "example-webhooksecret"
+}

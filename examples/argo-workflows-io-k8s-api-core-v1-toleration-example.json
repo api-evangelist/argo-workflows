@@ -1,0 +1,7 @@
+{
+  "effect": "example-effect",
+  "key": "example-key",
+  "operator": "example-operator",
+  "tolerationSeconds": 21,
+  "value": "example-value"
+}

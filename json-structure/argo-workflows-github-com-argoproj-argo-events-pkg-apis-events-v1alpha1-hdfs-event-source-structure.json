@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-hdfs-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HDFSEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HDFSEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checkInterval": {
+      "type": "string",
+      "name": "CheckInterval is a string that describes an interval duration to check the directory state, e.g. 1s, 30m, 2h... (defaults to 1m)"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "hdfsUser": {
+      "description": "HDFSUser is the user to access HDFS file system.\nIt is ignored if either ccache or keytab is used.",
+      "type": "string"
+    },
+    "krbCCacheSecret": {
+      "description": "KrbCCacheSecret is the secret selector for Kerberos ccache\nEither ccache or keytab can be set to use Kerberos.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "krbConfigConfigMap": {
+      "description": "KrbConfig is the configmap selector for Kerberos config as string\nIt must be set if either ccache or keytab is used.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+    },
+    "krbKeytabSecret": {
+      "description": "KrbKeytabSecret is the secret selector for Kerberos keytab\nEither ccache or keytab can be set to use Kerberos.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "krbRealm": {
+      "description": "KrbRealm is the Kerberos realm used with Kerberos keytab\nIt must be set if keytab is used.",
+      "type": "string"
+    },
+    "krbServicePrincipalName": {
+      "description": "KrbServicePrincipalName is the principal name of Kerberos service\nIt must be set if either ccache or keytab is used.",
+      "type": "string"
+    },
+    "krbUsername": {
+      "description": "KrbUsername is the Kerberos username used with Kerberos keytab\nIt must be set if keytab is used.",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "type": {
+      "type": "string",
+      "name": "Type of file operations to watch"
+    },
+    "watchPathConfig": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WatchPathConfig"
+    }
+  }
+}

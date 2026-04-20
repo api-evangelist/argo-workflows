@@ -1,0 +1,16 @@
+{
+  "chapAuthDiscovery": true,
+  "chapAuthSession": true,
+  "fsType": "example-fstype",
+  "initiatorName": "my-workflow",
+  "iqn": "example-iqn",
+  "iscsiInterface": "example-iscsiinterface",
+  "lun": 99,
+  "portals": [
+    "example-portals",
+    "example-portals"
+  ],
+  "readOnly": true,
+  "secretRef": "example-secretref",
+  "targetPortal": "example-targetportal"
+}

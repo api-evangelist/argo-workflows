@@ -1,0 +1,36 @@
+{
+  "boundaryID": "wf-abc123",
+  "children": [
+    "example-children",
+    "example-children"
+  ],
+  "daemoned": true,
+  "displayName": "my-workflow",
+  "estimatedDuration": 61,
+  "failedPodRestarts": 57,
+  "finishedAt": "example-finishedat",
+  "hostNodeName": "my-workflow",
+  "id": "wf-abc123",
+  "inputs": "example-inputs",
+  "memoizationStatus": "Running",
+  "message": "Workflow completed successfully",
+  "name": "my-workflow",
+  "nodeFlag": "worker-node-1",
+  "outboundNodes": [
+    "worker-node-1",
+    "worker-node-1"
+  ],
+  "outputs": "example-outputs",
+  "phase": "Running",
+  "podIP": "example-podip",
+  "progress": "example-progress",
+  "resourcesDuration": {},
+  "restartingPodUID": "wf-abc123",
+  "startedAt": "example-startedat",
+  "synchronizationStatus": "Running",
+  "taskResultSynced": true,
+  "templateName": "my-workflow",
+  "templateRef": "workflow-template",
+  "templateScope": "workflow-template",
+  "type": "example-type"
+}

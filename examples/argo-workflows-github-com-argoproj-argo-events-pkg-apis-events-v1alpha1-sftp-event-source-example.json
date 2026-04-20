@@ -1,0 +1,11 @@
+{
+  "address": "example-address",
+  "eventType": "example-eventtype",
+  "filter": "example-filter",
+  "metadata": {},
+  "password": "example-password",
+  "pollIntervalDuration": "example-pollintervaldur",
+  "sshKeySecret": "example-sshkeysecret",
+  "username": "my-workflow",
+  "watchPathConfig": "example-watchpathconfig"
+}

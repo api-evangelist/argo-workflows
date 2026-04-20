@@ -1,0 +1,10 @@
+{
+  "liveObject": true,
+  "operation": "example-operation",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "patchStrategy": "example-patchstrategy",
+  "source": "example-source"
+}

@@ -1,0 +1,7 @@
+{
+  "fsType": "example-fstype",
+  "readOnly": true,
+  "secretRef": "example-secretref",
+  "volumeName": "my-workflow",
+  "volumeNamespace": "my-workflow"
+}

@@ -1,0 +1,5 @@
+{
+  "createOptions": "example-createoptions",
+  "namespace": "my-workflow",
+  "sensor": "example-sensor"
+}

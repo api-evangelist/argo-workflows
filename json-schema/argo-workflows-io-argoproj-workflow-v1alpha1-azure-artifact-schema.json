@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-azure-artifact-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.AzureArtifact",
+  "description": "AzureArtifact is the location of an Azure Storage artifact",
+  "type": "object",
+  "properties": {
+    "accountKeySecret": {
+      "description": "AccountKeySecret is the secret selector to the Azure Blob Storage account access key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "blob": {
+      "description": "Blob is the blob name (i.e., path) in the container where the artifact resides",
+      "type": "string"
+    },
+    "container": {
+      "description": "Container is the container where resources will be stored",
+      "type": "string"
+    },
+    "endpoint": {
+      "description": "Endpoint is the service url associated with an account. It is most likely \"https://<ACCOUNT_NAME>.blob.core.windows.net\"",
+      "type": "string"
+    },
+    "useSDKCreds": {
+      "description": "UseSDKCreds tells the driver to figure out credentials based on sdk defaults.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "endpoint",
+    "container",
+    "blob"
+  ]
+}

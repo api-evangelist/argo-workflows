@@ -1,0 +1,59 @@
+{
+  "activeDeadlineSeconds": "example-activedeadlines",
+  "affinity": "example-affinity",
+  "annotations": {},
+  "archiveLocation": "example-archivelocation",
+  "automountServiceAccountToken": true,
+  "container": "example-container",
+  "containerSet": "example-containerset",
+  "daemon": true,
+  "dag": "example-dag",
+  "data": "example-data",
+  "executor": "example-executor",
+  "failFast": true,
+  "hostAliases": [
+    "example-hostaliases",
+    "example-hostaliases"
+  ],
+  "http": "example-http",
+  "initContainers": [
+    "example-initcontainers",
+    "example-initcontainers"
+  ],
+  "inputs": "example-inputs",
+  "memoize": "example-memoize",
+  "metadata": "example-metadata",
+  "metrics": "example-metrics",
+  "name": "my-workflow",
+  "nodeSelector": {},
+  "outputs": "example-outputs",
+  "parallelism": 2,
+  "plugin": "example-plugin",
+  "podSpecPatch": "example-podspecpatch",
+  "priorityClassName": "my-workflow",
+  "resource": "example-resource",
+  "retryStrategy": "example-retrystrategy",
+  "schedulerName": "my-workflow",
+  "script": "example-script",
+  "securityContext": "example-securitycontext",
+  "serviceAccountName": "my-workflow",
+  "sidecars": [
+    "wf-abc123",
+    "wf-abc123"
+  ],
+  "steps": [
+    "example-steps",
+    "example-steps"
+  ],
+  "suspend": "example-suspend",
+  "synchronization": "example-synchronization",
+  "timeout": "example-timeout",
+  "tolerations": [
+    "example-tolerations",
+    "example-tolerations"
+  ],
+  "volumes": [
+    "example-volumes",
+    "example-volumes"
+  ]
+}

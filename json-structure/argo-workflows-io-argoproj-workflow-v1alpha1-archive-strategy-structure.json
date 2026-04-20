@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-archive-strategy-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.ArchiveStrategy",
+  "description": "ArchiveStrategy describes how to archive files/directory when saving artifacts",
+  "type": "object",
+  "properties": {
+    "none": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.NoneStrategy"
+    },
+    "tar": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.TarStrategy"
+    },
+    "zip": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ZipStrategy"
+    }
+  }
+}

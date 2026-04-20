@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-slack-thread-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackThread",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackThread schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "broadcastMessageToChannel": {
+      "type": "boolean",
+      "name": "BroadcastMessageToChannel allows to also broadcast the message from the thread to the channel\n+optional"
+    },
+    "messageAggregationKey": {
+      "type": "string",
+      "name": "MessageAggregationKey allows to aggregate the messages to a thread by some key.\n+optional"
+    }
+  }
+}

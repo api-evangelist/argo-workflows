@@ -1,0 +1,13 @@
+{
+  "attachments": "example-attachments",
+  "blocks": "example-blocks",
+  "channel": "example-channel",
+  "message": "Workflow completed successfully",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "sender": "example-sender",
+  "slackToken": "example-slacktoken",
+  "thread": "example-thread"
+}

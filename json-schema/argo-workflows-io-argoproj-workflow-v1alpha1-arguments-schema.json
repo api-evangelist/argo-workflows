@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-arguments-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Arguments",
+  "description": "Arguments to a template",
+  "type": "object",
+  "properties": {
+    "artifacts": {
+      "description": "Artifacts is the list of artifacts to pass to the template or workflow",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Artifact"
+      },
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "parameters": {
+      "description": "Parameters is the list of parameters to pass to the template or workflow",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Parameter"
+      },
+      "x-kubernetes-patch-merge-key": "name",
+      "x-kubernetes-patch-strategy": "merge"
+    }
+  }
+}

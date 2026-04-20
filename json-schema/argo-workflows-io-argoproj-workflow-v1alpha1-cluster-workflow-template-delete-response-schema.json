@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-cluster-workflow-template-delete-response-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateDeleteResponse",
+  "description": "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateDeleteResponse schema from Argo Workflows API",
+  "type": "object"
+}

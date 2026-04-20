@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-art-gc-status-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.ArtGCStatus",
+  "description": "ArtGCStatus maintains state related to ArtifactGC",
+  "type": "object",
+  "properties": {
+    "notSpecified": {
+      "description": "if this is true, we already checked to see if we need to do it and we don't",
+      "type": "boolean"
+    },
+    "podsRecouped": {
+      "description": "have completed Pods been processed? (mapped by Pod name) used to prevent re-processing the Status of a Pod more than once",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "strategiesProcessed": {
+      "description": "have Pods been started to perform this strategy? (enables us not to re-process what we've already done)",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  }
+}

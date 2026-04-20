@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-git-remote-config-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitRemoteConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the remote to fetch from.",
+      "type": "string"
+    },
+    "urls": {
+      "description": "URLs the URLs of a remote repository. It must be non-empty. Fetch will\nalways use the first URL, while push will use all of them.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

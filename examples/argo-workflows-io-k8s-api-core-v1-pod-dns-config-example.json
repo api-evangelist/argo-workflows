@@ -1,0 +1,14 @@
+{
+  "nameservers": [
+    "my-workflow",
+    "my-workflow"
+  ],
+  "options": [
+    "example-options",
+    "example-options"
+  ],
+  "searches": [
+    "example-searches",
+    "example-searches"
+  ]
+}

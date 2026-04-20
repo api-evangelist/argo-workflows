@@ -1,0 +1,5 @@
+{
+  "deleteDelayDuration": "example-deletedelaydura",
+  "labelSelector": "example-labelselector",
+  "strategy": "example-strategy"
+}

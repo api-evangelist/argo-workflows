@@ -1,0 +1,13 @@
+{
+  "fsType": "example-fstype",
+  "lun": 70,
+  "readOnly": true,
+  "targetWWNs": [
+    "example-targetwwns",
+    "example-targetwwns"
+  ],
+  "wwids": [
+    "wf-abc123",
+    "wf-abc123"
+  ]
+}

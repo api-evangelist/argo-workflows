@@ -1,0 +1,10 @@
+{
+  "artifacts": [
+    "example-artifacts",
+    "example-artifacts"
+  ],
+  "parameters": [
+    "value",
+    "value"
+  ]
+}

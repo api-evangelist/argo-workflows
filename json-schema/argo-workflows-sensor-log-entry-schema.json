@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-sensor-log-entry-schema.json",
+  "title": "sensor.LogEntry",
+  "description": "sensor.LogEntry schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "dependencyName": {
+      "type": "string",
+      "title": "optional - trigger dependency name"
+    },
+    "eventContext": {
+      "type": "string",
+      "title": "optional - Cloud Event context"
+    },
+    "level": {
+      "type": "string"
+    },
+    "msg": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "sensorName": {
+      "type": "string"
+    },
+    "time": {
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "triggerName": {
+      "type": "string",
+      "title": "optional - any trigger name"
+    }
+  }
+}

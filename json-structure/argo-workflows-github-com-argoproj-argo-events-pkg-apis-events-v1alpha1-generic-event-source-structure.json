@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-generic-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GenericEventSource",
+  "description": "GenericEventSource refers to a generic event source. It can be used to implement a custom event source.",
+  "type": "object",
+  "properties": {
+    "authSecret": {
+      "name": "AuthSecret holds a secret selector that contains a bearer token for authentication\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "config": {
+      "type": "string",
+      "name": "Config is the event source configuration"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "insecure": {
+      "description": "Insecure determines the type of connection.",
+      "type": "boolean"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "name": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "description": "URL of the gRPC server that implements the event source.",
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "configMapKeyRef": "example-configmapkeyref",
+  "default": "example-default",
+  "event": "example-event",
+  "expression": "example-expression",
+  "jqFilter": "example-jqfilter",
+  "jsonPath": "example-jsonpath",
+  "parameter": "value",
+  "path": "example-path",
+  "supplied": "example-supplied"
+}

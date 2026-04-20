@@ -1,0 +1,5 @@
+{
+  "groupName": "my-workflow",
+  "oldest": true,
+  "rebalanceStrategy": "example-rebalancestrate"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-semaphore-ref-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.SemaphoreRef",
+  "description": "SemaphoreRef is a reference of Semaphore",
+  "type": "object",
+  "properties": {
+    "configMapKeyRef": {
+      "description": "ConfigMapKeyRef is a configmap selector for Semaphore configuration",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+    },
+    "database": {
+      "description": "SyncDatabaseRef is a database reference for Semaphore configuration",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.SyncDatabaseRef"
+    },
+    "namespace": {
+      "description": "Namespace is the namespace of the configmap, default: [namespace of workflow]",
+      "type": "string"
+    }
+  }
+}

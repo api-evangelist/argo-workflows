@@ -1,0 +1,8 @@
+{
+  "message": "Workflow completed successfully",
+  "name": "my-workflow",
+  "namespace": "my-workflow",
+  "nodeFieldSelector": "worker-node-1",
+  "outputParameters": "value",
+  "phase": "Running"
+}

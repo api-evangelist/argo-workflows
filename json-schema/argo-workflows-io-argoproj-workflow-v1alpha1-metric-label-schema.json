@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-metric-label-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.MetricLabel",
+  "description": "MetricLabel is a single label for a prometheus metric",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

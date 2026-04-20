@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-trigger-template-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerTemplate",
+  "description": "TriggerTemplate is the template that describes trigger specification.",
+  "type": "object",
+  "properties": {
+    "argoWorkflow": {
+      "title": "ArgoWorkflow refers to the trigger that can perform various operations on an Argo io.argoproj.workflow.v1alpha1.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ArgoWorkflowTrigger"
+    },
+    "awsLambda": {
+      "title": "AWSLambda refers to the trigger designed to invoke AWS Lambda function with with on-the-fly constructable payload.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AWSLambdaTrigger"
+    },
+    "azureEventHubs": {
+      "title": "AzureEventHubs refers to the trigger send an event to an Azure Event Hub.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventHubsTrigger"
+    },
+    "azureServiceBus": {
+      "title": "AzureServiceBus refers to the trigger designed to place messages on Azure Service Bus\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusTrigger"
+    },
+    "conditions": {
+      "type": "string",
+      "title": "Conditions is the conditions to execute the trigger.\nFor example: \"(dep01 || dep02) && dep04\"\n+optional"
+    },
+    "conditionsReset": {
+      "type": "array",
+      "title": "Criteria to reset the conditons\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetCriteria"
+      }
+    },
+    "custom": {
+      "title": "CustomTrigger refers to the trigger designed to connect to a gRPC trigger server and execute a custom trigger.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CustomTrigger"
+    },
+    "email": {
+      "title": "Email refers to the trigger designed to send an email notification\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmailTrigger"
+    },
+    "http": {
+      "title": "HTTP refers to the trigger designed to dispatch a HTTP request with on-the-fly constructable payload.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HTTPTrigger"
+    },
+    "k8s": {
+      "title": "StandardK8STrigger refers to the trigger designed to create or update a generic Kubernetes resource.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StandardK8STrigger"
+    },
+    "kafka": {
+      "description": "Kafka refers to the trigger designed to place messages on Kafka topic.\n+optional.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaTrigger"
+    },
+    "log": {
+      "title": "Log refers to the trigger designed to invoke log the io.argoproj.workflow.v1alpha1.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.LogTrigger"
+    },
+    "name": {
+      "description": "Name is a unique name of the action to take.",
+      "type": "string"
+    },
+    "nats": {
+      "description": "NATS refers to the trigger designed to place message on NATS subject.\n+optional.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSTrigger"
+    },
+    "openWhisk": {
+      "title": "OpenWhisk refers to the trigger designed to invoke OpenWhisk action.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OpenWhiskTrigger"
+    },
+    "pulsar": {
+      "title": "Pulsar refers to the trigger designed to place messages on Pulsar topic.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarTrigger"
+    },
+    "slack": {
+      "title": "Slack refers to the trigger designed to send slack notification message.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackTrigger"
+    }
+  }
+}

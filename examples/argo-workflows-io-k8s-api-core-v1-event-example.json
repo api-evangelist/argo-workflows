@@ -1,0 +1,19 @@
+{
+  "action": "example-action",
+  "apiVersion": "v3.6.0",
+  "count": 2,
+  "eventTime": "example-eventtime",
+  "firstTimestamp": "example-firsttimestamp",
+  "involvedObject": "example-involvedobject",
+  "kind": "example-kind",
+  "lastTimestamp": "example-lasttimestamp",
+  "message": "Workflow completed successfully",
+  "metadata": "example-metadata",
+  "reason": "example-reason",
+  "related": "example-related",
+  "reportingComponent": "example-reportingcompon",
+  "reportingInstance": "example-reportinginstan",
+  "series": "example-series",
+  "source": "example-source",
+  "type": "example-type"
+}

@@ -1,0 +1,12 @@
+{
+  "exec": "example-exec",
+  "failureThreshold": 16,
+  "grpc": "example-grpc",
+  "httpGet": "example-httpget",
+  "initialDelaySeconds": 8,
+  "periodSeconds": 86,
+  "successThreshold": 13,
+  "tcpSocket": "example-tcpsocket",
+  "terminationGracePeriodSeconds": 17,
+  "timeoutSeconds": 1718153645993
+}

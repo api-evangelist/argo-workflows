@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-counter-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Counter",
+  "description": "Counter is a Counter prometheus metric",
+  "type": "object",
+  "properties": {
+    "value": {
+      "description": "Value is the value of the metric",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}

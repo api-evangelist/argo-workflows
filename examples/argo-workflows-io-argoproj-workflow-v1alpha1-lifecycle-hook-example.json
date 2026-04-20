@@ -1,0 +1,6 @@
+{
+  "arguments": "value",
+  "expression": "example-expression",
+  "template": "workflow-template",
+  "templateRef": "workflow-template"
+}

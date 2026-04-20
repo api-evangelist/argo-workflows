@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-resource-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceEventSource",
+  "description": "ResourceEventSource refers to a event-source for K8s resource related events.",
+  "type": "object",
+  "properties": {
+    "eventTypes": {
+      "description": "EventTypes is the list of event type to watch.\nPossible values are - ADD, UPDATE and DELETE.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "name": "Filter is applied on the metadata of the resource\nIf you apply filter, then the internal event informer will only monitor objects that pass the filter.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceFilter"
+    },
+    "groupVersionResource": {
+      "name": "Group of the resource",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionResource"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "namespace": {
+      "type": "string",
+      "name": "Namespace where resource is deployed"
+    }
+  }
+}

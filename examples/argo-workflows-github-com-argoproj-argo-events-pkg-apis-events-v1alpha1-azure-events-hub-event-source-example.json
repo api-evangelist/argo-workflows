@@ -1,0 +1,8 @@
+{
+  "filter": "example-filter",
+  "fqdn": "example-fqdn",
+  "hubName": "my-workflow",
+  "metadata": {},
+  "sharedAccessKey": "example-sharedaccesskey",
+  "sharedAccessKeyName": "my-workflow"
+}

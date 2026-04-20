@@ -1,0 +1,12 @@
+{
+  "artifacts": [
+    "example-artifacts",
+    "example-artifacts"
+  ],
+  "exitCode": "example-exitcode",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "result": "example-result"
+}

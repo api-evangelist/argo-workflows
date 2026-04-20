@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-service-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Service",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Service schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "clusterIP": {
+      "type": "string",
+      "title": "clusterIP is the IP address of the service and is usually assigned\nrandomly by the master. If an address is specified manually and is not in\nuse by others, it will be allocated to the service; otherwise, creation\nof the service will fail. This field can not be changed through updates.\nValid values are \"None\", empty string (\"\"), or a valid IP address. \"None\"\ncan be specified for headless services when proxying is not required.\nMore info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies\n+optional"
+    },
+    "metadata": {
+      "title": "Metadata sets the pods's metadata, i.e. annotations and labels\ndefault={annotations: {}, labels: {}}",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Metadata"
+    },
+    "ports": {
+      "type": "array",
+      "title": "The list of ports that are exposed by this ClusterIP service.\n+patchMergeKey=port\n+patchStrategy=merge\n+listType=map\n+listMapKey=port\n+listMapKey=protocol",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.ServicePort"
+      }
+    }
+  }
+}

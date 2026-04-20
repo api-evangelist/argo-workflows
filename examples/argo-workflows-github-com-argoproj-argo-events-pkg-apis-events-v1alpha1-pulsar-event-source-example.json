@@ -1,0 +1,19 @@
+{
+  "authAthenzParams": {},
+  "authAthenzSecret": "example-authathenzsecre",
+  "authTokenSecret": "example-authtokensecret",
+  "connectionBackoff": "example-connectionbacko",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "tls": "example-tls",
+  "tlsAllowInsecureConnection": true,
+  "tlsTrustCertsSecret": "example-tlstrustcertsse",
+  "tlsValidateHostname": true,
+  "topics": [
+    "example-topics",
+    "example-topics"
+  ],
+  "type": "example-type",
+  "url": "example-url"
+}

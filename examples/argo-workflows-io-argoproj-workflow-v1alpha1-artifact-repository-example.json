@@ -1,0 +1,10 @@
+{
+  "archiveLogs": true,
+  "artifactory": "example-artifactory",
+  "azure": "example-azure",
+  "gcs": "example-gcs",
+  "hdfs": "example-hdfs",
+  "oss": "example-oss",
+  "plugin": "example-plugin",
+  "s3": "example-s3"
+}

@@ -1,0 +1,9 @@
+{
+  "apiVersion": "v3.6.0",
+  "items": [
+    "example-items",
+    "example-items"
+  ],
+  "kind": "example-kind",
+  "metadata": "example-metadata"
+}

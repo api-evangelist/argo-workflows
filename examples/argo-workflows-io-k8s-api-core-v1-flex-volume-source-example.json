@@ -1,0 +1,7 @@
+{
+  "driver": "example-driver",
+  "fsType": "example-fstype",
+  "options": {},
+  "readOnly": true,
+  "secretRef": "example-secretref"
+}

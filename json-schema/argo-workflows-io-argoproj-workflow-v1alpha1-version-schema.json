@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-version-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.Version",
+  "description": "io.argoproj.workflow.v1alpha1.Version schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "buildDate": {
+      "type": "string"
+    },
+    "compiler": {
+      "type": "string"
+    },
+    "gitCommit": {
+      "type": "string"
+    },
+    "gitTag": {
+      "type": "string"
+    },
+    "gitTreeState": {
+      "type": "string"
+    },
+    "goVersion": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "buildDate",
+    "gitCommit",
+    "gitTag",
+    "gitTreeState",
+    "goVersion",
+    "compiler",
+    "platform"
+  ]
+}

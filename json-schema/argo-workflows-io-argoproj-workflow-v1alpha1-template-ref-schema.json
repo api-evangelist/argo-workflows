@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-template-ref-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.TemplateRef",
+  "description": "TemplateRef is a reference of template resource.",
+  "type": "object",
+  "properties": {
+    "clusterScope": {
+      "description": "ClusterScope indicates the referred template is cluster scoped (i.e. a ClusterWorkflowTemplate).",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "Name is the resource name of the template.",
+      "type": "string"
+    },
+    "template": {
+      "description": "Template is the name of referred template in the resource.",
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fqdn": "example-fqdn",
+  "hubName": "my-workflow",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "payload": [
+    "example-payload",
+    "example-payload"
+  ],
+  "sharedAccessKey": "example-sharedaccesskey",
+  "sharedAccessKeyName": "my-workflow"
+}

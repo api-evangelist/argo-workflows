@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "grpc.gateway.runtime.Error": "argo:grpc.gateway.runtime.Error",
+    "grpc.gateway.runtime.StreamError": "argo:grpc.gateway.runtime.StreamError",
+    "code": {
+      "@id": "argo:code",
+      "@type": "xsd:integer"
+    },
+    "details": {
+      "@id": "argo:details",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "error": {
+      "@id": "argo:error",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "argo:message",
+      "@type": "xsd:string"
+    },
+    "grpcCode": {
+      "@id": "argo:grpc_code",
+      "@type": "xsd:integer"
+    },
+    "httpCode": {
+      "@id": "argo:http_code",
+      "@type": "xsd:integer"
+    },
+    "httpStatus": {
+      "@id": "argo:http_status",
+      "@type": "xsd:string"
+    }
+  }
+}

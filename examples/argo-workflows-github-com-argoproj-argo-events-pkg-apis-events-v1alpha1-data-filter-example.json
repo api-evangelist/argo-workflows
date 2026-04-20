@@ -1,0 +1,10 @@
+{
+  "comparator": "example-comparator",
+  "path": "example-path",
+  "template": "workflow-template",
+  "type": "example-type",
+  "value": [
+    "example-value",
+    "example-value"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-conditions-reset-criteria-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetCriteria",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetCriteria schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "byTime": {
+      "title": "Schedule is a cron-like expression. For reference, see: https://en.wikipedia.org/wiki/Cron",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ConditionsResetByTime"
+    }
+  }
+}

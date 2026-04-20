@@ -1,0 +1,5 @@
+{
+  "clusterScope": true,
+  "name": "my-workflow",
+  "template": "workflow-template"
+}

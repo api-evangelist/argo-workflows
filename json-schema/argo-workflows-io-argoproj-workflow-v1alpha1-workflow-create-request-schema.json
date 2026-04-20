@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-create-request-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.WorkflowCreateRequest",
+  "description": "io.argoproj.workflow.v1alpha1.WorkflowCreateRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "createOptions": {
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.CreateOptions"
+    },
+    "instanceID": {
+      "description": "This field is no longer used.",
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "serverDryRun": {
+      "type": "boolean"
+    },
+    "workflow": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Workflow"
+    }
+  }
+}

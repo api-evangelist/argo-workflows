@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-file-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileEventSource",
+  "description": "FileEventSource describes an event-source for file related events.",
+  "type": "object",
+  "properties": {
+    "eventType": {
+      "type": "string",
+      "title": "Type of file operations to watch\nRefer https://github.com/fsnotify/fsnotify/blob/master/fsnotify.go for more information"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "polling": {
+      "type": "boolean",
+      "title": "Use polling instead of inotify"
+    },
+    "watchPathConfig": {
+      "title": "WatchPathConfig contains configuration about the file path to watch",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WatchPathConfig"
+    }
+  }
+}

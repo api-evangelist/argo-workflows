@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-k8-s-resource-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResource",
+  "description": "K8SResource represent arbitrary structured data.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string",
+      "format": "byte"
+    }
+  }
+}

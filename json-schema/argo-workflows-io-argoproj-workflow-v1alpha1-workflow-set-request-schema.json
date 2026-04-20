@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-set-request-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.WorkflowSetRequest",
+  "description": "io.argoproj.workflow.v1alpha1.WorkflowSetRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "nodeFieldSelector": {
+      "type": "string"
+    },
+    "outputParameters": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    }
+  }
+}

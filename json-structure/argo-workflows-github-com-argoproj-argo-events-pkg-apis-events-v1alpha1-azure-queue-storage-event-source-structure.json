@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-azure-queue-storage-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureQueueStorageEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureQueueStorageEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "connectionString": {
+      "name": "ConnectionString is the connection string to access Azure Queue Storage. If this fields is not provided\nit will try to access via Azure AD with StorageAccountName.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "decodeMessage": {
+      "type": "boolean",
+      "name": "DecodeMessage specifies if all the messages should be base64 decoded.\nIf set to true the decoding is done before the evaluation of JSONBody\n+optional"
+    },
+    "dlq": {
+      "type": "boolean",
+      "name": "DLQ specifies if a dead-letter queue is configured for messages that can't be processed successfully.\nIf set to true, messages with invalid payload won't be acknowledged to allow to forward them farther to the dead-letter queue.\nThe default value is false.\n+optional"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "name": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "queueName": {
+      "type": "string",
+      "name": "QueueName is the name of the queue"
+    },
+    "storageAccountName": {
+      "type": "string",
+      "name": "StorageAccountName is the name of the storage account where the queue is. This field is necessary to\naccess via Azure AD (managed identity) and it is ignored if ConnectionString is set.\n+optional"
+    },
+    "waitTimeInSeconds": {
+      "type": "int32",
+      "name": "WaitTimeInSeconds is the duration (in seconds) for which the event source waits between empty results from the queue.\nThe default value is 3 seconds.\n+optional"
+    }
+  }
+}

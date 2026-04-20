@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-bitbucket-auth-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketAuth",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketAuth schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "basic": {
+      "name": "Basic is BasicAuth auth strategy.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketBasicAuth"
+    },
+    "oauthToken": {
+      "name": "OAuthToken refers to the K8s secret that holds the OAuth Bearer token.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

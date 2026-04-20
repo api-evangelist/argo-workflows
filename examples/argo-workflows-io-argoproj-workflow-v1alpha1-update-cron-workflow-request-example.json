@@ -1,0 +1,5 @@
+{
+  "cronWorkflow": "example-cronworkflow",
+  "name": "my-workflow",
+  "namespace": "my-workflow"
+}

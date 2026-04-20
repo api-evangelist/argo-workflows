@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-k8-s-resource-policy-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResourcePolicy",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResourcePolicy schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "backoff": {
+      "name": "Backoff before checking resource state",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "errorOnBackoffTimeout": {
+      "type": "boolean",
+      "name": "ErrorOnBackoffTimeout determines whether sensor should transition to error state if the trigger policy is unable to determine\nthe state of the resource"
+    },
+    "labels": {
+      "type": "object",
+      "name": "Labels required to identify whether a resource is in success state",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-webhook-context-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "authSecret": {
+      "name": "AuthSecret holds a secret selector that contains a bearer token for authentication\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "endpoint": {
+      "type": "string",
+      "name": "REST API endpoint"
+    },
+    "maxPayloadSize": {
+      "type": "string",
+      "name": "MaxPayloadSize is the maximum webhook payload size that the server will accept.\nRequests exceeding that limit will be rejected with \"request too large\" response.\nDefault value: 1048576 (1MB).\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "method": {
+      "type": "string",
+      "name": "Method is HTTP request method that indicates the desired action to be performed for a given resource.\nSee RFC7231 Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content"
+    },
+    "port": {
+      "description": "Port on which HTTP server is listening for incoming events.",
+      "type": "string"
+    },
+    "serverCertSecret": {
+      "description": "ServerCertPath refers the file that contains the cert.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "serverKeySecret": {
+      "name": "ServerKeyPath refers the file that contains private key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "url": {
+      "description": "URL is the url of the server.",
+      "type": "string"
+    }
+  }
+}

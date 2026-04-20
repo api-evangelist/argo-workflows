@@ -1,0 +1,11 @@
+{
+  "accessKeySecret": "example-accesskeysecret",
+  "bucket": "example-bucket",
+  "createBucketIfNotPresent": true,
+  "endpoint": "example-endpoint",
+  "key": "example-key",
+  "lifecycleRule": "example-lifecyclerule",
+  "secretKeySecret": "example-secretkeysecret",
+  "securityToken": "example-securitytoken",
+  "useSDKCreds": true
+}

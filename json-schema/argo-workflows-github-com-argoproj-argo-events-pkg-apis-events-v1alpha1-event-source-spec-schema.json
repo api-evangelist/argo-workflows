@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-source-spec-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceSpec",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceSpec schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "amqp": {
+      "type": "object",
+      "title": "AMQP event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPEventSource"
+      }
+    },
+    "azureEventsHub": {
+      "type": "object",
+      "title": "AzureEventsHub event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureEventsHubEventSource"
+      }
+    },
+    "azureQueueStorage": {
+      "type": "object",
+      "title": "AzureQueueStorage event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureQueueStorageEventSource"
+      }
+    },
+    "azureServiceBus": {
+      "type": "object",
+      "title": "Azure Service Bus event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusEventSource"
+      }
+    },
+    "bitbucket": {
+      "type": "object",
+      "title": "Bitbucket event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketEventSource"
+      }
+    },
+    "bitbucketserver": {
+      "type": "object",
+      "title": "Bitbucket Server event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerEventSource"
+      }
+    },
+    "calendar": {
+      "type": "object",
+      "title": "Calendar event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CalendarEventSource"
+      }
+    },
+    "emitter": {
+      "type": "object",
+      "title": "Emitter event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmitterEventSource"
+      }
+    },
+    "eventBusName": {
+      "type": "string",
+      "title": "EventBusName references to a EventBus name. By default the value is \"default\""
+    },
+    "file": {
+      "type": "object",
+      "title": "File event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.FileEventSource"
+      }
+    },
+    "generic": {
+      "type": "object",
+      "title": "Generic event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GenericEventSource"
+      }
+    },
+    "gerrit": {
+      "type": "object",
+      "title": "Gerrit event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GerritEventSource"
+      }
+    },
+    "github": {
+      "type": "object",
+      "title": "Github event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GithubEventSource"
+      }
+    },
+    "gitlab": {
+      "type": "object",
+      "title": "Gitlab event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitlabEventSource"
+      }
+    },
+    "hdfs": {
+      "type": "object",
+      "title": "HDFS event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.HDFSEventSource"
+      }
+    },
+    "kafka": {
+      "type": "object",
+      "title": "Kafka event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.KafkaEventSource"
+      }
+    },
+    "minio": {
+      "type": "object",
+      "title": "Minio event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact"
+      }
+    },
+    "mns": {
+      "type": "object",
+      "title": "MNS event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MNSEventSource"
+      }
+    },
+    "mqtt": {
+      "type": "object",
+      "title": "MQTT event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MQTTEventSource"
+      }
+    },
+    "nats": {
+      "type": "object",
+      "title": "NATS event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NATSEventsSource"
+      }
+    },
+    "nsq": {
+      "type": "object",
+      "title": "NSQ event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.NSQEventSource"
+      }
+    },
+    "pubSub": {
+      "type": "object",
+      "title": "PubSub event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PubSubEventSource"
+      }
+    },
+    "pulsar": {
+      "type": "object",
+      "title": "Pulsar event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PulsarEventSource"
+      }
+    },
+    "redis": {
+      "type": "object",
+      "title": "Redis event source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisEventSource"
+      }
+    },
+    "redisStream": {
+      "type": "object",
+      "title": "Redis stream source",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisStreamEventSource"
+      }
+    },
+    "replicas": {
+      "type": "integer",
+      "title": "Replicas is the event source deployment replicas"
+    },
+    "resource": {
+      "type": "object",
+      "title": "Resource event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ResourceEventSource"
+      }
+    },
+    "service": {
+      "title": "Service is the specifications of the service to expose the event source\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Service"
+    },
+    "sftp": {
+      "type": "object",
+      "title": "SFTP event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SFTPEventSource"
+      }
+    },
+    "slack": {
+      "type": "object",
+      "title": "Slack event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackEventSource"
+      }
+    },
+    "sns": {
+      "type": "object",
+      "title": "SNS event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SNSEventSource"
+      }
+    },
+    "sqs": {
+      "type": "object",
+      "title": "SQS event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SQSEventSource"
+      }
+    },
+    "storageGrid": {
+      "type": "object",
+      "title": "StorageGrid event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StorageGridEventSource"
+      }
+    },
+    "stripe": {
+      "type": "object",
+      "title": "Stripe event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StripeEventSource"
+      }
+    },
+    "template": {
+      "title": "Template is the pod specification for the event source\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template"
+    },
+    "webhook": {
+      "type": "object",
+      "title": "Webhook event sources",
+      "additionalProperties": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookEventSource"
+      }
+    }
+  }
+}

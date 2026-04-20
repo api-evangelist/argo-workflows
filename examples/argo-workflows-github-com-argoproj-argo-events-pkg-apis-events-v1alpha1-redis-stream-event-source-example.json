@@ -1,0 +1,15 @@
+{
+  "consumerGroup": "example-consumergroup",
+  "db": 0,
+  "filter": "example-filter",
+  "hostAddress": "example-hostaddress",
+  "maxMsgCountPerRead": 26,
+  "metadata": {},
+  "password": "example-password",
+  "streams": [
+    "example-streams",
+    "example-streams"
+  ],
+  "tls": "example-tls",
+  "username": "my-workflow"
+}

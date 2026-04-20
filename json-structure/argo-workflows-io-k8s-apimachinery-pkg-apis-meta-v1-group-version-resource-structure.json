@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-apimachinery-pkg-apis-meta-v1-group-version-resource-structure.json",
+  "name": "io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionResource",
+  "description": "+protobuf.options.(gogoproto.goproto_stringer)=false",
+  "type": "object",
+  "properties": {
+    "group": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

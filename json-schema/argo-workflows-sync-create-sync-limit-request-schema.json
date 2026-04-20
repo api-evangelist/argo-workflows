@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-sync-create-sync-limit-request-schema.json",
+  "title": "sync.CreateSyncLimitRequest",
+  "description": "sync.CreateSyncLimitRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "cmName": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/definitions/sync.SyncConfigType"
+    }
+  }
+}

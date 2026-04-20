@@ -1,0 +1,7 @@
+{
+  "createOptions": "example-createoptions",
+  "instanceID": "wf-abc123",
+  "namespace": "my-workflow",
+  "serverDryRun": true,
+  "workflow": "example-workflow"
+}

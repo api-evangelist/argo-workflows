@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-retry-affinity-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.RetryAffinity",
+  "description": "RetryAffinity prevents running steps on the same host.",
+  "type": "object",
+  "properties": {
+    "nodeAntiAffinity": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.RetryNodeAntiAffinity"
+    }
+  }
+}

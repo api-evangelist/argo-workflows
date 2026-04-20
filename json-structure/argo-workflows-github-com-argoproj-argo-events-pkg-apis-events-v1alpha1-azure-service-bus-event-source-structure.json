@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-azure-service-bus-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AzureServiceBusEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "connectionString": {
+      "name": "ConnectionString is the connection string for the Azure Service Bus. If this fields is not provided\nit will try to access via Azure AD with DefaultAzureCredential and FullyQualifiedNamespace.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "deferDelete": {
+      "description": "DeferDelete controls when messages are removed from Azure Service Bus.\nIf false (default), messages are received and deleted immediately before processing.\nIf true, messages are locked and only deleted after successful processing, ensuring they are not lost if processing fails.",
+      "type": "boolean"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "fullyQualifiedNamespace": {
+      "type": "string",
+      "name": "FullyQualifiedNamespace is the Service Bus namespace name (ex: myservicebus.servicebus.windows.net). This field is necessary to\naccess via Azure AD (managed identity) and it is ignored if ConnectionString is set.\n+optional"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "name": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "queueName": {
+      "type": "string",
+      "name": "QueueName is the name of the Azure Service Bus Queue"
+    },
+    "subscriptionName": {
+      "type": "string",
+      "name": "SubscriptionName is the name of the Azure Service Bus Topic Subscription"
+    },
+    "tls": {
+      "name": "TLS configuration for the service bus client\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "topicName": {
+      "type": "string",
+      "name": "TopicName is the name of the Azure Service Bus Topic"
+    }
+  }
+}

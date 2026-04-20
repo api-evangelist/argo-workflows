@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-sync-sync-config-type-schema.json",
+  "title": "sync.SyncConfigType",
+  "description": "sync.SyncConfigType schema from Argo Workflows API",
+  "type": "string",
+  "enum": [
+    "CONFIGMAP",
+    "DATABASE"
+  ],
+  "default": "CONFIGMAP"
+}

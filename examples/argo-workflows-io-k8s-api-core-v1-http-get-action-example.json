@@ -1,0 +1,10 @@
+{
+  "host": "example-host",
+  "httpHeaders": [
+    "example-httpheaders",
+    "example-httpheaders"
+  ],
+  "path": "example-path",
+  "port": "example-port",
+  "scheme": "example-scheme"
+}

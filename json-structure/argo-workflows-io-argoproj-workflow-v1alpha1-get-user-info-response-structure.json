@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-get-user-info-response-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.GetUserInfoResponse",
+  "description": "io.argoproj.workflow.v1alpha1.GetUserInfoResponse schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "emailVerified": {
+      "type": "boolean"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "serviceAccountName": {
+      "type": "string"
+    },
+    "serviceAccountNamespace": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    }
+  }
+}

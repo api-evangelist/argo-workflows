@@ -1,0 +1,12 @@
+{
+  "counter": "example-counter",
+  "gauge": "example-gauge",
+  "help": "example-help",
+  "histogram": "example-histogram",
+  "labels": [
+    "example-labels",
+    "example-labels"
+  ],
+  "name": "my-workflow",
+  "when": "example-when"
+}

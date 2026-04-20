@@ -1,0 +1,5 @@
+{
+  "arguments": "value",
+  "metadata": "example-metadata",
+  "workflowTemplateRef": "workflow-template"
+}

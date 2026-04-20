@@ -1,0 +1,4 @@
+{
+  "clientCertSecret": "example-clientcertsecre",
+  "clientKeySecret": "example-clientkeysecret"
+}

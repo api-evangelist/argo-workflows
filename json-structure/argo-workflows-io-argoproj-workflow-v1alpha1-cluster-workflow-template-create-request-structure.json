@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-cluster-workflow-template-create-request-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateCreateRequest",
+  "description": "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateCreateRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "createOptions": {
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.CreateOptions"
+    },
+    "template": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplate"
+    }
+  }
+}

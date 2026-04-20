@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-trigger-policy-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerPolicy",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerPolicy schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "k8s": {
+      "name": "K8SResourcePolicy refers to the policy used to check the state of K8s based triggers using using labels",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.K8SResourcePolicy"
+    },
+    "status": {
+      "name": "Status refers to the policy used to check the state of the trigger using response status",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.StatusPolicy"
+    }
+  }
+}

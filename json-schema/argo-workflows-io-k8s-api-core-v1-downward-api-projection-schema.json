@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-k8s-api-core-v1-downward-api-projection-schema.json",
+  "title": "io.k8s.api.core.v1.DownwardAPIProjection",
+  "description": "Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.",
+  "type": "object",
+  "properties": {
+    "items": {
+      "description": "Items is a list of DownwardAPIVolume file",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.k8s.api.core.v1.DownwardAPIVolumeFile"
+      },
+      "x-kubernetes-list-type": "atomic"
+    }
+  }
+}

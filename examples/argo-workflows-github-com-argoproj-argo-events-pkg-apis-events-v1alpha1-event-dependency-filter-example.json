@@ -1,0 +1,15 @@
+{
+  "context": "example-context",
+  "data": [
+    "example-data",
+    "example-data"
+  ],
+  "dataLogicalOperator": "example-datalogicaloper",
+  "exprLogicalOperator": "example-exprlogicaloper",
+  "exprs": [
+    "example-exprs",
+    "example-exprs"
+  ],
+  "script": "example-script",
+  "time": "example-time"
+}

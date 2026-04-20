@@ -1,0 +1,19 @@
+{
+  "auth": "example-auth",
+  "deleteHookOnFinish": true,
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "gerritBaseURL": "example-gerritbaseurl",
+  "hookName": "my-workflow",
+  "maxTries": "example-maxtries",
+  "metadata": {},
+  "projects": [
+    "example-projects",
+    "example-projects"
+  ],
+  "sslVerify": true,
+  "webhook": "example-webhook"
+}

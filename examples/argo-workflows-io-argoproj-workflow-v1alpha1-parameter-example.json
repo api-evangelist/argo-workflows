@@ -1,0 +1,12 @@
+{
+  "default": "example-default",
+  "description": "example-description",
+  "enum": [
+    "example-enum",
+    "example-enum"
+  ],
+  "globalName": "my-workflow",
+  "name": "my-workflow",
+  "value": "example-value",
+  "valueFrom": "example-valuefrom"
+}

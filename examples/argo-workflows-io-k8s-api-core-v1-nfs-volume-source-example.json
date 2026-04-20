@@ -1,0 +1,5 @@
+{
+  "path": "example-path",
+  "readOnly": true,
+  "server": "example-server"
+}

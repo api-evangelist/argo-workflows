@@ -1,0 +1,7 @@
+{
+  "cmName": "my-workflow",
+  "key": "example-key",
+  "limit": 35,
+  "namespace": "my-workflow",
+  "type": "example-type"
+}

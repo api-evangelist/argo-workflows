@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-git-artifact-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.GitArtifact",
+  "description": "GitArtifact is the location of a git artifact",
+  "type": "object",
+  "properties": {
+    "branch": {
+      "description": "Branch is the branch to fetch when `SingleBranch` is enabled",
+      "type": "string"
+    },
+    "depth": {
+      "description": "Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip",
+      "type": "int32"
+    },
+    "disableSubmodules": {
+      "description": "DisableSubmodules disables submodules during git clone",
+      "type": "boolean"
+    },
+    "fetch": {
+      "description": "Fetch specifies a number of refs that should be fetched before checkout",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "insecureIgnoreHostKey": {
+      "description": "InsecureIgnoreHostKey disables SSH strict host key checking during git clone",
+      "type": "boolean"
+    },
+    "insecureSkipTLS": {
+      "description": "InsecureSkipTLS disables server certificate verification resulting in insecure HTTPS connections",
+      "type": "boolean"
+    },
+    "passwordSecret": {
+      "description": "PasswordSecret is the secret selector to the repository password",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "repo": {
+      "description": "Repo is the git repository",
+      "type": "string"
+    },
+    "revision": {
+      "description": "Revision is the git commit, tag, branch to checkout",
+      "type": "string"
+    },
+    "singleBranch": {
+      "description": "SingleBranch enables single branch clone, using the `branch` parameter",
+      "type": "boolean"
+    },
+    "sshPrivateKeySecret": {
+      "description": "SSHPrivateKeySecret is the secret selector to the repository ssh private key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "usernameSecret": {
+      "description": "UsernameSecret is the secret selector to the repository username",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  },
+  "required": [
+    "repo"
+  ]
+}

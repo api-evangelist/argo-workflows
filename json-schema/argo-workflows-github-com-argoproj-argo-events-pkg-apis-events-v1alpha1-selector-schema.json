@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-selector-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Selector",
+  "description": "Selector represents conditional operation to select K8s objects.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Key name"
+    },
+    "operation": {
+      "type": "string",
+      "title": "Supported operations like ==, != etc.\nDefaults to ==.\nRefer https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors for more io.argoproj.workflow.v1alpha1.\n+optional"
+    },
+    "value": {
+      "type": "string",
+      "title": "Value"
+    }
+  }
+}

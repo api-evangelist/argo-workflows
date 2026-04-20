@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-sleep-action-structure.json",
+  "name": "io.k8s.api.core.v1.SleepAction",
+  "description": "SleepAction describes a \"sleep\" action.",
+  "type": "object",
+  "properties": {
+    "seconds": {
+      "description": "Seconds is the number of seconds to sleep.",
+      "type": "int32"
+    }
+  },
+  "required": [
+    "seconds"
+  ]
+}

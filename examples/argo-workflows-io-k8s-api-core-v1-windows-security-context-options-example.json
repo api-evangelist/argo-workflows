@@ -1,0 +1,6 @@
+{
+  "gmsaCredentialSpec": "example-gmsacredentials",
+  "gmsaCredentialSpecName": "my-workflow",
+  "hostProcess": true,
+  "runAsUserName": "my-workflow"
+}

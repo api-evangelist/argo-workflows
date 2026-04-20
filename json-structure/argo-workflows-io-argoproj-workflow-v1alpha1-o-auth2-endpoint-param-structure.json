@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-o-auth2-endpoint-param-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.OAuth2EndpointParam",
+  "description": "OAuth2EndpointParam is an optional field that should be sent in the OAuth request.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "description": "Name is the header name",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value is the literal value to use for the header",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

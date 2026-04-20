@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-k8s-api-core-v1-app-armor-profile-schema.json",
+  "title": "io.k8s.api.core.v1.AppArmorProfile",
+  "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+  "type": "object",
+  "properties": {
+    "localhostProfile": {
+      "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+      "type": "string"
+    },
+    "type": {
+      "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

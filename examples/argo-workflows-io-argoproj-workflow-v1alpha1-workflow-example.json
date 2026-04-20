@@ -1,0 +1,7 @@
+{
+  "apiVersion": "v3.6.0",
+  "kind": "example-kind",
+  "metadata": "example-metadata",
+  "spec": "example-spec",
+  "status": "Running"
+}

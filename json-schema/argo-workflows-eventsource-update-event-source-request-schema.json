@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-eventsource-update-event-source-request-schema.json",
+  "title": "eventsource.UpdateEventSourceRequest",
+  "description": "eventsource.UpdateEventSourceRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "eventSource": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSource"
+    },
+    "name": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    }
+  }
+}

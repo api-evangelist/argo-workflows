@@ -1,0 +1,5 @@
+{
+  "postStart": "example-poststart",
+  "preStop": "example-prestop",
+  "stopSignal": "example-stopsignal"
+}

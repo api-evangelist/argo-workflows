@@ -1,0 +1,7 @@
+{
+  "autoAck": true,
+  "consumerTag": "example-consumertag",
+  "exclusive": true,
+  "noLocal": true,
+  "noWait": true
+}

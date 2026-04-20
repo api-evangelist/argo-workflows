@@ -1,0 +1,17 @@
+{
+  "env": [
+    "example-env",
+    "example-env"
+  ],
+  "envFrom": [
+    "example-envfrom",
+    "example-envfrom"
+  ],
+  "imagePullPolicy": "python:3.11-slim",
+  "resources": "example-resources",
+  "securityContext": "example-securitycontext",
+  "volumeMounts": [
+    "example-volumemounts",
+    "example-volumemounts"
+  ]
+}

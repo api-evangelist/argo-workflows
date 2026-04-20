@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-aws-lambda-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AWSLambdaTrigger",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AWSLambdaTrigger schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessKey": {
+      "title": "AccessKey refers K8s secret containing aws access key\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "functionName": {
+      "description": "FunctionName refers to the name of the function to invoke.",
+      "type": "string"
+    },
+    "invocationType": {
+      "description": "Choose from the following options.\n\n   * RequestResponse (default) - Invoke the function synchronously. Keep\n   the connection open until the function returns a response or times out.\n   The API response includes the function response and additional data.\n\n   * Event - Invoke the function asynchronously. Send events that fail multiple\n   times to the function's dead-letter queue (if it's configured). The API\n   response only includes a status code.\n\n   * DryRun - Validate parameter values and verify that the user or role\n   has permission to invoke the function.\n+optional",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "array",
+      "title": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "region": {
+      "type": "string",
+      "title": "Region is AWS region"
+    },
+    "roleARN": {
+      "type": "string",
+      "title": "RoleARN is the Amazon Resource Name (ARN) of the role to assume.\n+optional"
+    },
+    "secretKey": {
+      "title": "SecretKey refers K8s secret containing aws secret key\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

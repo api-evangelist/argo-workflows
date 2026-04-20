@@ -1,0 +1,27 @@
+{
+  "artifactGCStatus": "Running",
+  "artifactRepositoryRef": "example-artifactreposit",
+  "compressedNodes": "worker-node-1",
+  "conditions": [
+    "example-conditions",
+    "example-conditions"
+  ],
+  "estimatedDuration": 9,
+  "finishedAt": "example-finishedat",
+  "message": "Workflow completed successfully",
+  "nodes": {},
+  "offloadNodeStatusVersion": "Running",
+  "outputs": "example-outputs",
+  "persistentVolumeClaims": [
+    "example-persistentvolum",
+    "example-persistentvolum"
+  ],
+  "phase": "Running",
+  "progress": "example-progress",
+  "resourcesDuration": {},
+  "startedAt": "example-startedat",
+  "storedTemplates": {},
+  "storedWorkflowTemplateSpec": "workflow-template",
+  "synchronization": "example-synchronization",
+  "taskResultsCompletionStatus": {}
+}

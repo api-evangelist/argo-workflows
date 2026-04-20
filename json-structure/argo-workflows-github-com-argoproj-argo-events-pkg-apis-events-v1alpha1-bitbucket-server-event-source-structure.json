@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-bitbucket-server-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "name": "AccessToken is reference to K8s secret which holds the bitbucket api access information.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "bitbucketserverBaseURL": {
+      "description": "BitbucketServerBaseURL is the base URL for API requests to a custom endpoint.",
+      "type": "string"
+    },
+    "checkInterval": {
+      "type": "string",
+      "name": "CheckInterval is a duration in which to wait before checking that the webhooks exist, e.g. 1s, 30m, 2h... (defaults to 1m)\n+optional"
+    },
+    "deleteHookOnFinish": {
+      "type": "boolean",
+      "name": "DeleteHookOnFinish determines whether to delete the Bitbucket Server hook for the project once the event source is stopped.\n+optional"
+    },
+    "events": {
+      "type": "array",
+      "name": "Events are bitbucket event to listen to.\nRefer https://confluence.atlassian.com/bitbucketserver/event-payload-938025882.html\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "oneEventPerChange": {
+      "type": "boolean",
+      "name": "OneEventPerChange controls whether to process each change in a repo:refs_changed webhook event as a separate io.argoproj.workflow.v1alpha1. This setting is useful when multiple tags are\npushed simultaneously for the same commit, and each tag needs to independently trigger an action, such as a distinct workflow in Argo Workflows. When enabled, the\nBitbucketServerEventSource publishes an individual BitbucketServerEventData for each change, ensuring independent processing of each tag or reference update in a\nsingle webhook event.\n+optional"
+    },
+    "projectKey": {
+      "type": "string",
+      "name": "DeprecatedProjectKey is the key of project for which integration needs to set up.\nDeprecated: use Repositories instead. Will be unsupported in v1.8.\n+optional"
+    },
+    "projects": {
+      "type": "array",
+      "name": "Projects holds a list of projects for which integration needs to set up, this will add the webhook to all repositories in the project.\n+optional",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "name": "Repositories holds a list of repositories for which integration needs to set up.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.BitbucketServerRepository"
+      }
+    },
+    "repositorySlug": {
+      "type": "string",
+      "name": "DeprecatedRepositorySlug is the slug of the repository for which integration needs to set up.\nDeprecated: use Repositories instead. Will be unsupported in v1.8.\n+optional"
+    },
+    "skipBranchRefsChangedOnOpenPR": {
+      "type": "boolean",
+      "name": "SkipBranchRefsChangedOnOpenPR bypasses the event repo:refs_changed for branches whenever there's an associated open pull request.\nThis helps in optimizing the event handling process by avoiding unnecessary triggers for branch reference changes that are already part of a pull request under review.\n+optional"
+    },
+    "tls": {
+      "name": "TLS configuration for the bitbucketserver client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "webhook": {
+      "description": "Webhook holds configuration to run a http server.",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.WebhookContext"
+    },
+    "webhookSecret": {
+      "name": "WebhookSecret is reference to K8s secret which holds the bitbucket webhook secret (for HMAC validation).\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

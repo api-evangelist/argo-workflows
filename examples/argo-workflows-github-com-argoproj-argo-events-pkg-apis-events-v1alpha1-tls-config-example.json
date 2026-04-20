@@ -1,0 +1,7 @@
+{
+  "caCertSecret": "example-cacertsecret",
+  "clientCertSecret": "example-clientcertsecre",
+  "clientKeySecret": "example-clientkeysecret",
+  "enabled": true,
+  "insecureSkipVerify": true
+}

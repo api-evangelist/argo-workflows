@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-slack-sender-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackSender",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackSender schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "icon": {
+      "type": "string",
+      "title": "Icon is the Slack application's icon, e.g. :robot_face: or https://example.com/image.png\n+optional"
+    },
+    "username": {
+      "type": "string",
+      "title": "Username is the Slack application's username\n+optional"
+    }
+  }
+}

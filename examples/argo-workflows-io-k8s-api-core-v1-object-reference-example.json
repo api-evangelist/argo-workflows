@@ -1,0 +1,9 @@
+{
+  "apiVersion": "v3.6.0",
+  "fieldPath": "example-fieldpath",
+  "kind": "example-kind",
+  "name": "my-workflow",
+  "namespace": "my-workflow",
+  "resourceVersion": "v3.6.0",
+  "uid": "wf-abc123"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-capabilities-structure.json",
+  "name": "io.k8s.api.core.v1.Capabilities",
+  "description": "Adds and removes POSIX capabilities from running containers.",
+  "type": "object",
+  "properties": {
+    "add": {
+      "description": "Added capabilities",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "x-kubernetes-list-type": "atomic"
+    },
+    "drop": {
+      "description": "Removed capabilities",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "x-kubernetes-list-type": "atomic"
+    }
+  }
+}

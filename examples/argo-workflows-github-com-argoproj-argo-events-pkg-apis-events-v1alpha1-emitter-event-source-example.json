@@ -1,0 +1,12 @@
+{
+  "broker": "example-broker",
+  "channelKey": "example-channelkey",
+  "channelName": "my-workflow",
+  "connectionBackoff": "example-connectionbacko",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "password": "example-password",
+  "tls": "example-tls",
+  "username": "my-workflow"
+}

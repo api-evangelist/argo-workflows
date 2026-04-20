@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-time-filter-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TimeFilter",
+  "description": "TimeFilter describes a window in time.\nIt filters out events that occur outside the time limits.\nIn other words, only events that occur after Start and before Stop\nwill pass this filter.",
+  "type": "object",
+  "properties": {
+    "start": {
+      "description": "Start is the beginning of a time window in UTC.\nBefore this time, events for this dependency are ignored.\nFormat is hh:mm:ss.",
+      "type": "string"
+    },
+    "stop": {
+      "description": "Stop is the end of a time window in UTC.\nAfter or equal to this time, events for this dependency are ignored and\nFormat is hh:mm:ss.\nIf it is smaller than Start, it is treated as next day of Start\n(e.g.: 22:00:00-01:00:00 means 22:00:00-25:00:00).",
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string",
+      "title": "Timezone specifies the timezone for the time window.\nIf not specified, defaults to UTC.\nFormat should be a valid IANA timezone name (e.g., \"America/New_York\", \"Europe/London\").\n+optional"
+    }
+  }
+}

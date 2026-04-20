@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-artifact-repository-ref-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.ArtifactRepositoryRef",
+  "description": "ArtifactRepositoryRef is a reference to an artifact repository config map.",
+  "type": "object",
+  "properties": {
+    "configMap": {
+      "description": "The name of the config map. Defaults to \"artifact-repositories\".",
+      "type": "string"
+    },
+    "key": {
+      "description": "The config map key. Defaults to the value of the \"workflows.argoproj.io/default-artifact-repository\" annotation.",
+      "type": "string"
+    }
+  }
+}

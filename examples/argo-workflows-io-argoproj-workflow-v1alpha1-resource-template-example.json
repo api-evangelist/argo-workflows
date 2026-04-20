@@ -1,0 +1,13 @@
+{
+  "action": "example-action",
+  "failureCondition": "example-failureconditio",
+  "flags": [
+    "example-flags",
+    "example-flags"
+  ],
+  "manifest": "example-manifest",
+  "manifestFrom": "example-manifestfrom",
+  "mergeStrategy": "example-mergestrategy",
+  "setOwnerReference": true,
+  "successCondition": "example-successconditio"
+}

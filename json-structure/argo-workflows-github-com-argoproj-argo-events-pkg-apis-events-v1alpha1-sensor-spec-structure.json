@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-sensor-spec-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorSpec",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorSpec schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "dependencies": {
+      "description": "Dependencies is a list of the events that this sensor is dependent on.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependency"
+      }
+    },
+    "errorOnFailedRound": {
+      "description": "ErrorOnFailedRound if set to true, marks sensor state as `error` if the previous trigger round fails.\nOnce sensor state is set to `error`, no further triggers will be processed.",
+      "type": "boolean"
+    },
+    "eventBusName": {
+      "type": "string",
+      "name": "EventBusName references to a EventBus name. By default the value is \"default\""
+    },
+    "loggingFields": {
+      "type": "object",
+      "name": "LoggingFields add additional key-value pairs when logging happens\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "replicas": {
+      "type": "int32",
+      "name": "Replicas is the sensor deployment replicas"
+    },
+    "revisionHistoryLimit": {
+      "type": "int32",
+      "name": "RevisionHistoryLimit specifies how many old deployment revisions to retain\n+optional"
+    },
+    "template": {
+      "name": "Template is the pod specification for the sensor\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Template"
+    },
+    "triggers": {
+      "description": "Triggers is a list of the things that this sensor evokes. These are the outputs from this sensor.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Trigger"
+      }
+    }
+  }
+}

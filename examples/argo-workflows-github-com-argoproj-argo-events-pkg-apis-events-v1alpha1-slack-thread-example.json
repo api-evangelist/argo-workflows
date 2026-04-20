@@ -1,0 +1,4 @@
+{
+  "broadcastMessageToChannel": true,
+  "messageAggregationKey": "Workflow completed successfully"
+}

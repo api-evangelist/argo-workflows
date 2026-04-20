@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-dependency-filter-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyFilter",
+  "description": "EventDependencyFilter defines filters and constraints for a io.argoproj.workflow.v1alpha1.",
+  "type": "object",
+  "properties": {
+    "context": {
+      "title": "Context filter constraints",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventContext"
+    },
+    "data": {
+      "type": "array",
+      "title": "Data filter constraints with escalation",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.DataFilter"
+      }
+    },
+    "dataLogicalOperator": {
+      "description": "DataLogicalOperator defines how multiple Data filters (if defined) are evaluated together.\nAvailable values: and (&&), or (||)\nIs optional and if left blank treated as and (&&).",
+      "type": "string"
+    },
+    "exprLogicalOperator": {
+      "description": "ExprLogicalOperator defines how multiple Exprs filters (if defined) are evaluated together.\nAvailable values: and (&&), or (||)\nIs optional and if left blank treated as and (&&).",
+      "type": "string"
+    },
+    "exprs": {
+      "description": "Exprs contains the list of expressions evaluated against the event payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ExprFilter"
+      }
+    },
+    "script": {
+      "description": "Script refers to a Lua script evaluated to determine the validity of an io.argoproj.workflow.v1alpha1.",
+      "type": "string"
+    },
+    "time": {
+      "title": "Time filter on the event with escalation",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TimeFilter"
+    }
+  }
+}

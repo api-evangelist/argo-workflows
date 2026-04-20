@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-emitter-event-source-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmitterEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EmitterEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "broker": {
+      "description": "Broker URI to connect to.",
+      "type": "string"
+    },
+    "channelKey": {
+      "type": "string",
+      "title": "ChannelKey refers to the channel key"
+    },
+    "channelName": {
+      "type": "string",
+      "title": "ChannelName refers to the channel name"
+    },
+    "connectionBackoff": {
+      "title": "Backoff holds parameters applied to connection.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Backoff"
+    },
+    "filter": {
+      "title": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "title": "JSONBody specifies that all event body payload coming from this\nsource will be JSON\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "title": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "password": {
+      "title": "Password to use to connect to broker\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "tls": {
+      "title": "TLS configuration for the emitter client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "username": {
+      "title": "Username to use to connect to broker\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

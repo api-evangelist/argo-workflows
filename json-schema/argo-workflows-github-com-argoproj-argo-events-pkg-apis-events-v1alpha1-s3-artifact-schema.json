@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-s3-artifact-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Artifact schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessKey": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "bucket": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Bucket"
+    },
+    "caCertificate": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filter": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.S3Filter"
+    },
+    "insecure": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "region": {
+      "type": "string"
+    },
+    "secretKey": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

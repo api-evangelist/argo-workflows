@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-container-restart-rule-structure.json",
+  "name": "io.k8s.api.core.v1.ContainerRestartRule",
+  "description": "ContainerRestartRule describes how a container exit is handled.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "description": "Specifies the action taken on a container exit if the requirements are satisfied. The only possible value is \"Restart\" to restart the container.",
+      "type": "string"
+    },
+    "exitCodes": {
+      "description": "Represents the exit codes to check on container exits.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ContainerRestartRuleOnExitCodes"
+    }
+  },
+  "required": [
+    "action"
+  ]
+}

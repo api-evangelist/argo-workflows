@@ -1,0 +1,6 @@
+{
+  "configuration": "example-configuration",
+  "connectionTimeoutSeconds": 1718153645993,
+  "key": "example-key",
+  "name": "my-workflow"
+}

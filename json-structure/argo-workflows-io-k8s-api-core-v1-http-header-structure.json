@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-http-header-structure.json",
+  "name": "io.k8s.api.core.v1.HTTPHeader",
+  "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The header field value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

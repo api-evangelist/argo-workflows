@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-column-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Column",
+  "description": "Column is a custom column that will be exposed in the Workflow List View.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "description": "The key of the label or annotation, e.g., \"workflows.argoproj.io/completed\".",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of this column, e.g., \"Workflow Completed\".",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of this column, \"label\" or \"annotation\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "key"
+  ]
+}

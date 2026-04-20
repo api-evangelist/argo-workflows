@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-amqp-queue-bind-config-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueBindConfig",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.AMQPQueueBindConfig schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "noWait": {
+      "type": "boolean",
+      "title": "NowWait false and the queue could not be bound, the channel will be closed with an error\n+optional"
+    }
+  }
+}

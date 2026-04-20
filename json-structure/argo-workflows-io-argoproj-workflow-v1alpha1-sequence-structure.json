@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-sequence-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Sequence",
+  "description": "Sequence expands a workflow step into numeric range",
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "Count is number of elements in the sequence (default: 0). Not to be used with end",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString"
+    },
+    "end": {
+      "description": "Number at which to end the sequence (default: 0). Not to be used with Count",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString"
+    },
+    "format": {
+      "description": "Format is a printf format string to format the value in the sequence",
+      "type": "string"
+    },
+    "start": {
+      "description": "Number at which to start the sequence (default: 0)",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.util.intstr.IntOrString"
+    }
+  }
+}

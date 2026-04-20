@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-io-argoproj-workflow-v1alpha1-update-cron-workflow-request-schema.json",
+  "title": "io.argoproj.workflow.v1alpha1.UpdateCronWorkflowRequest",
+  "description": "io.argoproj.workflow.v1alpha1.UpdateCronWorkflowRequest schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "cronWorkflow": {
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.CronWorkflow"
+    },
+    "name": {
+      "description": "DEPRECATED: This field is ignored.",
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    }
+  }
+}

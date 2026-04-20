@@ -1,0 +1,11 @@
+{
+  "credentialSecret": "example-credentialsecre",
+  "deleteSubscriptionOnFinish": true,
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "projectID": "wf-abc123",
+  "subscriptionID": "wf-abc123",
+  "topic": "example-topic",
+  "topicProjectID": "wf-abc123"
+}

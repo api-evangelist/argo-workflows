@@ -1,0 +1,12 @@
+{
+  "fsType": "example-fstype",
+  "gateway": "example-gateway",
+  "protectionDomain": "example-protectiondomai",
+  "readOnly": true,
+  "secretRef": "example-secretref",
+  "sslEnabled": true,
+  "storageMode": "example-storagemode",
+  "storagePool": "example-storagepool",
+  "system": "example-system",
+  "volumeName": "my-workflow"
+}

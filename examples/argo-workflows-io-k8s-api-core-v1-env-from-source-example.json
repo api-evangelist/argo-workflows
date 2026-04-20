@@ -1,0 +1,5 @@
+{
+  "configMapRef": "example-configmapref",
+  "prefix": "example-prefix",
+  "secretRef": "example-secretref"
+}

@@ -1,0 +1,9 @@
+{
+  "memoized": true,
+  "name": "my-workflow",
+  "namespace": "my-workflow",
+  "parameters": [
+    "value",
+    "value"
+  ]
+}

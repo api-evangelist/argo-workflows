@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-grpc-gateway-runtime-error-schema.json",
+  "title": "grpc.gateway.runtime.Error",
+  "description": "grpc.gateway.runtime.Error schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer"
+    },
+    "details": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/google.protobuf.Any"
+      }
+    },
+    "error": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

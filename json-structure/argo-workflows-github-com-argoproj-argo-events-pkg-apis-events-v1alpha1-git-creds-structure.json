@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-git-creds-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.GitCreds schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "password": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "username": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

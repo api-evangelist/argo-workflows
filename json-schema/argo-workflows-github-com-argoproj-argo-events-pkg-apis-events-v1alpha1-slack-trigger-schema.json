@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-slack-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackTrigger",
+  "description": "SlackTrigger refers to the specification of the slack notification trigger.",
+  "type": "object",
+  "properties": {
+    "attachments": {
+      "type": "string",
+      "title": "Attachments is a JSON format string that represents an array of Slack attachments according to the attachments API: https://api.slack.com/reference/messaging/attachments .\n+optional"
+    },
+    "blocks": {
+      "type": "string",
+      "title": "Blocks is a JSON format string that represents an array of Slack blocks according to the blocks API: https://api.slack.com/reference/block-kit/blocks .\n+optional"
+    },
+    "channel": {
+      "type": "string",
+      "title": "Channel refers to which Slack channel to send Slack message.\n+optional"
+    },
+    "message": {
+      "type": "string",
+      "title": "Message refers to the message to send to the Slack channel.\n+optional"
+    },
+    "parameters": {
+      "type": "array",
+      "title": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "sender": {
+      "title": "Sender refers to additional configuration of the Slack application that sends the message.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackSender"
+    },
+    "slackToken": {
+      "description": "SlackToken refers to the Kubernetes secret that holds the slack token required to send messages.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "thread": {
+      "title": "Thread refers to additional options for sending messages to a Slack thread.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SlackThread"
+    }
+  }
+}

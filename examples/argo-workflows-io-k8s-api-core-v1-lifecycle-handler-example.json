@@ -1,0 +1,6 @@
+{
+  "exec": "example-exec",
+  "httpGet": "example-httpget",
+  "sleep": "example-sleep",
+  "tcpSocket": "example-tcpsocket"
+}

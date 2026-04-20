@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-k8s-api-core-v1-volume-resource-requirements-structure.json",
+  "name": "io.k8s.api.core.v1.VolumeResourceRequirements",
+  "description": "VolumeResourceRequirements describes the storage resource requirements for a volume.",
+  "type": "object",
+  "properties": {
+    "limits": {
+      "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      }
+    },
+    "requests": {
+      "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/io.k8s.apimachinery.pkg.api.resource.Quantity"
+      }
+    }
+  }
+}

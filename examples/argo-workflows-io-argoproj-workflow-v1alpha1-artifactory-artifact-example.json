@@ -1,0 +1,5 @@
+{
+  "passwordSecret": "example-passwordsecret",
+  "url": "example-url",
+  "usernameSecret": "my-workflow"
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-open-whisk-trigger-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.OpenWhiskTrigger",
+  "description": "OpenWhiskTrigger refers to the specification of the OpenWhisk trigger.",
+  "type": "object",
+  "properties": {
+    "actionName": {
+      "description": "Name of the action/function.",
+      "type": "string"
+    },
+    "authToken": {
+      "title": "AuthToken for authentication.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "host": {
+      "description": "Host URL of the OpenWhisk.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "Namespace for the action.\nDefaults to \"_\".\n+optional.",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "array",
+      "title": "Parameters is the list of key-value extracted from event's payload that are applied to\nthe trigger resource.\n+optional",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "payload": {
+      "description": "Payload is the list of key-value extracted from an event payload to construct the request payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TriggerParameter"
+      }
+    },
+    "version": {
+      "type": "string",
+      "title": "Version for the API.\nDefaults to v1.\n+optional"
+    }
+  }
+}

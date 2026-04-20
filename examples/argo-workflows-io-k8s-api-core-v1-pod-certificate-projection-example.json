@@ -1,0 +1,9 @@
+{
+  "certificateChainPath": "example-certificatechai",
+  "credentialBundlePath": "example-credentialbundl",
+  "keyPath": "example-keypath",
+  "keyType": "example-keytype",
+  "maxExpirationSeconds": 72,
+  "signerName": "my-workflow",
+  "userAnnotations": {}
+}

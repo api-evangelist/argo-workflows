@@ -1,0 +1,7 @@
+{
+  "containerPort": 34,
+  "hostIP": "example-hostip",
+  "hostPort": 2,
+  "name": "my-workflow",
+  "protocol": "example-protocol"
+}

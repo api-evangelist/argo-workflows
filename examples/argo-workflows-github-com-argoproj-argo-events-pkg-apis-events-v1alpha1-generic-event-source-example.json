@@ -1,0 +1,9 @@
+{
+  "authSecret": "example-authsecret",
+  "config": "example-config",
+  "filter": "example-filter",
+  "insecure": true,
+  "jsonBody": true,
+  "metadata": {},
+  "url": "example-url"
+}

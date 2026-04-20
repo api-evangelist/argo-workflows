@@ -1,0 +1,5 @@
+{
+  "cache": "example-cache",
+  "key": "example-key",
+  "maxAge": "example-maxage"
+}

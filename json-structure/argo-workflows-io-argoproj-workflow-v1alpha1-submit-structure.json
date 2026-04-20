@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-submit-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Submit",
+  "description": "io.argoproj.workflow.v1alpha1.Submit schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "arguments": {
+      "description": "Arguments extracted from the event and then set as arguments to the workflow created.",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Arguments"
+    },
+    "metadata": {
+      "description": "Metadata optional means to customize select fields of the workflow metadata",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "workflowTemplateRef": {
+      "description": "WorkflowTemplateRef the workflow template to submit",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.WorkflowTemplateRef"
+    }
+  },
+  "required": [
+    "workflowTemplateRef"
+  ]
+}

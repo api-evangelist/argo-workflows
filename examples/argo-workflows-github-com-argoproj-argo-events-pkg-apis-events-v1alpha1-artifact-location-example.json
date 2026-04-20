@@ -1,0 +1,9 @@
+{
+  "configmap": "example-configmap",
+  "file": "example-file",
+  "git": "example-git",
+  "inline": "example-inline",
+  "resource": "example-resource",
+  "s3": "example-s3",
+  "url": "example-url"
+}

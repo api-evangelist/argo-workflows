@@ -1,0 +1,5 @@
+{
+  "bucket": "example-bucket",
+  "key": "example-key",
+  "serviceAccountKeySecret": "example-serviceaccountk"
+}

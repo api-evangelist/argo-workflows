@@ -1,0 +1,17 @@
+{
+  "body": "example-body",
+  "from": "example-from",
+  "host": "example-host",
+  "parameters": [
+    "value",
+    "value"
+  ],
+  "port": 91,
+  "smtpPassword": "example-smtppassword",
+  "subject": "example-subject",
+  "to": [
+    "example-to",
+    "example-to"
+  ],
+  "username": "my-workflow"
+}

@@ -1,0 +1,5 @@
+{
+  "configuration": "example-configuration",
+  "keyFormat": "example-keyformat",
+  "name": "my-workflow"
+}

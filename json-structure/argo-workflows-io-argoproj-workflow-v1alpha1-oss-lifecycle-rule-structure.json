@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-oss-lifecycle-rule-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.OSSLifecycleRule",
+  "description": "OSSLifecycleRule specifies how to manage bucket's lifecycle",
+  "type": "object",
+  "properties": {
+    "markDeletionAfterDays": {
+      "description": "MarkDeletionAfterDays is the number of days before we delete objects in the bucket",
+      "type": "int32"
+    },
+    "markInfrequentAccessAfterDays": {
+      "description": "MarkInfrequentAccessAfterDays is the number of days before we convert the objects in the bucket to Infrequent Access (IA) storage type",
+      "type": "int32"
+    }
+  }
+}

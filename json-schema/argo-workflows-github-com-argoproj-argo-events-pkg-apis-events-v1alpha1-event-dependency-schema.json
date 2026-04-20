@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-dependency-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependency",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependency schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "eventName": {
+      "type": "string",
+      "title": "EventName is the name of the event"
+    },
+    "eventSourceName": {
+      "type": "string",
+      "title": "EventSourceName is the name of EventSource that Sensor depends on"
+    },
+    "filters": {
+      "title": "Filters and rules governing toleration of success and constraints on the context and data of an event",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyFilter"
+    },
+    "filtersLogicalOperator": {
+      "description": "FiltersLogicalOperator defines how different filters are evaluated together.\nAvailable values: and (&&), or (||)\nIs optional and if left blank treated as and (&&).",
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name is a unique name of this dependency"
+    },
+    "transform": {
+      "title": "Transform transforms the event data",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventDependencyTransformer"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-sensor-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.Sensor schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorSpec"
+    },
+    "status": {
+      "title": "+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.SensorStatus"
+    }
+  }
+}

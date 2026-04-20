@@ -1,0 +1,13 @@
+{
+  "fsType": "example-fstype",
+  "image": "python:3.11-slim",
+  "keyring": "example-keyring",
+  "monitors": [
+    "example-monitors",
+    "example-monitors"
+  ],
+  "pool": "example-pool",
+  "readOnly": true,
+  "secretRef": "example-secretref",
+  "user": "example-user"
+}

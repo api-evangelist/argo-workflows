@@ -1,0 +1,15 @@
+{
+  "channels": [
+    "example-channels",
+    "example-channels"
+  ],
+  "db": 96,
+  "filter": "example-filter",
+  "hostAddress": "example-hostaddress",
+  "jsonBody": true,
+  "metadata": {},
+  "namespace": "my-workflow",
+  "password": "example-password",
+  "tls": "example-tls",
+  "username": "my-workflow"
+}

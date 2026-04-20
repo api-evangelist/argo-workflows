@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-metrics-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Metrics",
+  "description": "Metrics are a list of metrics emitted from a Workflow/Template",
+  "type": "object",
+  "properties": {
+    "prometheus": {
+      "description": "Prometheus is a list of prometheus metrics to be emitted MaxItems is an artificial limit to limit CEL validation costs - see note at top of file",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Prometheus"
+      }
+    }
+  },
+  "required": [
+    "prometheus"
+  ]
+}

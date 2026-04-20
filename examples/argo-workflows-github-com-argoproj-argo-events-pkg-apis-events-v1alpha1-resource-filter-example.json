@@ -1,0 +1,13 @@
+{
+  "afterStart": true,
+  "createdBy": "example-createdby",
+  "fields": [
+    "example-fields",
+    "example-fields"
+  ],
+  "labels": [
+    "example-labels",
+    "example-labels"
+  ],
+  "prefix": "example-prefix"
+}

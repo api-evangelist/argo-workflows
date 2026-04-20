@@ -1,0 +1,10 @@
+{
+  "eventTypes": [
+    "example-eventtypes",
+    "example-eventtypes"
+  ],
+  "filter": "example-filter",
+  "groupVersionResource": "v3.6.0",
+  "metadata": {},
+  "namespace": "my-workflow"
+}

@@ -1,0 +1,7 @@
+{
+  "affinity": "example-affinity",
+  "backoff": "example-backoff",
+  "expression": "example-expression",
+  "limit": "example-limit",
+  "retryPolicy": "example-retrypolicy"
+}

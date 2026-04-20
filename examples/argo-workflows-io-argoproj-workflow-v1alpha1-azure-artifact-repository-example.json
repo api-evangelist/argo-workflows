@@ -1,0 +1,7 @@
+{
+  "accountKeySecret": "example-accountkeysecre",
+  "blobNameFormat": "my-workflow",
+  "container": "example-container",
+  "endpoint": "example-endpoint",
+  "useSDKCreds": true
+}

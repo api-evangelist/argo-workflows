@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-condition-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Condition",
+  "description": "io.argoproj.workflow.v1alpha1.Condition schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "Message is the condition message",
+      "type": "string"
+    },
+    "status": {
+      "description": "Status is the status of the condition",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type is the type of condition",
+      "type": "string"
+    }
+  }
+}

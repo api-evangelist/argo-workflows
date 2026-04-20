@@ -1,0 +1,7 @@
+{
+  "artifactRepository": "example-artifactreposit",
+  "configMap": "example-configmap",
+  "default": true,
+  "key": "example-key",
+  "namespace": "my-workflow"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-http-header-source-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.HTTPHeaderSource",
+  "description": "io.argoproj.workflow.v1alpha1.HTTPHeaderSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "secretKeyRef": {
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

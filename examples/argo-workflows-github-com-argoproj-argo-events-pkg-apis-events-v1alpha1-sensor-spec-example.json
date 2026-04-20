@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "example-dependencies",
+    "example-dependencies"
+  ],
+  "errorOnFailedRound": true,
+  "eventBusName": "my-workflow",
+  "loggingFields": {},
+  "replicas": 23,
+  "revisionHistoryLimit": 1,
+  "template": "workflow-template",
+  "triggers": [
+    "example-triggers",
+    "example-triggers"
+  ]
+}

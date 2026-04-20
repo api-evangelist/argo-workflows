@@ -1,0 +1,7 @@
+{
+  "lastTransitionTime": "example-lasttransitiont",
+  "message": "Workflow completed successfully",
+  "reason": "example-reason",
+  "status": "Running",
+  "type": "example-type"
+}

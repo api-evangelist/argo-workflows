@@ -1,0 +1,23 @@
+{
+  "accessToken": "example-accesstoken",
+  "deleteHookOnFinish": true,
+  "enableSSLVerification": true,
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "gitlabBaseURL": "example-gitlabbaseurl",
+  "groups": [
+    "example-groups",
+    "example-groups"
+  ],
+  "metadata": {},
+  "projectID": "wf-abc123",
+  "projects": [
+    "example-projects",
+    "example-projects"
+  ],
+  "secretToken": "example-secrettoken",
+  "webhook": "example-webhook"
+}

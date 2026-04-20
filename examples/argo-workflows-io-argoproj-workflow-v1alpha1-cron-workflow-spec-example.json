@@ -1,0 +1,16 @@
+{
+  "concurrencyPolicy": "example-concurrencypoli",
+  "failedJobsHistoryLimit": 94,
+  "schedules": [
+    "example-schedules",
+    "example-schedules"
+  ],
+  "startingDeadlineSeconds": 73,
+  "stopStrategy": "example-stopstrategy",
+  "successfulJobsHistoryLimit": 87,
+  "suspend": true,
+  "timezone": "example-timezone",
+  "when": "example-when",
+  "workflowMetadata": "example-workflowmetadat",
+  "workflowSpec": "example-workflowspec"
+}

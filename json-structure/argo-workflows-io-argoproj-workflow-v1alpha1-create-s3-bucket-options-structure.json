@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-create-s3-bucket-options-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.CreateS3BucketOptions",
+  "description": "CreateS3BucketOptions options used to determine automatic automatic bucket-creation process",
+  "type": "object",
+  "properties": {
+    "objectLocking": {
+      "description": "ObjectLocking Enable object locking",
+      "type": "boolean"
+    }
+  }
+}

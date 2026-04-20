@@ -1,0 +1,6 @@
+{
+  "fsType": "example-fstype",
+  "partition": 16,
+  "readOnly": true,
+  "volumeID": "wf-abc123"
+}

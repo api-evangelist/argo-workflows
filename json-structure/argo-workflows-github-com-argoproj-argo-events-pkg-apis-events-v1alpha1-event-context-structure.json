@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-event-context-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventContext",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventContext schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "datacontenttype": {
+      "description": "DataContentType - A MIME (RFC2046) string describing the media type of `data`.",
+      "type": "string"
+    },
+    "id": {
+      "description": "ID of the event; must be non-empty and unique within the scope of the producer.",
+      "type": "string"
+    },
+    "source": {
+      "description": "Source - A URI describing the event producer.",
+      "type": "string"
+    },
+    "specversion": {
+      "description": "SpecVersion - The version of the CloudEvents specification used by the io.argoproj.workflow.v1alpha1.",
+      "type": "string"
+    },
+    "subject": {
+      "type": "string",
+      "name": "Subject - The subject of the event in the context of the event producer"
+    },
+    "time": {
+      "description": "Time - A Timestamp when the event happened.",
+      "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Time"
+    },
+    "type": {
+      "description": "Type - The type of the occurrence which has happened.",
+      "type": "string"
+    }
+  }
+}

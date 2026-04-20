@@ -1,0 +1,17 @@
+{
+  "auth": "example-auth",
+  "connectionBackoff": "example-connectionbacko",
+  "consume": "example-consume",
+  "exchangeDeclare": "example-exchangedeclare",
+  "exchangeName": "my-workflow",
+  "exchangeType": "example-exchangetype",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "queueBind": "example-queuebind",
+  "queueDeclare": "example-queuedeclare",
+  "routingKey": "example-routingkey",
+  "tls": "example-tls",
+  "url": "example-url",
+  "urlSecret": "example-urlsecret"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-expr-filter-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ExprFilter",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.ExprFilter schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "expr": {
+      "description": "Expr refers to the expression that determines the outcome of the filter.",
+      "type": "string"
+    },
+    "fields": {
+      "description": "Fields refers to set of keys that refer to the paths within event payload.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.PayloadField"
+      }
+    }
+  }
+}

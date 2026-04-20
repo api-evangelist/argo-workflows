@@ -1,0 +1,5 @@
+{
+  "name": "my-workflow",
+  "namespace": "my-workflow",
+  "nodeFieldSelector": "worker-node-1"
+}

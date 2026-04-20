@@ -1,0 +1,55 @@
+{
+  "args": [
+    "example-args",
+    "example-args"
+  ],
+  "command": [
+    "python",
+    "python"
+  ],
+  "env": [
+    "example-env",
+    "example-env"
+  ],
+  "envFrom": [
+    "example-envfrom",
+    "example-envfrom"
+  ],
+  "image": "python:3.11-slim",
+  "imagePullPolicy": "python:3.11-slim",
+  "lifecycle": "example-lifecycle",
+  "livenessProbe": "example-livenessprobe",
+  "name": "my-workflow",
+  "ports": [
+    "example-ports",
+    "example-ports"
+  ],
+  "readinessProbe": "example-readinessprobe",
+  "resizePolicy": [
+    "example-resizepolicy",
+    "example-resizepolicy"
+  ],
+  "resources": "example-resources",
+  "restartPolicy": "example-restartpolicy",
+  "restartPolicyRules": [
+    "example-restartpolicyru",
+    "example-restartpolicyru"
+  ],
+  "securityContext": "example-securitycontext",
+  "source": "example-source",
+  "startupProbe": "example-startupprobe",
+  "stdin": true,
+  "stdinOnce": true,
+  "terminationMessagePath": "Workflow completed successfully",
+  "terminationMessagePolicy": "Workflow completed successfully",
+  "tty": true,
+  "volumeDevices": [
+    "example-volumedevices",
+    "example-volumedevices"
+  ],
+  "volumeMounts": [
+    "example-volumemounts",
+    "example-volumemounts"
+  ],
+  "workingDir": "example-workingdir"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-gauge-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.Gauge",
+  "description": "Gauge is a Gauge prometheus metric",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "description": "Operation defines the operation to apply with value and the metrics' current value",
+      "type": "string"
+    },
+    "realtime": {
+      "description": "Realtime emits this metric in real time if applicable",
+      "type": "boolean"
+    },
+    "value": {
+      "description": "Value is the value to be used in the operation with the metric's current value. If no operation is set, value is the value of the metric MaxLength is an artificial limit to limit CEL validation costs - see note at top of file",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value",
+    "realtime"
+  ]
+}

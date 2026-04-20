@@ -1,0 +1,7 @@
+{
+  "source": "example-source",
+  "transformation": [
+    "example-transformation",
+    "example-transformation"
+  ]
+}

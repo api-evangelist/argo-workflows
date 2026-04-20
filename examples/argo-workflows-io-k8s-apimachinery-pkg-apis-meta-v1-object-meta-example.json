@@ -1,0 +1,26 @@
+{
+  "annotations": {},
+  "creationTimestamp": "example-creationtimesta",
+  "deletionGracePeriodSeconds": 70,
+  "deletionTimestamp": "example-deletiontimesta",
+  "finalizers": [
+    "example-finalizers",
+    "example-finalizers"
+  ],
+  "generateName": "my-workflow",
+  "generation": 60,
+  "labels": {},
+  "managedFields": [
+    "example-managedfields",
+    "example-managedfields"
+  ],
+  "name": "my-workflow",
+  "namespace": "my-workflow",
+  "ownerReferences": [
+    "example-ownerreferences",
+    "example-ownerreferences"
+  ],
+  "resourceVersion": "v3.6.0",
+  "selfLink": "example-selflink",
+  "uid": "wf-abc123"
+}

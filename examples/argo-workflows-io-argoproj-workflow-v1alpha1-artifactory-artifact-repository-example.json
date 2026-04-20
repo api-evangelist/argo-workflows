@@ -1,0 +1,6 @@
+{
+  "keyFormat": "example-keyformat",
+  "passwordSecret": "example-passwordsecret",
+  "repoURL": "example-repourl",
+  "usernameSecret": "my-workflow"
+}

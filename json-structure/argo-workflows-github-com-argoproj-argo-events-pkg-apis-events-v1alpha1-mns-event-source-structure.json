@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-mns-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MNSEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.MNSEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "accessKey": {
+      "name": "AccessKey refers K8s secret containing AlibabaCloud access key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "endpoint": {
+      "type": "string",
+      "name": "Endpoint configures connection to a specific AlibabaCloud MNS endpoint\n+optional"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "jsonBody": {
+      "type": "boolean",
+      "name": "+optional"
+    },
+    "queue": {
+      "type": "string",
+      "name": "Queue is AlibabaCloud MNS queue to listen to for messages"
+    },
+    "secretKey": {
+      "name": "SecretKey refers K8s secret containing AlibabaCloud secret key",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    }
+  }
+}

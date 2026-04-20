@@ -1,0 +1,15 @@
+{
+  "accessKey": "example-accesskey",
+  "dlq": true,
+  "endpoint": "example-endpoint",
+  "filter": "example-filter",
+  "jsonBody": true,
+  "metadata": {},
+  "queue": "example-queue",
+  "queueAccountId": "wf-abc123",
+  "region": "example-region",
+  "roleARN": "example-rolearn",
+  "secretKey": "example-secretkey",
+  "sessionToken": "example-sessiontoken",
+  "waitTimeSeconds": "example-waittimeseconds"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-schema/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-catchup-configuration-schema.json",
+  "title": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CatchupConfiguration",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.CatchupConfiguration schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled enables to triggered the missed schedule when eventsource restarts"
+    },
+    "maxDuration": {
+      "type": "string",
+      "title": "MaxDuration holds max catchup duration"
+    }
+  }
+}

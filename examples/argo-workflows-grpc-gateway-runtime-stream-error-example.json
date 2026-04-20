@@ -1,0 +1,10 @@
+{
+  "details": [
+    "example-details",
+    "example-details"
+  ],
+  "grpc_code": 93,
+  "http_code": 61,
+  "http_status": "Running",
+  "message": "Workflow completed successfully"
+}

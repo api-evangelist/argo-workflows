@@ -1,0 +1,4 @@
+{
+  "podAffinityTerm": "example-podaffinityterm",
+  "weight": 95
+}

@@ -1,0 +1,4 @@
+{
+  "resourceName": "my-workflow",
+  "restartPolicy": "example-restartpolicy"
+}

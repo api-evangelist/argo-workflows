@@ -1,0 +1,8 @@
+{
+  "arguments": "value",
+  "autoDelete": true,
+  "durable": true,
+  "exclusive": true,
+  "name": "my-workflow",
+  "noWait": true
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-sync-delete-sync-limit-response-structure.json",
+  "name": "sync.DeleteSyncLimitResponse",
+  "description": "sync.DeleteSyncLimitResponse schema from Argo Workflows API",
+  "type": "object"
+}

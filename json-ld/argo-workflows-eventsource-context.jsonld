@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "argo": "https://argoproj.github.io/schema/argo-workflows/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "eventsource.CreateEventSourceRequest": "argo:eventsource.CreateEventSourceRequest",
+    "eventsource.EventSourceWatchEvent": "argo:eventsource.EventSourceWatchEvent",
+    "eventsource.LogEntry": "argo:eventsource.LogEntry",
+    "eventsource.UpdateEventSourceRequest": "argo:eventsource.UpdateEventSourceRequest",
+    "eventsource.EventSourceDeletedResponse": "argo:eventsource.EventSourceDeletedResponse",
+    "eventSource": {
+      "@id": "argo:eventSource",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "argo:namespace",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "argo:object",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "argo:type",
+      "@type": "xsd:string"
+    },
+    "eventName": {
+      "@id": "argo:eventName",
+      "@type": "xsd:string"
+    },
+    "eventSourceName": {
+      "@id": "argo:eventSourceName",
+      "@type": "xsd:string"
+    },
+    "eventSourceType": {
+      "@id": "argo:eventSourceType",
+      "@type": "xsd:string"
+    },
+    "level": {
+      "@id": "argo:level",
+      "@type": "xsd:string"
+    },
+    "msg": {
+      "@id": "argo:msg",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "argo:time",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name"
+  }
+}

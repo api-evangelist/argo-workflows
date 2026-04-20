@@ -1,0 +1,27 @@
+{
+  "accessToken": "example-accesstoken",
+  "bitbucketserverBaseURL": "example-bitbucketserver",
+  "checkInterval": "example-checkinterval",
+  "deleteHookOnFinish": true,
+  "events": [
+    "example-events",
+    "example-events"
+  ],
+  "filter": "example-filter",
+  "metadata": {},
+  "oneEventPerChange": true,
+  "projectKey": "example-projectkey",
+  "projects": [
+    "example-projects",
+    "example-projects"
+  ],
+  "repositories": [
+    "example-repositories",
+    "example-repositories"
+  ],
+  "repositorySlug": "example-repositoryslug",
+  "skipBranchRefsChangedOnOpenPR": true,
+  "tls": "example-tls",
+  "webhook": "example-webhook",
+  "webhookSecret": "example-webhooksecret"
+}

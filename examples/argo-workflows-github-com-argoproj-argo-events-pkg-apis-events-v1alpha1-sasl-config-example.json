@@ -1,0 +1,5 @@
+{
+  "mechanism": "example-mechanism",
+  "passwordSecret": "example-passwordsecret",
+  "userSecret": "example-usersecret"
+}

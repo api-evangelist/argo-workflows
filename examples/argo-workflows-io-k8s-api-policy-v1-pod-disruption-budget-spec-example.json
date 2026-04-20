@@ -1,0 +1,6 @@
+{
+  "maxUnavailable": "example-maxunavailable",
+  "minAvailable": "example-minavailable",
+  "selector": "example-selector",
+  "unhealthyPodEvictionPolicy": "example-unhealthypodevi"
+}

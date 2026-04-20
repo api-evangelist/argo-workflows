@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-tar-strategy-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.TarStrategy",
+  "description": "TarStrategy will tar and gzip the file or directory when saving",
+  "type": "object",
+  "properties": {
+    "compressionLevel": {
+      "description": "CompressionLevel specifies the gzip compression level to use for the artifact. Defaults to gzip.DefaultCompression.",
+      "type": "int32"
+    }
+  }
+}

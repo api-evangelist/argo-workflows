@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-github-com-argoproj-argo-events-pkg-apis-events-v1alpha1-redis-stream-event-source-structure.json",
+  "name": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisStreamEventSource",
+  "description": "github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.RedisStreamEventSource schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "consumerGroup": {
+      "type": "string",
+      "name": "ConsumerGroup refers to the Redis stream consumer group that will be\ncreated on all redis streams. Messages are read through this group. Defaults to 'argo-events-cg'\n+optional"
+    },
+    "db": {
+      "type": "int32",
+      "name": "DB to use. If not specified, default DB 0 will be used.\n+optional"
+    },
+    "filter": {
+      "name": "Filter\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.EventSourceFilter"
+    },
+    "hostAddress": {
+      "type": "string",
+      "name": "HostAddress refers to the address of the Redis host/server (master instance)"
+    },
+    "maxMsgCountPerRead": {
+      "type": "int32",
+      "name": "MaxMsgCountPerRead holds the maximum number of messages per stream that will be read in each XREADGROUP of all streams\nExample: if there are 2 streams and MaxMsgCountPerRead=10, then each XREADGROUP may read upto a total of 20 messages.\nSame as COUNT option in XREADGROUP(https://redis.io/topics/streams-intro). Defaults to 10\n+optional"
+    },
+    "metadata": {
+      "type": "object",
+      "name": "Metadata holds the user defined metadata which will passed along the event payload.\n+optional",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "password": {
+      "name": "Password required for authentication if any.\n+optional",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+    },
+    "streams": {
+      "description": "Streams to look for entries. XREADGROUP is used on all streams using a single consumer group.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tls": {
+      "name": "TLS configuration for the redis client.\n+optional",
+      "$ref": "#/definitions/github.com.argoproj.argo_events.pkg.apis.events.v1alpha1.TLSConfig"
+    },
+    "username": {
+      "type": "string",
+      "name": "Username required for ACL style authentication if any.\n+optional"
+    }
+  }
+}

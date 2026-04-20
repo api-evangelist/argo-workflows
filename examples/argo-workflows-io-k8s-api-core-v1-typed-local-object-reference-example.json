@@ -1,0 +1,5 @@
+{
+  "apiGroup": "example-apigroup",
+  "kind": "example-kind",
+  "name": "my-workflow"
+}

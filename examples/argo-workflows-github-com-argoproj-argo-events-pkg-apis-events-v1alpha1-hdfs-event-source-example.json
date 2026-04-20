@@ -1,0 +1,18 @@
+{
+  "addresses": [
+    "example-addresses",
+    "example-addresses"
+  ],
+  "checkInterval": "example-checkinterval",
+  "filter": "example-filter",
+  "hdfsUser": "example-hdfsuser",
+  "krbCCacheSecret": "example-krbccachesecret",
+  "krbConfigConfigMap": "example-krbconfigconfig",
+  "krbKeytabSecret": "example-krbkeytabsecret",
+  "krbRealm": "example-krbrealm",
+  "krbServicePrincipalName": "my-workflow",
+  "krbUsername": "my-workflow",
+  "metadata": {},
+  "type": "example-type",
+  "watchPathConfig": "example-watchpathconfig"
+}

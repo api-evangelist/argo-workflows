@@ -1,0 +1,8 @@
+{
+  "items": [
+    "example-items",
+    "example-items"
+  ],
+  "name": "my-workflow",
+  "optional": true
+}

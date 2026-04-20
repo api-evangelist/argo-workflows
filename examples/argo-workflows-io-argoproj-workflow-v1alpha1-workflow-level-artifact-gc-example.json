@@ -1,0 +1,7 @@
+{
+  "forceFinalizerRemoval": true,
+  "podMetadata": "example-podmetadata",
+  "podSpecPatch": "example-podspecpatch",
+  "serviceAccountName": "my-workflow",
+  "strategy": "example-strategy"
+}

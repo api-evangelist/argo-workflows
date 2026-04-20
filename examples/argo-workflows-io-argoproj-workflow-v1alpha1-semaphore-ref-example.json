@@ -1,0 +1,5 @@
+{
+  "configMapKeyRef": "example-configmapkeyref",
+  "database": "example-database",
+  "namespace": "my-workflow"
+}

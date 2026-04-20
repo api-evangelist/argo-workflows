@@ -1,0 +1,7 @@
+{
+  "configMapKeyRef": "example-configmapkeyref",
+  "fieldRef": "example-fieldref",
+  "fileKeyRef": "example-filekeyref",
+  "resourceFieldRef": "example-resourcefieldre",
+  "secretKeyRef": "example-secretkeyref"
+}

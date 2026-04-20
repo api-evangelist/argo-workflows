@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/json-structure/argo-workflows-io-argoproj-workflow-v1alpha1-workflow-watch-event-structure.json",
+  "name": "io.argoproj.workflow.v1alpha1.WorkflowWatchEvent",
+  "description": "io.argoproj.workflow.v1alpha1.WorkflowWatchEvent schema from Argo Workflows API",
+  "type": "object",
+  "properties": {
+    "object": {
+      "name": "the workflow",
+      "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.Workflow"
+    },
+    "type": {
+      "type": "string",
+      "name": "the type of change"
+    }
+  }
+}
