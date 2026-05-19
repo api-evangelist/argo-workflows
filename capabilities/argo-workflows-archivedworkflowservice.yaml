@@ -1,0 +1,475 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Argo Workflows — ArchivedWorkflowService
+  description: 'Argo Workflows — ArchivedWorkflowService. 7 operations. Lead operation: ArchivedWorkflowService. Self-contained
+    Naftiko capability covering one Argo Workflows business surface.'
+  tags:
+  - Argo Workflows
+  - ArchivedWorkflowService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ARGO_WORKFLOWS_API_KEY: ARGO_WORKFLOWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: argo-workflows-archivedworkflowservice
+    baseUri: http://localhost:2746
+    description: Argo Workflows — ArchivedWorkflowService business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-archived-workflows
+      path: /api/v1/archived-workflows
+      operations:
+      - name: archivedworkflowservicelistarchivedworkflows
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listOptions.labelSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their labels.
+        - name: listOptions.fieldSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their fields.
+        - name: listOptions.watch
+          in: query
+          type: boolean
+          description: Watch for changes to the described resources and return them as a stream of
+        - name: listOptions.allowWatchBookmarks
+          in: query
+          type: boolean
+          description: allowWatchBookmarks requests watch events with type "BOOKMARK".
+        - name: listOptions.resourceVersion
+          in: query
+          type: string
+          description: resourceVersion sets a constraint on what resource versions a request may be served from.
+        - name: listOptions.resourceVersionMatch
+          in: query
+          type: string
+          description: resourceVersionMatch determines how resourceVersion is applied to list calls.
+        - name: listOptions.timeoutSeconds
+          in: query
+          type: string
+          description: Timeout for the list/watch call.
+        - name: listOptions.limit
+          in: query
+          type: string
+          description: limit is a maximum number of responses to return for a list call. If more items exist, the
+        - name: listOptions.continue
+          in: query
+          type: string
+          description: The continue option should be set when retrieving more results from the server. Since this value is
+        - name: listOptions.sendInitialEvents
+          in: query
+          type: boolean
+          description: '`sendInitialEvents=true` may be set together with `watch=true`.'
+        - name: namePrefix
+          in: query
+          type: string
+        - name: namespace
+          in: query
+          type: string
+        - name: nameFilter
+          in: query
+          type: string
+          description: Filter type used for name filtering. Exact | Contains | Prefix. Default to Exact.
+    - name: api-v1-archived-workflows-label-keys
+      path: /api/v1/archived-workflows-label-keys
+      operations:
+      - name: archivedworkflowservicelistarchivedworkflowlabelkeys
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: query
+          type: string
+    - name: api-v1-archived-workflows-label-values
+      path: /api/v1/archived-workflows-label-values
+      operations:
+      - name: archivedworkflowservicelistarchivedworkflowlabelvalues
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listOptions.labelSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their labels.
+        - name: listOptions.fieldSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their fields.
+        - name: listOptions.watch
+          in: query
+          type: boolean
+          description: Watch for changes to the described resources and return them as a stream of
+        - name: listOptions.allowWatchBookmarks
+          in: query
+          type: boolean
+          description: allowWatchBookmarks requests watch events with type "BOOKMARK".
+        - name: listOptions.resourceVersion
+          in: query
+          type: string
+          description: resourceVersion sets a constraint on what resource versions a request may be served from.
+        - name: listOptions.resourceVersionMatch
+          in: query
+          type: string
+          description: resourceVersionMatch determines how resourceVersion is applied to list calls.
+        - name: listOptions.timeoutSeconds
+          in: query
+          type: string
+          description: Timeout for the list/watch call.
+        - name: listOptions.limit
+          in: query
+          type: string
+          description: limit is a maximum number of responses to return for a list call. If more items exist, the
+        - name: listOptions.continue
+          in: query
+          type: string
+          description: The continue option should be set when retrieving more results from the server. Since this value is
+        - name: listOptions.sendInitialEvents
+          in: query
+          type: boolean
+          description: '`sendInitialEvents=true` may be set together with `watch=true`.'
+        - name: namespace
+          in: query
+          type: string
+    - name: api-v1-archived-workflows-uid
+      path: /api/v1/archived-workflows/{uid}
+      operations:
+      - name: archivedworkflowservicegetarchivedworkflow
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: uid
+          in: path
+          type: string
+          required: true
+        - name: namespace
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+      - name: archivedworkflowservicedeletearchivedworkflow
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: uid
+          in: path
+          type: string
+          required: true
+        - name: namespace
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+    - name: api-v1-archived-workflows-uid-resubmit
+      path: /api/v1/archived-workflows/{uid}/resubmit
+      operations:
+      - name: archivedworkflowserviceresubmitarchivedworkflow
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: uid
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+    - name: api-v1-archived-workflows-uid-retry
+      path: /api/v1/archived-workflows/{uid}/retry
+      operations:
+      - name: archivedworkflowserviceretryarchivedworkflow
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: uid
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: argo-workflows-archivedworkflowservice-rest
+    port: 8080
+    description: REST adapter for Argo Workflows — ArchivedWorkflowService. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/archived-workflows
+      name: api-v1-archived-workflows
+      description: REST surface for api-v1-archived-workflows.
+      operations:
+      - method: GET
+        name: archivedworkflowservicelistarchivedworkflows
+        description: archivedworkflowservicelistarchivedworkflows
+        call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflows
+        with:
+          listOptions.labelSelector: rest.listOptions.labelSelector
+          listOptions.fieldSelector: rest.listOptions.fieldSelector
+          listOptions.watch: rest.listOptions.watch
+          listOptions.allowWatchBookmarks: rest.listOptions.allowWatchBookmarks
+          listOptions.resourceVersion: rest.listOptions.resourceVersion
+          listOptions.resourceVersionMatch: rest.listOptions.resourceVersionMatch
+          listOptions.timeoutSeconds: rest.listOptions.timeoutSeconds
+          listOptions.limit: rest.listOptions.limit
+          listOptions.continue: rest.listOptions.continue
+          listOptions.sendInitialEvents: rest.listOptions.sendInitialEvents
+          namePrefix: rest.namePrefix
+          namespace: rest.namespace
+          nameFilter: rest.nameFilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/archived-workflows-label-keys
+      name: api-v1-archived-workflows-label-keys
+      description: REST surface for api-v1-archived-workflows-label-keys.
+      operations:
+      - method: GET
+        name: archivedworkflowservicelistarchivedworkflowlabelkeys
+        description: archivedworkflowservicelistarchivedworkflowlabelkeys
+        call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflowlabelkeys
+        with:
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/archived-workflows-label-values
+      name: api-v1-archived-workflows-label-values
+      description: REST surface for api-v1-archived-workflows-label-values.
+      operations:
+      - method: GET
+        name: archivedworkflowservicelistarchivedworkflowlabelvalues
+        description: archivedworkflowservicelistarchivedworkflowlabelvalues
+        call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflowlabelvalues
+        with:
+          listOptions.labelSelector: rest.listOptions.labelSelector
+          listOptions.fieldSelector: rest.listOptions.fieldSelector
+          listOptions.watch: rest.listOptions.watch
+          listOptions.allowWatchBookmarks: rest.listOptions.allowWatchBookmarks
+          listOptions.resourceVersion: rest.listOptions.resourceVersion
+          listOptions.resourceVersionMatch: rest.listOptions.resourceVersionMatch
+          listOptions.timeoutSeconds: rest.listOptions.timeoutSeconds
+          listOptions.limit: rest.listOptions.limit
+          listOptions.continue: rest.listOptions.continue
+          listOptions.sendInitialEvents: rest.listOptions.sendInitialEvents
+          namespace: rest.namespace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/archived-workflows/{uid}
+      name: api-v1-archived-workflows-uid
+      description: REST surface for api-v1-archived-workflows-uid.
+      operations:
+      - method: GET
+        name: archivedworkflowservicegetarchivedworkflow
+        description: archivedworkflowservicegetarchivedworkflow
+        call: argo-workflows-archivedworkflowservice.archivedworkflowservicegetarchivedworkflow
+        with:
+          uid: rest.uid
+          namespace: rest.namespace
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: archivedworkflowservicedeletearchivedworkflow
+        description: archivedworkflowservicedeletearchivedworkflow
+        call: argo-workflows-archivedworkflowservice.archivedworkflowservicedeletearchivedworkflow
+        with:
+          uid: rest.uid
+          namespace: rest.namespace
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/archived-workflows/{uid}/resubmit
+      name: api-v1-archived-workflows-uid-resubmit
+      description: REST surface for api-v1-archived-workflows-uid-resubmit.
+      operations:
+      - method: PUT
+        name: archivedworkflowserviceresubmitarchivedworkflow
+        description: archivedworkflowserviceresubmitarchivedworkflow
+        call: argo-workflows-archivedworkflowservice.archivedworkflowserviceresubmitarchivedworkflow
+        with:
+          uid: rest.uid
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/archived-workflows/{uid}/retry
+      name: api-v1-archived-workflows-uid-retry
+      description: REST surface for api-v1-archived-workflows-uid-retry.
+      operations:
+      - method: PUT
+        name: archivedworkflowserviceretryarchivedworkflow
+        description: archivedworkflowserviceretryarchivedworkflow
+        call: argo-workflows-archivedworkflowservice.archivedworkflowserviceretryarchivedworkflow
+        with:
+          uid: rest.uid
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: argo-workflows-archivedworkflowservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Argo Workflows — ArchivedWorkflowService. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: archivedworkflowservicelistarchivedworkflows
+      description: archivedworkflowservicelistarchivedworkflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflows
+      with:
+        listOptions.labelSelector: tools.listOptions.labelSelector
+        listOptions.fieldSelector: tools.listOptions.fieldSelector
+        listOptions.watch: tools.listOptions.watch
+        listOptions.allowWatchBookmarks: tools.listOptions.allowWatchBookmarks
+        listOptions.resourceVersion: tools.listOptions.resourceVersion
+        listOptions.resourceVersionMatch: tools.listOptions.resourceVersionMatch
+        listOptions.timeoutSeconds: tools.listOptions.timeoutSeconds
+        listOptions.limit: tools.listOptions.limit
+        listOptions.continue: tools.listOptions.continue
+        listOptions.sendInitialEvents: tools.listOptions.sendInitialEvents
+        namePrefix: tools.namePrefix
+        namespace: tools.namespace
+        nameFilter: tools.nameFilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowservicelistarchivedworkflowlabelkeys
+      description: archivedworkflowservicelistarchivedworkflowlabelkeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflowlabelkeys
+      with:
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowservicelistarchivedworkflowlabelvalues
+      description: archivedworkflowservicelistarchivedworkflowlabelvalues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowservicelistarchivedworkflowlabelvalues
+      with:
+        listOptions.labelSelector: tools.listOptions.labelSelector
+        listOptions.fieldSelector: tools.listOptions.fieldSelector
+        listOptions.watch: tools.listOptions.watch
+        listOptions.allowWatchBookmarks: tools.listOptions.allowWatchBookmarks
+        listOptions.resourceVersion: tools.listOptions.resourceVersion
+        listOptions.resourceVersionMatch: tools.listOptions.resourceVersionMatch
+        listOptions.timeoutSeconds: tools.listOptions.timeoutSeconds
+        listOptions.limit: tools.listOptions.limit
+        listOptions.continue: tools.listOptions.continue
+        listOptions.sendInitialEvents: tools.listOptions.sendInitialEvents
+        namespace: tools.namespace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowservicegetarchivedworkflow
+      description: archivedworkflowservicegetarchivedworkflow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowservicegetarchivedworkflow
+      with:
+        uid: tools.uid
+        namespace: tools.namespace
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowservicedeletearchivedworkflow
+      description: archivedworkflowservicedeletearchivedworkflow
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowservicedeletearchivedworkflow
+      with:
+        uid: tools.uid
+        namespace: tools.namespace
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowserviceresubmitarchivedworkflow
+      description: archivedworkflowserviceresubmitarchivedworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowserviceresubmitarchivedworkflow
+      with:
+        uid: tools.uid
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: archivedworkflowserviceretryarchivedworkflow
+      description: archivedworkflowserviceretryarchivedworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: argo-workflows-archivedworkflowservice.archivedworkflowserviceretryarchivedworkflow
+      with:
+        uid: tools.uid
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

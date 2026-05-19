@@ -1,0 +1,511 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Argo Workflows — CronWorkflowService
+  description: 'Argo Workflows — CronWorkflowService. 8 operations. Lead operation: CronWorkflowService. Self-contained Naftiko
+    capability covering one Argo Workflows business surface.'
+  tags:
+  - Argo Workflows
+  - CronWorkflowService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ARGO_WORKFLOWS_API_KEY: ARGO_WORKFLOWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: argo-workflows-cronworkflowservice
+    baseUri: http://localhost:2746
+    description: Argo Workflows — CronWorkflowService business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-cron-workflows-namespace
+      path: /api/v1/cron-workflows/{namespace}
+      operations:
+      - name: cronworkflowservicelistcronworkflows
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: listOptions.labelSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their labels.
+        - name: listOptions.fieldSelector
+          in: query
+          type: string
+          description: A selector to restrict the list of returned objects by their fields.
+        - name: listOptions.watch
+          in: query
+          type: boolean
+          description: Watch for changes to the described resources and return them as a stream of
+        - name: listOptions.allowWatchBookmarks
+          in: query
+          type: boolean
+          description: allowWatchBookmarks requests watch events with type "BOOKMARK".
+        - name: listOptions.resourceVersion
+          in: query
+          type: string
+          description: resourceVersion sets a constraint on what resource versions a request may be served from.
+        - name: listOptions.resourceVersionMatch
+          in: query
+          type: string
+          description: resourceVersionMatch determines how resourceVersion is applied to list calls.
+        - name: listOptions.timeoutSeconds
+          in: query
+          type: string
+          description: Timeout for the list/watch call.
+        - name: listOptions.limit
+          in: query
+          type: string
+          description: limit is a maximum number of responses to return for a list call. If more items exist, the
+        - name: listOptions.continue
+          in: query
+          type: string
+          description: The continue option should be set when retrieving more results from the server. Since this value is
+        - name: listOptions.sendInitialEvents
+          in: query
+          type: boolean
+          description: '`sendInitialEvents=true` may be set together with `watch=true`.'
+      - name: cronworkflowservicecreatecronworkflow
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+    - name: api-v1-cron-workflows-namespace-lint
+      path: /api/v1/cron-workflows/{namespace}/lint
+      operations:
+      - name: cronworkflowservicelintcronworkflow
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+    - name: api-v1-cron-workflows-namespace-name
+      path: /api/v1/cron-workflows/{namespace}/{name}
+      operations:
+      - name: cronworkflowservicegetcronworkflow
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: getOptions.resourceVersion
+          in: query
+          type: string
+          description: resourceVersion sets a constraint on what resource versions a request may be served from.
+      - name: cronworkflowserviceupdatecronworkflow
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: 'DEPRECATED: This field is ignored.'
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+      - name: cronworkflowservicedeletecronworkflow
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: deleteOptions.gracePeriodSeconds
+          in: query
+          type: string
+          description: The duration in seconds before the object should be deleted. Value must be non-negative integer.
+        - name: deleteOptions.preconditions.uid
+          in: query
+          type: string
+          description: Specifies the target UID.
+        - name: deleteOptions.preconditions.resourceVersion
+          in: query
+          type: string
+          description: Specifies the target ResourceVersion
+        - name: deleteOptions.orphanDependents
+          in: query
+          type: boolean
+          description: 'Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.'
+        - name: deleteOptions.propagationPolicy
+          in: query
+          type: string
+          description: Whether and how garbage collection will be performed.
+        - name: deleteOptions.dryRun
+          in: query
+          type: array
+          description: When present, indicates that modifications should not be
+        - name: deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential
+          in: query
+          type: boolean
+          description: if set to true, it will trigger an unsafe deletion of the resource in
+    - name: api-v1-cron-workflows-namespace-name-resume
+      path: /api/v1/cron-workflows/{namespace}/{name}/resume
+      operations:
+      - name: cronworkflowserviceresumecronworkflow
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+    - name: api-v1-cron-workflows-namespace-name-suspend
+      path: /api/v1/cron-workflows/{namespace}/{name}/suspend
+      operations:
+      - name: cronworkflowservicesuspendcronworkflow
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: argo-workflows-cronworkflowservice-rest
+    port: 8080
+    description: REST adapter for Argo Workflows — CronWorkflowService. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/cron-workflows/{namespace}
+      name: api-v1-cron-workflows-namespace
+      description: REST surface for api-v1-cron-workflows-namespace.
+      operations:
+      - method: GET
+        name: cronworkflowservicelistcronworkflows
+        description: cronworkflowservicelistcronworkflows
+        call: argo-workflows-cronworkflowservice.cronworkflowservicelistcronworkflows
+        with:
+          namespace: rest.namespace
+          listOptions.labelSelector: rest.listOptions.labelSelector
+          listOptions.fieldSelector: rest.listOptions.fieldSelector
+          listOptions.watch: rest.listOptions.watch
+          listOptions.allowWatchBookmarks: rest.listOptions.allowWatchBookmarks
+          listOptions.resourceVersion: rest.listOptions.resourceVersion
+          listOptions.resourceVersionMatch: rest.listOptions.resourceVersionMatch
+          listOptions.timeoutSeconds: rest.listOptions.timeoutSeconds
+          listOptions.limit: rest.listOptions.limit
+          listOptions.continue: rest.listOptions.continue
+          listOptions.sendInitialEvents: rest.listOptions.sendInitialEvents
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: cronworkflowservicecreatecronworkflow
+        description: cronworkflowservicecreatecronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowservicecreatecronworkflow
+        with:
+          namespace: rest.namespace
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cron-workflows/{namespace}/lint
+      name: api-v1-cron-workflows-namespace-lint
+      description: REST surface for api-v1-cron-workflows-namespace-lint.
+      operations:
+      - method: POST
+        name: cronworkflowservicelintcronworkflow
+        description: cronworkflowservicelintcronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowservicelintcronworkflow
+        with:
+          namespace: rest.namespace
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cron-workflows/{namespace}/{name}
+      name: api-v1-cron-workflows-namespace-name
+      description: REST surface for api-v1-cron-workflows-namespace-name.
+      operations:
+      - method: GET
+        name: cronworkflowservicegetcronworkflow
+        description: cronworkflowservicegetcronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowservicegetcronworkflow
+        with:
+          namespace: rest.namespace
+          name: rest.name
+          getOptions.resourceVersion: rest.getOptions.resourceVersion
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: cronworkflowserviceupdatecronworkflow
+        description: cronworkflowserviceupdatecronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowserviceupdatecronworkflow
+        with:
+          namespace: rest.namespace
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: cronworkflowservicedeletecronworkflow
+        description: cronworkflowservicedeletecronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowservicedeletecronworkflow
+        with:
+          namespace: rest.namespace
+          name: rest.name
+          deleteOptions.gracePeriodSeconds: rest.deleteOptions.gracePeriodSeconds
+          deleteOptions.preconditions.uid: rest.deleteOptions.preconditions.uid
+          deleteOptions.preconditions.resourceVersion: rest.deleteOptions.preconditions.resourceVersion
+          deleteOptions.orphanDependents: rest.deleteOptions.orphanDependents
+          deleteOptions.propagationPolicy: rest.deleteOptions.propagationPolicy
+          deleteOptions.dryRun: rest.deleteOptions.dryRun
+          deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential: rest.deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cron-workflows/{namespace}/{name}/resume
+      name: api-v1-cron-workflows-namespace-name-resume
+      description: REST surface for api-v1-cron-workflows-namespace-name-resume.
+      operations:
+      - method: PUT
+        name: cronworkflowserviceresumecronworkflow
+        description: cronworkflowserviceresumecronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowserviceresumecronworkflow
+        with:
+          namespace: rest.namespace
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cron-workflows/{namespace}/{name}/suspend
+      name: api-v1-cron-workflows-namespace-name-suspend
+      description: REST surface for api-v1-cron-workflows-namespace-name-suspend.
+      operations:
+      - method: PUT
+        name: cronworkflowservicesuspendcronworkflow
+        description: cronworkflowservicesuspendcronworkflow
+        call: argo-workflows-cronworkflowservice.cronworkflowservicesuspendcronworkflow
+        with:
+          namespace: rest.namespace
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: argo-workflows-cronworkflowservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Argo Workflows — CronWorkflowService. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: cronworkflowservicelistcronworkflows
+      description: cronworkflowservicelistcronworkflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowservicelistcronworkflows
+      with:
+        namespace: tools.namespace
+        listOptions.labelSelector: tools.listOptions.labelSelector
+        listOptions.fieldSelector: tools.listOptions.fieldSelector
+        listOptions.watch: tools.listOptions.watch
+        listOptions.allowWatchBookmarks: tools.listOptions.allowWatchBookmarks
+        listOptions.resourceVersion: tools.listOptions.resourceVersion
+        listOptions.resourceVersionMatch: tools.listOptions.resourceVersionMatch
+        listOptions.timeoutSeconds: tools.listOptions.timeoutSeconds
+        listOptions.limit: tools.listOptions.limit
+        listOptions.continue: tools.listOptions.continue
+        listOptions.sendInitialEvents: tools.listOptions.sendInitialEvents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowservicecreatecronworkflow
+      description: cronworkflowservicecreatecronworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: argo-workflows-cronworkflowservice.cronworkflowservicecreatecronworkflow
+      with:
+        namespace: tools.namespace
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowservicelintcronworkflow
+      description: cronworkflowservicelintcronworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: argo-workflows-cronworkflowservice.cronworkflowservicelintcronworkflow
+      with:
+        namespace: tools.namespace
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowservicegetcronworkflow
+      description: cronworkflowservicegetcronworkflow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowservicegetcronworkflow
+      with:
+        namespace: tools.namespace
+        name: tools.name
+        getOptions.resourceVersion: tools.getOptions.resourceVersion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowserviceupdatecronworkflow
+      description: cronworkflowserviceupdatecronworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowserviceupdatecronworkflow
+      with:
+        namespace: tools.namespace
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowservicedeletecronworkflow
+      description: cronworkflowservicedeletecronworkflow
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowservicedeletecronworkflow
+      with:
+        namespace: tools.namespace
+        name: tools.name
+        deleteOptions.gracePeriodSeconds: tools.deleteOptions.gracePeriodSeconds
+        deleteOptions.preconditions.uid: tools.deleteOptions.preconditions.uid
+        deleteOptions.preconditions.resourceVersion: tools.deleteOptions.preconditions.resourceVersion
+        deleteOptions.orphanDependents: tools.deleteOptions.orphanDependents
+        deleteOptions.propagationPolicy: tools.deleteOptions.propagationPolicy
+        deleteOptions.dryRun: tools.deleteOptions.dryRun
+        deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential: tools.deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowserviceresumecronworkflow
+      description: cronworkflowserviceresumecronworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowserviceresumecronworkflow
+      with:
+        namespace: tools.namespace
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cronworkflowservicesuspendcronworkflow
+      description: cronworkflowservicesuspendcronworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: argo-workflows-cronworkflowservice.cronworkflowservicesuspendcronworkflow
+      with:
+        namespace: tools.namespace
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
