@@ -1,0 +1,3021 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Argo Workflows",
+    "version": "3.6.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ArchivedWorkflowService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_ListArchivedWorkflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/archived-workflows",
+            "params": [
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              },
+              {
+                "name": "namePrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nameFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter type used for name filtering. Exact | Contains | Prefix. Default to Exact."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_ListArchivedWorkflowLabelKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/archived-workflows-label-keys",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_ListArchivedWorkflowLabelValues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/archived-workflows-label-values",
+            "params": [
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_GetArchivedWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/archived-workflows/:uid",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_DeleteArchivedWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/archived-workflows/:uid",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_ResubmitArchivedWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/archived-workflows/:uid/resubmit",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ArchivedWorkflowService_RetryArchivedWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/archived-workflows/:uid/retry",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ClusterWorkflowTemplateService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_ListClusterWorkflowTemplates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates",
+            "params": [
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_CreateClusterWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates"
+          }
+        },
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_LintClusterWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates/lint"
+          }
+        },
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_GetClusterWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "getOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_UpdateClusterWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "DEPRECATED: This field is ignored."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ClusterWorkflowTemplateService_DeleteClusterWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/cluster-workflow-templates/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CronWorkflowService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CronWorkflowService_ListCronWorkflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_CreateCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_LintCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/lint",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_GetCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "getOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_UpdateCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "DEPRECATED: This field is ignored."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_DeleteCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_ResumeCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/:name/resume",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CronWorkflowService_SuspendCronWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/cron-workflows/:namespace/:name/suspend",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EventSourceService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EventSourceService_ListEventSources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/event-sources/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_CreateEventSource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/event-sources/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_GetEventSource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/event-sources/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_UpdateEventSource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/event-sources/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_DeleteEventSource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/event-sources/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_WatchEventSources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/stream/event-sources/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventSourceService_EventSourcesLogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/stream/event-sources/:namespace/logs",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries for this event source."
+              },
+              {
+                "name": "eventSourceType",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries for this event source type (e.g. `webhook`)."
+              },
+              {
+                "name": "eventName",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries for this event name (e.g. `example`)."
+              },
+              {
+                "name": "grep",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries where `msg` matches this regular expression."
+              },
+              {
+                "name": "podLogOptions.container",
+                "value": "",
+                "type": "query",
+                "description": "The container for which to stream logs. Defaults to only container if there is one container in the pod.\n+optional."
+              },
+              {
+                "name": "podLogOptions.follow",
+                "value": "",
+                "type": "query",
+                "description": "Follow the log stream of the pod. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.previous",
+                "value": "",
+                "type": "query",
+                "description": "Return previous terminated container logs. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.sinceSeconds",
+                "value": "",
+                "type": "query",
+                "description": "A relative time in seconds before the current time from which to show logs. If this value\nprecedes the time a pod was started, only logs since the pod start will be returned.\nIf this value is in the future, no logs will be returned.\nOnly one of sinceSeconds or sinceTime may be specified.\n+optional."
+              },
+              {
+                "name": "podLogOptions.sinceTime.seconds",
+                "value": "",
+                "type": "query",
+                "description": "Represents seconds of UTC time since Unix epoch\n1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to\n9999-12-31T23:59:59Z inclusive."
+              },
+              {
+                "name": "podLogOptions.sinceTime.nanos",
+                "value": "",
+                "type": "query",
+                "description": "Non-negative fractions of a second at nanosecond resolution. Negative\nsecond values with fractions must still have non-negative nanos values\nthat count forward in time. Must be from 0 to 999,999,999\ninclusive. This field may be limited in precision depending on context."
+              },
+              {
+                "name": "podLogOptions.timestamps",
+                "value": "",
+                "type": "query",
+                "description": "If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line\nof log output. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.tailLines",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of lines from the end of the logs to show. If not specified,\nlogs are shown from the creation of the container or sinceSeconds or sinceTime.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+optional."
+              },
+              {
+                "name": "podLogOptions.limitBytes",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of bytes to read from the server before terminating the\nlog output. This may not display a complete final line of logging, and may return\nslightly more or slightly less than the specified limit.\n+optional."
+              },
+              {
+                "name": "podLogOptions.insecureSkipTLSVerifyBackend",
+                "value": "",
+                "type": "query",
+                "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional."
+              },
+              {
+                "name": "podLogOptions.stream",
+                "value": "",
+                "type": "query",
+                "description": "Specify which container log stream to return to the client.\nAcceptable values are \"All\", \"Stdout\" and \"Stderr\". If not specified, \"All\" is used, and both stdout and stderr\nare returned interleaved.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+featureGate=PodLogsQuerySplitStreams\n+optional."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EventService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EventService_ReceiveEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/events/:namespace/:discriminator",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path",
+                "description": "The namespace for the io.argoproj.workflow.v1alpha1. This can be empty if the client has cluster scoped permissions.\nIf empty, then the event is \"broadcast\" to workflow event binding in all namespaces."
+              },
+              {
+                "name": "discriminator",
+                "value": "",
+                "type": "path",
+                "description": "Optional discriminator for the io.argoproj.workflow.v1alpha1. This should almost always be empty.\nUsed for edge-cases where the event payload alone is not provide enough information to discriminate the event.\nThis MUST NOT be used as security mechanism, e.g. to allow two clients to use the same access token, or\nto support webhooks on unsecured server. Instead, use access tokens.\nThis is made available as `discriminator` in the event binding selector (`/spec/event/selector)`"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "EventService_ListWorkflowEventBindings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflow-event-bindings/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "InfoService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "InfoService_GetInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/info"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_CollectEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/tracking/event"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_GetUserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/userinfo"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_GetVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/version"
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SensorService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SensorService_ListSensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/sensors/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_CreateSensor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/sensors/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_GetSensor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/sensors/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "getOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_UpdateSensor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/sensors/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_DeleteSensor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/sensors/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_WatchSensors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/stream/sensors/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SensorService_SensorsLogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/stream/sensors/:namespace/logs",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries for this sensor name."
+              },
+              {
+                "name": "triggerName",
+                "value": "",
+                "type": "query",
+                "description": "optional - only return entries for this trigger."
+              },
+              {
+                "name": "grep",
+                "value": "",
+                "type": "query",
+                "description": "option - only return entries where `msg` contains this regular expressions."
+              },
+              {
+                "name": "podLogOptions.container",
+                "value": "",
+                "type": "query",
+                "description": "The container for which to stream logs. Defaults to only container if there is one container in the pod.\n+optional."
+              },
+              {
+                "name": "podLogOptions.follow",
+                "value": "",
+                "type": "query",
+                "description": "Follow the log stream of the pod. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.previous",
+                "value": "",
+                "type": "query",
+                "description": "Return previous terminated container logs. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.sinceSeconds",
+                "value": "",
+                "type": "query",
+                "description": "A relative time in seconds before the current time from which to show logs. If this value\nprecedes the time a pod was started, only logs since the pod start will be returned.\nIf this value is in the future, no logs will be returned.\nOnly one of sinceSeconds or sinceTime may be specified.\n+optional."
+              },
+              {
+                "name": "podLogOptions.sinceTime.seconds",
+                "value": "",
+                "type": "query",
+                "description": "Represents seconds of UTC time since Unix epoch\n1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to\n9999-12-31T23:59:59Z inclusive."
+              },
+              {
+                "name": "podLogOptions.sinceTime.nanos",
+                "value": "",
+                "type": "query",
+                "description": "Non-negative fractions of a second at nanosecond resolution. Negative\nsecond values with fractions must still have non-negative nanos values\nthat count forward in time. Must be from 0 to 999,999,999\ninclusive. This field may be limited in precision depending on context."
+              },
+              {
+                "name": "podLogOptions.timestamps",
+                "value": "",
+                "type": "query",
+                "description": "If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line\nof log output. Defaults to false.\n+optional."
+              },
+              {
+                "name": "podLogOptions.tailLines",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of lines from the end of the logs to show. If not specified,\nlogs are shown from the creation of the container or sinceSeconds or sinceTime.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+optional."
+              },
+              {
+                "name": "podLogOptions.limitBytes",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of bytes to read from the server before terminating the\nlog output. This may not display a complete final line of logging, and may return\nslightly more or slightly less than the specified limit.\n+optional."
+              },
+              {
+                "name": "podLogOptions.insecureSkipTLSVerifyBackend",
+                "value": "",
+                "type": "query",
+                "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional."
+              },
+              {
+                "name": "podLogOptions.stream",
+                "value": "",
+                "type": "query",
+                "description": "Specify which container log stream to return to the client.\nAcceptable values are \"All\", \"Stdout\" and \"Stderr\". If not specified, \"All\" is used, and both stdout and stderr\nare returned interleaved.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+featureGate=PodLogsQuerySplitStreams\n+optional."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WorkflowService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WorkflowService_WatchEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/stream/events/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_WatchWorkflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflow-events/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_ListWorkflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be included or excluded in the response. e.g. \"items.spec,items.status.phase\", \"-items.status.nodes\"."
+              },
+              {
+                "name": "nameFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter type used for name filtering. Exact | Contains | Prefix. Default to Exact."
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finishedBefore",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_CreateWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_LintWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/lint",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_SubmitWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/submit",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_GetWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "getOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields to be included or excluded in the response. e.g. \"spec,status.phase\", \"-status.nodes\"."
+              },
+              {
+                "name": "uid",
+                "value": "",
+                "type": "query",
+                "description": "Optional UID to retrieve a specific workflow (useful for archived workflows with the same name)."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_DeleteWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_WorkflowLogs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/log",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "podName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logOptions.container",
+                "value": "",
+                "type": "query",
+                "description": "The container for which to stream logs. Defaults to only container if there is one container in the pod.\n+optional."
+              },
+              {
+                "name": "logOptions.follow",
+                "value": "",
+                "type": "query",
+                "description": "Follow the log stream of the pod. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.previous",
+                "value": "",
+                "type": "query",
+                "description": "Return previous terminated container logs. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.sinceSeconds",
+                "value": "",
+                "type": "query",
+                "description": "A relative time in seconds before the current time from which to show logs. If this value\nprecedes the time a pod was started, only logs since the pod start will be returned.\nIf this value is in the future, no logs will be returned.\nOnly one of sinceSeconds or sinceTime may be specified.\n+optional."
+              },
+              {
+                "name": "logOptions.sinceTime.seconds",
+                "value": "",
+                "type": "query",
+                "description": "Represents seconds of UTC time since Unix epoch\n1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to\n9999-12-31T23:59:59Z inclusive."
+              },
+              {
+                "name": "logOptions.sinceTime.nanos",
+                "value": "",
+                "type": "query",
+                "description": "Non-negative fractions of a second at nanosecond resolution. Negative\nsecond values with fractions must still have non-negative nanos values\nthat count forward in time. Must be from 0 to 999,999,999\ninclusive. This field may be limited in precision depending on context."
+              },
+              {
+                "name": "logOptions.timestamps",
+                "value": "",
+                "type": "query",
+                "description": "If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line\nof log output. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.tailLines",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of lines from the end of the logs to show. If not specified,\nlogs are shown from the creation of the container or sinceSeconds or sinceTime.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+optional."
+              },
+              {
+                "name": "logOptions.limitBytes",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of bytes to read from the server before terminating the\nlog output. This may not display a complete final line of logging, and may return\nslightly more or slightly less than the specified limit.\n+optional."
+              },
+              {
+                "name": "logOptions.insecureSkipTLSVerifyBackend",
+                "value": "",
+                "type": "query",
+                "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional."
+              },
+              {
+                "name": "logOptions.stream",
+                "value": "",
+                "type": "query",
+                "description": "Specify which container log stream to return to the client.\nAcceptable values are \"All\", \"Stdout\" and \"Stderr\". If not specified, \"All\" is used, and both stdout and stderr\nare returned interleaved.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+featureGate=PodLogsQuerySplitStreams\n+optional."
+              },
+              {
+                "name": "grep",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "selector",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_ResubmitWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/resubmit",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_ResumeWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/resume",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_RetryWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/retry",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_SetWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/set",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_StopWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/stop",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_SuspendWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/suspend",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowService_TerminateWorkflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/terminate",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Argo Workflows DEPRECATED: Cannot Work via HTTP if PodName is an Empty String. Use WorkflowLogs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflows/:namespace/:name/:podName/log",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "podName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "logOptions.container",
+                "value": "",
+                "type": "query",
+                "description": "The container for which to stream logs. Defaults to only container if there is one container in the pod.\n+optional."
+              },
+              {
+                "name": "logOptions.follow",
+                "value": "",
+                "type": "query",
+                "description": "Follow the log stream of the pod. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.previous",
+                "value": "",
+                "type": "query",
+                "description": "Return previous terminated container logs. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.sinceSeconds",
+                "value": "",
+                "type": "query",
+                "description": "A relative time in seconds before the current time from which to show logs. If this value\nprecedes the time a pod was started, only logs since the pod start will be returned.\nIf this value is in the future, no logs will be returned.\nOnly one of sinceSeconds or sinceTime may be specified.\n+optional."
+              },
+              {
+                "name": "logOptions.sinceTime.seconds",
+                "value": "",
+                "type": "query",
+                "description": "Represents seconds of UTC time since Unix epoch\n1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to\n9999-12-31T23:59:59Z inclusive."
+              },
+              {
+                "name": "logOptions.sinceTime.nanos",
+                "value": "",
+                "type": "query",
+                "description": "Non-negative fractions of a second at nanosecond resolution. Negative\nsecond values with fractions must still have non-negative nanos values\nthat count forward in time. Must be from 0 to 999,999,999\ninclusive. This field may be limited in precision depending on context."
+              },
+              {
+                "name": "logOptions.timestamps",
+                "value": "",
+                "type": "query",
+                "description": "If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line\nof log output. Defaults to false.\n+optional."
+              },
+              {
+                "name": "logOptions.tailLines",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of lines from the end of the logs to show. If not specified,\nlogs are shown from the creation of the container or sinceSeconds or sinceTime.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+optional."
+              },
+              {
+                "name": "logOptions.limitBytes",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of bytes to read from the server before terminating the\nlog output. This may not display a complete final line of logging, and may return\nslightly more or slightly less than the specified limit.\n+optional."
+              },
+              {
+                "name": "logOptions.insecureSkipTLSVerifyBackend",
+                "value": "",
+                "type": "query",
+                "description": "insecureSkipTLSVerifyBackend indicates that the apiserver should not confirm the validity of the\nserving certificate of the backend it is connecting to.  This will make the HTTPS connection between the apiserver\nand the backend insecure. This means the apiserver cannot verify the log data it is receiving came from the real\nkubelet.  If the kubelet is configured to verify the apiserver's TLS credentials, it does not mean the\nconnection to the real kubelet is vulnerable to a man in the middle attack (e.g. an attacker could not intercept\nthe actual log data coming from the real kubelet).\n+optional."
+              },
+              {
+                "name": "logOptions.stream",
+                "value": "",
+                "type": "query",
+                "description": "Specify which container log stream to return to the client.\nAcceptable values are \"All\", \"Stdout\" and \"Stderr\". If not specified, \"All\" is used, and both stdout and stderr\nare returned interleaved.\nNote that when \"TailLines\" is specified, \"Stream\" can only be set to nil or \"All\".\n+featureGate=PodLogsQuerySplitStreams\n+optional."
+              },
+              {
+                "name": "grep",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "selector",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Argo Workflows DEPRECATED: Cannot Work via HTTP if PodName is an Empty String. Use WorkflowLogs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SyncService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SyncService_CreateSyncLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/sync/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SyncService_GetSyncLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cmName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SyncService_UpdateSyncLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SyncService_DeleteSyncLimit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cmName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WorkflowTemplateService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WorkflowTemplateService_ListWorkflowTemplates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namePattern",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "listOptions.labelSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.fieldSelector",
+                "value": "",
+                "type": "query",
+                "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+              },
+              {
+                "name": "listOptions.watch",
+                "value": "",
+                "type": "query",
+                "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+              },
+              {
+                "name": "listOptions.allowWatchBookmarks",
+                "value": "",
+                "type": "query",
+                "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+              },
+              {
+                "name": "listOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.resourceVersionMatch",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              },
+              {
+                "name": "listOptions.timeoutSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+              },
+              {
+                "name": "listOptions.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+              },
+              {
+                "name": "listOptions.continue",
+                "value": "",
+                "type": "query",
+                "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+              },
+              {
+                "name": "listOptions.sendInitialEvents",
+                "value": "",
+                "type": "query",
+                "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowTemplateService_CreateWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowTemplateService_LintWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace/lint",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowTemplateService_GetWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "getOptions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowTemplateService_UpdateWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "DEPRECATED: This field is ignored."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "WorkflowTemplateService_DeleteWorkflowTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workflow-templates/:namespace/:name",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOptions.gracePeriodSeconds",
+                "value": "",
+                "type": "query",
+                "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer.\nThe value zero indicates delete immediately. If this value is nil, the default grace period for the\nspecified type will be used.\nDefaults to a per object value if not specified. zero means delete immediately.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.uid",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target UID.\n+optional."
+              },
+              {
+                "name": "deleteOptions.preconditions.resourceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the target ResourceVersion\n+optional."
+              },
+              {
+                "name": "deleteOptions.orphanDependents",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7.\nShould the dependent objects be orphaned. If true/false, the \"orphan\"\nfinalizer will be added to/removed from the object's finalizers list.\nEither this field or PropagationPolicy may be set, but not both.\n+optional."
+              },
+              {
+                "name": "deleteOptions.propagationPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Whether and how garbage collection will be performed.\nEither this field or OrphanDependents may be set, but not both.\nThe default policy is decided by the existing finalizer set in the\nmetadata.finalizers and the resource-specific default policy.\nAcceptable values are: 'Orphan' - orphan the dependents; 'Background' -\nallow the garbage collector to delete the dependents in the background;\n'Foreground' - a cascading policy that deletes all dependents in the\nforeground.\n+optional."
+              },
+              {
+                "name": "deleteOptions.dryRun",
+                "value": "",
+                "type": "query",
+                "description": "When present, indicates that modifications should not be\npersisted. An invalid or unrecognized dryRun directive will\nresult in an error response and no further processing of the\nrequest. Valid values are:\n- All: all dry run stages will be processed\n+optional\n+listType=atomic."
+              },
+              {
+                "name": "deleteOptions.ignoreStoreReadErrorWithClusterBreakingPotential",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, it will trigger an unsafe deletion of the resource in\ncase the normal deletion flow fails with a corrupt object error.\nA resource is considered corrupt if it can not be retrieved from\nthe underlying storage successfully because of a) its data can\nnot be transformed e.g. decryption failure, or b) it fails\nto decode into an object.\nNOTE: unsafe deletion ignores finalizer constraints, skips\nprecondition checks, and removes the object from the storage.\nWARNING: This may potentially break the cluster if the workload\nassociated with the resource being unsafe-deleted relies on normal\ndeletion flow. Use only if you REALLY know what you are doing.\nThe default value is false, and the user must opt in to enable it\n+optional."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ArtifactService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Argo Workflows Get an Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifact-files/:namespace/:idDiscriminator/:id/:nodeId/:artifactDiscriminator/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idDiscriminator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactDiscriminator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Artifact."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Output Artifact by UID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifacts-by-uid/:uid/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Output Artifact by UID."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Output Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifacts/:namespace/:name/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Output Artifact."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Input Artifact by UID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/input-artifacts-by-uid/:uid/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Input Artifact by UID."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Input Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/input-artifacts/:namespace/:name/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Input Artifact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
