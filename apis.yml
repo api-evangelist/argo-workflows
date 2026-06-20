@@ -6,7 +6,7 @@ description: >-
   workflows as sequences of tasks or DAGs, and run compute-intensive jobs for machine learning, data processing, and
   CI/CD pipelines natively on Kubernetes. Governed by the Linux Foundation and the CNCF.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - CNCF
   - Containers
