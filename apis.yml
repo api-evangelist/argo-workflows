@@ -61,7 +61,7 @@ common:
     url: https://argo-workflows.readthedocs.io/en/latest/new-features/
   - type: CLI
     url: https://argo-workflows.readthedocs.io/en/latest/cli/
-  - type: SDK
+  - type: SDKs
     url: https://hera.readthedocs.io/en/stable/
   - type: Support
     url: https://github.com/argoproj/argo-workflows/issues
