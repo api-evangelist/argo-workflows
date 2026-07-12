@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/argo-workflows-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: BearerToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: JWT Bearer token
+  sources:
+  - openapi/argo-workflows-openapi.json

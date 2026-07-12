@@ -43,10 +43,16 @@ apis:
       - type: Authentication
         url: https://argo-workflows.readthedocs.io/en/latest/access-token/
 common:
+  - type: DomainSecurity
+    url: security/argo-workflows-domain-security.yml
+  - type: Authentication
+    url: authentication/argo-workflows-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/argoproj
   - type: Website
     url: https://argoproj.github.io/workflows/
+  - type: Blog
+    url: https://blog.argoproj.io/feed
   - type: Documentation
     url: https://argo-workflows.readthedocs.io/en/latest/
   - type: GettingStarted
