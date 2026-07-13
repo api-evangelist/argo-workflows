@@ -1,0 +1,21 @@
+{
+  "repo": "argo-workflows",
+  "feeds": [
+    {
+      "source": "https://blog.argoproj.io/feed",
+      "feed_url": "https://blog.argoproj.io/feed",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://argoproj.github.io/workflows/",
+      "feed_url": "https://argoproj.github.io/workflows/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 11
+}

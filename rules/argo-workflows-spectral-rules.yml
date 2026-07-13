@@ -1,115 +1,125 @@
-# Argo Workflows API Spectral Ruleset
-
+# argo-workflows — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - path-params-casing: snake @ 88% (n=108)
+#   - merge: kept 13 existing, added 2 measured, upgraded 0
+#   - added: path-params-casing, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
-
   info-title-prefix:
     description: API title must start with "Argo Workflows"
     severity: warn
-    given: "$.info.title"
+    given: $.info.title
     then:
       function: pattern
       functionOptions:
-        match: "^Argo Workflows"
-
+        match: ^Argo Workflows
   info-description-required:
     description: API must have a description
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
-
   operation-summary-required:
     description: Every operation must have a summary
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: summary
       function: truthy
-
   operation-summary-prefix:
     description: Operation summaries must start with "Argo Workflows"
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch].summary"
+    given: $.paths[*][get,post,put,delete,patch].summary
     then:
       function: pattern
       functionOptions:
-        match: "^Argo Workflows"
-
+        match: ^Argo Workflows
   operation-operationid-required:
     description: Every operation must have an operationId
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: operationId
       function: truthy
-
   operation-tags-required:
     description: Every operation must have at least one tag
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: tags
       function: truthy
-
   paths-versioned:
     description: All paths should be versioned
     severity: info
-    given: "$.paths[*]~"
+    given: $.paths[*]~
     then:
       function: pattern
       functionOptions:
-        match: "^/api/v"
-
+        match: ^/api/v
   paths-kebab-case:
     description: Path segments should use kebab-case or camelCase
     severity: info
-    given: "$.paths[*]~"
+    given: $.paths[*]~
     then:
       function: pattern
       functionOptions:
-        match: "^(/api/v[0-9]+)?(/[a-zA-Z0-9{}-]+)*$"
-
+        match: ^(/api/v[0-9]+)?(/[a-zA-Z0-9{}-]+)*$
   response-success-required:
     description: Every operation must define at least one response
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch].responses"
+    given: $.paths[*][get,post,put,delete,patch].responses
     then:
       function: schema
       functionOptions:
         schema:
           type: object
           minProperties: 1
-
   response-description-required:
     description: All responses must have a description
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch].responses[*]"
+    given: $.paths[*][get,post,put,delete,patch].responses[*]
     then:
       field: description
       function: truthy
-
   security-definitions-required:
     description: API must define security schemes
     severity: warn
-    given: "$"
+    given: $
     then:
       field: securityDefinitions
       function: truthy
-
   no-empty-summaries:
     description: Summaries must not be empty
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch].summary"
+    given: $.paths[*][get,post,put,delete,patch].summary
     then:
       function: pattern
       functionOptions:
-        match: ".+"
-
+        match: .+
   parameter-description-required:
     description: Parameters should have descriptions
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch].parameters[*]"
+    given: $.paths[*][get,post,put,delete,patch].parameters[*]
     then:
       field: description
+      function: truthy
+  path-params-casing:
+    description: Path parameters should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: snake
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
