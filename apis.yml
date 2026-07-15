@@ -43,6 +43,8 @@ apis:
       - type: Authentication
         url: https://argo-workflows.readthedocs.io/en/latest/access-token/
 common:
+  - type: AgenticAccess
+    url: agentic-access/argo-workflows-agentic-access.yml
   - type: DomainSecurity
     url: security/argo-workflows-domain-security.yml
   - type: Authentication
