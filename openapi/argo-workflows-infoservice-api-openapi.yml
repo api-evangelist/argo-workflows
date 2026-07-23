@@ -1,0 +1,238 @@
+swagger: '2.0'
+info:
+  description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/
+  title: Argo Workflows ArchivedWorkflowService InfoService API
+  version: 3.6.0
+host: localhost:2746
+schemes:
+- http
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- BearerToken: []
+tags:
+- name: InfoService
+paths:
+  /api/v1/info:
+    get:
+      tags:
+      - InfoService
+      operationId: InfoService_GetInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/io.argoproj.workflow.v1alpha1.InfoResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v1/tracking/event:
+    post:
+      tags:
+      - InfoService
+      operationId: InfoService_CollectEvent
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/io.argoproj.workflow.v1alpha1.CollectEventRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/io.argoproj.workflow.v1alpha1.CollectEventResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v1/userinfo:
+    get:
+      tags:
+      - InfoService
+      operationId: InfoService_GetUserInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/io.argoproj.workflow.v1alpha1.GetUserInfoResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v1/version:
+    get:
+      tags:
+      - InfoService
+      operationId: InfoService_GetVersion
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/io.argoproj.workflow.v1alpha1.Version'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  io.argoproj.workflow.v1alpha1.InfoResponse:
+    type: object
+    properties:
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/io.argoproj.workflow.v1alpha1.Column'
+      links:
+        type: array
+        items:
+          $ref: '#/definitions/io.argoproj.workflow.v1alpha1.Link'
+      managedNamespace:
+        type: string
+      modals:
+        type: object
+        title: which modals to show
+        additionalProperties:
+          type: boolean
+      navColor:
+        type: string
+  io.argoproj.workflow.v1alpha1.Column:
+    description: Column is a custom column that will be exposed in the Workflow List View.
+    type: object
+    required:
+    - name
+    - type
+    - key
+    properties:
+      key:
+        description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
+        type: string
+      name:
+        description: The name of this column, e.g., "Workflow Completed".
+        type: string
+      type:
+        description: The type of this column, "label" or "annotation".
+        type: string
+    x-kubernetes-patch-merge-key: name
+    x-kubernetes-patch-strategy: merge
+  google.protobuf.Any:
+    type: object
+    properties:
+      type_url:
+        type: string
+      value:
+        type: string
+        format: byte
+  io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
+    type: object
+    properties:
+      email:
+        type: string
+      emailVerified:
+        type: boolean
+      groups:
+        type: array
+        items:
+          type: string
+      issuer:
+        type: string
+      name:
+        type: string
+      serviceAccountName:
+        type: string
+      serviceAccountNamespace:
+        type: string
+      subject:
+        type: string
+  io.argoproj.workflow.v1alpha1.CollectEventRequest:
+    type: object
+    properties:
+      name:
+        type: string
+  io.argoproj.workflow.v1alpha1.Version:
+    type: object
+    required:
+    - version
+    - buildDate
+    - gitCommit
+    - gitTag
+    - gitTreeState
+    - goVersion
+    - compiler
+    - platform
+    properties:
+      buildDate:
+        type: string
+      compiler:
+        type: string
+      gitCommit:
+        type: string
+      gitTag:
+        type: string
+      gitTreeState:
+        type: string
+      goVersion:
+        type: string
+      platform:
+        type: string
+      version:
+        type: string
+  grpc.gateway.runtime.Error:
+    type: object
+    properties:
+      code:
+        type: integer
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/google.protobuf.Any'
+      error:
+        type: string
+      message:
+        type: string
+  io.argoproj.workflow.v1alpha1.CollectEventResponse:
+    type: object
+  io.argoproj.workflow.v1alpha1.Link:
+    description: Link is a link to another app.
+    type: object
+    required:
+    - name
+    - scope
+    - url
+    - target
+    properties:
+      name:
+        description: The name of the link, E.g. "Workflow Logs" or "Pod Logs"
+        type: string
+      scope:
+        description: '"workflow", "pod", "pod-logs", "event-source-logs", "sensor-logs", "workflow-list" or "chat"'
+        type: string
+      target:
+        description: Target attribute specifies where a linked document will be opened when a user clicks on a link. E.g. "_blank", "_self". If the target is _blank, it will open in a new tab.
+        type: string
+      url:
+        description: The URL. Can contain "${metadata.namespace}", "${metadata.name}", "${status.startedAt}", "${status.finishedAt}" or any other element in workflow yaml, e.g. "${io.argoproj.workflow.v1alpha1.metadata.annotations.userDefinedKey}"
+        type: string
+    x-kubernetes-patch-merge-key: name
+    x-kubernetes-patch-strategy: merge
+securityDefinitions:
+  BearerToken:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: JWT Bearer token

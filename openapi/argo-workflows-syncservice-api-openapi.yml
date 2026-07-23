@@ -1,0 +1,221 @@
+swagger: '2.0'
+info:
+  description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/
+  title: Argo Workflows ArchivedWorkflowService SyncService API
+  version: 3.6.0
+host: localhost:2746
+schemes:
+- http
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- BearerToken: []
+tags:
+- name: SyncService
+paths:
+  /api/v1/sync/{namespace}:
+    post:
+      tags:
+      - SyncService
+      operationId: SyncService_CreateSyncLimit
+      parameters:
+      - type: string
+        name: namespace
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/sync.CreateSyncLimitRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/sync.SyncLimitResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v1/sync/{namespace}/{key}:
+    get:
+      tags:
+      - SyncService
+      operationId: SyncService_GetSyncLimit
+      parameters:
+      - type: string
+        name: namespace
+        in: path
+        required: true
+      - type: string
+        name: key
+        in: path
+        required: true
+      - enum:
+        - CONFIGMAP
+        - DATABASE
+        type: string
+        default: CONFIGMAP
+        name: type
+        in: query
+      - type: string
+        name: cmName
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/sync.SyncLimitResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - SyncService
+      operationId: SyncService_UpdateSyncLimit
+      parameters:
+      - type: string
+        name: namespace
+        in: path
+        required: true
+      - type: string
+        name: key
+        in: path
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/sync.UpdateSyncLimitRequest'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/sync.SyncLimitResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - SyncService
+      operationId: SyncService_DeleteSyncLimit
+      parameters:
+      - type: string
+        name: namespace
+        in: path
+        required: true
+      - type: string
+        name: key
+        in: path
+        required: true
+      - enum:
+        - CONFIGMAP
+        - DATABASE
+        type: string
+        default: CONFIGMAP
+        name: type
+        in: query
+      - type: string
+        name: cmName
+        in: query
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/sync.DeleteSyncLimitResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/grpc.gateway.runtime.Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  google.protobuf.Any:
+    type: object
+    properties:
+      type_url:
+        type: string
+      value:
+        type: string
+        format: byte
+  sync.SyncConfigType:
+    type: string
+    default: CONFIGMAP
+    enum:
+    - CONFIGMAP
+    - DATABASE
+  sync.DeleteSyncLimitResponse:
+    type: object
+  grpc.gateway.runtime.Error:
+    type: object
+    properties:
+      code:
+        type: integer
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/google.protobuf.Any'
+      error:
+        type: string
+      message:
+        type: string
+  sync.SyncLimitResponse:
+    type: object
+    properties:
+      cmName:
+        type: string
+      key:
+        type: string
+      limit:
+        type: integer
+      namespace:
+        type: string
+      type:
+        $ref: '#/definitions/sync.SyncConfigType'
+  sync.UpdateSyncLimitRequest:
+    type: object
+    properties:
+      cmName:
+        type: string
+      key:
+        type: string
+      limit:
+        type: integer
+      namespace:
+        type: string
+      type:
+        $ref: '#/definitions/sync.SyncConfigType'
+  sync.CreateSyncLimitRequest:
+    type: object
+    properties:
+      cmName:
+        type: string
+      key:
+        type: string
+      limit:
+        type: integer
+      namespace:
+        type: string
+      type:
+        $ref: '#/definitions/sync.SyncConfigType'
+securityDefinitions:
+  BearerToken:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: JWT Bearer token
