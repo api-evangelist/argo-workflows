@@ -6,7 +6,20 @@ description: >-
   workflows as sequences of tasks or DAGs, and run compute-intensive jobs for machine learning, data processing, and
   CI/CD pipelines natively on Kubernetes. Governed by the Linux Foundation and the CNCF.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/argo-workflows.png
 tags:
   - CNCF
   - Containers
@@ -20,28 +33,197 @@ created: '2026-03-27'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: argo-workflows:argo-workflows
-    name: Argo Workflows API
-    description: >-
-      The Argo Workflows REST API provides programmatic access to workflow lifecycle management, workflow templates,
-      cron scheduling, archived workflow history, events, and cluster workflow templates. Authentication uses JWT bearer
-      tokens from service account secrets.
-    humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
-    tags:
-      - Kubernetes
-      - REST API
-      - Workflow Engine
-    properties:
-      - type: Documentation
-        url: https://argo-workflows.readthedocs.io/en/latest/
-      - type: OpenAPI
-        url: openapi/argo-workflows-openapi.json
-      - type: GettingStarted
-        url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
-      - type: APIReference
-        url: https://argo-workflows.readthedocs.io/en/latest/swagger/
-      - type: Authentication
-        url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-archivedworkflowservice-api
+  name: Argo Workflows ArchivedWorkflowService API
+  description: >-
+    The ArchivedWorkflowService API from Argo Workflows — 6 operation(s) for archivedworkflowservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - ArchivedWorkflowService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-archivedworkflowservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-artifactservice-api
+  name: Argo Workflows ArtifactService API
+  description: The ArtifactService API from Argo Workflows — 5 operation(s) for artifactservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - ArtifactService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-artifactservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-clusterworkflowtemplateservice-api
+  name: Argo Workflows ClusterWorkflowTemplateService API
+  description: >-
+    The ClusterWorkflowTemplateService API from Argo Workflows — 3 operation(s) for clusterworkflowtemplateservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - ClusterWorkflowTemplateService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-clusterworkflowtemplateservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-cronworkflowservice-api
+  name: Argo Workflows CronWorkflowService API
+  description: >-
+    The CronWorkflowService API from Argo Workflows — 5 operation(s) for cronworkflowservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - CronWorkflowService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-cronworkflowservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-eventservice-api
+  name: Argo Workflows EventService API
+  description: The EventService API from Argo Workflows — 2 operation(s) for eventservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - EventService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-eventservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-eventsourceservice-api
+  name: Argo Workflows EventSourceService API
+  description: The EventSourceService API from Argo Workflows — 4 operation(s) for eventsourceservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - EventSourceService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-eventsourceservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-infoservice-api
+  name: Argo Workflows InfoService API
+  description: The InfoService API from Argo Workflows — 4 operation(s) for infoservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - InfoService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-infoservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-sensorservice-api
+  name: Argo Workflows SensorService API
+  description: The SensorService API from Argo Workflows — 4 operation(s) for sensorservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - SensorService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-sensorservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-syncservice-api
+  name: Argo Workflows SyncService API
+  description: The SyncService API from Argo Workflows — 2 operation(s) for syncservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - SyncService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-syncservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-workflowservice-api
+  name: Argo Workflows WorkflowService API
+  description: The WorkflowService API from Argo Workflows — 15 operation(s) for workflowservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - WorkflowService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-workflowservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-workflowtemplateservice-api
+  name: Argo Workflows WorkflowTemplateService API
+  description: >-
+    The WorkflowTemplateService API from Argo Workflows — 3 operation(s) for workflowtemplateservice.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - WorkflowTemplateService
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-workflowtemplateservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
 common:
   - type: AgenticAccess
     url: agentic-access/argo-workflows-agentic-access.yml
