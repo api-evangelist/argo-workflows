@@ -1,0 +1,34 @@
+{
+  "provider": "argo-workflows",
+  "sources": [
+    "argo-workflows-archivedworkflowservice-api-openapi.yml",
+    "argo-workflows-artifactservice-api-openapi.yml",
+    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml",
+    "argo-workflows-cronworkflowservice-api-openapi.yml",
+    "argo-workflows-eventservice-api-openapi.yml",
+    "argo-workflows-eventsourceservice-api-openapi.yml",
+    "argo-workflows-infoservice-api-openapi.yml",
+    "argo-workflows-sensorservice-api-openapi.yml",
+    "argo-workflows-syncservice-api-openapi.yml",
+    "argo-workflows-workflowservice-api-openapi.yml",
+    "argo-workflows-workflowtemplateservice-api-openapi.yml"
+  ],
+  "outputs": [
+    "argo-workflows-archivedworkflowservice-api-openapi.yml",
+    "argo-workflows-artifactservice-api-openapi.yml",
+    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml",
+    "argo-workflows-cronworkflowservice-api-openapi.yml",
+    "argo-workflows-eventservice-api-openapi.yml",
+    "argo-workflows-eventsourceservice-api-openapi.yml",
+    "argo-workflows-infoservice-api-openapi.yml",
+    "argo-workflows-sensorservice-api-openapi.yml",
+    "argo-workflows-syncservice-api-openapi.yml",
+    "argo-workflows-workflowservice-api-openapi.yml",
+    "argo-workflows-workflowtemplateservice-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
