@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Argo Workflows ArchivedWorkflowService ArtifactService API",
+    "version": "3.6.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ArtifactService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Argo Workflows Get an Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifact-files/:namespace/:idDiscriminator/:id/:nodeId/:artifactDiscriminator/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idDiscriminator",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactDiscriminator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Artifact."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Output Artifact by UID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifacts-by-uid/:uid/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Output Artifact by UID."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Output Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/artifacts/:namespace/:name/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Output Artifact."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Input Artifact by UID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/input-artifacts-by-uid/:uid/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Input Artifact by UID."
+        },
+        {
+          "info": {
+            "name": "Argo Workflows Get an Input Artifact.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/input-artifacts/:namespace/:name/:nodeId/:artifactName",
+            "params": [
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "artifactName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Argo Workflows Get an Input Artifact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

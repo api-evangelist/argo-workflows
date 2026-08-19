@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "9e8b8a85-d8e5-4a00-9c04-11e97e6cb28f",
+      "name": "EventService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de3e0287-a2ae-40a4-9916-33ea077cc94e",
+          "name": "Event Service Receive Event",
+          "request": {
+            "name": "Event Service Receive Event",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "events",
+                ":namespace",
+                ":discriminator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "namespace",
+                  "description": "(Required) The namespace for the io.argoproj.workflow.v1alpha1. This can be empty if the client has cluster scoped permissions.\nIf empty, then the event is \"broadcast\" to workflow event binding in all namespaces."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "discriminator",
+                  "description": "(Required) Optional discriminator for the io.argoproj.workflow.v1alpha1. This should almost always be empty.\nUsed for edge-cases where the event payload alone is not provide enough information to discriminate the event.\nThis MUST NOT be used as security mechanism, e.g. to allow two clients to use the same access token, or\nto support webhooks on unsecured server. Instead, use access tokens.\nThis is made available as `discriminator` in the event binding selector (`/spec/event/selector)`"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e70b299e-4022-453a-9478-1c7a10aac6a8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ":namespace",
+                    ":discriminator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) The namespace for the io.argoproj.workflow.v1alpha1. This can be empty if the client has cluster scoped permissions.\nIf empty, then the event is \"broadcast\" to workflow event binding in all namespaces."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "discriminator",
+                      "description": "(Required) Optional discriminator for the io.argoproj.workflow.v1alpha1. This should almost always be empty.\nUsed for edge-cases where the event payload alone is not provide enough information to discriminate the event.\nThis MUST NOT be used as security mechanism, e.g. to allow two clients to use the same access token, or\nto support webhooks on unsecured server. Instead, use access tokens.\nThis is made available as `discriminator` in the event binding selector (`/spec/event/selector)`"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bab63372-90cf-4a90-b4f6-4d39ebe21c0a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ":namespace",
+                    ":discriminator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) The namespace for the io.argoproj.workflow.v1alpha1. This can be empty if the client has cluster scoped permissions.\nIf empty, then the event is \"broadcast\" to workflow event binding in all namespaces."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "discriminator",
+                      "description": "(Required) Optional discriminator for the io.argoproj.workflow.v1alpha1. This should almost always be empty.\nUsed for edge-cases where the event payload alone is not provide enough information to discriminate the event.\nThis MUST NOT be used as security mechanism, e.g. to allow two clients to use the same access token, or\nto support webhooks on unsecured server. Instead, use access tokens.\nThis is made available as `discriminator` in the event binding selector (`/spec/event/selector)`"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1584,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e537e868-e9fb-46e0-90f1-260a9fd764f3",
+          "name": "Event Service List Workflow Event Bindings",
+          "request": {
+            "name": "Event Service List Workflow Event Bindings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workflow-event-bindings",
+                ":namespace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "listOptions.labelSelector",
+                  "value": "<string>",
+                  "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.fieldSelector",
+                  "value": "<string>",
+                  "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.watch",
+                  "value": "<boolean>",
+                  "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.allowWatchBookmarks",
+                  "value": "<boolean>",
+                  "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.resourceVersion",
+                  "value": "<string>",
+                  "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.resourceVersionMatch",
+                  "value": "<string>",
+                  "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional"
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.timeoutSeconds",
+                  "value": "<int64>",
+                  "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.limit",
+                  "value": "<int64>",
+                  "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.continue",
+                  "value": "<string>",
+                  "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications."
+                },
+                {
+                  "disabled": false,
+                  "key": "listOptions.sendInitialEvents",
+                  "value": "<boolean>",
+                  "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "namespace",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a15c398-67e4-4d27-8ca5-02341167d8ed",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workflow-event-bindings",
+                    ":namespace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listOptions.labelSelector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.fieldSelector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.watch",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "listOptions.allowWatchBookmarks",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "listOptions.resourceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.resourceVersionMatch",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.timeoutSeconds",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "listOptions.limit",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "listOptions.continue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.sendInitialEvents",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metadata\": {\n    \"continue\": \"string\",\n    \"remainingItemCount\": 5469,\n    \"resourceVersion\": \"string\",\n    \"selfLink\": \"string\"\n  },\n  \"items\": [\n    {\n      \"metadata\": {\n        \"annotations\": {\n          \"key_0\": \"string\"\n        },\n        \"creationTimestamp\": \"2021-04-13T11:11:49.247Z\",\n        \"deletionGracePeriodSeconds\": 8967,\n        \"deletionTimestamp\": \"2000-10-06T02:10:09.740Z\",\n        \"finalizers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"generateName\": \"string\",\n        \"generation\": 7502,\n        \"labels\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"managedFields\": [\n          {\n            \"apiVersion\": \"string\",\n            \"fieldsType\": \"string\",\n            \"fieldsV1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"manager\": \"string\",\n            \"operation\": \"string\",\n            \"subresource\": \"string\",\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"apiVersion\": \"string\",\n            \"fieldsType\": \"string\",\n            \"fieldsV1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"manager\": \"string\",\n            \"operation\": \"string\",\n            \"subresource\": \"string\",\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"ownerReferences\": [\n          {\n            \"apiVersion\": \"string\",\n            \"kind\": \"string\",\n            \"name\": \"string\",\n            \"uid\": \"string\",\n            \"blockOwnerDeletion\": true,\n            \"controller\": true\n          },\n          {\n            \"apiVersion\": \"string\",\n            \"kind\": \"string\",\n            \"name\": \"string\",\n            \"uid\": \"string\",\n            \"blockOwnerDeletion\": true,\n            \"controller\": true\n          }\n        ],\n        \"resourceVersion\": \"string\",\n        \"selfLink\": \"string\",\n        \"uid\": \"string\"\n      },\n      \"spec\": {\n        \"event\": {\n          \"selector\": \"string\"\n        },\n        \"submit\": {\n          \"workflowTemplateRef\": {\n            \"clusterScope\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"arguments\": {\n            \"artifacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"metadata\": {\n            \"annotations\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"creationTimestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deletionGracePeriodSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deletionTimestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"finalizers\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"managedFields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namespace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ownerReferences\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resourceVersion\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selfLink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"apiVersion\": \"string\",\n      \"kind\": \"string\"\n    },\n    {\n      \"metadata\": {\n        \"annotations\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"creationTimestamp\": \"1956-01-23T12:16:01.200Z\",\n        \"deletionGracePeriodSeconds\": 293,\n        \"deletionTimestamp\": \"1995-04-07T01:39:53.409Z\",\n        \"finalizers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"generateName\": \"string\",\n        \"generation\": 195,\n        \"labels\": {\n          \"key_0\": \"string\"\n        },\n        \"managedFields\": [\n          {\n            \"apiVersion\": \"string\",\n            \"fieldsType\": \"string\",\n            \"fieldsV1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"manager\": \"string\",\n            \"operation\": \"string\",\n            \"subresource\": \"string\",\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"apiVersion\": \"string\",\n            \"fieldsType\": \"string\",\n            \"fieldsV1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"manager\": \"string\",\n            \"operation\": \"string\",\n            \"subresource\": \"string\",\n            \"time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"namespace\": \"string\",\n        \"ownerReferences\": [\n          {\n            \"apiVersion\": \"string\",\n            \"kind\": \"string\",\n            \"name\": \"string\",\n            \"uid\": \"string\",\n            \"blockOwnerDeletion\": false,\n            \"controller\": true\n          },\n          {\n            \"apiVersion\": \"string\",\n            \"kind\": \"string\",\n            \"name\": \"string\",\n            \"uid\": \"string\",\n            \"blockOwnerDeletion\": true,\n            \"controller\": true\n          }\n        ],\n        \"resourceVersion\": \"string\",\n        \"selfLink\": \"string\",\n        \"uid\": \"string\"\n      },\n      \"spec\": {\n        \"event\": {\n          \"selector\": \"string\"\n        },\n        \"submit\": {\n          \"workflowTemplateRef\": {\n            \"clusterScope\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"arguments\": {\n            \"artifacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parameters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"metadata\": {\n            \"annotations\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"creationTimestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deletionGracePeriodSeconds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deletionTimestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"finalizers\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"generation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"labels\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"managedFields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"namespace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ownerReferences\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resourceVersion\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selfLink\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"apiVersion\": \"string\",\n      \"kind\": \"string\"\n    }\n  ],\n  \"apiVersion\": \"string\",\n  \"kind\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c6dfdd2-6cce-435e-ba8f-9c9283837712",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workflow-event-bindings",
+                    ":namespace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listOptions.labelSelector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.fieldSelector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.watch",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "listOptions.allowWatchBookmarks",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "listOptions.resourceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.resourceVersionMatch",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.timeoutSeconds",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "listOptions.limit",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "listOptions.continue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "listOptions.sendInitialEvents",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8775,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:2746",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "58029113-1565-4747-931f-e76531b8f3e4",
+    "name": "Argo Workflows ArchivedWorkflowService EventService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
+      "type": "text/plain"
+    }
+  }
+}

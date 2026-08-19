@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Argo Workflows ArchivedWorkflowService InfoService API",
+    "version": "3.6.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InfoService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "InfoService_GetInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/info"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_CollectEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/tracking/event"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_GetUserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/userinfo"
+          }
+        },
+        {
+          "info": {
+            "name": "InfoService_GetVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/version"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
