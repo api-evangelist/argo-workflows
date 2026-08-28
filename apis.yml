@@ -6,6 +6,19 @@ description: >-
   workflows as sequences of tasks or DAGs, and run compute-intensive jobs for machine learning, data processing, and
   CI/CD pipelines natively on Kubernetes. Governed by the Linux Foundation and the CNCF.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
