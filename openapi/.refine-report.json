@@ -29,6 +29,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "argo-workflows-archivedworkflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-artifactservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-cronworkflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-eventservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-eventsourceservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-infoservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-sensorservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-syncservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-workflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-workflowtemplateservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
