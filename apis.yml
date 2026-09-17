@@ -126,23 +126,6 @@ apis:
     url: https://argo-workflows.readthedocs.io/en/latest/swagger/
   - type: Authentication
     url: https://argo-workflows.readthedocs.io/en/latest/access-token/
-- aid: argo-workflows:argo-workflows-eventservice-api
-  name: Argo Workflows EventService API
-  description: The EventService API from Argo Workflows — 2 operation(s) for eventservice.
-  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
-  tags:
-  - EventService
-  properties:
-  - type: OpenAPI
-    url: openapi/argo-workflows-eventservice-api-openapi.yml
-  - type: Documentation
-    url: https://argo-workflows.readthedocs.io/en/latest/
-  - type: GettingStarted
-    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
-  - type: APIReference
-    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
-  - type: Authentication
-    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
 - aid: argo-workflows:argo-workflows-eventsourceservice-api
   name: Argo Workflows EventSourceService API
   description: The EventSourceService API from Argo Workflows — 4 operation(s) for eventsourceservice.
@@ -238,6 +221,23 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/argo-workflows-workflowtemplateservice-api-openapi.yml
+  - type: Documentation
+    url: https://argo-workflows.readthedocs.io/en/latest/
+  - type: GettingStarted
+    url: https://argo-workflows.readthedocs.io/en/latest/quick-start/
+  - type: APIReference
+    url: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  - type: Authentication
+    url: https://argo-workflows.readthedocs.io/en/latest/access-token/
+- aid: argo-workflows:argo-workflows-event-service-api
+  name: Argo Workflows Event Service API
+  description: The Event Service API from Argo Workflows — 2 operation(s) for event service.
+  humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
+  tags:
+  - Event Service
+  properties:
+  - type: OpenAPI
+    url: openapi/argo-workflows-event-service-api-openapi.yml
   - type: Documentation
     url: https://argo-workflows.readthedocs.io/en/latest/
   - type: GettingStarted
