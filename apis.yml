@@ -234,6 +234,8 @@ apis:
   description: The Event Service API from Argo Workflows — 2 operation(s) for event service.
   humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
   tags:
+  - EventService
+  tags_raw:
   - Event Service
   properties:
   - type: OpenAPI
