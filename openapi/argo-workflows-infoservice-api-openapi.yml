@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/
-  title: Argo Workflows ArchivedWorkflowService Info Service API
+  title: Argo Workflows Info Service API
   version: 3.6.0
 servers:
 - url: http://localhost:2746
@@ -32,6 +32,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Info service get info
+      x-summary-source: derived
   /api/v1/tracking/event:
     post:
       tags:
@@ -59,6 +61,8 @@ paths:
             schema:
               $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.CollectEventRequest'
         required: true
+      summary: Info service collect event
+      x-summary-source: derived
   /api/v1/userinfo:
     get:
       tags:
@@ -80,6 +84,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Info service get user info
+      x-summary-source: derived
   /api/v1/version:
     get:
       tags:
@@ -101,47 +107,27 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Info service get version
+      x-summary-source: derived
 components:
   schemas:
-    io.argoproj.workflow.v1alpha1.Column:
-      description: Column is a custom column that will be exposed in the Workflow List View.
-      type: object
-      required:
-      - name
-      - type
-      - key
-      properties:
-        key:
-          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
-          type: string
-        name:
-          description: The name of this column, e.g., "Workflow Completed".
-          type: string
-        type:
-          description: The type of this column, "label" or "annotation".
-          type: string
-      x-kubernetes-patch-merge-key: name
-      x-kubernetes-patch-strategy: merge
-    io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
+    grpc.gateway.runtime.Error:
       type: object
       properties:
-        email:
-          type: string
-        emailVerified:
-          type: boolean
-        groups:
+        code:
+          type: integer
+        details:
           type: array
           items:
-            type: string
-        issuer:
+            $ref: '#/components/schemas/google.protobuf.Any'
+        error:
           type: string
+        message:
+          type: string
+    io.argoproj.workflow.v1alpha1.CollectEventRequest:
+      type: object
+      properties:
         name:
-          type: string
-        serviceAccountName:
-          type: string
-        serviceAccountNamespace:
-          type: string
-        subject:
           type: string
     io.argoproj.workflow.v1alpha1.InfoResponse:
       type: object
@@ -163,46 +149,22 @@ components:
             type: boolean
         navColor:
           type: string
-    io.argoproj.workflow.v1alpha1.CollectEventRequest:
-      type: object
-      properties:
-        name:
-          type: string
-    io.argoproj.workflow.v1alpha1.CollectEventResponse:
-      type: object
-    grpc.gateway.runtime.Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/google.protobuf.Any'
-        error:
-          type: string
-        message:
-          type: string
-    io.argoproj.workflow.v1alpha1.Link:
-      description: Link is a link to another app.
+    io.argoproj.workflow.v1alpha1.Column:
+      description: Column is a custom column that will be exposed in the Workflow List View.
       type: object
       required:
       - name
-      - scope
-      - url
-      - target
+      - type
+      - key
       properties:
+        key:
+          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
+          type: string
         name:
-          description: The name of the link, E.g. "Workflow Logs" or "Pod Logs"
+          description: The name of this column, e.g., "Workflow Completed".
           type: string
-        scope:
-          description: '"workflow", "pod", "pod-logs", "event-source-logs", "sensor-logs", "workflow-list" or "chat"'
-          type: string
-        target:
-          description: Target attribute specifies where a linked document will be opened when a user clicks on a link. E.g. "_blank", "_self". If the target is _blank, it will open in a new tab.
-          type: string
-        url:
-          description: The URL. Can contain "${metadata.namespace}", "${metadata.name}", "${status.startedAt}", "${status.finishedAt}" or any other element in workflow yaml, e.g. "${io.argoproj.workflow.v1alpha1.metadata.annotations.userDefinedKey}"
+        type:
+          description: The type of this column, "label" or "annotation".
           type: string
       x-kubernetes-patch-merge-key: name
       x-kubernetes-patch-strategy: merge
@@ -234,6 +196,50 @@ components:
           type: string
         version:
           type: string
+    io.argoproj.workflow.v1alpha1.Link:
+      description: Link is a link to another app.
+      type: object
+      required:
+      - name
+      - scope
+      - url
+      - target
+      properties:
+        name:
+          description: The name of the link, E.g. "Workflow Logs" or "Pod Logs"
+          type: string
+        scope:
+          description: '"workflow", "pod", "pod-logs", "event-source-logs", "sensor-logs", "workflow-list" or "chat"'
+          type: string
+        target:
+          description: Target attribute specifies where a linked document will be opened when a user clicks on a link. E.g. "_blank", "_self". If the target is _blank, it will open in a new tab.
+          type: string
+        url:
+          description: The URL. Can contain "${metadata.namespace}", "${metadata.name}", "${status.startedAt}", "${status.finishedAt}" or any other element in workflow yaml, e.g. "${io.argoproj.workflow.v1alpha1.metadata.annotations.userDefinedKey}"
+          type: string
+      x-kubernetes-patch-merge-key: name
+      x-kubernetes-patch-strategy: merge
+    io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
+      type: object
+      properties:
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        groups:
+          type: array
+          items:
+            type: string
+        issuer:
+          type: string
+        name:
+          type: string
+        serviceAccountName:
+          type: string
+        serviceAccountNamespace:
+          type: string
+        subject:
+          type: string
     google.protobuf.Any:
       type: object
       properties:
@@ -242,6 +248,8 @@ components:
         value:
           type: string
           format: byte
+    io.argoproj.workflow.v1alpha1.CollectEventResponse:
+      type: object
   securitySchemes:
     BearerToken:
       type: apiKey

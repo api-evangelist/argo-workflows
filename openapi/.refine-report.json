@@ -1,17 +1,7 @@
 {
   "provider": "argo-workflows",
   "sources": [
-    "argo-workflows-archivedworkflowservice-api-openapi.yml",
-    "argo-workflows-artifactservice-api-openapi.yml",
-    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml",
-    "argo-workflows-cronworkflowservice-api-openapi.yml",
-    "argo-workflows-eventservice-api-openapi.yml",
-    "argo-workflows-eventsourceservice-api-openapi.yml",
-    "argo-workflows-infoservice-api-openapi.yml",
-    "argo-workflows-sensorservice-api-openapi.yml",
-    "argo-workflows-syncservice-api-openapi.yml",
-    "argo-workflows-workflowservice-api-openapi.yml",
-    "argo-workflows-workflowtemplateservice-api-openapi.yml"
+    "_original/argo-workflows-openapi.json"
   ],
   "outputs": [
     "argo-workflows-archivedworkflowservice-api-openapi.yml",
@@ -26,22 +16,39 @@
     "argo-workflows-workflowservice-api-openapi.yml",
     "argo-workflows-workflowtemplateservice-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "argo-workflows-archivedworkflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-artifactservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-cronworkflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-eventservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-eventsourceservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-infoservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-sensorservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-syncservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-workflowservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "argo-workflows-workflowtemplateservice-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "argo-workflows-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "argo-workflows-openapi.json: declared missing tag: ArchivedWorkflowService",
+    "argo-workflows-openapi.json: declared missing tag: ArtifactService",
+    "argo-workflows-openapi.json: declared missing tag: ClusterWorkflowTemplateService",
+    "argo-workflows-openapi.json: declared missing tag: CronWorkflowService",
+    "argo-workflows-openapi.json: declared missing tag: EventService",
+    "argo-workflows-openapi.json: declared missing tag: EventSourceService",
+    "argo-workflows-openapi.json: declared missing tag: InfoService",
+    "argo-workflows-openapi.json: declared missing tag: SensorService",
+    "argo-workflows-openapi.json: declared missing tag: SyncService",
+    "argo-workflows-openapi.json: declared missing tag: WorkflowService",
+    "argo-workflows-openapi.json: declared missing tag: WorkflowTemplateService",
+    "superseded outputs removed: argo-workflows-event-service-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 11 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "argo-workflows-archivedworkflowservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-artifactservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-clusterworkflowtemplateservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-cronworkflowservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-event-service-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-eventsourceservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-infoservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-sensorservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-syncservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-workflowservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argo-workflows-workflowtemplateservice-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

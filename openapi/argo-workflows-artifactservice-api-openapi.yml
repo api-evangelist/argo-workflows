@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/
-  title: Argo Workflows ArchivedWorkflowService Artifact Service API
+  title: Argo Workflows Artifact Service API
   version: 3.6.0
 servers:
 - url: http://localhost:2746
@@ -15,7 +15,7 @@ paths:
     get:
       tags:
       - ArtifactService
-      summary: Argo Workflows Get an Artifact.
+      summary: Argo Workflows Get an Artifact
       operationId: ArtifactService_GetArtifactFile
       parameters:
       - name: namespace
@@ -74,7 +74,7 @@ paths:
     get:
       tags:
       - ArtifactService
-      summary: Argo Workflows Get an Output Artifact by UID.
+      summary: Argo Workflows Get an Output Artifact by UID
       operationId: ArtifactService_GetOutputArtifactByUID
       parameters:
       - name: uid
@@ -113,7 +113,7 @@ paths:
     get:
       tags:
       - ArtifactService
-      summary: Argo Workflows Get an Output Artifact.
+      summary: Argo Workflows Get an Output Artifact
       operationId: ArtifactService_GetOutputArtifact
       parameters:
       - name: namespace
@@ -157,7 +157,7 @@ paths:
     get:
       tags:
       - ArtifactService
-      summary: Argo Workflows Get an Input Artifact by UID.
+      summary: Argo Workflows Get an Input Artifact by UID
       operationId: ArtifactService_GetInputArtifactByUID
       parameters:
       - name: uid
@@ -196,7 +196,7 @@ paths:
     get:
       tags:
       - ArtifactService
-      summary: Argo Workflows Get an Input Artifact.
+      summary: Argo Workflows Get an Input Artifact
       operationId: ArtifactService_GetInputArtifact
       parameters:
       - name: namespace

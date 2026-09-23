@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   description: Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/
-  title: Argo Workflows ArchivedWorkflowService Sync Service API
+  title: Argo Workflows Sync Service API
   version: 3.6.0
 servers:
 - url: http://localhost:2746
@@ -44,6 +44,8 @@ paths:
             schema:
               $ref: '#/components/schemas/sync.CreateSyncLimitRequest'
         required: true
+      summary: Sync service create sync limit
+      x-summary-source: derived
   /api/v1/sync/{namespace}/{key}:
     get:
       tags:
@@ -88,6 +90,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Sync service get sync limit
+      x-summary-source: derived
     put:
       tags:
       - SyncService
@@ -125,6 +129,8 @@ paths:
             schema:
               $ref: '#/components/schemas/sync.UpdateSyncLimitRequest'
         required: true
+      summary: Sync service update sync limit
+      x-summary-source: derived
     delete:
       tags:
       - SyncService
@@ -168,9 +174,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      summary: Sync service delete sync limit
+      x-summary-source: derived
 components:
   schemas:
-    sync.CreateSyncLimitRequest:
+    sync.SyncLimitResponse:
       type: object
       properties:
         cmName:
@@ -196,23 +204,7 @@ components:
           type: string
         message:
           type: string
-    google.protobuf.Any:
-      type: object
-      properties:
-        type_url:
-          type: string
-        value:
-          type: string
-          format: byte
-    sync.DeleteSyncLimitResponse:
-      type: object
-    sync.SyncConfigType:
-      type: string
-      default: CONFIGMAP
-      enum:
-      - CONFIGMAP
-      - DATABASE
-    sync.SyncLimitResponse:
+    sync.CreateSyncLimitRequest:
       type: object
       properties:
         cmName:
@@ -225,6 +217,14 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/sync.SyncConfigType'
+    sync.DeleteSyncLimitResponse:
+      type: object
+    sync.SyncConfigType:
+      type: string
+      default: CONFIGMAP
+      enum:
+      - CONFIGMAP
+      - DATABASE
     sync.UpdateSyncLimitRequest:
       type: object
       properties:
@@ -238,6 +238,14 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/sync.SyncConfigType'
+    google.protobuf.Any:
+      type: object
+      properties:
+        type_url:
+          type: string
+        value:
+          type: string
+          format: byte
   securitySchemes:
     BearerToken:
       type: apiKey
