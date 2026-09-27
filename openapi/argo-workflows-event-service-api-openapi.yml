@@ -251,64 +251,47 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    io.argoproj.workflow.v1alpha1.TarStrategy:
-      description: TarStrategy will tar and gzip the file or directory when saving
-      type: object
-      properties:
-        compressionLevel:
-          description: CompressionLevel specifies the gzip compression level to use for the artifact. Defaults to gzip.DefaultCompression.
-          type: integer
-    io.argoproj.workflow.v1alpha1.CreateS3BucketOptions:
-      description: CreateS3BucketOptions options used to determine automatic automatic bucket-creation process
-      type: object
-      properties:
-        objectLocking:
-          description: ObjectLocking Enable object locking
-          type: boolean
-    io.argoproj.workflow.v1alpha1.GCSArtifact:
-      description: GCSArtifact is the location of a GCS artifact
+    io.argoproj.workflow.v1alpha1.HDFSArtifact:
+      description: HDFSArtifact is the location of an HDFS artifact
       type: object
       required:
-      - key
+      - path
       properties:
-        bucket:
-          description: Bucket is the name of the bucket
+        addresses:
+          description: Addresses is accessible addresses of HDFS name nodes
+          type: array
+          items:
+            type: string
+        dataTransferProtection:
+          description: DataTransferProtection is the protection level for HDFS data transfer. It corresponds to the dfs.data.transfer.protection configuration in HDFS.
           type: string
-        key:
-          description: Key is the path in the bucket where the artifact resides
+        force:
+          description: Force copies a file forcibly even if it exists
+          type: boolean
+        hdfsUser:
+          description: HDFSUser is the user to access HDFS file system. It is ignored if either ccache or keytab is used.
           type: string
-        serviceAccountKeySecret:
-          description: ServiceAccountKeySecret is the secret selector to the bucket's service account key
+        krbCCacheSecret:
+          description: KrbCCacheSecret is the secret selector for Kerberos ccache Either ccache or keytab can be set to use Kerberos.
           $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry:
-      description: ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
-      type: object
-      properties:
-        apiVersion:
-          description: APIVersion defines the version of this resource that this field set applies to. The format is "group/version" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.
+        krbConfigConfigMap:
+          description: KrbConfig is the configmap selector for Kerberos config as string It must be set if either ccache or keytab is used.
+          $ref: '#/components/schemas/io.k8s.api.core.v1.ConfigMapKeySelector'
+        krbKeytabSecret:
+          description: KrbKeytabSecret is the secret selector for Kerberos keytab Either ccache or keytab can be set to use Kerberos.
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        krbRealm:
+          description: KrbRealm is the Kerberos realm used with Kerberos keytab It must be set if keytab is used.
           type: string
-        fieldsType:
-          description: 'FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: "FieldsV1"'
+        krbServicePrincipalName:
+          description: KrbServicePrincipalName is the principal name of Kerberos service It must be set if either ccache or keytab is used.
           type: string
-        fieldsV1:
-          description: FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.
-          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1'
-        manager:
-          description: Manager is an identifier of the workflow managing these fields.
+        krbUsername:
+          description: KrbUsername is the Kerberos username used with Kerberos keytab It must be set if keytab is used.
           type: string
-        operation:
-          description: Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'.
+        path:
+          description: Path is a file path in HDFS
           type: string
-        subresource:
-          description: Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.
-          type: string
-        time:
-          description: Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.
-          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Time'
-    io.k8s.apimachinery.pkg.apis.meta.v1.Time:
-      description: Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-      type: string
-      format: date-time
     io.argoproj.workflow.v1alpha1.HTTPAuth:
       type: object
       properties:
@@ -318,45 +301,282 @@ components:
           $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.ClientCertAuth'
         oauth2:
           $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.OAuth2Auth'
-    io.argoproj.workflow.v1alpha1.Event:
+    io.argoproj.workflow.v1alpha1.BasicAuth:
+      description: BasicAuth describes the secret selectors required for basic authentication
+      type: object
+      properties:
+        passwordSecret:
+          description: PasswordSecret is the secret selector to the repository password
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        usernameSecret:
+          description: UsernameSecret is the secret selector to the repository username
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.argoproj.workflow.v1alpha1.Metadata:
+      description: Metadata is pod metadata.
+      type: object
+      properties:
+        annotations:
+          type: object
+          additionalProperties:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    grpc.gateway.runtime.Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/google.protobuf.Any'
+        error:
+          type: string
+        message:
+          type: string
+    io.argoproj.workflow.v1alpha1.SuppliedValueFrom:
+      description: SuppliedValueFrom is a placeholder for a value to be filled in directly, either through the CLI, API, etc.
+      type: object
+    io.argoproj.workflow.v1alpha1.EventResponse:
+      type: object
+    io.argoproj.workflow.v1alpha1.S3EncryptionOptions:
+      description: S3EncryptionOptions used to determine encryption options during s3 operations
+      type: object
+      properties:
+        enableEncryption:
+          description: EnableEncryption tells the driver to encrypt objects if set to true. If kmsKeyId and serverSideCustomerKeySecret are not set, SSE-S3 will be used
+          type: boolean
+        kmsEncryptionContext:
+          description: KmsEncryptionContext is a json blob that contains an encryption context. See https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context for more information
+          type: string
+        kmsKeyId:
+          description: KMSKeyId tells the driver to encrypt the object using the specified KMS Key.
+          type: string
+        serverSideCustomerKeySecret:
+          description: ServerSideCustomerKeySecret tells the driver to encrypt the output artifacts using SSE-C with the specified secret.
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.argoproj.workflow.v1alpha1.ArtifactGC:
+      description: ArtifactGC describes how to delete artifacts from completed Workflows - this is embedded into the WorkflowLevelArtifactGC, and also used for individual Artifacts to override that as needed
+      type: object
+      properties:
+        podMetadata:
+          description: PodMetadata is an optional field for specifying the Labels and Annotations that should be assigned to the Pod doing the deletion
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Metadata'
+        serviceAccountName:
+          description: ServiceAccountName is an optional field for specifying the Service Account that should be assigned to the Pod doing the deletion
+          type: string
+        strategy:
+          description: Strategy is the strategy to use.
+          type: string
+    io.argoproj.workflow.v1alpha1.ArchiveStrategy:
+      description: ArchiveStrategy describes how to archive files/directory when saving artifacts
+      type: object
+      properties:
+        none:
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.NoneStrategy'
+        tar:
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.TarStrategy'
+        zip:
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.ZipStrategy'
+    io.argoproj.workflow.v1alpha1.OAuth2EndpointParam:
+      description: OAuth2EndpointParam is an optional field that should be sent in the OAuth request.
       type: object
       required:
-      - selector
+      - key
       properties:
-        selector:
-          description: Selector (https://github.com/expr-lang/expr) that we must must match the io.argoproj.workflow.v1alpha1. E.g. `payload.message == "test"`
+        key:
+          description: Name is the header name
           type: string
-    io.argoproj.workflow.v1alpha1.ValueFrom:
-      description: ValueFrom describes a location in which to obtain the value to a parameter
+        value:
+          description: Value is the literal value to use for the header
+          type: string
+    io.argoproj.workflow.v1alpha1.ArtifactoryArtifact:
+      description: ArtifactoryArtifact is the location of an artifactory artifact
+      type: object
+      required:
+      - url
+      properties:
+        passwordSecret:
+          description: PasswordSecret is the secret selector to the repository password
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        url:
+          description: URL of the artifact
+          type: string
+        usernameSecret:
+          description: UsernameSecret is the secret selector to the repository username
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.argoproj.workflow.v1alpha1.TarStrategy:
+      description: TarStrategy will tar and gzip the file or directory when saving
       type: object
       properties:
-        configMapKeyRef:
-          description: ConfigMapKeyRef is configmap selector for input parameter configuration
-          $ref: '#/components/schemas/io.k8s.api.core.v1.ConfigMapKeySelector'
+        compressionLevel:
+          description: CompressionLevel specifies the gzip compression level to use for the artifact. Defaults to gzip.DefaultCompression.
+          type: integer
+    io.argoproj.workflow.v1alpha1.GitArtifact:
+      description: GitArtifact is the location of a git artifact
+      type: object
+      required:
+      - repo
+      properties:
+        branch:
+          description: Branch is the branch to fetch when `SingleBranch` is enabled
+          type: string
+        depth:
+          description: Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip
+          type: integer
+        disableSubmodules:
+          description: DisableSubmodules disables submodules during git clone
+          type: boolean
+        fetch:
+          description: Fetch specifies a number of refs that should be fetched before checkout
+          type: array
+          items:
+            type: string
+        insecureIgnoreHostKey:
+          description: InsecureIgnoreHostKey disables SSH strict host key checking during git clone
+          type: boolean
+        insecureSkipTLS:
+          description: InsecureSkipTLS disables server certificate verification resulting in insecure HTTPS connections
+          type: boolean
+        passwordSecret:
+          description: PasswordSecret is the secret selector to the repository password
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        repo:
+          description: Repo is the git repository
+          type: string
+        revision:
+          description: Revision is the git commit, tag, branch to checkout
+          type: string
+        singleBranch:
+          description: SingleBranch enables single branch clone, using the `branch` parameter
+          type: boolean
+        sshPrivateKeySecret:
+          description: SSHPrivateKeySecret is the secret selector to the repository ssh private key
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        usernameSecret:
+          description: UsernameSecret is the secret selector to the repository username
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.argoproj.workflow.v1alpha1.Submit:
+      type: object
+      required:
+      - workflowTemplateRef
+      properties:
+        arguments:
+          description: Arguments extracted from the event and then set as arguments to the workflow created.
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Arguments'
+        metadata:
+          description: Metadata optional means to customize select fields of the workflow metadata
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'
+        workflowTemplateRef:
+          description: WorkflowTemplateRef the workflow template to submit
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowTemplateRef'
+    io.argoproj.workflow.v1alpha1.OAuth2Auth:
+      description: OAuth2Auth holds all information for client authentication via OAuth2 tokens
+      type: object
+      properties:
+        clientIDSecret:
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        clientSecretSecret:
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        endpointParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.OAuth2EndpointParam'
+        scopes:
+          type: array
+          items:
+            type: string
+        tokenURLSecret:
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.k8s.apimachinery.pkg.apis.meta.v1.Time:
+      description: Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+      type: string
+      format: date-time
+    io.argoproj.workflow.v1alpha1.AzureArtifact:
+      description: AzureArtifact is the location of an Azure Storage artifact
+      type: object
+      required:
+      - endpoint
+      - container
+      - blob
+      properties:
+        accountKeySecret:
+          description: AccountKeySecret is the secret selector to the Azure Blob Storage account access key
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        blob:
+          description: Blob is the blob name (i.e., path) in the container where the artifact resides
+          type: string
+        container:
+          description: Container is the container where resources will be stored
+          type: string
+        endpoint:
+          description: Endpoint is the service url associated with an account. It is most likely "https://<ACCOUNT_NAME>.blob.core.windows.net"
+          type: string
+        useSDKCreds:
+          description: UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
+          type: boolean
+    google.protobuf.Any:
+      type: object
+      properties:
+        type_url:
+          type: string
+        value:
+          type: string
+          format: byte
+    io.argoproj.workflow.v1alpha1.Parameter:
+      description: Parameter indicate a passed string parameter to a service template with an optional default value
+      type: object
+      required:
+      - name
+      properties:
         default:
-          description: Default specifies a value to be used if retrieving the value from the specified source fails
+          description: Default is the default value to use for an input parameter if a value was not supplied
           type: string
-        event:
-          description: Selector (https://github.com/expr-lang/expr) that is evaluated against the event to get the value of the parameter. E.g. `payload.message`
+        description:
+          description: Description is the parameter description
           type: string
-        expression:
-          description: Expression, if defined, is evaluated to specify the value for the parameter
+        enum:
+          description: Enum holds a list of string values to choose from, for the actual value of the parameter
+          type: array
+          items:
+            type: string
+        globalName:
+          description: GlobalName exports an output parameter to the global scope, making it available as '{{io.argoproj.workflow.v1alpha1.outputs.parameters.XXXX}} and in workflow.status.outputs.parameters
           type: string
-        jqFilter:
-          description: JQFilter expression against the resource object in resource templates
+        name:
+          description: Name is the parameter name
           type: string
-        jsonPath:
-          description: JSONPath of a resource to retrieve an output parameter value from in resource templates
+        value:
+          description: Value is the literal value to use for the parameter. If specified in the context of an input parameter, any passed values take precedence over the specified value
           type: string
-        parameter:
-          description: Parameter reference to a step or dag task in which to retrieve an output parameter value from (e.g. '{{steps.mystep.outputs.myparam}}')
+        valueFrom:
+          description: ValueFrom is the source for the output parameter's value
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.ValueFrom'
+    io.k8s.api.core.v1.ConfigMapKeySelector:
+      description: Selects a key from a ConfigMap.
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          description: The key to select.
           type: string
-        path:
-          description: Path in the container to retrieve an output parameter value from in container templates
+        name:
+          description: 'Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
           type: string
-        supplied:
-          description: Supplied value to be filled in directly, either through the CLI, API, etc.
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.SuppliedValueFrom'
+        optional:
+          description: Specify whether the ConfigMap or its key must be defined
+          type: boolean
+      x-kubernetes-map-type: atomic
+    io.argoproj.workflow.v1alpha1.CreateS3BucketOptions:
+      description: CreateS3BucketOptions options used to determine automatic automatic bucket-creation process
+      type: object
+      properties:
+        objectLocking:
+          description: ObjectLocking Enable object locking
+          type: boolean
     io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta:
       description: ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
       type: object
@@ -445,31 +665,141 @@ components:
 
             Populated by the system. Read-only. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids'
           type: string
-    io.argoproj.workflow.v1alpha1.Header:
-      description: Header indicate a key-value request header to be used when fetching artifacts over HTTP
+    io.argoproj.workflow.v1alpha1.Item:
+      description: Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number
+    io.k8s.api.core.v1.SecretKeySelector:
+      description: SecretKeySelector selects a key of a Secret.
       type: object
       required:
-      - name
-      - value
+      - key
       properties:
+        key:
+          description: The key of the secret to select from.  Must be a valid secret key.
+          type: string
         name:
-          description: Name is the header name
+          description: 'Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
           type: string
-        value:
-          description: Value is the literal value to use for the header
-          type: string
-    io.argoproj.workflow.v1alpha1.ZipStrategy:
-      description: ZipStrategy will unzip zipped input artifacts
-      type: object
-    io.argoproj.workflow.v1alpha1.RawArtifact:
-      description: RawArtifact allows raw string content to be placed as an artifact in a container
+        optional:
+          description: Specify whether the Secret or its key must be defined
+          type: boolean
+      x-kubernetes-map-type: atomic
+    io.argoproj.workflow.v1alpha1.HTTPArtifact:
+      description: HTTPArtifact allows a file served on HTTP to be placed as an input artifact in a container
       type: object
       required:
-      - data
+      - url
       properties:
-        data:
-          description: Data is the string contents of the artifact
+        auth:
+          description: Auth contains information for client authentication
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.HTTPAuth'
+        headers:
+          description: Headers are an optional list of headers to send with HTTP requests for artifacts
+          type: array
+          items:
+            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Header'
+        url:
+          description: URL of the artifact
           type: string
+    io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry:
+      description: ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
+      type: object
+      properties:
+        apiVersion:
+          description: APIVersion defines the version of this resource that this field set applies to. The format is "group/version" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.
+          type: string
+        fieldsType:
+          description: 'FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: "FieldsV1"'
+          type: string
+        fieldsV1:
+          description: FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1'
+        manager:
+          description: Manager is an identifier of the workflow managing these fields.
+          type: string
+        operation:
+          description: Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'.
+          type: string
+        subresource:
+          description: Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.
+          type: string
+        time:
+          description: Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Time'
+    io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta:
+      description: ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
+      type: object
+      properties:
+        continue:
+          description: continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available. The value is opaque and may be used to issue another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a consistent list may not be possible if the server configuration has changed or more than a few minutes have passed. The resourceVersion field returned when using this continue value will be identical to the value in the first response, unless you have received this token from an error message.
+          type: string
+        remainingItemCount:
+          description: remainingItemCount is the number of subsequent items in the list which are not included in this list response. If the list request contained label or field selectors, then the number of remaining items is unknown and the field will be left unset and omitted during serialization. If the list is complete (either because it is not chunking or because this is the last chunk), then there are no more remaining items and this field will be left unset and omitted during serialization. Servers older than v1.15 do not set this field. The intended use of the remainingItemCount is *estimating* the size of a collection. Clients should not rely on the remainingItemCount to be set or to be exact.
+          type: integer
+        resourceVersion:
+          description: 'String that identifies the server''s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency'
+          type: string
+        selfLink:
+          description: 'Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.'
+          type: string
+    io.argoproj.workflow.v1alpha1.ValueFrom:
+      description: ValueFrom describes a location in which to obtain the value to a parameter
+      type: object
+      properties:
+        configMapKeyRef:
+          description: ConfigMapKeyRef is configmap selector for input parameter configuration
+          $ref: '#/components/schemas/io.k8s.api.core.v1.ConfigMapKeySelector'
+        default:
+          description: Default specifies a value to be used if retrieving the value from the specified source fails
+          type: string
+        event:
+          description: Selector (https://github.com/expr-lang/expr) that is evaluated against the event to get the value of the parameter. E.g. `payload.message`
+          type: string
+        expression:
+          description: Expression, if defined, is evaluated to specify the value for the parameter
+          type: string
+        jqFilter:
+          description: JQFilter expression against the resource object in resource templates
+          type: string
+        jsonPath:
+          description: JSONPath of a resource to retrieve an output parameter value from in resource templates
+          type: string
+        parameter:
+          description: Parameter reference to a step or dag task in which to retrieve an output parameter value from (e.g. '{{steps.mystep.outputs.myparam}}')
+          type: string
+        path:
+          description: Path in the container to retrieve an output parameter value from in container templates
+          type: string
+        supplied:
+          description: Supplied value to be filled in directly, either through the CLI, API, etc.
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.SuppliedValueFrom'
+    io.argoproj.workflow.v1alpha1.Arguments:
+      description: Arguments to a template
+      type: object
+      properties:
+        artifacts:
+          description: Artifacts is the list of artifacts to pass to the template or workflow
+          type: array
+          items:
+            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Artifact'
+          x-kubernetes-patch-merge-key: name
+          x-kubernetes-patch-strategy: merge
+        parameters:
+          description: Parameters is the list of parameters to pass to the template or workflow
+          type: array
+          items:
+            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Parameter'
+          x-kubernetes-patch-merge-key: name
+          x-kubernetes-patch-strategy: merge
+    io.argoproj.workflow.v1alpha1.OSSLifecycleRule:
+      description: OSSLifecycleRule specifies how to manage bucket's lifecycle
+      type: object
+      properties:
+        markDeletionAfterDays:
+          description: MarkDeletionAfterDays is the number of days before we delete objects in the bucket
+          type: integer
+        markInfrequentAccessAfterDays:
+          description: MarkInfrequentAccessAfterDays is the number of days before we convert the objects in the bucket to Infrequent Access (IA) storage type
+          type: integer
     io.argoproj.workflow.v1alpha1.OSSArtifact:
       description: OSSArtifact is the location of an Alibaba Cloud OSS artifact
       type: object
@@ -503,29 +833,132 @@ components:
         useSDKCreds:
           description: UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
           type: boolean
-    io.argoproj.workflow.v1alpha1.AzureArtifact:
-      description: AzureArtifact is the location of an Azure Storage artifact
+    io.argoproj.workflow.v1alpha1.ClientCertAuth:
+      description: ClientCertAuth holds necessary information for client authentication via certificates
       type: object
-      required:
-      - endpoint
-      - container
-      - blob
       properties:
-        accountKeySecret:
-          description: AccountKeySecret is the secret selector to the Azure Blob Storage account access key
+        clientCertSecret:
           $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        blob:
-          description: Blob is the blob name (i.e., path) in the container where the artifact resides
+        clientKeySecret:
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1:
+      description: 'FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.
+
+
+        Each key is either a ''.'' representing the field itself, and will always map to an empty set, or a string representing a sub-field or item. The string will follow one of these four formats: ''f:<name>'', where <name> is the name of a field in a struct, or key in a map ''v:<value>'', where <value> is the exact json formatted value of a list item ''i:<index>'', where <index> is position of a item in a list ''k:<keys>'', where <keys> is a map of  a list item''s key fields to their unique values If a key maps to an empty Fields value, the field that key represents is part of the set.
+
+
+        The exact format is defined in sigs.k8s.io/structured-merge-diff'
+      type: object
+    io.argoproj.workflow.v1alpha1.NoneStrategy:
+      description: NoneStrategy indicates to skip tar process and upload the files or directory tree as independent files. Note that if the artifact is a directory, the artifact driver must support the ability to save/load the directory appropriately.
+      type: object
+    io.argoproj.workflow.v1alpha1.S3Artifact:
+      description: S3Artifact is the location of an S3 artifact
+      type: object
+      properties:
+        accessKeySecret:
+          description: AccessKeySecret is the secret selector to the bucket's access key
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        bucket:
+          description: Bucket is the name of the bucket
           type: string
-        container:
-          description: Container is the container where resources will be stored
-          type: string
+        caSecret:
+          description: CASecret specifies the secret that contains the CA, used to verify the TLS connection
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        createBucketIfNotPresent:
+          description: CreateBucketIfNotPresent tells the driver to attempt to create the S3 bucket for output artifacts, if it doesn't exist. Setting Enabled Encryption will apply either SSE-S3 to the bucket if KmsKeyId is not set or SSE-KMS if it is.
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.CreateS3BucketOptions'
+        encryptionOptions:
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.S3EncryptionOptions'
         endpoint:
-          description: Endpoint is the service url associated with an account. It is most likely "https://<ACCOUNT_NAME>.blob.core.windows.net"
+          description: Endpoint is the hostname of the bucket endpoint
           type: string
+        insecure:
+          description: Insecure will connect to the service with TLS
+          type: boolean
+        key:
+          description: Key is the key in the bucket where the artifact resides
+          type: string
+        region:
+          description: Region contains the optional bucket region
+          type: string
+        roleARN:
+          description: RoleARN is the Amazon Resource Name (ARN) of the role to assume.
+          type: string
+        secretKeySecret:
+          description: SecretKeySecret is the secret selector to the bucket's secret key
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+        sessionTokenSecret:
+          description: SessionTokenSecret is used for ephemeral credentials like an IAM assume role or S3 access grant
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
         useSDKCreds:
           description: UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
           type: boolean
+    io.argoproj.workflow.v1alpha1.WorkflowEventBindingList:
+      description: WorkflowEventBindingList is list of event resources
+      type: object
+      required:
+      - metadata
+      - items
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowEventBinding'
+        kind:
+          description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
+    io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec:
+      type: object
+      required:
+      - event
+      properties:
+        event:
+          description: Event is the event to bind to
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Event'
+        submit:
+          description: Submit is the workflow template to submit
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Submit'
+    io.argoproj.workflow.v1alpha1.WorkflowTemplateRef:
+      description: WorkflowTemplateRef is a reference to a WorkflowTemplate resource.
+      type: object
+      properties:
+        clusterScope:
+          description: ClusterScope indicates the referred template is cluster scoped (i.e. a ClusterWorkflowTemplate).
+          type: boolean
+        name:
+          description: Name is the resource name of the workflow template.
+          type: string
+    io.argoproj.workflow.v1alpha1.GCSArtifact:
+      description: GCSArtifact is the location of a GCS artifact
+      type: object
+      required:
+      - key
+      properties:
+        bucket:
+          description: Bucket is the name of the bucket
+          type: string
+        key:
+          description: Key is the path in the bucket where the artifact resides
+          type: string
+        serviceAccountKeySecret:
+          description: ServiceAccountKeySecret is the secret selector to the bucket's service account key
+          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
+    io.argoproj.workflow.v1alpha1.RawArtifact:
+      description: RawArtifact allows raw string content to be placed as an artifact in a container
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          description: Data is the string contents of the artifact
+          type: string
     io.argoproj.workflow.v1alpha1.Artifact:
       description: Artifact indicates an artifact to place at a specified path
       type: object
@@ -601,72 +1034,6 @@ components:
         subPath:
           description: SubPath allows an artifact to be sourced from a subpath within the specified source
           type: string
-    io.argoproj.workflow.v1alpha1.ArchiveStrategy:
-      description: ArchiveStrategy describes how to archive files/directory when saving artifacts
-      type: object
-      properties:
-        none:
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.NoneStrategy'
-        tar:
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.TarStrategy'
-        zip:
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.ZipStrategy'
-    io.argoproj.workflow.v1alpha1.Parameter:
-      description: Parameter indicate a passed string parameter to a service template with an optional default value
-      type: object
-      required:
-      - name
-      properties:
-        default:
-          description: Default is the default value to use for an input parameter if a value was not supplied
-          type: string
-        description:
-          description: Description is the parameter description
-          type: string
-        enum:
-          description: Enum holds a list of string values to choose from, for the actual value of the parameter
-          type: array
-          items:
-            type: string
-        globalName:
-          description: GlobalName exports an output parameter to the global scope, making it available as '{{io.argoproj.workflow.v1alpha1.outputs.parameters.XXXX}} and in workflow.status.outputs.parameters
-          type: string
-        name:
-          description: Name is the parameter name
-          type: string
-        value:
-          description: Value is the literal value to use for the parameter. If specified in the context of an input parameter, any passed values take precedence over the specified value
-          type: string
-        valueFrom:
-          description: ValueFrom is the source for the output parameter's value
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.ValueFrom'
-    io.argoproj.workflow.v1alpha1.HTTPArtifact:
-      description: HTTPArtifact allows a file served on HTTP to be placed as an input artifact in a container
-      type: object
-      required:
-      - url
-      properties:
-        auth:
-          description: Auth contains information for client authentication
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.HTTPAuth'
-        headers:
-          description: Headers are an optional list of headers to send with HTTP requests for artifacts
-          type: array
-          items:
-            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Header'
-        url:
-          description: URL of the artifact
-          type: string
-    io.argoproj.workflow.v1alpha1.OSSLifecycleRule:
-      description: OSSLifecycleRule specifies how to manage bucket's lifecycle
-      type: object
-      properties:
-        markDeletionAfterDays:
-          description: MarkDeletionAfterDays is the number of days before we delete objects in the bucket
-          type: integer
-        markInfrequentAccessAfterDays:
-          description: MarkInfrequentAccessAfterDays is the number of days before we convert the objects in the bucket to Infrequent Access (IA) storage type
-          type: integer
     io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference:
       description: OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
       type: object
@@ -695,346 +1062,47 @@ components:
           description: 'UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids'
           type: string
       x-kubernetes-map-type: atomic
-    io.argoproj.workflow.v1alpha1.WorkflowEventBindingList:
-      description: WorkflowEventBindingList is list of event resources
+    io.argoproj.workflow.v1alpha1.WorkflowEventBinding:
+      description: WorkflowEventBinding is the definition of an event resource
       type: object
       required:
       - metadata
-      - items
+      - spec
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#resources'
           type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowEventBinding'
         kind:
           description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
           type: string
         metadata:
-          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
-    io.argoproj.workflow.v1alpha1.HDFSArtifact:
-      description: HDFSArtifact is the location of an HDFS artifact
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'
+        spec:
+          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec'
+    io.argoproj.workflow.v1alpha1.Event:
       type: object
       required:
-      - path
+      - selector
       properties:
-        addresses:
-          description: Addresses is accessible addresses of HDFS name nodes
-          type: array
-          items:
-            type: string
-        dataTransferProtection:
-          description: DataTransferProtection is the protection level for HDFS data transfer. It corresponds to the dfs.data.transfer.protection configuration in HDFS.
+        selector:
+          description: Selector (https://github.com/expr-lang/expr) that we must must match the io.argoproj.workflow.v1alpha1. E.g. `payload.message == "test"`
           type: string
-        force:
-          description: Force copies a file forcibly even if it exists
-          type: boolean
-        hdfsUser:
-          description: HDFSUser is the user to access HDFS file system. It is ignored if either ccache or keytab is used.
-          type: string
-        krbCCacheSecret:
-          description: KrbCCacheSecret is the secret selector for Kerberos ccache Either ccache or keytab can be set to use Kerberos.
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        krbConfigConfigMap:
-          description: KrbConfig is the configmap selector for Kerberos config as string It must be set if either ccache or keytab is used.
-          $ref: '#/components/schemas/io.k8s.api.core.v1.ConfigMapKeySelector'
-        krbKeytabSecret:
-          description: KrbKeytabSecret is the secret selector for Kerberos keytab Either ccache or keytab can be set to use Kerberos.
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        krbRealm:
-          description: KrbRealm is the Kerberos realm used with Kerberos keytab It must be set if keytab is used.
-          type: string
-        krbServicePrincipalName:
-          description: KrbServicePrincipalName is the principal name of Kerberos service It must be set if either ccache or keytab is used.
-          type: string
-        krbUsername:
-          description: KrbUsername is the Kerberos username used with Kerberos keytab It must be set if keytab is used.
-          type: string
-        path:
-          description: Path is a file path in HDFS
-          type: string
-    io.argoproj.workflow.v1alpha1.OAuth2EndpointParam:
-      description: OAuth2EndpointParam is an optional field that should be sent in the OAuth request.
+    io.argoproj.workflow.v1alpha1.Header:
+      description: Header indicate a key-value request header to be used when fetching artifacts over HTTP
       type: object
       required:
-      - key
+      - name
+      - value
       properties:
-        key:
+        name:
           description: Name is the header name
           type: string
         value:
           description: Value is the literal value to use for the header
           type: string
-    io.argoproj.workflow.v1alpha1.ClientCertAuth:
-      description: ClientCertAuth holds necessary information for client authentication via certificates
+    io.argoproj.workflow.v1alpha1.ZipStrategy:
+      description: ZipStrategy will unzip zipped input artifacts
       type: object
-      properties:
-        clientCertSecret:
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        clientKeySecret:
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.argoproj.workflow.v1alpha1.Metadata:
-      description: Metadata is pod metadata.
-      type: object
-      properties:
-        annotations:
-          type: object
-          additionalProperties:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-    io.argoproj.workflow.v1alpha1.EventResponse:
-      type: object
-    io.argoproj.workflow.v1alpha1.S3Artifact:
-      description: S3Artifact is the location of an S3 artifact
-      type: object
-      properties:
-        accessKeySecret:
-          description: AccessKeySecret is the secret selector to the bucket's access key
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        bucket:
-          description: Bucket is the name of the bucket
-          type: string
-        caSecret:
-          description: CASecret specifies the secret that contains the CA, used to verify the TLS connection
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        createBucketIfNotPresent:
-          description: CreateBucketIfNotPresent tells the driver to attempt to create the S3 bucket for output artifacts, if it doesn't exist. Setting Enabled Encryption will apply either SSE-S3 to the bucket if KmsKeyId is not set or SSE-KMS if it is.
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.CreateS3BucketOptions'
-        encryptionOptions:
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.S3EncryptionOptions'
-        endpoint:
-          description: Endpoint is the hostname of the bucket endpoint
-          type: string
-        insecure:
-          description: Insecure will connect to the service with TLS
-          type: boolean
-        key:
-          description: Key is the key in the bucket where the artifact resides
-          type: string
-        region:
-          description: Region contains the optional bucket region
-          type: string
-        roleARN:
-          description: RoleARN is the Amazon Resource Name (ARN) of the role to assume.
-          type: string
-        secretKeySecret:
-          description: SecretKeySecret is the secret selector to the bucket's secret key
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        sessionTokenSecret:
-          description: SessionTokenSecret is used for ephemeral credentials like an IAM assume role or S3 access grant
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        useSDKCreds:
-          description: UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
-          type: boolean
-    io.k8s.api.core.v1.SecretKeySelector:
-      description: SecretKeySelector selects a key of a Secret.
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          description: The key of the secret to select from.  Must be a valid secret key.
-          type: string
-        name:
-          description: 'Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
-          type: string
-        optional:
-          description: Specify whether the Secret or its key must be defined
-          type: boolean
-      x-kubernetes-map-type: atomic
-    io.argoproj.workflow.v1alpha1.Arguments:
-      description: Arguments to a template
-      type: object
-      properties:
-        artifacts:
-          description: Artifacts is the list of artifacts to pass to the template or workflow
-          type: array
-          items:
-            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Artifact'
-          x-kubernetes-patch-merge-key: name
-          x-kubernetes-patch-strategy: merge
-        parameters:
-          description: Parameters is the list of parameters to pass to the template or workflow
-          type: array
-          items:
-            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Parameter'
-          x-kubernetes-patch-merge-key: name
-          x-kubernetes-patch-strategy: merge
-    io.argoproj.workflow.v1alpha1.OAuth2Auth:
-      description: OAuth2Auth holds all information for client authentication via OAuth2 tokens
-      type: object
-      properties:
-        clientIDSecret:
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        clientSecretSecret:
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        endpointParams:
-          type: array
-          items:
-            $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.OAuth2EndpointParam'
-        scopes:
-          type: array
-          items:
-            type: string
-        tokenURLSecret:
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec:
-      type: object
-      required:
-      - event
-      properties:
-        event:
-          description: Event is the event to bind to
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Event'
-        submit:
-          description: Submit is the workflow template to submit
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Submit'
-    io.argoproj.workflow.v1alpha1.ArtifactoryArtifact:
-      description: ArtifactoryArtifact is the location of an artifactory artifact
-      type: object
-      required:
-      - url
-      properties:
-        passwordSecret:
-          description: PasswordSecret is the secret selector to the repository password
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        url:
-          description: URL of the artifact
-          type: string
-        usernameSecret:
-          description: UsernameSecret is the secret selector to the repository username
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.argoproj.workflow.v1alpha1.Item:
-      description: Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number
-    google.protobuf.Any:
-      type: object
-      properties:
-        type_url:
-          type: string
-        value:
-          type: string
-          format: byte
-    io.argoproj.workflow.v1alpha1.S3EncryptionOptions:
-      description: S3EncryptionOptions used to determine encryption options during s3 operations
-      type: object
-      properties:
-        enableEncryption:
-          description: EnableEncryption tells the driver to encrypt objects if set to true. If kmsKeyId and serverSideCustomerKeySecret are not set, SSE-S3 will be used
-          type: boolean
-        kmsEncryptionContext:
-          description: KmsEncryptionContext is a json blob that contains an encryption context. See https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context for more information
-          type: string
-        kmsKeyId:
-          description: KMSKeyId tells the driver to encrypt the object using the specified KMS Key.
-          type: string
-        serverSideCustomerKeySecret:
-          description: ServerSideCustomerKeySecret tells the driver to encrypt the output artifacts using SSE-C with the specified secret.
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.argoproj.workflow.v1alpha1.GitArtifact:
-      description: GitArtifact is the location of a git artifact
-      type: object
-      required:
-      - repo
-      properties:
-        branch:
-          description: Branch is the branch to fetch when `SingleBranch` is enabled
-          type: string
-        depth:
-          description: Depth specifies clones/fetches should be shallow and include the given number of commits from the branch tip
-          type: integer
-        disableSubmodules:
-          description: DisableSubmodules disables submodules during git clone
-          type: boolean
-        fetch:
-          description: Fetch specifies a number of refs that should be fetched before checkout
-          type: array
-          items:
-            type: string
-        insecureIgnoreHostKey:
-          description: InsecureIgnoreHostKey disables SSH strict host key checking during git clone
-          type: boolean
-        insecureSkipTLS:
-          description: InsecureSkipTLS disables server certificate verification resulting in insecure HTTPS connections
-          type: boolean
-        passwordSecret:
-          description: PasswordSecret is the secret selector to the repository password
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        repo:
-          description: Repo is the git repository
-          type: string
-        revision:
-          description: Revision is the git commit, tag, branch to checkout
-          type: string
-        singleBranch:
-          description: SingleBranch enables single branch clone, using the `branch` parameter
-          type: boolean
-        sshPrivateKeySecret:
-          description: SSHPrivateKeySecret is the secret selector to the repository ssh private key
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        usernameSecret:
-          description: UsernameSecret is the secret selector to the repository username
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-    io.argoproj.workflow.v1alpha1.NoneStrategy:
-      description: NoneStrategy indicates to skip tar process and upload the files or directory tree as independent files. Note that if the artifact is a directory, the artifact driver must support the ability to save/load the directory appropriately.
-      type: object
-    io.k8s.api.core.v1.ConfigMapKeySelector:
-      description: Selects a key from a ConfigMap.
-      type: object
-      required:
-      - key
-      properties:
-        key:
-          description: The key to select.
-          type: string
-        name:
-          description: 'Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
-          type: string
-        optional:
-          description: Specify whether the ConfigMap or its key must be defined
-          type: boolean
-      x-kubernetes-map-type: atomic
-    grpc.gateway.runtime.Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/google.protobuf.Any'
-        error:
-          type: string
-        message:
-          type: string
-    io.argoproj.workflow.v1alpha1.WorkflowTemplateRef:
-      description: WorkflowTemplateRef is a reference to a WorkflowTemplate resource.
-      type: object
-      properties:
-        clusterScope:
-          description: ClusterScope indicates the referred template is cluster scoped (i.e. a ClusterWorkflowTemplate).
-          type: boolean
-        name:
-          description: Name is the resource name of the workflow template.
-          type: string
-    io.argoproj.workflow.v1alpha1.Submit:
-      type: object
-      required:
-      - workflowTemplateRef
-      properties:
-        arguments:
-          description: Arguments extracted from the event and then set as arguments to the workflow created.
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Arguments'
-        metadata:
-          description: Metadata optional means to customize select fields of the workflow metadata
-          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'
-        workflowTemplateRef:
-          description: WorkflowTemplateRef the workflow template to submit
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowTemplateRef'
     io.argoproj.workflow.v1alpha1.PluginArtifact:
       description: PluginArtifact is the location of a plugin artifact
       type: object
@@ -1053,74 +1121,6 @@ components:
         name:
           description: Name is the name of the artifact driver plugin
           type: string
-    io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta:
-      description: ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
-      type: object
-      properties:
-        continue:
-          description: continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available. The value is opaque and may be used to issue another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a consistent list may not be possible if the server configuration has changed or more than a few minutes have passed. The resourceVersion field returned when using this continue value will be identical to the value in the first response, unless you have received this token from an error message.
-          type: string
-        remainingItemCount:
-          description: remainingItemCount is the number of subsequent items in the list which are not included in this list response. If the list request contained label or field selectors, then the number of remaining items is unknown and the field will be left unset and omitted during serialization. If the list is complete (either because it is not chunking or because this is the last chunk), then there are no more remaining items and this field will be left unset and omitted during serialization. Servers older than v1.15 do not set this field. The intended use of the remainingItemCount is *estimating* the size of a collection. Clients should not rely on the remainingItemCount to be set or to be exact.
-          type: integer
-        resourceVersion:
-          description: 'String that identifies the server''s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency'
-          type: string
-        selfLink:
-          description: 'Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.'
-          type: string
-    io.argoproj.workflow.v1alpha1.WorkflowEventBinding:
-      description: WorkflowEventBinding is the definition of an event resource
-      type: object
-      required:
-      - metadata
-      - spec
-      properties:
-        apiVersion:
-          description: 'APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#resources'
-          type: string
-        kind:
-          description: 'Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.io.k8s.community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
-          type: string
-        metadata:
-          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'
-        spec:
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec'
-    io.argoproj.workflow.v1alpha1.SuppliedValueFrom:
-      description: SuppliedValueFrom is a placeholder for a value to be filled in directly, either through the CLI, API, etc.
-      type: object
-    io.argoproj.workflow.v1alpha1.ArtifactGC:
-      description: ArtifactGC describes how to delete artifacts from completed Workflows - this is embedded into the WorkflowLevelArtifactGC, and also used for individual Artifacts to override that as needed
-      type: object
-      properties:
-        podMetadata:
-          description: PodMetadata is an optional field for specifying the Labels and Annotations that should be assigned to the Pod doing the deletion
-          $ref: '#/components/schemas/io.argoproj.workflow.v1alpha1.Metadata'
-        serviceAccountName:
-          description: ServiceAccountName is an optional field for specifying the Service Account that should be assigned to the Pod doing the deletion
-          type: string
-        strategy:
-          description: Strategy is the strategy to use.
-          type: string
-    io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1:
-      description: 'FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.
-
-
-        Each key is either a ''.'' representing the field itself, and will always map to an empty set, or a string representing a sub-field or item. The string will follow one of these four formats: ''f:<name>'', where <name> is the name of a field in a struct, or key in a map ''v:<value>'', where <value> is the exact json formatted value of a list item ''i:<index>'', where <index> is position of a item in a list ''k:<keys>'', where <keys> is a map of  a list item''s key fields to their unique values If a key maps to an empty Fields value, the field that key represents is part of the set.
-
-
-        The exact format is defined in sigs.k8s.io/structured-merge-diff'
-      type: object
-    io.argoproj.workflow.v1alpha1.BasicAuth:
-      description: BasicAuth describes the secret selectors required for basic authentication
-      type: object
-      properties:
-        passwordSecret:
-          description: PasswordSecret is the secret selector to the repository password
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
-        usernameSecret:
-          description: UsernameSecret is the secret selector to the repository username
-          $ref: '#/components/schemas/io.k8s.api.core.v1.SecretKeySelector'
   securitySchemes:
     BearerToken:
       type: apiKey

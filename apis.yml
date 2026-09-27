@@ -42,8 +42,8 @@ tags:
   - Containers
   - Data Processing
   - Kubernetes
-  - Machine-Learning
-  - Open-Source
+  - Machine Learning
+  - Open Source
   - Workflow Engine
 tags_raw:
   - CNCF
@@ -53,6 +53,8 @@ tags_raw:
   - Machine Learning
   - Open Source
   - Workflow Engine
+  - Machine-Learning
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/argo-workflows/refs/heads/main/apis.yml
 created: '2026-03-27'
 modified: '2026-05-19'
@@ -237,8 +239,6 @@ apis:
   description: The Event Service API from Argo Workflows — 2 operation(s) for event service.
   humanURL: https://argo-workflows.readthedocs.io/en/latest/swagger/
   tags:
-  - EventService
-  tags_raw:
   - Event Service
   properties:
   - type: OpenAPI

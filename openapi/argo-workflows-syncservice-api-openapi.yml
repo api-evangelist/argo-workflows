@@ -178,19 +178,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    sync.SyncLimitResponse:
-      type: object
-      properties:
-        cmName:
-          type: string
-        key:
-          type: string
-        limit:
-          type: integer
-        namespace:
-          type: string
-        type:
-          $ref: '#/components/schemas/sync.SyncConfigType'
     grpc.gateway.runtime.Error:
       type: object
       properties:
@@ -204,28 +191,9 @@ components:
           type: string
         message:
           type: string
-    sync.CreateSyncLimitRequest:
-      type: object
-      properties:
-        cmName:
-          type: string
-        key:
-          type: string
-        limit:
-          type: integer
-        namespace:
-          type: string
-        type:
-          $ref: '#/components/schemas/sync.SyncConfigType'
     sync.DeleteSyncLimitResponse:
       type: object
-    sync.SyncConfigType:
-      type: string
-      default: CONFIGMAP
-      enum:
-      - CONFIGMAP
-      - DATABASE
-    sync.UpdateSyncLimitRequest:
+    sync.CreateSyncLimitRequest:
       type: object
       properties:
         cmName:
@@ -246,6 +214,38 @@ components:
         value:
           type: string
           format: byte
+    sync.SyncConfigType:
+      type: string
+      default: CONFIGMAP
+      enum:
+      - CONFIGMAP
+      - DATABASE
+    sync.SyncLimitResponse:
+      type: object
+      properties:
+        cmName:
+          type: string
+        key:
+          type: string
+        limit:
+          type: integer
+        namespace:
+          type: string
+        type:
+          $ref: '#/components/schemas/sync.SyncConfigType'
+    sync.UpdateSyncLimitRequest:
+      type: object
+      properties:
+        cmName:
+          type: string
+        key:
+          type: string
+        limit:
+          type: integer
+        namespace:
+          type: string
+        type:
+          $ref: '#/components/schemas/sync.SyncConfigType'
   securitySchemes:
     BearerToken:
       type: apiKey
