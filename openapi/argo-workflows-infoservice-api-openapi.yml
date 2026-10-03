@@ -111,6 +111,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    io.argoproj.workflow.v1alpha1.CollectEventResponse:
+      type: object
+    google.protobuf.Any:
+      type: object
+      properties:
+        type_url:
+          type: string
+        value:
+          type: string
+          format: byte
     io.argoproj.workflow.v1alpha1.InfoResponse:
       type: object
       properties:
@@ -130,6 +140,19 @@ components:
           additionalProperties:
             type: boolean
         navColor:
+          type: string
+    grpc.gateway.runtime.Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/google.protobuf.Any'
+        error:
+          type: string
+        message:
           type: string
     io.argoproj.workflow.v1alpha1.Link:
       description: Link is a link to another app.
@@ -154,21 +177,6 @@ components:
           type: string
       x-kubernetes-patch-merge-key: name
       x-kubernetes-patch-strategy: merge
-    io.argoproj.workflow.v1alpha1.CollectEventResponse:
-      type: object
-    grpc.gateway.runtime.Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/google.protobuf.Any'
-        error:
-          type: string
-        message:
-          type: string
     io.argoproj.workflow.v1alpha1.Version:
       type: object
       required:
@@ -202,33 +210,6 @@ components:
       properties:
         name:
           type: string
-    io.argoproj.workflow.v1alpha1.Column:
-      description: Column is a custom column that will be exposed in the Workflow List View.
-      type: object
-      required:
-      - name
-      - type
-      - key
-      properties:
-        key:
-          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
-          type: string
-        name:
-          description: The name of this column, e.g., "Workflow Completed".
-          type: string
-        type:
-          description: The type of this column, "label" or "annotation".
-          type: string
-      x-kubernetes-patch-merge-key: name
-      x-kubernetes-patch-strategy: merge
-    google.protobuf.Any:
-      type: object
-      properties:
-        type_url:
-          type: string
-        value:
-          type: string
-          format: byte
     io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
       type: object
       properties:
@@ -250,6 +231,25 @@ components:
           type: string
         subject:
           type: string
+    io.argoproj.workflow.v1alpha1.Column:
+      description: Column is a custom column that will be exposed in the Workflow List View.
+      type: object
+      required:
+      - name
+      - type
+      - key
+      properties:
+        key:
+          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
+          type: string
+        name:
+          description: The name of this column, e.g., "Workflow Completed".
+          type: string
+        type:
+          description: The type of this column, "label" or "annotation".
+          type: string
+      x-kubernetes-patch-merge-key: name
+      x-kubernetes-patch-strategy: merge
   securitySchemes:
     BearerToken:
       type: apiKey

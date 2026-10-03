@@ -178,21 +178,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    grpc.gateway.runtime.Error:
+    google.protobuf.Any:
       type: object
       properties:
-        code:
-          type: integer
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/google.protobuf.Any'
-        error:
+        type_url:
           type: string
-        message:
+        value:
           type: string
-    sync.DeleteSyncLimitResponse:
-      type: object
+          format: byte
     sync.CreateSyncLimitRequest:
       type: object
       properties:
@@ -206,14 +199,19 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/sync.SyncConfigType'
-    google.protobuf.Any:
+    grpc.gateway.runtime.Error:
       type: object
       properties:
-        type_url:
+        code:
+          type: integer
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/google.protobuf.Any'
+        error:
           type: string
-        value:
+        message:
           type: string
-          format: byte
     sync.SyncConfigType:
       type: string
       default: CONFIGMAP
@@ -246,6 +244,8 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/sync.SyncConfigType'
+    sync.DeleteSyncLimitResponse:
+      type: object
   securitySchemes:
     BearerToken:
       type: apiKey
