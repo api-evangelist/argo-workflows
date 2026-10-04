@@ -178,27 +178,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    google.protobuf.Any:
-      type: object
-      properties:
-        type_url:
-          type: string
-        value:
-          type: string
-          format: byte
-    sync.CreateSyncLimitRequest:
-      type: object
-      properties:
-        cmName:
-          type: string
-        key:
-          type: string
-        limit:
-          type: integer
-        namespace:
-          type: string
-        type:
-          $ref: '#/components/schemas/sync.SyncConfigType'
+    sync.SyncConfigType:
+      type: string
+      default: CONFIGMAP
+      enum:
+      - CONFIGMAP
+      - DATABASE
     grpc.gateway.runtime.Error:
       type: object
       properties:
@@ -212,25 +197,6 @@ components:
           type: string
         message:
           type: string
-    sync.SyncConfigType:
-      type: string
-      default: CONFIGMAP
-      enum:
-      - CONFIGMAP
-      - DATABASE
-    sync.SyncLimitResponse:
-      type: object
-      properties:
-        cmName:
-          type: string
-        key:
-          type: string
-        limit:
-          type: integer
-        namespace:
-          type: string
-        type:
-          $ref: '#/components/schemas/sync.SyncConfigType'
     sync.UpdateSyncLimitRequest:
       type: object
       properties:
@@ -246,6 +212,40 @@ components:
           $ref: '#/components/schemas/sync.SyncConfigType'
     sync.DeleteSyncLimitResponse:
       type: object
+    google.protobuf.Any:
+      type: object
+      properties:
+        type_url:
+          type: string
+        value:
+          type: string
+          format: byte
+    sync.SyncLimitResponse:
+      type: object
+      properties:
+        cmName:
+          type: string
+        key:
+          type: string
+        limit:
+          type: integer
+        namespace:
+          type: string
+        type:
+          $ref: '#/components/schemas/sync.SyncConfigType'
+    sync.CreateSyncLimitRequest:
+      type: object
+      properties:
+        cmName:
+          type: string
+        key:
+          type: string
+        limit:
+          type: integer
+        namespace:
+          type: string
+        type:
+          $ref: '#/components/schemas/sync.SyncConfigType'
   securitySchemes:
     BearerToken:
       type: apiKey
