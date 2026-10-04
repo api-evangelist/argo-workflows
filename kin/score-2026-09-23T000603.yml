@@ -1,21 +1,19 @@
-# Kin Score artifact — argo-workflows — 2026-08-26T215308
+# Kin Score artifact — argo-workflows — 2026-09-23T000603
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: argo-workflows
-  schema_version: 0.15.0
-  scored_at: '2026-08-26'
-  run_ts: 2026-08-26T215308
-  composite: 40.8
+  schema_version: 0.22.0
+  scored_at: '2026-09-23'
+  run_ts: 2026-09-23T000603
+  composite: 46.3
   band: developing
   facets:
-    discoverability: 64.8
-    contract_quality: 47.8
-    governance: 28.8
+    discoverability: 59.3
+    contract_quality: 51.5
+    contract_governance: 28.8
     operational_transparency: 36.8
     developer_ergonomics: 54.8
-    commercial_clarity: 15.8
-    contract_governance: 28.8
     access_clarity: 15.8
   agent_readiness:
     score: 19.8
@@ -40,6 +38,9 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  open_source:
+    applies: true
+    score: 100.0
   provenance:
     agentic_access: derived
     contracts:
