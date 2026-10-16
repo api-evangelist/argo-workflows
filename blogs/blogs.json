@@ -2,21 +2,21 @@
   "repo": "argo-workflows",
   "feeds": [
     {
-      "source": "https://argoproj.github.io/workflows/",
-      "feed_url": "https://argoproj.github.io/workflows/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
       "source": "https://blog.argoproj.io/feed",
       "feed_url": "https://blog.argoproj.io/feed",
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://argoproj.github.io/workflows/",
+      "feed_url": "https://argoproj.github.io/workflows/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 14,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "blog_subdomain",
