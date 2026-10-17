@@ -178,12 +178,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    sync.SyncConfigType:
-      type: string
-      default: CONFIGMAP
-      enum:
-      - CONFIGMAP
-      - DATABASE
+    sync.CreateSyncLimitRequest:
+      type: object
+      properties:
+        cmName:
+          type: string
+        key:
+          type: string
+        limit:
+          type: integer
+        namespace:
+          type: string
+        type:
+          $ref: '#/components/schemas/sync.SyncConfigType'
     grpc.gateway.runtime.Error:
       type: object
       properties:
@@ -197,21 +204,6 @@ components:
           type: string
         message:
           type: string
-    sync.UpdateSyncLimitRequest:
-      type: object
-      properties:
-        cmName:
-          type: string
-        key:
-          type: string
-        limit:
-          type: integer
-        namespace:
-          type: string
-        type:
-          $ref: '#/components/schemas/sync.SyncConfigType'
-    sync.DeleteSyncLimitResponse:
-      type: object
     google.protobuf.Any:
       type: object
       properties:
@@ -220,6 +212,14 @@ components:
         value:
           type: string
           format: byte
+    sync.SyncConfigType:
+      type: string
+      default: CONFIGMAP
+      enum:
+      - CONFIGMAP
+      - DATABASE
+    sync.DeleteSyncLimitResponse:
+      type: object
     sync.SyncLimitResponse:
       type: object
       properties:
@@ -233,7 +233,7 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/sync.SyncConfigType'
-    sync.CreateSyncLimitRequest:
+    sync.UpdateSyncLimitRequest:
       type: object
       properties:
         cmName:

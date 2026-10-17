@@ -111,27 +111,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
-      type: object
-      properties:
-        email:
-          type: string
-        emailVerified:
-          type: boolean
-        groups:
-          type: array
-          items:
-            type: string
-        issuer:
-          type: string
-        name:
-          type: string
-        serviceAccountName:
-          type: string
-        serviceAccountNamespace:
-          type: string
-        subject:
-          type: string
     io.argoproj.workflow.v1alpha1.Version:
       type: object
       required:
@@ -160,6 +139,8 @@ components:
           type: string
         version:
           type: string
+    io.argoproj.workflow.v1alpha1.CollectEventResponse:
+      type: object
     io.argoproj.workflow.v1alpha1.CollectEventRequest:
       type: object
       properties:
@@ -178,8 +159,6 @@ components:
           type: string
         message:
           type: string
-    io.argoproj.workflow.v1alpha1.CollectEventResponse:
-      type: object
     google.protobuf.Any:
       type: object
       properties:
@@ -188,25 +167,27 @@ components:
         value:
           type: string
           format: byte
-    io.argoproj.workflow.v1alpha1.Column:
-      description: Column is a custom column that will be exposed in the Workflow List View.
+    io.argoproj.workflow.v1alpha1.GetUserInfoResponse:
       type: object
-      required:
-      - name
-      - type
-      - key
       properties:
-        key:
-          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        groups:
+          type: array
+          items:
+            type: string
+        issuer:
           type: string
         name:
-          description: The name of this column, e.g., "Workflow Completed".
           type: string
-        type:
-          description: The type of this column, "label" or "annotation".
+        serviceAccountName:
           type: string
-      x-kubernetes-patch-merge-key: name
-      x-kubernetes-patch-strategy: merge
+        serviceAccountNamespace:
+          type: string
+        subject:
+          type: string
     io.argoproj.workflow.v1alpha1.InfoResponse:
       type: object
       properties:
@@ -247,6 +228,25 @@ components:
           type: string
         url:
           description: The URL. Can contain "${metadata.namespace}", "${metadata.name}", "${status.startedAt}", "${status.finishedAt}" or any other element in workflow yaml, e.g. "${io.argoproj.workflow.v1alpha1.metadata.annotations.userDefinedKey}"
+          type: string
+      x-kubernetes-patch-merge-key: name
+      x-kubernetes-patch-strategy: merge
+    io.argoproj.workflow.v1alpha1.Column:
+      description: Column is a custom column that will be exposed in the Workflow List View.
+      type: object
+      required:
+      - name
+      - type
+      - key
+      properties:
+        key:
+          description: The key of the label or annotation, e.g., "workflows.argoproj.io/completed".
+          type: string
+        name:
+          description: The name of this column, e.g., "Workflow Completed".
+          type: string
+        type:
+          description: The type of this column, "label" or "annotation".
           type: string
       x-kubernetes-patch-merge-key: name
       x-kubernetes-patch-strategy: merge
