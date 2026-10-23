@@ -254,6 +254,8 @@ apis:
   - type: Authentication
     url: https://argo-workflows.readthedocs.io/en/latest/access-token/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/argo-workflows/overview
   - type: Plans
     url: plans/argo-workflows-plans-pricing.yml
   - type: RateLimits
