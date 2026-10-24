@@ -1,0 +1,598 @@
+{
+  "info": {
+    "_postman_id": "7feeeb04-73c9-4b73-8f72-6b20671b2038",
+    "name": "Argo Workflows Event Service API",
+    "description": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:06:56.000Z",
+    "updatedAt": "2026-10-22T01:06:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7feeeb04-73c9-4b73-8f72-6b20671b2038"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "events",
+              "item": [
+                {
+                  "name": "{namespace}",
+                  "item": [
+                    {
+                      "name": "{discriminator}",
+                      "item": [
+                        {
+                          "name": "Event service receive event",
+                          "id": "04550675-1313-4bbf-902f-532c3b2f2501",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/events/:namespace/:discriminator",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "events",
+                                ":namespace",
+                                ":discriminator"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7f27152c-1c3b-489b-ad65-9a248dc4a28b",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) The namespace for the io.argoproj.workflow.v1alpha1. This can be empty if the client has cluster scoped permissions.\nIf empty, then the event is \"broadcast\" to workflow event binding in all namespaces."
+                                },
+                                {
+                                  "id": "9b936fb2-ee61-421f-882b-c0839c169095",
+                                  "key": "discriminator",
+                                  "value": "<string>",
+                                  "description": "(Required) Optional discriminator for the io.argoproj.workflow.v1alpha1. This should almost always be empty.\nUsed for edge-cases where the event payload alone is not provide enough information to discriminate the event.\nThis MUST NOT be used as security mechanism, e.g. to allow two clients to use the same access token, or\nto support webhooks on unsecured server. Instead, use access tokens.\nThis is made available as `discriminator` in the event binding selector (`/spec/event/selector)`"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ed9d1ea1-a5c1-4081-bb10-d59ea1718f88",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"description\": \"Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/events/:namespace/:discriminator",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "events",
+                                    ":namespace",
+                                    ":discriminator"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "discriminator"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:06:56.000Z",
+                              "updatedAt": "2026-10-22T01:06:56.000Z",
+                              "uid": "35240-ed9d1ea1-a5c1-4081-bb10-d59ea1718f88"
+                            },
+                            {
+                              "id": "2fc8ca19-9bae-4928-be5e-744f20918fa0",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"description\": \"Item expands a single workflow step into multiple parallel steps The value of Item can be a map, string, bool, or number\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/events/:namespace/:discriminator",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "events",
+                                    ":namespace",
+                                    ":discriminator"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "discriminator"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:06:56.000Z",
+                              "updatedAt": "2026-10-22T01:06:56.000Z",
+                              "uid": "35240-2fc8ca19-9bae-4928-be5e-744f20918fa0"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:06:56.000Z",
+                          "updatedAt": "2026-10-22T01:06:56.000Z",
+                          "uid": "35240-04550675-1313-4bbf-902f-532c3b2f2501"
+                        }
+                      ],
+                      "id": "b34e1f33-8a3c-4a69-90ac-bf291bc936de",
+                      "createdAt": "2026-10-22T01:06:56.000Z",
+                      "updatedAt": "2026-10-22T01:06:56.000Z",
+                      "uid": "35240-b34e1f33-8a3c-4a69-90ac-bf291bc936de"
+                    }
+                  ],
+                  "id": "de51732c-8b79-42ec-911f-2ebf773a7f26",
+                  "createdAt": "2026-10-22T01:06:56.000Z",
+                  "updatedAt": "2026-10-22T01:06:56.000Z",
+                  "uid": "35240-de51732c-8b79-42ec-911f-2ebf773a7f26"
+                }
+              ],
+              "id": "2fca480c-3dd3-4018-a5a3-b76c72bdf3e4",
+              "createdAt": "2026-10-22T01:06:56.000Z",
+              "updatedAt": "2026-10-22T01:06:56.000Z",
+              "uid": "35240-2fca480c-3dd3-4018-a5a3-b76c72bdf3e4"
+            },
+            {
+              "name": "workflow-event-bindings",
+              "item": [
+                {
+                  "name": "{namespace}",
+                  "item": [
+                    {
+                      "name": "Event service list workflow event bindings",
+                      "id": "1e469595-e9bc-43a1-a07c-da549f771509",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/workflow-event-bindings/:namespace?listOptions.labelSelector=<string>&listOptions.fieldSelector=<string>&listOptions.watch=<boolean>&listOptions.allowWatchBookmarks=<boolean>&listOptions.resourceVersion=<string>&listOptions.resourceVersionMatch=<string>&listOptions.timeoutSeconds=<int64>&listOptions.limit=<int64>&listOptions.continue=<string>&listOptions.sendInitialEvents=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "workflow-event-bindings",
+                            ":namespace"
+                          ],
+                          "query": [
+                            {
+                              "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional.",
+                              "key": "listOptions.labelSelector",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional.",
+                              "key": "listOptions.fieldSelector",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional.",
+                              "key": "listOptions.watch",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional.",
+                              "key": "listOptions.allowWatchBookmarks",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                              "key": "listOptions.resourceVersion",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                              "key": "listOptions.resourceVersionMatch",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional.",
+                              "key": "listOptions.timeoutSeconds",
+                              "value": "<int64>"
+                            },
+                            {
+                              "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned.",
+                              "key": "listOptions.limit",
+                              "value": "<int64>"
+                            },
+                            {
+                              "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications.",
+                              "key": "listOptions.continue",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional",
+                              "key": "listOptions.sendInitialEvents",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "d1137d4a-8746-41f4-8752-9f27cbf476e7",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "23d992df-3540-48eb-a69c-989d8a08e8c8",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/workflow-event-bindings/:namespace?listOptions.labelSelector=<string>&listOptions.fieldSelector=<string>&listOptions.watch=<boolean>&listOptions.allowWatchBookmarks=<boolean>&listOptions.resourceVersion=<string>&listOptions.resourceVersionMatch=<string>&listOptions.timeoutSeconds=<int64>&listOptions.limit=<int64>&listOptions.continue=<string>&listOptions.sendInitialEvents=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "workflow-event-bindings",
+                                ":namespace"
+                              ],
+                              "query": [
+                                {
+                                  "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional.",
+                                  "key": "listOptions.labelSelector",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional.",
+                                  "key": "listOptions.fieldSelector",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional.",
+                                  "key": "listOptions.watch",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional.",
+                                  "key": "listOptions.allowWatchBookmarks",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                                  "key": "listOptions.resourceVersion",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                                  "key": "listOptions.resourceVersionMatch",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional.",
+                                  "key": "listOptions.timeoutSeconds",
+                                  "value": "<int64>"
+                                },
+                                {
+                                  "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned.",
+                                  "key": "listOptions.limit",
+                                  "value": "<int64>"
+                                },
+                                {
+                                  "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications.",
+                                  "key": "listOptions.continue",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional",
+                                  "key": "listOptions.sendInitialEvents",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"metadata\": {\n    \"continue\": \"<string>\",\n    \"remainingItemCount\": \"<integer>\",\n    \"resourceVersion\": \"<string>\",\n    \"selfLink\": \"<string>\"\n  },\n  \"items\": [\n    {\n      \"metadata\": {\n        \"annotations\": {\n          \"dolor0c\": \"<string>\"\n        },\n        \"creationTimestamp\": \"<dateTime>\",\n        \"deletionGracePeriodSeconds\": \"<integer>\",\n        \"deletionTimestamp\": \"<dateTime>\",\n        \"finalizers\": [\n          \"<string>\"\n        ],\n        \"generateName\": \"<string>\",\n        \"generation\": \"<integer>\",\n        \"labels\": {\n          \"exercitation5\": \"<string>\",\n          \"culpa_5\": \"<string>\",\n          \"inc7\": \"<string>\",\n          \"sint_a\": \"<string>\"\n        },\n        \"managedFields\": [\n          {\n            \"apiVersion\": \"<string>\",\n            \"fieldsType\": \"<string>\",\n            \"fieldsV1\": {},\n            \"manager\": \"<string>\",\n            \"operation\": \"<string>\",\n            \"subresource\": \"<string>\",\n            \"time\": \"<dateTime>\"\n          }\n        ],\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"ownerReferences\": [\n          {\n            \"apiVersion\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"name\": \"<string>\",\n            \"uid\": \"<string>\",\n            \"blockOwnerDeletion\": \"<boolean>\",\n            \"controller\": \"<boolean>\"\n          }\n        ],\n        \"resourceVersion\": \"<string>\",\n        \"selfLink\": \"<string>\",\n        \"uid\": \"<string>\"\n      },\n      \"spec\": {\n        \"event\": {\n          \"selector\": \"<string>\"\n        },\n        \"submit\": {\n          \"workflowTemplateRef\": {\n            \"clusterScope\": \"<boolean>\",\n            \"name\": \"<string>\"\n          },\n          \"arguments\": {\n            \"artifacts\": [\n              {\n                \"name\": \"<string>\",\n                \"archive\": {\n                  \"none\": {},\n                  \"tar\": {\n                    \"compressionLevel\": \"<integer>\"\n                  },\n                  \"zip\": {}\n                },\n                \"archiveLogs\": \"<boolean>\",\n                \"artifactGC\": {\n                  \"podMetadata\": {\n                    \"annotations\": {\n                      \"cillum_e\": \"<string>\"\n                    },\n                    \"labels\": {\n                      \"minim_3\": \"<string>\"\n                    }\n                  },\n                  \"serviceAccountName\": \"<string>\",\n                  \"strategy\": \"<string>\"\n                },\n                \"artifactory\": {\n                  \"url\": \"<string>\",\n                  \"passwordSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"usernameSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  }\n                },\n                \"azure\": {\n                  \"endpoint\": \"<string>\",\n                  \"container\": \"<string>\",\n                  \"blob\": \"<string>\",\n                  \"accountKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"useSDKCreds\": \"<boolean>\"\n                },\n                \"deleted\": \"<boolean>\",\n                \"from\": \"<string>\",\n                \"fromExpression\": \"<string>\",\n                \"gcs\": {\n                  \"key\": \"<string>\",\n                  \"bucket\": \"<string>\",\n                  \"serviceAccountKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  }\n                },\n                \"git\": {\n                  \"repo\": \"<string>\",\n                  \"branch\": \"<string>\",\n                  \"depth\": \"<integer>\",\n                  \"disableSubmodules\": \"<boolean>\",\n                  \"fetch\": [\n                    \"<string>\"\n                  ],\n                  \"insecureIgnoreHostKey\": \"<boolean>\",\n                  \"insecureSkipTLS\": \"<boolean>\",\n                  \"passwordSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"revision\": \"<string>\",\n                  \"singleBranch\": \"<boolean>\",\n                  \"sshPrivateKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"usernameSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  }\n                },\n                \"globalName\": \"<string>\",\n                \"hdfs\": {\n                  \"path\": \"<string>\",\n                  \"addresses\": [\n                    \"<string>\"\n                  ],\n                  \"dataTransferProtection\": \"<string>\",\n                  \"force\": \"<boolean>\",\n                  \"hdfsUser\": \"<string>\",\n                  \"krbCCacheSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"krbConfigConfigMap\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"krbKeytabSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"krbRealm\": \"<string>\",\n                  \"krbServicePrincipalName\": \"<string>\",\n                  \"krbUsername\": \"<string>\"\n                },\n                \"http\": {\n                  \"url\": \"<string>\",\n                  \"auth\": {\n                    \"basicAuth\": {\n                      \"passwordSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      },\n                      \"usernameSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      }\n                    },\n                    \"clientCert\": {\n                      \"clientCertSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      },\n                      \"clientKeySecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      }\n                    },\n                    \"oauth2\": {\n                      \"clientIDSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      },\n                      \"clientSecretSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      },\n                      \"endpointParams\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\"\n                        }\n                      ],\n                      \"scopes\": [\n                        \"<string>\"\n                      ],\n                      \"tokenURLSecret\": {\n                        \"key\": \"<string>\",\n                        \"name\": \"<string>\",\n                        \"optional\": \"<boolean>\"\n                      }\n                    }\n                  },\n                  \"headers\": [\n                    {\n                      \"name\": \"<string>\",\n                      \"value\": \"<string>\"\n                    }\n                  ]\n                },\n                \"mode\": \"<integer>\",\n                \"optional\": \"<boolean>\",\n                \"oss\": {\n                  \"key\": \"<string>\",\n                  \"accessKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"bucket\": \"<string>\",\n                  \"createBucketIfNotPresent\": \"<boolean>\",\n                  \"endpoint\": \"<string>\",\n                  \"lifecycleRule\": {\n                    \"markDeletionAfterDays\": \"<integer>\",\n                    \"markInfrequentAccessAfterDays\": \"<integer>\"\n                  },\n                  \"secretKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"securityToken\": \"<string>\",\n                  \"useSDKCreds\": \"<boolean>\"\n                },\n                \"path\": \"<string>\",\n                \"plugin\": {\n                  \"key\": \"<string>\",\n                  \"configuration\": \"<string>\",\n                  \"connectionTimeoutSeconds\": \"<integer>\",\n                  \"name\": \"<string>\"\n                },\n                \"raw\": {\n                  \"data\": \"<string>\"\n                },\n                \"recurseMode\": \"<boolean>\",\n                \"s3\": {\n                  \"accessKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"bucket\": \"<string>\",\n                  \"caSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"createBucketIfNotPresent\": {\n                    \"objectLocking\": \"<boolean>\"\n                  },\n                  \"encryptionOptions\": {\n                    \"enableEncryption\": \"<boolean>\",\n                    \"kmsEncryptionContext\": \"<string>\",\n                    \"kmsKeyId\": \"<string>\",\n                    \"serverSideCustomerKeySecret\": {\n                      \"key\": \"<string>\",\n                      \"name\": \"<string>\",\n                      \"optional\": \"<boolean>\"\n                    }\n                  },\n                  \"endpoint\": \"<string>\",\n                  \"insecure\": \"<boolean>\",\n                  \"key\": \"<string>\",\n                  \"region\": \"<string>\",\n                  \"roleARN\": \"<string>\",\n                  \"secretKeySecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"sessionTokenSecret\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"useSDKCreds\": \"<boolean>\"\n                },\n                \"subPath\": \"<string>\"\n              }\n            ],\n            \"parameters\": [\n              {\n                \"name\": \"<string>\",\n                \"default\": \"<string>\",\n                \"description\": \"<string>\",\n                \"enum\": [\n                  \"<string>\"\n                ],\n                \"globalName\": \"<string>\",\n                \"value\": \"<string>\",\n                \"valueFrom\": {\n                  \"configMapKeyRef\": {\n                    \"key\": \"<string>\",\n                    \"name\": \"<string>\",\n                    \"optional\": \"<boolean>\"\n                  },\n                  \"default\": \"<string>\",\n                  \"event\": \"<string>\",\n                  \"expression\": \"<string>\",\n                  \"jqFilter\": \"<string>\",\n                  \"jsonPath\": \"<string>\",\n                  \"parameter\": \"<string>\",\n                  \"path\": \"<string>\",\n                  \"supplied\": {}\n                }\n              }\n            ]\n          },\n          \"metadata\": {\n            \"annotations\": {\n              \"pariatur16a\": \"<string>\",\n              \"fugiat_7\": \"<string>\",\n              \"esse_aef\": \"<string>\"\n            },\n            \"creationTimestamp\": \"<dateTime>\",\n            \"deletionGracePeriodSeconds\": \"<integer>\",\n            \"deletionTimestamp\": \"<dateTime>\",\n            \"finalizers\": [\n              \"<string>\"\n            ],\n            \"generateName\": \"<string>\",\n            \"generation\": \"<integer>\",\n            \"labels\": {\n              \"incididunt_d99\": \"<string>\"\n            },\n            \"managedFields\": [\n              {\n                \"apiVersion\": \"<string>\",\n                \"fieldsType\": \"<string>\",\n                \"fieldsV1\": {},\n                \"manager\": \"<string>\",\n                \"operation\": \"<string>\",\n                \"subresource\": \"<string>\",\n                \"time\": \"<dateTime>\"\n              }\n            ],\n            \"name\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"ownerReferences\": [\n              {\n                \"apiVersion\": \"<string>\",\n                \"kind\": \"<string>\",\n                \"name\": \"<string>\",\n                \"uid\": \"<string>\",\n                \"blockOwnerDeletion\": \"<boolean>\",\n                \"controller\": \"<boolean>\"\n              }\n            ],\n            \"resourceVersion\": \"<string>\",\n            \"selfLink\": \"<string>\",\n            \"uid\": \"<string>\"\n          }\n        }\n      },\n      \"apiVersion\": \"<string>\",\n      \"kind\": \"<string>\"\n    }\n  ],\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:06:56.000Z",
+                          "updatedAt": "2026-10-22T01:06:56.000Z",
+                          "uid": "35240-23d992df-3540-48eb-a69c-989d8a08e8c8"
+                        },
+                        {
+                          "id": "e33c39ea-7804-44b1-8c5e-4df417cd48ef",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/workflow-event-bindings/:namespace?listOptions.labelSelector=<string>&listOptions.fieldSelector=<string>&listOptions.watch=<boolean>&listOptions.allowWatchBookmarks=<boolean>&listOptions.resourceVersion=<string>&listOptions.resourceVersionMatch=<string>&listOptions.timeoutSeconds=<int64>&listOptions.limit=<int64>&listOptions.continue=<string>&listOptions.sendInitialEvents=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "workflow-event-bindings",
+                                ":namespace"
+                              ],
+                              "query": [
+                                {
+                                  "description": "A selector to restrict the list of returned objects by their labels.\nDefaults to everything.\n+optional.",
+                                  "key": "listOptions.labelSelector",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A selector to restrict the list of returned objects by their fields.\nDefaults to everything.\n+optional.",
+                                  "key": "listOptions.fieldSelector",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Watch for changes to the described resources and return them as a stream of\nadd, update, and remove notifications. Specify resourceVersion.\n+optional.",
+                                  "key": "listOptions.watch",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "allowWatchBookmarks requests watch events with type \"BOOKMARK\".\nServers that do not implement bookmarks may ignore this flag and\nbookmarks are sent at the server's discretion. Clients should not\nassume bookmarks are returned at any specific interval, nor may they\nassume the server will send any BOOKMARK event during a session.\nIf this is not a watch, this field is ignored.\n+optional.",
+                                  "key": "listOptions.allowWatchBookmarks",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "resourceVersion sets a constraint on what resource versions a request may be served from.\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                                  "key": "listOptions.resourceVersion",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "resourceVersionMatch determines how resourceVersion is applied to list calls.\nIt is highly recommended that resourceVersionMatch be set for list calls where\nresourceVersion is set\nSee https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for\ndetails.\n\nDefaults to unset\n+optional",
+                                  "key": "listOptions.resourceVersionMatch",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Timeout for the list/watch call.\nThis limits the duration of the call, regardless of any activity or inactivity.\n+optional.",
+                                  "key": "listOptions.timeoutSeconds",
+                                  "value": "<int64>"
+                                },
+                                {
+                                  "description": "limit is a maximum number of responses to return for a list call. If more items exist, the\nserver will set the `continue` field on the list metadata to a value that can be used with the\nsame initial query to retrieve the next set of results. Setting a limit may return fewer than\nthe requested amount of items (up to zero items) in the event all requested objects are\nfiltered out and clients should only use the presence of the continue field to determine whether\nmore results are available. Servers may choose not to support the limit argument and will return\nall of the available results. If limit is specified and the continue field is empty, clients may\nassume that no more results are available. This field is not supported if watch is true.\n\nThe server guarantees that the objects returned when using continue will be identical to issuing\na single list call without a limit - that is, no objects created, modified, or deleted after the\nfirst request is issued will be included in any subsequent continued requests. This is sometimes\nreferred to as a consistent snapshot, and ensures that a client that is using limit to receive\nsmaller chunks of a very large result can ensure they see all possible objects. If objects are\nupdated during a chunked list the version of the object that was present at the time the first list\nresult was calculated is returned.",
+                                  "key": "listOptions.limit",
+                                  "value": "<int64>"
+                                },
+                                {
+                                  "description": "The continue option should be set when retrieving more results from the server. Since this value is\nserver defined, clients may only use the continue value from a previous query result with identical\nquery parameters (except for the value of continue) and the server may reject a continue value it\ndoes not recognize. If the specified continue value is no longer valid whether due to expiration\n(generally five to fifteen minutes) or a configuration change on the server, the server will\nrespond with a 410 ResourceExpired error together with a continue token. If the client needs a\nconsistent list, it must restart their list without the continue field. Otherwise, the client may\nsend another list request with the token received with the 410 error, the server will respond with\na list starting from the next key, but from the latest snapshot, which is inconsistent from the\nprevious list results - objects that are created, modified, or deleted after the first list request\nwill be included in the response, as long as their keys are after the \"next key\".\n\nThis field is not supported when watch is true. Clients may start a watch from the last\nresourceVersion value returned by the server and not miss any modifications.",
+                                  "key": "listOptions.continue",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "`sendInitialEvents=true` may be set together with `watch=true`.\nIn that case, the watch stream will begin with synthetic events to\nproduce the current state of objects in the collection. Once all such\nevents have been sent, a synthetic \"Bookmark\" event  will be sent.\nThe bookmark will report the ResourceVersion (RV) corresponding to the\nset of objects, and be marked with `\"io.k8s.initial-events-end\": \"true\"` annotation.\nAfterwards, the watch stream will proceed as usual, sending watch events\ncorresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch`\noption to also be set. The semantic of the watch request is as following:\n- `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward\ncompatibility reasons) and to false otherwise.\n+optional",
+                                  "key": "listOptions.sendInitialEvents",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:06:56.000Z",
+                          "updatedAt": "2026-10-22T01:06:56.000Z",
+                          "uid": "35240-e33c39ea-7804-44b1-8c5e-4df417cd48ef"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:06:56.000Z",
+                      "updatedAt": "2026-10-22T01:06:56.000Z",
+                      "uid": "35240-1e469595-e9bc-43a1-a07c-da549f771509"
+                    }
+                  ],
+                  "id": "ec021b40-e028-4d7d-91d5-d7e2986d13d4",
+                  "createdAt": "2026-10-22T01:06:56.000Z",
+                  "updatedAt": "2026-10-22T01:06:56.000Z",
+                  "uid": "35240-ec021b40-e028-4d7d-91d5-d7e2986d13d4"
+                }
+              ],
+              "id": "7c1f9e6f-7ac5-4b17-8d6c-acdd55022756",
+              "createdAt": "2026-10-22T01:06:56.000Z",
+              "updatedAt": "2026-10-22T01:06:56.000Z",
+              "uid": "35240-7c1f9e6f-7ac5-4b17-8d6c-acdd55022756"
+            }
+          ],
+          "id": "1153ca92-b4e6-4d24-9a7a-66c47faf4a0f",
+          "createdAt": "2026-10-22T01:06:56.000Z",
+          "updatedAt": "2026-10-22T01:06:56.000Z",
+          "uid": "35240-1153ca92-b4e6-4d24-9a7a-66c47faf4a0f"
+        }
+      ],
+      "id": "5b5d2d1e-b20a-4c3e-a417-0319562acad1",
+      "createdAt": "2026-10-22T01:06:56.000Z",
+      "updatedAt": "2026-10-22T01:06:56.000Z",
+      "uid": "35240-5b5d2d1e-b20a-4c3e-a417-0319562acad1"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:2746"
+    }
+  ]
+}

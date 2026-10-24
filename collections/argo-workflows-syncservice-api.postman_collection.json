@@ -1,815 +1,812 @@
 {
+  "info": {
+    "_postman_id": "4e187fab-3271-4cb4-befd-453296e1cb04",
+    "name": "Argo Workflows Sync Service API",
+    "description": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:06:09.000Z",
+    "updatedAt": "2026-10-22T01:06:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4e187fab-3271-4cb4-befd-453296e1cb04"
+  },
   "item": [
     {
-      "id": "d4657cc8-9799-421d-b8d1-73a8c2f2dda0",
-      "name": "SyncService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "ac0521d0-d4a9-46ea-bb49-dee9809dfc3c",
-          "name": "Sync Service Create Sync Limit",
-          "request": {
-            "name": "Sync Service Create Sync Limit",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sync",
-                ":namespace"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "namespace",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "f3756a92-1927-4dfc-9bb3-ed55bb4c74ab",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "sync",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{namespace}",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "Sync service get sync limit",
+                          "id": "556c9ae9-166b-4674-9dcf-e0e29d1b9dfa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sync",
+                                ":namespace",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "key": "type",
+                                  "value": "CONFIGMAP"
+                                },
+                                {
+                                  "key": "cmName",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9f685e13-2218-4542-83a3-9368ce096d4e",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "1ea768a6-1a09-4cdf-8323-d2d3d8291995",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "508976de-af0e-42c9-b4ac-5776b867b835",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "type",
+                                      "value": "CONFIGMAP"
+                                    },
+                                    {
+                                      "key": "cmName",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-508976de-af0e-42c9-b4ac-5776b867b835"
+                            },
+                            {
+                              "id": "298e1899-f3e9-45be-bb28-0075a21b9ba6",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "type",
+                                      "value": "CONFIGMAP"
+                                    },
+                                    {
+                                      "key": "cmName",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-298e1899-f3e9-45be-bb28-0075a21b9ba6"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:06:10.000Z",
+                          "updatedAt": "2026-10-22T01:06:10.000Z",
+                          "uid": "35240-556c9ae9-166b-4674-9dcf-e0e29d1b9dfa"
+                        },
+                        {
+                          "name": "Sync service update sync limit",
+                          "id": "13f6195d-903c-47fc-bfa9-951346fbfda8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sync",
+                                ":namespace",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b4d76306-a39a-42fe-9e35-8a98b9b8e23b",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "302cfcd9-20a4-4754-8bff-a791f2c301d8",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e16d1063-41a4-4bbd-ac97-ebd6e03cd37c",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-e16d1063-41a4-4bbd-ac97-ebd6e03cd37c"
+                            },
+                            {
+                              "id": "21dc0502-9d90-4ee0-a467-233f1c0bfc71",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-21dc0502-9d90-4ee0-a467-233f1c0bfc71"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:06:10.000Z",
+                          "updatedAt": "2026-10-22T01:06:10.000Z",
+                          "uid": "35240-13f6195d-903c-47fc-bfa9-951346fbfda8"
+                        },
+                        {
+                          "name": "Sync service delete sync limit",
+                          "id": "6e3c2c16-6b8f-485a-b835-58cf60a28c77",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sync",
+                                ":namespace",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "key": "type",
+                                  "value": "CONFIGMAP"
+                                },
+                                {
+                                  "key": "cmName",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "076b16b2-b265-4678-b898-67e44c968dc5",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "af81b967-07da-447b-8851-7f100d8b6857",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b843c25e-2408-481d-8483-07ecf32b4f04",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "type",
+                                      "value": "CONFIGMAP"
+                                    },
+                                    {
+                                      "key": "cmName",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-b843c25e-2408-481d-8483-07ecf32b4f04"
+                            },
+                            {
+                              "id": "ee0c6e1c-a415-4972-86e0-2ece63bcb770",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sync/:namespace/:key?type=CONFIGMAP&cmName=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sync",
+                                    ":namespace",
+                                    ":key"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "type",
+                                      "value": "CONFIGMAP"
+                                    },
+                                    {
+                                      "key": "cmName",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:06:10.000Z",
+                              "updatedAt": "2026-10-22T01:06:10.000Z",
+                              "uid": "35240-ee0c6e1c-a415-4972-86e0-2ece63bcb770"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:06:10.000Z",
+                          "updatedAt": "2026-10-22T01:06:10.000Z",
+                          "uid": "35240-6e3c2c16-6b8f-485a-b835-58cf60a28c77"
+                        }
+                      ],
+                      "id": "43a511a0-f03f-49b4-902f-3dd985562e5a",
+                      "createdAt": "2026-10-22T01:06:10.000Z",
+                      "updatedAt": "2026-10-22T01:06:10.000Z",
+                      "uid": "35240-43a511a0-f03f-49b4-902f-3dd985562e5a"
+                    },
+                    {
+                      "name": "Sync service create sync limit",
+                      "id": "ef20bc9d-0ed5-4c65-a57a-2fb7fcc08269",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/sync/:namespace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "sync",
+                            ":namespace"
+                          ],
+                          "variable": [
+                            {
+                              "id": "066c5080-6032-49ab-ae10-7f608f6f55f6",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "00147cd1-b85f-4983-8ec2-7a14038d8886",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sync/:namespace",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sync",
+                                ":namespace"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                          "createdAt": "2026-10-22T01:06:10.000Z",
+                          "updatedAt": "2026-10-22T01:06:10.000Z",
+                          "uid": "35240-00147cd1-b85f-4983-8ec2-7a14038d8886"
+                        },
+                        {
+                          "id": "d3e835e1-81e5-4760-b002-f0dcbf024cd0",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sync/:namespace",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sync",
+                                ":namespace"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:06:10.000Z",
+                          "updatedAt": "2026-10-22T01:06:10.000Z",
+                          "uid": "35240-d3e835e1-81e5-4760-b002-f0dcbf024cd0"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:06:10.000Z",
+                      "updatedAt": "2026-10-22T01:06:10.000Z",
+                      "uid": "35240-ef20bc9d-0ed5-4c65-a57a-2fb7fcc08269"
+                    }
+                  ],
+                  "id": "276dae27-406e-452a-8eb6-b34d84347542",
+                  "createdAt": "2026-10-22T01:06:10.000Z",
+                  "updatedAt": "2026-10-22T01:06:10.000Z",
+                  "uid": "35240-276dae27-406e-452a-8eb6-b34d84347542"
                 }
               ],
-              "body": "{\n  \"cmName\": \"string\",\n  \"key\": \"string\",\n  \"limit\": 6367,\n  \"namespace\": \"string\",\n  \"type\": \"CONFIGMAP\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c21d51c9-b63b-4700-b662-91b6f45ab684",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 6057,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "15c31bc5-0924-4d73-b8fd-ad3d22202f9f",
-          "name": "Sync Service Get Sync Limit",
-          "request": {
-            "name": "Sync Service Get Sync Limit",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sync",
-                ":namespace",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "type",
-                  "value": "CONFIGMAP"
-                },
-                {
-                  "disabled": false,
-                  "key": "cmName",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "namespace",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "64aaa3d4-6dd2-4d75-bf06-ce63dbdb19fa",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "type",
-                      "value": "CONFIGMAP"
-                    },
-                    {
-                      "key": "cmName",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"cmName\": \"string\",\n  \"key\": \"string\",\n  \"limit\": 6367,\n  \"namespace\": \"string\",\n  \"type\": \"CONFIGMAP\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "60453a1b-05bf-4450-ba0d-9a7d7773350a",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "type",
-                      "value": "CONFIGMAP"
-                    },
-                    {
-                      "key": "cmName",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9506,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f973318f-7a9f-4aea-b085-c3a44745fa1b",
-          "name": "Sync Service Update Sync Limit",
-          "request": {
-            "name": "Sync Service Update Sync Limit",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sync",
-                ":namespace",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "namespace",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "8e268cf1-7c6f-4937-ad83-900595ae3aae",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"cmName\": \"string\",\n  \"key\": \"string\",\n  \"limit\": 6367,\n  \"namespace\": \"string\",\n  \"type\": \"CONFIGMAP\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "06ba30db-8bfd-4364-847b-6fb98853d700",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cmName\": \"<string>\",\n  \"key\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"namespace\": \"<string>\",\n  \"type\": \"CONFIGMAP\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9506,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e7dd75da-fe39-4c8e-b486-c31b86a0c5cc",
-          "name": "Sync Service Delete Sync Limit",
-          "request": {
-            "name": "Sync Service Delete Sync Limit",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sync",
-                ":namespace",
-                ":key"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "type",
-                  "value": "CONFIGMAP"
-                },
-                {
-                  "disabled": false,
-                  "key": "cmName",
-                  "value": "<string>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "namespace",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "key",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cae01e79-258d-4194-bbdd-f3ecc1b306b1",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "type",
-                      "value": "CONFIGMAP"
-                    },
-                    {
-                      "key": "cmName",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f239c395-fbbe-4bba-83b5-3f0fbeafff10",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sync",
-                    ":namespace",
-                    ":key"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "type",
-                      "value": "CONFIGMAP"
-                    },
-                    {
-                      "key": "cmName",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "namespace",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "key",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9506,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "b22aa7af-a633-491c-9a39-55b86b9c3e01",
+              "createdAt": "2026-10-22T01:06:10.000Z",
+              "updatedAt": "2026-10-22T01:06:10.000Z",
+              "uid": "35240-b22aa7af-a633-491c-9a39-55b86b9c3e01"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "875e1482-5817-42f2-b0cf-52dfaaf3cca4",
+          "createdAt": "2026-10-22T01:06:10.000Z",
+          "updatedAt": "2026-10-22T01:06:10.000Z",
+          "uid": "35240-875e1482-5817-42f2-b0cf-52dfaaf3cca4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "http://localhost:2746",
-      "key": "baseUrl"
+      "id": "8e009ee1-adee-4ab6-ae9d-a1396c72b4a2",
+      "createdAt": "2026-10-22T01:06:10.000Z",
+      "updatedAt": "2026-10-22T01:06:10.000Z",
+      "uid": "35240-8e009ee1-adee-4ab6-ae9d-a1396c72b4a2"
     }
   ],
   "auth": {
@@ -817,25 +814,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7fe1f4b6-e911-420d-a819-eef78fcccf5e",
-    "name": "Argo Workflows ArchivedWorkflowService SyncService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:2746"
     }
-  }
+  ]
 }

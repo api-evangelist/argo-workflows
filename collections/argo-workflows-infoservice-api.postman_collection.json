@@ -1,551 +1,602 @@
 {
+  "info": {
+    "_postman_id": "f0de04de-ba0b-4ce1-9bf9-5386eb523f6b",
+    "name": "Argo Workflows Info Service API",
+    "description": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:05:55.000Z",
+    "updatedAt": "2026-10-22T01:05:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f0de04de-ba0b-4ce1-9bf9-5386eb523f6b"
+  },
   "item": [
     {
-      "id": "bfd93b86-f9e2-4c52-a363-184390b4b4d6",
-      "name": "InfoService",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "e200af45-6d36-4f76-b945-800de3a1ed35",
-          "name": "Info Service Get Info",
-          "request": {
-            "name": "Info Service Get Info",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "info"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "b087bfbc-fa8f-4664-bbff-3a85ab5f15ec",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "info",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"columns\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"key\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"key\": \"string\"\n    }\n  ],\n  \"links\": [\n    {\n      \"name\": \"string\",\n      \"scope\": \"string\",\n      \"url\": \"string\",\n      \"target\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"scope\": \"string\",\n      \"url\": \"string\",\n      \"target\": \"string\"\n    }\n  ],\n  \"managedNamespace\": \"string\",\n  \"modals\": {\n    \"key_0\": true\n  },\n  \"navColor\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a7a4424c-6456-4050-b996-f3983d3dc7a3",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "info"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                  "name": "Info service get info",
+                  "id": "abe25085-69f4-42ad-9677-28e46629ef22",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 9502,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "01ff3b89-8259-4489-b8ec-c97fe1d730a9",
-          "name": "Info Service Collect Event",
-          "request": {
-            "name": "Info Service Collect Event",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "tracking",
-                "event"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "736570a5-4370-47ae-9e6f-2e761682e5a0",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tracking",
-                    "event"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/info",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "info"
+                      ]
                     }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "55bbe00e-ff0a-43d3-87ad-ced89f8d1047",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tracking",
-                    "event"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "response": [
+                    {
+                      "id": "43c1c61d-821d-4c11-83fc-f9047386055f",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"columns\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"key\": \"<string>\"\n    }\n  ],\n  \"links\": [\n    {\n      \"name\": \"<string>\",\n      \"scope\": \"<string>\",\n      \"url\": \"<string>\",\n      \"target\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"scope\": \"<string>\",\n      \"url\": \"<string>\",\n      \"target\": \"<string>\"\n    }\n  ],\n  \"managedNamespace\": \"<string>\",\n  \"modals\": {\n    \"ipsum06\": \"<boolean>\",\n    \"minimd7\": \"<boolean>\"\n  },\n  \"navColor\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-43c1c61d-821d-4c11-83fc-f9047386055f"
+                    },
+                    {
+                      "id": "ec4773ba-1d63-4fe7-81bc-cfeeb20fa80b",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-ec4773ba-1d63-4fe7-81bc-cfeeb20fa80b"
                     }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-22T01:05:56.000Z",
+                  "updatedAt": "2026-10-22T01:05:56.000Z",
+                  "uid": "35240-abe25085-69f4-42ad-9677-28e46629ef22"
                 }
               ],
-              "body": "{\n  \"code\": 430,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "359c0cd8-3090-49a0-a107-c3179dcea710",
+              "createdAt": "2026-10-22T01:05:56.000Z",
+              "updatedAt": "2026-10-22T01:05:56.000Z",
+              "uid": "35240-359c0cd8-3090-49a0-a107-c3179dcea710"
+            },
+            {
+              "name": "tracking",
+              "item": [
+                {
+                  "name": "event",
+                  "item": [
+                    {
+                      "name": "Info service collect event",
+                      "id": "d1d90cad-e4db-4841-8a6c-30f34f9d0296",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tracking/event",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tracking",
+                            "event"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "58fcce7f-0b76-4452-9b40-cdf628b4ef65",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/tracking/event",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "tracking",
+                                "event"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:05:56.000Z",
+                          "updatedAt": "2026-10-22T01:05:56.000Z",
+                          "uid": "35240-58fcce7f-0b76-4452-9b40-cdf628b4ef65"
+                        },
+                        {
+                          "id": "c3fe3e13-5165-431b-acaf-c1be3ac3bfb9",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/tracking/event",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "tracking",
+                                "event"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:05:56.000Z",
+                          "updatedAt": "2026-10-22T01:05:56.000Z",
+                          "uid": "35240-c3fe3e13-5165-431b-acaf-c1be3ac3bfb9"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-d1d90cad-e4db-4841-8a6c-30f34f9d0296"
+                    }
+                  ],
+                  "id": "2d955456-a0b2-4862-a018-f5705b507748",
+                  "createdAt": "2026-10-22T01:05:56.000Z",
+                  "updatedAt": "2026-10-22T01:05:56.000Z",
+                  "uid": "35240-2d955456-a0b2-4862-a018-f5705b507748"
+                }
+              ],
+              "id": "e5747415-c9b4-4107-959b-40d68033904b",
+              "createdAt": "2026-10-22T01:05:56.000Z",
+              "updatedAt": "2026-10-22T01:05:56.000Z",
+              "uid": "35240-e5747415-c9b4-4107-959b-40d68033904b"
+            },
+            {
+              "name": "userinfo",
+              "item": [
+                {
+                  "name": "Info service get user info",
+                  "id": "3610f5d1-15bc-4042-8a92-5dc5bde08aea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/userinfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "userinfo"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "077c7531-afdc-4722-80e6-3162fb9a0055",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/userinfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "userinfo"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"email\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"issuer\": \"<string>\",\n  \"name\": \"<string>\",\n  \"serviceAccountName\": \"<string>\",\n  \"serviceAccountNamespace\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-077c7531-afdc-4722-80e6-3162fb9a0055"
+                    },
+                    {
+                      "id": "c9409a85-a396-4bdd-9ed8-68389d80cabb",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/userinfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "userinfo"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-c9409a85-a396-4bdd-9ed8-68389d80cabb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:05:56.000Z",
+                  "updatedAt": "2026-10-22T01:05:56.000Z",
+                  "uid": "35240-3610f5d1-15bc-4042-8a92-5dc5bde08aea"
+                }
+              ],
+              "id": "4ec60152-e642-4e3e-a452-d087f62f1c40",
+              "createdAt": "2026-10-22T01:05:56.000Z",
+              "updatedAt": "2026-10-22T01:05:56.000Z",
+              "uid": "35240-4ec60152-e642-4e3e-a452-d087f62f1c40"
+            },
+            {
+              "name": "version",
+              "item": [
+                {
+                  "name": "Info service get version",
+                  "id": "3f7a94e4-241b-4325-a219-76b129899b2c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/version",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "version"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "eb1927ac-bf13-43b5-a7e6-4b8fc1208e83",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "version"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"version\": \"<string>\",\n  \"buildDate\": \"<string>\",\n  \"gitCommit\": \"<string>\",\n  \"gitTag\": \"<string>\",\n  \"gitTreeState\": \"<string>\",\n  \"goVersion\": \"<string>\",\n  \"compiler\": \"<string>\",\n  \"platform\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-eb1927ac-bf13-43b5-a7e6-4b8fc1208e83"
+                    },
+                    {
+                      "id": "b4d7452c-c2e6-4e27-9c7b-b79fc5ca0f8a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "version"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"details\": [\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type_url\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:05:56.000Z",
+                      "updatedAt": "2026-10-22T01:05:56.000Z",
+                      "uid": "35240-b4d7452c-c2e6-4e27-9c7b-b79fc5ca0f8a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:05:56.000Z",
+                  "updatedAt": "2026-10-22T01:05:56.000Z",
+                  "uid": "35240-3f7a94e4-241b-4325-a219-76b129899b2c"
+                }
+              ],
+              "id": "1fe69bb6-def1-4c5a-ab67-2f543a08cc41",
+              "createdAt": "2026-10-22T01:05:56.000Z",
+              "updatedAt": "2026-10-22T01:05:56.000Z",
+              "uid": "35240-1fe69bb6-def1-4c5a-ab67-2f543a08cc41"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "04def089-4f48-44ca-85c6-3c10368a9605",
-          "name": "Info Service Get User Info",
-          "request": {
-            "name": "Info Service Get User Info",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "userinfo"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "337ade13-1c1c-45fc-9b2d-177847870dbf",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "userinfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"email\": \"string\",\n  \"emailVerified\": true,\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"issuer\": \"string\",\n  \"name\": \"string\",\n  \"serviceAccountName\": \"string\",\n  \"serviceAccountNamespace\": \"string\",\n  \"subject\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d2dd0692-bcc7-4101-8136-7e7caed98791",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "userinfo"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 430,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b24229e9-e8f7-4448-a337-0e49c5864173",
-          "name": "Info Service Get Version",
-          "request": {
-            "name": "Info Service Get Version",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "version"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "60d8c3f2-3517-4e44-acff-914f707d0ffd",
-              "name": "A successful response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "version"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"version\": \"string\",\n  \"buildDate\": \"string\",\n  \"gitCommit\": \"string\",\n  \"gitTag\": \"string\",\n  \"gitTreeState\": \"string\",\n  \"goVersion\": \"string\",\n  \"compiler\": \"string\",\n  \"platform\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d6d9ae04-16f9-4702-9dd0-c20ce6fbc2cd",
-              "name": "An unexpected error response.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "version"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 430,\n  \"details\": [\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"type_url\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "61cd2d2a-4b0e-484b-ae2a-de340573ba41",
+          "createdAt": "2026-10-22T01:05:56.000Z",
+          "updatedAt": "2026-10-22T01:05:56.000Z",
+          "uid": "35240-61cd2d2a-4b0e-484b-ae2a-de340573ba41"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "http://localhost:2746",
-      "key": "baseUrl"
+      "id": "f183d7ba-62fd-4b8a-8fba-1bd74b2e108a",
+      "createdAt": "2026-10-22T01:05:56.000Z",
+      "updatedAt": "2026-10-22T01:05:56.000Z",
+      "uid": "35240-f183d7ba-62fd-4b8a-8fba-1bd74b2e108a"
     }
   ],
   "auth": {
@@ -553,25 +604,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d7c343b4-6b3f-49d8-a1fa-224fa728a030",
-    "name": "Argo Workflows ArchivedWorkflowService InfoService API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. For more information, please see https://argo-workflows.readthedocs.io/en/latest/",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:2746"
     }
-  }
+  ]
 }
