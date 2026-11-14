@@ -8,6 +8,12 @@ artifacts:
   authentication/argo-workflows-authentication.yml:
     method: derived
     evidence: declared in the artifact
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/argo-workflows-archivedworkflowservice-api.opencollection.json:
     method: derived
     evidence: openapi/argo-workflows-archivedworkflowservice-api
@@ -80,6 +86,9 @@ artifacts:
   collections/argo-workflows.postman_collection.json:
     method: derived
     evidence: openapi/argo-workflows
+  data-license/argo-workflows-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   examples/argo-workflows-eventsource-create-event-source-request-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -3827,7 +3836,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -3896,6 +3905,9 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/argo-workflows-openapi.json:
     method: harvested
     evidence: the same operations as https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/openapi-spec/swagger.json
@@ -3950,6 +3962,9 @@ artifacts:
     evidence: no authorship recorded
   sla/argo-workflows-sla.yml:
     method: generated
+    evidence: declared in the artifact
+  terms/argo-workflows-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
   vocabulary/argo-workflows-vocabulary.yaml:
     method: unknown
